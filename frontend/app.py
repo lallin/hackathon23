@@ -1,4 +1,5 @@
 import os
+import time
 
 import requests
 import streamlit as st
@@ -19,17 +20,35 @@ def check_server() -> bool:
         return False
 
 
-def ask_backend(message: str) -> str:
-    """백엔드 /api/chat 에 질문을 보내고 Gemini 답변을 받아온다"""
-    res = requests.post(
-        f"{BACKEND_URL}/api/chat",
-        json={"user_message": message},
-        timeout=90,
-    )
-    if res.status_code != 200:
-        detail = res.json().get("detail", res.text) if res.headers.get("content-type", "").startswith("application/json") else res.text
-        raise RuntimeError(f"서버 오류 ({res.status_code}): {detail}")
-    return res.json()["response"]
+class BusyError(Exception):
+    """Gemini가 붐벼서(503) 재시도해도 실패한 경우"""
+
+
+def ask_backend(message: str, retries: int = 3) -> str:
+    """백엔드 /api/chat 에 질문을 보내고 Gemini 답변을 받아온다.
+    Gemini가 붐비면(503) 잠깐 쉬었다가 자동으로 다시 시도한다."""
+    detail = ""
+    for attempt in range(retries):
+        res = requests.post(
+            f"{BACKEND_URL}/api/chat",
+            json={"user_message": message},
+            timeout=90,
+        )
+        if res.status_code == 200:
+            return res.json()["response"]
+
+        try:
+            detail = res.json().get("detail", res.text)
+        except ValueError:
+            detail = res.text
+
+        busy = "503" in str(detail) or "UNAVAILABLE" in str(detail)
+        if not busy:
+            raise RuntimeError(f"서버 오류 ({res.status_code}): {detail}")
+        if attempt < retries - 1:
+            time.sleep(2 * (attempt + 1))  # 2초, 4초 쉬고 재시도
+
+    raise BusyError(detail)
 
 
 # 사이드바: 서버 상태 확인 버튼
@@ -63,6 +82,8 @@ if prompt := st.chat_input("무엇이든 물어보세요"):
                 answer = ask_backend(prompt)
             except requests.Timeout:
                 answer = "⏰ 응답이 너무 오래 걸려요. 서버가 잠들어 있었을 수 있으니 잠시 후 다시 시도해 주세요."
+            except BusyError:
+                answer = "🙏 지금 AI 사용자가 많아서 잠시 바빠요. 1분 뒤에 다시 시도해 주세요."
             except Exception as e:
                 answer = f"❌ 오류가 발생했어요: {e}"
         st.markdown(answer)
