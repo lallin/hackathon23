@@ -46,6 +46,8 @@ export function LectureModal() {
 
   if (!id) return null;
   const section = s.combos.flatMap((c) => c.sections).find((x) => x.lecture_id === id);
+  // 강의 상세 API 는 입학년도를 몰라 기본 이수구분을 준다. 시간표 결과(입학년도별 이수구분)를 먼저 쓴다
+  const category = section?.category ?? data?.category;
 
   return (
     <div className="modal-back" onClick={(e) => e.target === e.currentTarget && act.openDetail(null)}>
@@ -57,9 +59,9 @@ export function LectureModal() {
               <span style={{ fontWeight: 500, fontSize: 15, color: 'var(--muted)' }}> · {data?.professor ?? section?.professor ?? ''} 교수님</span>
             </div>
             <div className="sub" style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center', marginTop: 4 }}>
-              {(data?.category ?? section?.category) && (
-                <span className="tag" style={{ background: CATEGORY_COLOR[(data?.category ?? section?.category)!].tint, color: CATEGORY_COLOR[(data?.category ?? section?.category)!].ink }}>
-                  {data?.category ?? section?.category}
+              {category && (
+                <span className="tag" style={{ background: CATEGORY_COLOR[category].tint, color: CATEGORY_COLOR[category].ink }}>
+                  {category}
                 </span>
               )}
               <span>{data?.course_id ?? section?.course_id}</span>

@@ -69,8 +69,8 @@ export function CheckPanel({ className }: { className: string }) {
                     <>
                       {ev.satisfied === true && <span className="ok-text">충족</span>}
                       {ev.satisfied === false && <span className="bad-text">미충족</span>}
-                      {ev.satisfied === null && <span className="gray-text">판단 불가</span>}
-                      <span>{ev.text}</span>
+                      {ev.satisfied === null && !ev.text.startsWith('판단 불가') && <span className="gray-text">판단 불가</span>}
+                      <span className={ev.satisfied === null && ev.text.startsWith('판단 불가') ? 'gray-text' : undefined}>{ev.text}</span>
                     </>
                   )}
                 </div>

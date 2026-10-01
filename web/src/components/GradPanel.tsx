@@ -195,7 +195,7 @@ export function GradPanel({ className }: { className: string }) {
                     ? '–'
                     : r.noMin
                       ? `이수 ${r.done}학점${plus} · 최소 없음`
-                      : `${r.done}/${r.need}학점${plus} · ${Math.max(0, r.need - r.done - sem)} 남음`}
+                      : `${r.done}/${r.need}학점${plus} · ${Math.max(0, r.need - r.done)} 남음`}
                 </span>
               </div>
               {r.noMin ? (
