@@ -1,0 +1,268 @@
+[
+  {
+    "course_name": "대학기초수학",
+    "course_code": "7042",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1000-1200(글로컬이음관 506)",
+    "professor": "현종윤",
+    "teaching_method": {
+      "lecture": 100
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 40,
+      "final": 40,
+      "other_1": 5,
+      "other_2": 5
+    }
+  },
+  {
+    "course_name": "대학기초수학",
+    "course_code": "7043",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1500-1700(글로컬이음관 405)",
+    "professor": "현종윤",
+    "teaching_method": {
+      "lecture": 100
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 40,
+      "final": 40,
+      "other_1": 5,
+      "other_2": 5
+    }
+  },
+  {
+    "course_name": "대학기초수학",
+    "course_code": "7044",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(글로컬이음관 104)",
+    "professor": "현종윤",
+    "teaching_method": {
+      "lecture": 100
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 40,
+      "final": 40,
+      "other_1": 5,
+      "other_2": 5
+    }
+  },
+  {
+    "course_name": "대학기초수학",
+    "course_code": "7045",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1600-1800(글로컬이음관 405)",
+    "professor": "현종윤",
+    "teaching_method": {
+      "lecture": 100
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 40,
+      "final": 40,
+      "other_1": 5,
+      "other_2": 5
+    }
+  },
+  {
+    "course_name": "대학기초물리학",
+    "course_code": "7181",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1300-1500(자연과학관 503)",
+    "professor": "김지원",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 40,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "대학기초물리학",
+    "course_code": "7182",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1500-1700(자연과학관 503)",
+    "professor": "김지원",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 40,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "대학기초화학",
+    "course_code": "7223",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1500-1700(자연과학관 502)",
+    "professor": "전영진",
+    "teaching_method": {
+      "lecture": 100
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 45,
+      "final": 45
+    }
+  },
+  {
+    "course_name": "대학기초생물학",
+    "course_code": "7265",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1000-1200(글로컬이음관 405)",
+    "professor": "김종보",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "대학기초생물학",
+    "course_code": "7266",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1100-1300(글로컬이음관 302)",
+    "professor": "주희경",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "대학기초생물학",
+    "course_code": "7267",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1300-1500(글로컬이음관 302)",
+    "professor": "주희경",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "대학기초생물학",
+    "course_code": "7268",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1500-1700(글로컬이음관 302)",
+    "professor": "주희경",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "기초통계학",
+    "course_code": "7423",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1000-1200(글로컬이음관 506)",
+    "professor": "현종윤",
+    "teaching_method": {
+      "lecture": 80,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 40,
+      "final": 40,
+      "other_1": 5,
+      "other_2": 5
+    }
+  },
+  {
+    "course_name": "기초통계학",
+    "course_code": "7424",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1500-1700(글로컬이음관 502)",
+    "professor": "현종윤",
+    "teaching_method": {
+      "lecture": 80,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 40,
+      "final": 40,
+      "other_1": 5,
+      "other_2": 5
+    }
+  },
+  {
+    "course_name": "대학기초수학",
+    "course_code": "8260",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1000-1200(글로컬이음관 405)",
+    "professor": "현종윤",
+    "teaching_method": {
+      "lecture": 100
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 40,
+      "final": 40,
+      "other_1": 5,
+      "other_2": 5
+    }
+  }
+]
