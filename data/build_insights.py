@@ -17,7 +17,7 @@ import json
 import sys
 from pathlib import Path
 
-from build_catalog import ge_course_ids
+from build_catalog import EXCLUDED_COURSES, ge_course_ids
 
 DATA = Path(__file__).resolve().parent
 RAW_FILES = sorted((DATA / "raw").glob("everytime_*.json"))
@@ -124,10 +124,13 @@ def to_lecture(c: dict, course_id: str) -> dict:
 def main():
     drop_sample = "--drop-sample" in sys.argv
     ids = course_ids()
-    lectures, missing = [], []
+    lectures, missing, excluded = [], [], []
     for path in RAW_FILES:
         raw = json.load(open(path, encoding="utf-8"))
         for c in raw["courses"]:
+            if c["course_name"] in EXCLUDED_COURSES:
+                excluded.append(f"{path.name}: {c['course_name']}({c['professor']}) {EXCLUDED_COURSES[c['course_name']]}")
+                continue
             cid = c.get("course_id") or ids.get(c["course_name"])
             if not cid:
                 missing.append(f"{path.name}: {c['course_name']}")
@@ -158,6 +161,8 @@ def main():
     print(f"실제 강의 {len(lectures)}개 + 샘플 {len(samples)}개 → {seed_file}")
     for m in missing:
         print(f"  학수번호를 못 찾음: {m}")
+    for e in excluded:
+        print(f"  제외 과목: {e}")
 
 
 if __name__ == "__main__":
