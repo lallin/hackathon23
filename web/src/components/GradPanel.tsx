@@ -18,7 +18,8 @@ export function GradPanel({ className }: { className: string }) {
 
   const doneOf = (cat: string) => (transcript && !unsupported ? (transcript.summary.find((x) => x.category === cat)?.done ?? 0) : 0);
   const rows = CATEGORIES.map((cat) => {
-    const need = req?.categories.find((c) => c.category === cat)?.required ?? 0;
+    // 성적표를 넣기 전에는 요구 학점도 0으로 보여준다
+    const need = transcript && !unsupported ? (req?.categories.find((c) => c.category === cat)?.required ?? 0) : 0;
     const done = doneOf(cat);
     return { cat, need, done };
   });
