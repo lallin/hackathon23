@@ -30,7 +30,7 @@ def meta():
         "levels": [{"id": k, "label": v} for k, v in LEVEL_KO.items()],
         "preferred_times": [{"id": "any", "label": "상관없음"}, {"id": "morning", "label": "오전"},
                             {"id": "afternoon", "label": "오후"}],
-        "credit_range": {"min": 9, "max": 21, "default": 18},
+        "credit_range": {"min": 1, "max": 23, "default": 18},
         "default_conditions": Conditions().model_dump(),
     }
 

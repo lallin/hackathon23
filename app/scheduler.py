@@ -221,7 +221,7 @@ def gap_minutes(sections: List[dict]) -> int:
 def search(ctx: Context, node_cap: int = NODE_CAP) -> List[tuple]:
     """(score, section_ids, sections) 목록을 점수순으로 돌려준다."""
     target = ctx.cond.target_credits
-    min_credits = target - 2
+    min_credits = max(1, target - 2)  # 목표가 1~2학점이어도 빈 시간표(0학점)는 내지 않는다
     opts = ctx.options
     n = len(opts)
     suffix_credits = [0.0] * (n + 1)
@@ -402,8 +402,8 @@ def diagnose(req: GenerateRequest, items: List[ChecklistItem]) -> dict:
         cname = catalog.course_name(cid)
         candidates.append((f"'{cname}' 제한 풀기", f"'{cname}' 제한을 풀면 조합이 생겨요.",
                            {"excluded_course_ids": ids}))
-    if req.conditions.target_credits > 9:
-        lower = max(9, req.conditions.target_credits - 3)
+    if req.conditions.target_credits > 1:
+        lower = max(1, req.conditions.target_credits - 3)
         candidates.append((f"목표 학점을 {lower}학점으로 낮추기", f"목표 학점을 {lower}학점으로 낮추면 조합이 생겨요.",
                            {"conditions": {**req.conditions.model_dump(), "target_credits": lower}}))
 

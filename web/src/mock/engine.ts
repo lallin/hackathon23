@@ -389,7 +389,7 @@ export function generate(req: GenerateRequest, completedByCat: Record<Category, 
     if (n) suggestions.push({ text, found: n });
   };
   req.conditions.free_days.forEach((d) => tryWith(`공강 요일에서 ${d}요일 빼기`, { free_days: req.conditions.free_days.filter((x) => x !== d) }));
-  if (req.conditions.target_credits > 9) tryWith(`목표 학점을 ${Math.max(9, req.conditions.target_credits - 3)}학점으로 낮추기`, { target_credits: Math.max(9, req.conditions.target_credits - 3) });
+  if (req.conditions.target_credits > 1) tryWith(`목표 학점을 ${Math.max(1, req.conditions.target_credits - 3)}학점으로 낮추기`, { target_credits: Math.max(1, req.conditions.target_credits - 3) });
   if (req.conditions.free_days.length > 1) tryWith('공강 요일 모두 풀기', { free_days: [] });
   if (req.excluded_course_ids.length) tryWith('제한한 과목 모두 풀기', { excluded: [] });
   if (req.pinned_section_ids.length) tryWith('고정한 분반 모두 풀기', { pinned: [] });
