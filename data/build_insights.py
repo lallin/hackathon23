@@ -4,7 +4,7 @@
   거기 없는 과목(교양 등)은 원본 항목에 "course_id"를 직접 적으면 그 값을 쓴다.
 - levels(1~3)는 에브리타임 선택지 중 가장 많이 고른 값(top)으로 정한다. 정보가 없으면 그 항목은 뺀다.
   과제·팀플: 없음 1 / 보통 2 / 많음 3
-  시험 횟수: 없음·한 번 1 / 두 번 2 / 세 번 3(중간·기말 외 시험 포함)
+  시험 횟수: 없음·한 번 1 / 두 번 2 / 세 번 3(중간·기말 외 시험 포함). 여러 값이 체크되면 큰 쪽
   출석 체크: 전자출결 2 / 직접호명·복합적 3 (전자출결은 부르지 않고 자동으로 찍혀 부담이 덜하다)
   발표: 에브리타임 통계에 없어 비워 둔다.
 - 수강평 원문이 없으므로 reviews에는 통계를 문장으로 옮긴 한 줄만 넣는다. 자유 항목 판정('학점을 잘 줌' 등)이 이 줄을 읽는다.
@@ -38,6 +38,9 @@ def course_ids() -> dict:
             ids.setdefault(c["name"], c["course_id"])
     for name, cid in ge_course_ids(req).items():  # 교양 과목
         ids.setdefault(name, cid)
+    # 학수번호가 없어 임시 키(TMP...)로 들어간 교양은 카탈로그의 과목명으로 찾는다
+    for c in json.load(open(SEED / "catalog.json", encoding="utf-8"))["courses"]:
+        ids.setdefault(c["name"], c["course_id"])
     return ids
 
 
@@ -63,8 +66,9 @@ def to_lecture(c: dict, course_id: str) -> dict:
         levels["assignment"] = THREE[a["top"]]
     if t.get("top") in THREE:
         levels["team_project"] = THREE[t["top"]]
-    if c.get("exam_count") in EXAM:
-        levels["exam"] = EXAM[c["exam_count"]]
+    exam = [EXAM[x.strip()] for x in (c.get("exam_count") or "").split(",") if x.strip() in EXAM]
+    if exam:  # "없음, 한 번"처럼 여러 값이 체크되면 가장 많은 쪽을 쓴다
+        levels["exam"] = max(exam)
     if c.get("attendance") in ATTENDANCE:
         levels["attendance"] = ATTENDANCE[c["attendance"]]
 

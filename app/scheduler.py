@@ -65,7 +65,9 @@ class Context:
         self.style = self.cond.style
         requirement = catalog.requirements.get((req.admission_year, req.major))
         if not requirement:
-            raise GenerateError("지원하지 않는 입학년도·학과예요. 지금은 컴퓨터공학과와 경영학과(2023~2026학번)만 쓸 수 있어요.")
+            majors = "와 ".join(m["name"] for m in catalog.majors if m.get("supported"))
+            years = f"{min(catalog.supported_years)}~{max(catalog.supported_years)}"
+            raise GenerateError(f"지원하지 않는 입학년도·학과예요. 지금은 {majors}({years}학번)만 쓸 수 있어요.")
         self.required_credits = min_credits(requirement)  # 교선은 최소 학점이 없다
         self.total_required = total_credits(requirement)
         self.done = set(req.completed_course_ids)

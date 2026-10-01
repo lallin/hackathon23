@@ -118,6 +118,7 @@ def entry(year, major):
     }
 
 SUPPORTED = [2023, 2024, 2025, 2026]
+SUPPORTED_MAJORS = ["cse"]   # 이번 버전은 컴퓨터공학과만 지원. 경영학과는 기준 데이터만 두고 드롭다운에 '준비 중'으로 보인다
 # 드롭다운에만 보이는 미지원 학과 (2026 학사요람 글로컬캠퍼스 학과)
 OTHER_MAJORS = [("ind_design", "산업디자인학과"), ("interior", "실내디자인학과"), ("fashion", "패션디자인학과"),
     ("visual", "시각영상디자인학과"), ("media_contents", "미디어콘텐츠학과"), ("fine_arts", "조형예술학과"),
@@ -132,17 +133,17 @@ OTHER_MAJORS = [("ind_design", "산업디자인학과"), ("interior", "실내디
 out = {
     "sample": False,
     "note": "건국대 글로컬캠퍼스 학사요람 실제 값. credits는 최소 이수 학점(전필·전선·교필, 교선은 최소 없음), "
-            "total_credits는 졸업 총 학점이며 모자란 학점은 네 영역 어디로든 채울 수 있다. 경영학과 전공 과목 목록은 추후 추가.",
+            "total_credits는 졸업 총 학점이며 모자란 학점은 네 영역 어디로든 채울 수 있다. 이번 버전은 컴퓨터공학과만 지원한다(경영학과 등 다른 학과는 드롭다운에 '준비 중'으로 보인다).",
     "university": "건국대학교 글로컬캠퍼스",
     "admission_years": list(range(2026, 2018, -1)),
     "supported_years": SUPPORTED,
-    "majors": [{"id": k, "name": v["name"], "supported": True} for k, v in MAJORS.items()]
+    "majors": [{"id": k, "name": v["name"], "supported": k in SUPPORTED_MAJORS} for k, v in MAJORS.items()]
               + [{"id": i, "name": n, "supported": False} for i, n in OTHER_MAJORS],
     "ge_required_rule": "교양 과목(기초·심화·소양·인성) 중 required_course_ids에 있는 학수번호는 교필, 나머지는 교선",
     "category_mapping": {  # 성적표 이수구분 약어. "교양"은 ge_required_rule로 교필/교선 결정, null = 총학점에만 합산
         "전필": "전필", "전선": "전선", "기초": "교양", "소양": "교양", "인성": "교양", "심화": "교양",
         "일선": None, "자선": None, "다필": None, "다선": None, "교직": None},
-    "requirements": [entry(y, m) for m in MAJORS for y in SUPPORTED],
+    "requirements": [entry(y, m) for m in SUPPORTED_MAJORS for y in SUPPORTED],
 }
 OUT.parent.mkdir(parents=True, exist_ok=True)
 json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=2)

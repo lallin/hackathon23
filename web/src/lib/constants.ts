@@ -73,5 +73,5 @@ export const DEMO_PASSWORD = 'demo1234';
 
 export const CHAT_HINT = '수강평은 한 번에 한 과목씩 물어볼 수 있어요';
 export const CHAT_FAIL = '지금 AI 응답이 늦어요. 잠시 후 다시 말씀해 주세요.';
-export const UNSUPPORTED_MAJOR = '아직 준비 중인 학과예요. 지금은 컴퓨터공학과와 경영학과에서 써 볼 수 있어요.';
+export const UNSUPPORTED_MAJOR = '아직 준비 중인 학과예요. 지금은 컴퓨터공학과에서 써 볼 수 있어요.';
 export const CHECKLIST_EMPTY = "챗봇에게 '팀플 적게'처럼 말하거나 대학 스타일을 고르면 여기에 항목이 생겨요.";
