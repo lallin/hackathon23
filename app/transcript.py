@@ -2,7 +2,9 @@
 
 PDF는 메모리에서 한 번 읽고 버린다. 학번·이름은 추출하지 않고 과목 목록만 남긴다.
 """
+import io
 import json
+import re
 from typing import List, Literal, Optional
 
 from pydantic import BaseModel
@@ -47,8 +49,70 @@ PROMPT = """첨부한 대학 성적표에서 수강한 과목을 한 행도 빠�
 학번, 이름, 생년월일 같은 개인정보는 절대 뽑지 않는다. 학기별 소계·합계·평점 행은 제외한다."""
 
 
+# ---- 학교 성적표(개인별 전체 성적조회) PDF를 글자 그대로 읽기 ----
+# 한 행은 년도 / 학기 / 이수구분 / 학수번호 / 과목명 / 학점 / 등급 / (인정구분) / (삭제구분) 순서로 나온다.
+# 이 PDF는 한글 글꼴 때문에 AI 쪽 PDF 읽기에서 한글이 빠지므로, 형식이 맞으면 AI 없이 규칙으로 읽는다.
+CATEGORY_MAP = {
+    "전필": "전필", "전공필수": "전필", "전기": "전필", "전공기초": "전필",
+    "전선": "전선", "전공선택": "전선",
+    "교필": "교필", "교양필수": "교필",
+    "교선": "교선", "교양선택": "교선", "기초": "교선", "심화": "교선", "소양": "교선", "인성": "교선", "핵심": "교선",
+    "일선": OTHER, "일교": OTHER, "자선": OTHER, "다필": OTHER, "다선": OTHER, "교직": OTHER,
+}
+CODE_RE = re.compile(r"[A-Z]{4}\d{5}")
+CREDIT_RE = re.compile(r"\d+(\.\d+)?")
+GRADE_RE = re.compile(r"(A\+|A0|A|B\+|B0|B|C\+|C0|C|D\+|D0|D|F|FA|P|NP|N|S|U|W|I)")
+YEAR_RE = re.compile(r"(19|20)\d\d")
+# 행 뒤에 붙는 소계·페이지 줄. 여기서부터는 그 행의 인정구분·삭제구분이 아니다
+# (소계 줄은 '취득학점 :'처럼 쌍점이 붙는다. 삭제구분 '취득학점포기'와 헷갈리지 않게 쌍점까지 본다)
+TAIL_RE = re.compile(r"(총 )?(신청학점|취득학점|평점평균|평균평점|백분위)\s*:|\d+/\d+$|\d{4}-\d{2}-\d{2}|개인별 전체 성적조회|년도$")
+
+
+def _despace(text: str) -> str:
+    return re.sub(r"\s+", "", text)
+
+
+def parse_text_transcript(data: bytes) -> List[dict]:
+    """PDF의 글자 데이터에서 과목 행을 읽는다. 이 형식이 아니면 빈 목록. 인적사항(이름·학번)은 읽지 않는다."""
+    try:
+        from pypdf import PdfReader
+        reader = PdfReader(io.BytesIO(data))
+        lines = [l.strip() for page in reader.pages for l in (page.extract_text() or "").splitlines() if l.strip()]
+    except Exception as e:
+        print(f"[transcript] PDF 글자를 읽지 못해 AI로 읽습니다: {e}")
+        return []
+    starts = [i for i, l in enumerate(lines)
+              if CODE_RE.fullmatch(_despace(l)) and i >= 3 and YEAR_RE.fullmatch(lines[i - 3])]
+    courses = []
+    for n, i in enumerate(starts):
+        end = starts[n + 1] - 3 if n + 1 < len(starts) else len(lines)
+        # 학수번호 다음 줄부터 '학점 → 등급'이 이어지는 곳을 찾는다. 그 사이가 과목명
+        j = next((k for k in range(i + 1, min(end, i + 8) - 1)
+                  if CREDIT_RE.fullmatch(lines[k]) and GRADE_RE.fullmatch(_despace(lines[k + 1]))), None)
+        if j is None:
+            continue
+        extras = []
+        for l in lines[j + 2:end]:
+            if TAIL_RE.match(l):
+                break
+            extras.append(l)
+        raw_category = _despace(lines[i - 1])
+        courses.append({
+            "course_id": _despace(lines[i]),
+            "name": _despace("".join(lines[i + 1:j])),
+            "category": CATEGORY_MAP.get(raw_category, OTHER),
+            "credits": float(lines[j]),
+            "grade": _despace(lines[j + 1]),
+            "deletion": next((x for x in extras if "포기" in x or "삭제" in x), None),
+        })
+    return courses
+
+
 def parse_pdf(data: bytes, filename: str = "transcript.pdf") -> List[dict]:
-    # FE는 90초 기다린다: 40초 × 2번 시도
+    courses = parse_text_transcript(data)
+    if courses:
+        return courses
+    # 학교 성적표 형식이 아니면(스캔본 등) AI로 읽는다. FE는 90초 기다린다: 40초 × 2번 시도
     result = ask_json(TranscriptResult, PROMPT, system="너는 성적표를 정확하게 표로 옮기는 도우미다.",
                       pdf=(data, filename or "transcript.pdf"), timeout=40, retries=1)
     return [c.model_dump() for c in result.courses]
@@ -112,14 +176,15 @@ def summarize(courses: List[dict], admission_year: Optional[int], major: Optiona
     requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
     ge_required = set(requirement["required_course_ids"]) if requirement else set()
     passed, excluded = {}, []
-    for course in courses:
+    for n, course in enumerate(courses):
         reason = _excluded_reason(course)
         if reason:
             excluded.append({**course, "reason": reason})
             continue
         if course.get("category") == OTHER:
-            passed[OTHER + ":" + normalize_name(course["name"])] = {
-                "name": course["name"], "credits": course["credits"], "category": OTHER}
+            # 재수강이면 같은 학수번호(없으면 과목명)로 합치고, 둘 다 없으면 행마다 따로 센다
+            key = course.get("course_id") or normalize_name(course["name"]) or str(n)
+            passed[OTHER + ":" + key] = {"name": course["name"], "credits": course["credits"], "category": OTHER}
             continue
         cid = _catalog_id(course)
         category = course["category"]
