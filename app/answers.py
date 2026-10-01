@@ -11,7 +11,7 @@ from ai_service import ask_text
 from app.catalog import DAYS, catalog, lecture_id_of, normalize_name
 from app.checklist import (BASE, LECTURE_KEYS, LEVEL_KO, NUM_LEVEL, display_name, evaluate_lecture, is_custom,
                            josa, lecture_level)
-from app.insights import judge_custom_items
+from app.insights import ambiguous_message, judge_custom_items
 from app.routers.lectures import syllabus_summary
 from app.schemas import ChatContext, ChatRequest, ChecklistItem
 from app.transcript import requirement_status
@@ -77,7 +77,11 @@ def _find_known(name: str) -> Optional[dict]:
 
 def course_facts(name: str, professor: Optional[str], ctx: ChatContext) -> dict:
     """과목 하나의 사실 정보. 이번 학기에 열리면 교수별 강의 정보까지."""
-    course = catalog.find_course_by_name(name)
+    candidates = catalog.find_courses_by_name(name)
+    if len(candidates) > 1:
+        return {"name": name, "found": False, "offered": False, "ambiguous": True,
+                "candidates": [c["name"] for c in candidates]}
+    course = candidates[0] if candidates else None
     if not course:
         known = _find_known(name)
         if not known:
@@ -285,7 +289,10 @@ def add_course_plan(target: dict, req: ChatRequest) -> dict:
     from app.scheduler import section_mask  # 순환 import를 피해 늦게 불러온다
 
     ctx = req.context or ChatContext()
-    course = catalog.find_course_by_name(target["course_name"])
+    candidates = catalog.find_courses_by_name(target["course_name"])
+    if len(candidates) > 1:
+        return {"type": "none", "message": ambiguous_message(target["course_name"], candidates)}
+    course = candidates[0] if candidates else None
     if not course:
         known = _find_known(target["course_name"])
         message = (f"{josa(_q(known['name']), '은/는')} 이번 학기에 열리지 않아요." if known

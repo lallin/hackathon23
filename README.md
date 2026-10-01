@@ -39,7 +39,6 @@ Render 환경변수에 `OPENAI_API_KEY`, `SECRET_KEY`를 넣는다.
 | `POST /api/checklist/style` | 스타일 변경 → 프리셋을 합친 체크리스트 |
 | `GET /api/lectures/{lecture_id}` | 강의 상세: 레벨, 요약, 근거, 계획서 이미지 |
 | `POST /api/reviews/on-demand` | 과목 하나의 교수별 수강평, 체크리스트 기준 순위 |
-| `POST /api/ask` | 기존 Streamlit용 단순 채팅 |
 
 ## 시연 점검
 
