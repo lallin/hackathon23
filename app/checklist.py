@@ -50,6 +50,9 @@ def josa(word: str, pair: str) -> str:
     """받침에 따라 '을/를', '이/가', '은/는', '으로/로'를 붙인다."""
     with_batchim, without = pair.split("/")
     last = word.rstrip("'\" )")[-1:] if word else ""
+    if last.isdigit():
+        # 숫자는 읽는 소리로: 영·일·삼·육·칠·팔은 받침이 있다(일·칠·팔은 ㄹ 받침)
+        last = "영일이삼사오육칠팔구"[int(last)]
     if last and "가" <= last <= "힣":
         code = (ord(last) - 0xAC00) % 28
         if pair == "으로/로" and code == 8:  # ㄹ 받침은 '로'

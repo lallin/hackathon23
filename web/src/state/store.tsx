@@ -5,6 +5,7 @@ import type { Api, ApiMode } from '../api';
 import type {
   ChecklistItem,
   Combination,
+  CompareChoices,
   CompareResult,
   Conditions,
   GenerateRequest,
@@ -31,9 +32,11 @@ export interface ChatMsg {
   id: number;
   role: 'user' | 'assistant';
   text: string;
-  kind?: 'error' | 'loading' | 'reviews' | 'compare';
+  kind?: 'error' | 'loading' | 'reviews' | 'compare' | 'choose';
   reviews?: OnDemandResponse;
   compare?: CompareResult;
+  /** 교수님이 여러 분인 과목을 비교하기 전에 고르는 선택지 */
+  choices?: CompareChoices;
 }
 
 export interface State {
@@ -185,6 +188,10 @@ interface Actions {
   unexclude(courseId: string): void;
   applySuggestion(s: Infeasible['suggestions'][number]): void;
   send(text: string): Promise<void>;
+  /** 챗봇 카드의 [시간표에 넣기]: 그 분반을 고정하고 바로 다시 생성한다 */
+  addSection(sectionId: string, courseId: string, label: string): Promise<void>;
+  /** 선택지에서 고른 강의 두 개를 비교한다 */
+  compareChosen(lectureIds: string[]): Promise<void>;
   openDetail(lectureId: string | null): void;
   toast(text: string): void;
 }
@@ -587,7 +594,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
           }
           flash(res.changes.map((c) => (c.startsWith('checklist.') ? c.slice(10) : c.replace('conditions.', 'cond.'))));
         }
-        if (res.compare && res.compare.courses.length) {
+        if (res.compare?.type === 'choose') {
+          // 교수님이 여러 분이면 먼저 고르게 한다
+          dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', kind: 'choose', text: res.reply, choices: res.compare } });
+        } else if (res.compare && res.compare.courses.length) {
           // 과목 비교는 두 열 카드로 보여준다 (카드 위에 답장 문장이 함께 나온다)
           dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', kind: 'compare', text: res.reply, compare: res.compare } });
         } else {
@@ -606,6 +616,41 @@ export function AppProvider({ children }: { children: ReactNode }) {
           } catch {
             dispatch({ type: 'replaceMsg', id: loadingId, msg: { id: loadingId, role: 'assistant', kind: 'error', text: '지금은 수강평을 가져올 수 없어요. 잠시 후 다시 물어봐 주세요.' } });
           }
+        }
+        set({ chatBusy: false });
+      },
+      async addSection(sectionId, courseId, label) {
+        const st = ref.current;
+        if (st.generating) return;
+        // 같은 과목의 다른 고정은 풀고 이 분반만 고정한다. 제한해 둔 과목이면 제한도 푼다.
+        const draft: Draft = {
+          ...st.draft,
+          pinned: st.draft.pinned.filter((x) => !x.startsWith(`${courseId}-`)).concat(sectionId),
+          excluded: st.draft.excluded.filter((x) => x !== courseId)
+        };
+        dispatch({ type: 'draft', patch: { pinned: draft.pinned, excluded: draft.excluded } });
+        dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', text: `${label} 분반을 고정하고 시간표를 다시 만들게요.` } });
+        // generate()는 ref.current를 읽으므로 화면이 다시 그려지기 전에 바뀐 초안을 넣어 둔다
+        ref.current = { ...ref.current, draft };
+        await generate();
+      },
+      async compareChosen(lectureIds) {
+        const api = apiRef.current;
+        const st = ref.current;
+        if (!api || st.chatBusy) return;
+        set({ chatBusy: true });
+        const context = {
+          admission_year: st.year,
+          major: st.major,
+          completed_course_ids: st.transcript?.completed_course_ids ?? [],
+          completed_credits: st.transcript?.completed_credits,
+          section_ids: st.combos[st.rank]?.sections.map((x) => x.section_id) ?? []
+        };
+        try {
+          const r = await api.compare({ lecture_ids: lectureIds, checklist: st.draft.checklist, context });
+          dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', kind: 'compare', text: r.message, compare: r } });
+        } catch {
+          dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', kind: 'error', text: '지금은 비교할 수 없어요. 잠시 후 다시 눌러 주세요.' } });
         }
         set({ chatBusy: false });
       },

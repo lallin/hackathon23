@@ -221,15 +221,51 @@ export interface CompareColumn {
 }
 
 export interface CompareResult {
+  type: 'result';
   message: string;
   highlights: string[];
   courses: CompareColumn[];
 }
 
+/** 교수님이 여러 분인 과목이 있을 때 먼저 고르게 하는 선택지 */
+export interface CompareChoiceOption {
+  lecture_id: string;
+  professor: string;
+  times: string;
+  rating: number | null;
+  review_count: number;
+  match?: { satisfied: number; total: number };
+  recommended: boolean;
+}
+
+export interface CompareChoiceCourse {
+  name: string;
+  course_id?: string;
+  found: boolean;
+  offered: boolean;
+  category?: string | null;
+  credits?: number | null;
+  /** 미리 골라 둔 추천 강의 */
+  selected: string | null;
+  options: CompareChoiceOption[];
+}
+
+export interface CompareChoices {
+  type: 'choose';
+  message: string;
+  courses: CompareChoiceCourse[];
+}
+
+export interface CompareRequest {
+  lecture_ids: string[];
+  checklist: ChecklistItem[];
+  context?: ChatContext;
+}
+
 export interface ChatResponse {
   intent: 'set_preferences' | 'course_review' | 'compare_courses' | 'ask_info' | 'other';
   /** 과목 비교 결과 (intent가 compare_courses일 때) */
-  compare?: CompareResult | null;
+  compare?: CompareResult | CompareChoices | null;
   reply: string;
   conditions: Conditions;
   checklist: ChecklistItem[];
@@ -279,11 +315,25 @@ export interface ReviewEval {
   evidence?: string | null;
 }
 
+export interface ReviewSection {
+  section_id: string;
+  /** "월 10:00-13:00" 또는 이러닝이면 "이러닝(정해진 수업 시간 없음)" */
+  times: string;
+  target: string | null;
+}
+
 export interface ReviewResult {
   rank: number;
   lecture_id: string;
   professor: string;
-  status: 'cached' | 'collected' | 'not_collected';
+  /** syllabus: 강의평은 없고 수강계획서 값으로만 평가 */
+  status: 'cached' | 'collected' | 'syllabus' | 'not_collected';
+  /** 이 교수님의 분반들 ([시간표에 넣기] 버튼용) */
+  sections?: ReviewSection[];
+  rating?: number | null;
+  grading?: { 너그러움: number | null; 깐깐함: number | null } | null;
+  /** 체크리스트에서 맞는 항목 이름 (추천 이유) */
+  matched?: string[];
   in_catalog: boolean;
   review_count: number;
   levels: Record<string, number | null>;
@@ -300,6 +350,11 @@ export interface OnDemandRequest {
 
 export interface OnDemandResponse {
   course_name: string;
+  course_id?: string | null;
+  /** 체크리스트·별점 기준 1위 강의 */
+  recommended?: string | null;
+  /** 카드로 보여주지 않은 나머지 교수님 */
+  more_professors?: string[];
   message: string;
   results: ReviewResult[];
 }

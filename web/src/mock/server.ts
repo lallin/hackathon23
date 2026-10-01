@@ -4,7 +4,7 @@
  */
 import type { Api } from '../api';
 import { ApiError, getToken } from '../api/http';
-import type { Category, ChecklistItem, MeResponse, OnDemandResponse, ReviewEval, ReviewResult, TranscriptCourse, TranscriptResult } from '../api/types';
+import type { Category, ChecklistItem, CompareResult, MeResponse, OnDemandResponse, ReviewEval, ReviewResult, TranscriptCourse, TranscriptResult } from '../api/types';
 import { BASE_ITEMS, CATEGORIES, DEMO_EMAIL, DEMO_PASSWORD, LEVEL_NUM } from '../lib/constants';
 import {
   baseLevels,
@@ -206,6 +206,10 @@ export const mockApi: Api = {
       summary: summaryFor(id, levels),
       syllabus_images: [syllabusImage(course.name, professor, course.credits)]
     };
+  },
+  async compare(): Promise<CompareResult> {
+    // 모의 서버에는 과목 비교가 없다. 실제 서버에서만 동작한다.
+    return { type: 'result', message: '과목 비교는 실제 서버에서만 볼 수 있어요.', highlights: [], courses: [] };
   },
   async reviewsOnDemand(req): Promise<OnDemandResponse> {
     const name = req.course_name.replace(/\s/g, '');

@@ -1,12 +1,20 @@
 from fastapi import APIRouter
 
+from app import answers
 from app.insights import on_demand
-from app.schemas import OnDemandRequest
+from app.schemas import ChatRequest, CompareRequest, OnDemandRequest
 
-router = APIRouter(prefix="/api/reviews", tags=["reviews"])
+router = APIRouter(prefix="/api", tags=["reviews"])
 
 
-@router.post("/on-demand")
+@router.post("/reviews/on-demand")
 def reviews_on_demand(req: OnDemandRequest):
-    """과목 하나의 교수별 수강평: 강의 데이터에 있으면 바로, 없으면 수집·분석·저장. 체크리스트 기준 순위."""
+    """과목 하나의 교수님들을 체크리스트·별점으로 비교. 분반 시간과 추천 이유를 함께 준다."""
     return on_demand(req.course_name, req.professor, req.checklist)
+
+
+@router.post("/compare")
+def compare_lectures(req: CompareRequest):
+    """챗봇 선택지에서 고른 강의(과목 × 교수) 두 개를 나란히 비교한다."""
+    chat_req = ChatRequest(message="", checklist=req.checklist, context=req.context)
+    return answers.compare_lectures(req.lecture_ids, chat_req)

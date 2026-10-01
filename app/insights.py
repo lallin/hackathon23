@@ -13,11 +13,12 @@ from pydantic import BaseModel
 from ai_service import LLMError, ask_json
 from app import everytime
 from app.catalog import catalog, lecture_id_of
-from app.checklist import BASE, LECTURE_KEYS, LEVEL_NUM, evaluate_lecture, is_custom
+from app.checklist import BASE, LECTURE_KEYS, LEVEL_KO, LEVEL_NUM, evaluate_lecture, is_custom, josa, lecture_level
 from app.schemas import ChecklistItem
 
 FETCH_TIMEOUT_SECONDS = 15
-MAX_PROFESSORS = 3
+MAX_SHOW = 4   # 교수님별 비교 카드 수
+MAX_FETCH = 3  # 강의평이 없을 때 한 번에 수집을 시도할 교수 수
 
 LEVEL_GUIDE = """기본 항목 5개를 1(적음)·2(보통)·3(많음)으로 판정한다. 판단할 근거가 없으면 null.
 - assignment(과제량): 1 거의 없음 / 2 가끔 / 3 매주
@@ -193,71 +194,97 @@ def _collect(course_name: str, course_id: Optional[str], professor: str) -> Tupl
     return lecture, "collected"
 
 
+def _times_text(times: List[dict]) -> str:
+    if not times:
+        return "이러닝(정해진 수업 시간 없음)"
+    return ", ".join(f"{t['day']} {t['start']}-{t['end']}" for t in times)
+
+
 def on_demand(course_name: str, professor: Optional[str], checklist: List[ChecklistItem]) -> dict:
+    """과목 하나의 교수님들을 체크리스트·별점 기준으로 비교한다.
+    강의평이 없는 교수님은 수강계획서 값으로 평가하고, 상위 MAX_SHOW명만 카드로 돌려준다."""
     course = catalog.find_course_by_name(course_name)
     name = course["name"] if course else course_name.strip()
     course_id = course["course_id"] if course else None
 
-    offered: List[str] = []
+    sections_of: Dict[str, List[dict]] = {}
     for section in catalog.sections_by_course.get(course_id, []) if course_id else []:
-        if section["professor"] not in offered:
-            offered.append(section["professor"])
+        sections_of.setdefault(section["professor"], []).append(section)
+    offered = list(sections_of)
     if professor:
-        matched = [p for p in offered if professor.replace("교수", "").strip() in p]
-        professors = matched or [professor.replace("교수님", "").replace("교수", "").strip()]
+        wanted = professor.replace("교수님", "").replace("교수", "").strip()
+        professors = [p for p in offered if wanted in p] or [wanted]
     else:
-        # 교수가 많으면 강의평이 있는 교수부터, 그중 별점 높은 순으로 고른다
-        def has_data(p):
-            insight = catalog.insights.get(lecture_id_of(course_id, p)) or {}
-            return (0 if insight else 1, -((insight.get("everytime") or {}).get("rating") or 0))
-        professors = sorted(offered, key=has_data)[:MAX_PROFESSORS]
+        professors = offered
     if not professors:
-        return {"course_name": name, "message": f"'{name}' 과목을 이번 학기 개설 강좌에서 찾지 못했어요. 교수님 성함을 같이 알려 주세요.",
-                "results": []}
+        return {"course_name": name, "course_id": course_id, "recommended": None, "more_professors": [],
+                "message": f"'{name}' 과목을 이번 학기 개설 강좌에서 찾지 못했어요. 과목명을 다시 확인해 주세요.",
+                "results": [], "warnings": []}
 
-    with ThreadPoolExecutor(max_workers=len(professors)) as pool:
-        collected = list(pool.map(lambda p: _collect(name, course_id, p), professors))
+    # 강의평이 없는 교수님은 수집을 시도한다(수집기가 있으면). 오래 걸리지 않게 MAX_FETCH명까지만.
+    missing = [p for p in professors if lecture_id_of(course_id or name, p) not in catalog.insights][:MAX_FETCH]
+    collected = {p: ("cached", catalog.insights[lecture_id_of(course_id or name, p)])
+                 for p in professors if lecture_id_of(course_id or name, p) in catalog.insights}
+    if missing:
+        with ThreadPoolExecutor(max_workers=len(missing)) as pool:
+            for p, (lecture, status) in zip(missing, pool.map(lambda p: _collect(name, course_id, p), missing)):
+                if lecture:
+                    collected[p] = (status, lecture)
 
     enabled = [i for i in checklist if i.enabled and (i.key in BASE and BASE[i.key]["kind"] == "lecture" or is_custom(i.key))]
-    lecture_ids = [l["lecture_id"] for l, _ in collected if l]
-    failed = judge_custom_items(enabled, lecture_ids)
+    failed = judge_custom_items(enabled, [lecture_id_of(course_id or name, p) for p in collected])
 
     results = []
-    for prof, (lecture, status) in zip(professors, collected):
-        entry = {"professor": prof, "status": status, "in_catalog": prof in offered,
-                 "lecture_id": lecture_id_of(course_id or name, prof)}
-        if lecture:
-            evals = [evaluate_lecture(i, lecture["lecture_id"]) for i in enabled if i.key not in failed]
-            entry.update({
-                "review_count": lecture.get("review_count", 0),
-                "rating": (lecture.get("everytime") or {}).get("rating"),
-                "levels": lecture.get("levels", {}),
-                "summary": lecture.get("summary", []),
-                "match": {"satisfied": sum(1 for e in evals if e["result"] == "match"), "total": len(evals)},
-                "checklist_eval": evals,
-                "_opposite": sum(1 for e in evals if e["result"] == "opposite"),
-            })
-        else:
-            entry.update({"review_count": 0, "rating": None, "levels": {}, "summary": [],
-                          "match": {"satisfied": 0, "total": 0},
-                          "checklist_eval": [], "_opposite": 0, "note": "지금은 가져올 수 없어요"})
-        results.append(entry)
+    for prof in professors:
+        lid = lecture_id_of(course_id or name, prof)
+        status, lecture = collected.get(prof, (None, None))
+        has_syllabus = lid in catalog.syllabus_by_lecture
+        if not lecture and not has_syllabus:
+            status = "not_collected"
+        elif not lecture:
+            status = "syllabus"  # 강의평은 없고 수강계획서만 있다
+        evals = [evaluate_lecture(i, lid) for i in enabled if i.key not in failed]
+        levels = {key: lecture_level(lid, key)[0] for key in LECTURE_KEYS}
+        insight = lecture or {}
+        grading = (insight.get("everytime") or {}).get("grading") or {}
+        results.append({
+            "professor": prof, "lecture_id": lid, "status": status, "in_catalog": prof in offered,
+            "sections": [{"section_id": s["section_id"], "times": _times_text(s["times"]), "target": s.get("target")}
+                         for s in sections_of.get(prof, [])],
+            "review_count": insight.get("review_count", 0),
+            "rating": (insight.get("everytime") or {}).get("rating"),
+            "grading": {"너그러움": grading.get("generous"), "깐깐함": grading.get("strict")} if grading else None,
+            "levels": levels,
+            "summary": insight.get("summary", []),
+            "match": {"satisfied": sum(1 for e in evals if e["result"] == "match"), "total": len(evals)},
+            "checklist_eval": evals,
+            "matched": [e["label"] + (f" {LEVEL_KO[e['level']]}" if e.get("level") else "")
+                        for e in evals if e["result"] == "match"],
+            "_opposite": sum(1 for e in evals if e["result"] == "opposite"),
+        })
 
-    # 체크리스트에 맞는 수 → 반대 수 → 별점 → 강의평 수
+    # 체크리스트에 맞는 수 → 반대 수 → 별점 → 강의평 수 → 정보가 있는지
     results.sort(key=lambda r: (r["status"] == "not_collected", -r["match"]["satisfied"], r["_opposite"],
                                 -(r["rating"] or 0), -r["review_count"]))
     for rank, r in enumerate(results, 1):
         r["rank"] = rank
         del r["_opposite"]
+    shown, more = results[:MAX_SHOW], [r["professor"] for r in results[MAX_SHOW:]]
 
-    top = results[0]
+    top = shown[0]
+    rating = f" 별점은 {top['rating']:g}점이에요." if top["rating"] else ""
     if top["status"] == "not_collected":
         message = f"지금은 '{name}' 수강평을 가져올 수 없어요."
     elif enabled and top["match"]["satisfied"] > 0:
-        message = f"체크리스트에 가장 잘 맞는 건 {top['professor']} 교수님 강의예요."
+        message = (f"체크리스트에 가장 잘 맞는 건 {top['professor']} 교수님이에요. "
+                   f"{josa('·'.join(top['matched']), '이/가')} 맞아요.{rating}")
     elif top["rating"] and len(results) > 1:
-        message = f"별점이 가장 높은 건 {top['professor']} 교수님 강의예요 ({top['rating']:g}점)."
+        message = f"별점이 가장 높은 건 {top['professor']} 교수님이에요({top['rating']:g}점)."
     else:
-        message = f"'{name}' 교수님별 수강평이에요."
+        message = f"'{name}' 교수님별 정보예요."
+    if len(results) > 1:
+        message += f" 교수님 {len(results)}분 중 상위 {len(shown)}분을 보여 드려요." if more else ""
+        message += " 마음에 드는 분반은 [시간표에 넣기]로 바로 추가할 수 있어요."
     warnings = [f"'{i.label}' 항목은 지금 판정할 수 없어 뺐어요." for i in enabled if i.key in failed]
-    return {"course_name": name, "message": message, "results": results, "warnings": warnings}
+    return {"course_name": name, "course_id": course_id, "recommended": top["lecture_id"], "message": message,
+            "results": shown, "more_professors": more, "warnings": warnings}

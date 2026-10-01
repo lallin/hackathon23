@@ -47,6 +47,13 @@ class ChatRequest(BaseModel):
     context: Optional[ChatContext] = None
 
 
+class CompareRequest(BaseModel):
+    lecture_ids: List[str] = Field(..., examples=[["NDGE11863-신문선", "NDGE14446-최수민"]],
+                                   description="비교할 강의(과목 × 교수) 두 개")
+    checklist: List[ChecklistItem] = Field(default_factory=list)
+    context: Optional[ChatContext] = None
+
+
 class AskRequest(BaseModel):
     user_message: str
 

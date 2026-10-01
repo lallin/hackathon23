@@ -6,6 +6,8 @@ import type {
   LevelValue,
   ChatRequest,
   ChatResponse,
+  CompareRequest,
+  CompareResult,
   GenerateRequest,
   GenerateResponse,
   LectureDetail,
@@ -35,6 +37,7 @@ export interface Api {
   chat(req: ChatRequest): Promise<ChatResponse>;
   lecture(lectureId: string): Promise<LectureDetail>;
   reviewsOnDemand(req: OnDemandRequest): Promise<OnDemandResponse>;
+  compare(req: CompareRequest): Promise<CompareResult>;
 }
 
 /* ---------- 실제 서버 응답 → 프론트 형식 (hackathon23 15bf1e9 기준) ---------- */
@@ -131,6 +134,9 @@ function toLecture(r: Raw): LectureDetail {
 function toReviews(r: Raw): OnDemandResponse {
   return {
     course_name: r.course_name,
+    course_id: r.course_id ?? null,
+    recommended: r.recommended ?? null,
+    more_professors: r.more_professors ?? [],
     message: [r.message, ...(r.warnings ?? [])].filter(Boolean).join(' '),
     results: (r.results ?? []).map((x: Raw) => ({
       rank: x.rank,
@@ -139,6 +145,10 @@ function toReviews(r: Raw): OnDemandResponse {
       status: x.status,
       in_catalog: !!x.in_catalog,
       review_count: x.review_count ?? 0,
+      sections: x.sections ?? [],
+      rating: x.rating ?? null,
+      grading: x.grading ?? null,
+      matched: x.matched ?? [],
       levels: x.levels ?? {},
       summary: x.summary ?? [],
       match: x.match ?? { satisfied: 0, total: 0 },
@@ -177,7 +187,8 @@ const realApi: Api = {
   chat: (req) => request('/api/chat', { method: 'POST', body: req, timeoutMs: 45000 }),
   lecture: async (id) => toLecture(await request(`/api/lectures/${encodeURIComponent(id)}`)),
   // 교수당 5~15초, 최대 3명
-  reviewsOnDemand: async (req) => toReviews(await request('/api/reviews/on-demand', { method: 'POST', body: req, timeoutMs: 60000 }))
+  reviewsOnDemand: async (req) => toReviews(await request('/api/reviews/on-demand', { method: 'POST', body: req, timeoutMs: 60000 })),
+  compare: (req) => request('/api/compare', { method: 'POST', body: req, timeoutMs: 60000 })
 };
 
 /**

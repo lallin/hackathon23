@@ -159,14 +159,14 @@ def answer(req: ChatRequest, mentioned: List[dict], applied: List[str]) -> str:
 
 
 # ---- 과목 비교 ----
-def _column(target: dict, ctx: ChatContext) -> dict:
-    facts = course_facts(target["course_name"], target.get("professor"), ctx)
-    lectures = facts.pop("lectures", [])
-    # 교수를 말하지 않았으면 강의평이 있고 별점이 높은 강의를 대표로 고른다
-    lectures.sort(key=lambda l: (l["rating"] is None, -(l["rating"] or 0)))
-    facts["lecture"] = lectures[0] if lectures else None
-    facts["other_professors"] = [l["professor"] for l in lectures[1:]]
-    return facts
+def _enabled_lecture_items(checklist: List[ChecklistItem]) -> List[ChecklistItem]:
+    return [i for i in checklist if i.enabled and ((i.key in BASE and BASE[i.key]["kind"] == "lecture") or is_custom(i.key))]
+
+
+def _evaluate(lecture: dict, items: List[ChecklistItem], failed: List[str]) -> None:
+    evals = [evaluate_lecture(i, lecture["lecture_id"]) for i in items if i.key not in failed]
+    lecture["checklist_eval"] = evals
+    lecture["match"] = {"satisfied": sum(1 for e in evals if e["result"] == "match"), "total": len(evals)}
 
 
 def _label(col: dict, same_course: bool) -> str:
@@ -215,22 +215,64 @@ def _highlights(cols: List[dict], enabled: bool) -> List[str]:
     return lines
 
 
-def compare(targets: List[dict], req: ChatRequest) -> dict:
-    """두 과목(또는 같은 과목의 두 교수)을 나란히 비교한다."""
-    ctx = req.context or ChatContext()
-    cols = [_column(t, ctx) for t in targets[:MAX_COLUMNS]]
-    enabled = [i for i in req.checklist if i.enabled and ((i.key in BASE and BASE[i.key]["kind"] == "lecture")
-                                                          or is_custom(i.key))]
-    lecture_ids = [c["lecture"]["lecture_id"] for c in cols if c.get("lecture")]
-    failed = judge_custom_items(enabled, lecture_ids)
+def _finish(cols: List[dict], req: ChatRequest) -> dict:
+    """열마다 체크리스트를 평가하고 차이를 요약한다."""
+    items = _enabled_lecture_items(req.checklist)
+    failed = judge_custom_items(items, [c["lecture"]["lecture_id"] for c in cols if c.get("lecture")])
     for col in cols:
-        lecture = col.get("lecture")
-        if lecture:
-            evals = [evaluate_lecture(i, lecture["lecture_id"]) for i in enabled if i.key not in failed]
-            lecture["checklist_eval"] = evals
-            lecture["match"] = {"satisfied": sum(1 for e in evals if e["result"] == "match"), "total": len(evals)}
+        if col.get("lecture"):
+            _evaluate(col["lecture"], items, failed)
     same = len(cols) == 2 and cols[0].get("course_id") and cols[0].get("course_id") == cols[1].get("course_id")
     names = [f"'{_label(c, bool(same))}'" for c in cols]
     head = f"{josa(names[0], '과/와')} {josa(names[1], '을/를')} 비교했어요." if len(cols) == 2 else ""
-    highlights = _highlights(cols, bool(enabled)) if len(cols) == 2 else []
-    return {"message": " ".join([head] + highlights).strip(), "highlights": highlights, "courses": cols}
+    highlights = _highlights(cols, bool(items)) if len(cols) == 2 else []
+    return {"type": "result", "message": " ".join([head] + highlights).strip(), "highlights": highlights, "courses": cols}
+
+
+def compare(targets: List[dict], req: ChatRequest) -> dict:
+    """두 과목(또는 같은 과목의 두 교수)을 비교한다.
+    교수님이 여러 분인 과목이 있으면 바로 비교하지 않고 고를 수 있는 선택지(type=choose)를 돌려준다."""
+    ctx = req.context or ChatContext()
+    plans = []
+    for t in targets[:MAX_COLUMNS]:
+        facts = course_facts(t["course_name"], t.get("professor"), ctx)
+        plans.append((facts, facts.pop("lectures", [])))
+
+    if any(len(lectures) > 1 for _, lectures in plans):
+        items = _enabled_lecture_items(req.checklist)
+        failed = judge_custom_items(items, [l["lecture_id"] for _, ls in plans for l in ls])
+        courses = []
+        for facts, lectures in plans:
+            for lecture in lectures:
+                _evaluate(lecture, items, failed)
+            # 선택지는 추천 순서(체크리스트에 맞는 수 → 별점)로 보여준다
+            lectures.sort(key=lambda l: (-l["match"]["satisfied"], -(l["rating"] or 0)))
+            best = lectures[0] if lectures else None
+            courses.append({**facts, "selected": best["lecture_id"] if best else None, "options": [
+                {"lecture_id": l["lecture_id"], "professor": l["professor"],
+                 "times": " / ".join(sec["times"] for sec in l["sections"]), "rating": l["rating"],
+                 "review_count": l["review_count"], "match": l["match"], "recommended": l is best}
+                for l in lectures]})
+        multi = [f"'{f['name']}'" for f, ls in plans if len(ls) > 1]
+        return {"type": "choose", "courses": courses,
+                "message": f"{josa('·'.join(multi), '은/는')} 교수님이 여러 분이에요. 비교할 교수님을 골라 주세요. "
+                           "체크리스트와 별점으로 고른 추천 교수님을 먼저 선택해 뒀어요."}
+
+    cols = [{**facts, "lecture": lectures[0] if lectures else None} for facts, lectures in plans]
+    return _finish(cols, req)
+
+
+def compare_lectures(lecture_ids: List[str], req: ChatRequest) -> dict:
+    """사용자가 고른 강의(과목 × 교수)끼리 비교한다."""
+    ctx = req.context or ChatContext()
+    cols = []
+    for lid in lecture_ids[:MAX_COLUMNS]:
+        course_id, _, professor = lid.partition("-")
+        course = catalog.courses.get(course_id)
+        if not course:
+            cols.append({"name": lid, "found": False, "offered": False, "lecture": None})
+            continue
+        cols.append({"name": course["name"], "course_id": course_id, "found": True, "offered": True,
+                     "category": catalog.category(course_id, ctx.admission_year, ctx.major),
+                     "credits": course["credits"], "lecture": lecture_facts(course_id, professor)})
+    return _finish(cols, req)

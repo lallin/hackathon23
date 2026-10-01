@@ -11,7 +11,7 @@ from pydantic import BaseModel
 
 from ai_service import LLMError, ask_json
 from app import answers
-from app.catalog import DAYS
+from app.catalog import DAYS, normalize_name
 from app.checklist import BASE, BASE_ITEMS, LEVEL_KO, STYLES, apply_style, custom_key, display_name, josa, merge_item
 from app.schemas import ChatRequest, ChecklistItem, Conditions
 
@@ -56,8 +56,9 @@ def _system_prompt() -> str:
 
 intent
 - set_preferences: 시간표 조건이나 수업 성향(체크리스트)을 말함
-- course_review: 과목 하나의 교수별 수강평·평가를 보여 달라고 함("운영체제 수강평 알려줘", "OO 교수님 어때?")
-- compare_courses: 두 과목, 또는 같은 과목의 두 교수를 비교해 달라고 함("A랑 B 비교해줘", "A랑 B 중에 뭐가 나아?")
+- course_review: 과목 하나의 교수님들을 보여 주거나 비교·추천해 달라고 함
+  ("운영체제 수강평 알려줘", "OO 교수님 어때?", "데이터베이스 교수님별로 비교해줘", "KUGEP1 누가 나아?", "나랑 잘 맞는 교수님 찾아줘")
+- compare_courses: 서로 다른 두 과목, 또는 이름을 말한 두 교수님을 비교해 달라고 함("A랑 B 비교해줘", "A랑 B 중에 뭐가 나아?")
 - ask_info: 사실을 물음. 지금 시간표("내 시간표에서 과제 제일 많은 과목?", "왜 데이터베이스가 들어갔어?"),
   졸업 요건("남은 학점 얼마야?"), 과목 정보("고급웹프로그래밍 몇 시야?", "시험 몇 번 봐?", "평가 비율은?")
 - other: 사용법 질문, 인사, 잡담 등
@@ -193,9 +194,11 @@ def handle_chat(req: ChatRequest) -> dict:
         if len(targets) > 1:
             notes.append(f"한 번에 한 과목씩 조회할 수 있어요. 먼저 {_quote(first.course_name)}부터 볼게요.")
         else:
-            who = f" {first.professor} 교수님" if first.professor else ""
-            notes.append(f"{_quote(first.course_name)}{who} 수강평을 찾아볼게요.")
-    elif targets:
+            if first.professor:
+                notes.append(f"{_quote(first.course_name)} {first.professor} 교수님 수강평을 찾아볼게요.")
+            else:
+                notes.append(f"{_quote(first.course_name)} 교수님들을 체크리스트와 별점으로 비교해 볼게요.")
+    elif targets and parsed.intent == "set_preferences":
         notes.append("수강평은 다음 메시지로 한 과목씩 물어봐 주세요.")
 
     sentences = _condition_sentences(old_cond, new_cond)
@@ -223,12 +226,17 @@ def handle_chat(req: ChatRequest) -> dict:
     state_req = req.model_copy(update={"conditions": new_cond, "checklist": checklist})
     mentioned = [t.model_dump() for t in parsed.mentioned_courses]
     compare_result = None
-    if intent == "compare_courses":
-        if len(mentioned) >= 2:
-            compare_result = answers.compare(mentioned, state_req)
-            notes.append(compare_result["message"])
-        else:
-            notes.append("비교할 두 과목을 함께 말해 주세요. 예: '데이터베이스랑 컴퓨터네트워크 비교해줘'")
+    distinct = {(normalize_name(m["course_name"]), m.get("professor")) for m in mentioned}
+    if intent == "compare_courses" and len(mentioned) >= 2 and len(distinct) >= 2:
+        compare_result = answers.compare(mentioned, state_req)
+        notes.append(compare_result["message"])
+    elif intent == "compare_courses" and mentioned:
+        # 과목 하나만 말했으면 그 과목의 교수님들을 비교한다
+        intent = "course_review"
+        review_target = {"course_name": mentioned[0]["course_name"], "professor": None}
+        notes.append(f"{_quote(mentioned[0]['course_name'])} 교수님들을 비교해 볼게요.")
+    elif intent == "compare_courses":
+        notes.append("비교할 두 과목을 함께 말해 주세요. 예: '데이터베이스랑 컴퓨터네트워크 비교해줘'")
     elif intent in ("ask_info", "other") or (parsed.needs_answer and intent != "course_review"):
         # 정해진 동작 밖의 질문·대화는 AI가 데이터를 보고 답장을 쓴다. 바뀐 조건 안내는 서버 문장이 앞에 붙는다.
         try:
