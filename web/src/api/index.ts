@@ -74,11 +74,14 @@ function toMeta(r: Raw): Meta {
 
 function toRequirements(r: Raw): Requirements {
   if (r.supported === false) throw new ApiError(r.message || '아직 준비 중인 학과예요.', 404);
+  // credits 에는 최소 학점이 있는 영역만 온다 (a997a5c 부터 교선은 최소 없음)
   const credits: Record<string, number> = r.credits ?? {};
+  const noMin: string[] = r.no_min_categories ?? CATS.filter((c) => !(c in credits));
   return {
     admission_year: r.admission_year,
     major: r.major,
-    categories: CATS.map((category) => ({ category, required: Number(credits[category] ?? 0) })),
+    categories: CATS.map((category) => ({ category, required: Number(credits[category] ?? 0), no_min: noMin.includes(category) })),
+    total_required: r.total_required ?? undefined,
     required_courses: (r.required_courses ?? []).map((c: Raw) => ({ course_id: c.course_id, name: c.name, category: c.category ?? '전필', credits: c.credits ?? 0 }))
   };
 }

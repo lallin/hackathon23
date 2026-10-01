@@ -89,7 +89,10 @@ export interface Meta {
 export interface Requirements {
   admission_year: number;
   major: string;
-  categories: { category: Category; required: number }[];
+  /** 영역별 최소 이수 학점. no_min 이면 최소 없음(교선) */
+  categories: { category: Category; required: number; no_min?: boolean }[];
+  /** 졸업 총 학점. 최소를 채우고 남는 학점은 네 영역 어디로든 채울 수 있다 (없으면 categories 합) */
+  total_required?: number;
   required_courses: { course_id: string; name: string; category: Category; credits: number }[];
 }
 

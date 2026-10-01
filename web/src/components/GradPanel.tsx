@@ -16,16 +16,22 @@ export function GradPanel({ className }: { className: string }) {
     if (f) act.upload(f);
   };
 
-  const doneOf = (cat: string) => (transcript && !unsupported ? (transcript.summary.find((x) => x.category === cat)?.done ?? 0) : 0);
+  // 성적표를 넣기 전에는 요구 학점까지 모두 0으로 보여준다
+  const loaded = !!transcript && !unsupported;
   const rows = CATEGORIES.map((cat) => {
-    // 성적표를 넣기 전에는 요구 학점도 0으로 보여준다
-    const need = transcript && !unsupported ? (req?.categories.find((c) => c.category === cat)?.required ?? 0) : 0;
-    const done = doneOf(cat);
-    return { cat, need, done };
+    const info = req?.categories.find((c) => c.category === cat);
+    const noMin = !!info?.no_min;
+    const need = loaded && !noMin ? (info?.required ?? 0) : 0;
+    const done = loaded ? (transcript.summary.find((x) => x.category === cat)?.done ?? 0) : 0;
+    return { cat, need, done, noMin };
   });
-  const totalNeed = rows.reduce((n, r) => n + r.need, 0);
-  const totalDone = rows.reduce((n, r) => n + Math.min(r.done, r.need), 0);
   const earned = rows.reduce((n, r) => n + r.done, 0);
+  // 졸업 총 학점: 서버가 주면 그 값, 없으면(모의 서버) 영역 최소 학점의 합
+  const totalNeed = loaded ? (req?.total_required ?? rows.reduce((n, r) => n + r.need, 0)) : 0;
+  const remainingMin = rows.reduce((n, r) => n + Math.max(0, r.need - r.done), 0);
+  // 영역 최소는 반드시 채워야 하고, 나머지는 네 영역 어디로든 채우는 자유 학점
+  const remaining = Math.max(totalNeed - earned, remainingMin);
+  const remainingFree = remaining - remainingMin;
 
   const completed = new Set(transcript?.courses.map((c) => c.course_id) ?? []);
   // 서버가 준 우선 배치 과목 배치 여부를 먼저 쓰고, 없으면(모의 서버) 조합 과목으로 계산
@@ -118,7 +124,7 @@ export function GradPanel({ className }: { className: string }) {
 
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
         <span style={{ fontSize: 32, fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--green)', lineHeight: 1 }}>
-          {req ? Math.max(0, totalNeed - totalDone) : '–'}
+          {req ? remaining : '–'}
         </span>
         <span style={{ fontSize: 14 }}>학점 남음</span>
         <span className="sub" style={{ marginLeft: 'auto' }}>
@@ -134,15 +140,26 @@ export function GradPanel({ className }: { className: string }) {
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 4 }}>
                 <span style={{ fontWeight: 700 }}>{CATEGORY_NAME[r.cat]}</span>
                 <span className="faint" style={{ color: 'var(--muted)' }}>
-                  {req ? `${r.done}/${r.need}학점 · ${Math.max(0, r.need - r.done)} 남음` : '–'}
+                  {!req ? '–' : r.noMin ? `이수 ${r.done}학점 · 최소 없음` : `${r.done}/${r.need}학점 · ${Math.max(0, r.need - r.done)} 남음`}
                 </span>
               </div>
-              <div className="bar" role="progressbar" aria-label={`${CATEGORY_NAME[r.cat]} 이수율`} aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
-                <div style={{ width: `${pct}%`, background: CATEGORY_COLOR[r.cat].main }} />
-              </div>
+              {r.noMin ? (
+                // 최소 학점이 없는 영역은 채울 목표가 없어서 막대 대신 빈 선만 둔다
+                <div className="bar" aria-hidden="true" style={{ background: 'transparent', borderTop: '1px dashed var(--line-strong)', height: 0, marginTop: 3 }} />
+              ) : (
+                <div className="bar" role="progressbar" aria-label={`${CATEGORY_NAME[r.cat]} 이수율`} aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
+                  <div style={{ width: `${pct}%`, background: CATEGORY_COLOR[r.cat].main }} />
+                </div>
+              )}
             </div>
           );
         })}
+        {loaded && remainingFree > 0 && (
+          <div className="sub" style={{ display: 'flex', justifyContent: 'space-between', gap: 8 }}>
+            <span style={{ fontWeight: 700, color: 'var(--ink)' }}>자유 학점</span>
+            <span>{remainingFree} 남음 · 네 영역 어디서든 채우면 돼요</span>
+          </div>
+        )}
       </div>
 
       {req && (
