@@ -1,24 +1,24 @@
+import { useId } from 'react';
 import { useApp } from '../state/store';
 import { LogOut } from './icons';
 
+/** 메이쿠 로고: 초록 그라데이션 바탕을 2×2 격자로 나눠 왼쪽 위에 K, 오른쪽 아래에 U, 나머지 두 칸은 옅은 시간표 칸 */
 export function Logo({ size = 36 }: { size?: number }) {
+  // 한 화면에 로고가 여러 개여도 그라데이션 id 가 겹치지 않게
+  const id = `logo-g-${useId().replace(/:/g, '')}`;
   return (
-    // 메이쿠 로고: 초록 바탕에 KU
     <svg width={size} height={size} viewBox="0 0 36 36" fill="none" aria-hidden="true">
-      <rect width="36" height="36" rx="10" fill="#006B38" />
-      <text
-        x="18"
-        y="18.5"
-        textAnchor="middle"
-        dominantBaseline="central"
-        fill="#fff"
-        fontFamily="'Noto Sans KR', system-ui, sans-serif"
-        fontSize="17"
-        fontWeight="700"
-        letterSpacing="-0.5"
-      >
-        KU
-      </text>
+      <defs>
+        <linearGradient id={id} x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#0A8048" />
+          <stop offset="1" stopColor="#005430" />
+        </linearGradient>
+      </defs>
+      <rect width="36" height="36" rx="9" fill={`url(#${id})`} />
+      <rect x="19.5" y="5.5" width="11" height="11" rx="2.5" fill="#fff" fillOpacity="0.16" />
+      <rect x="5.5" y="19.5" width="11" height="11" rx="2.5" fill="#fff" fillOpacity="0.16" />
+      <path d="M8.2 6.6v8.8M14.2 6.6 9.3 11l5.1 4.4" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M21.6 20.6v4.4a3.4 3.4 0 0 0 6.8 0v-4.4" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
