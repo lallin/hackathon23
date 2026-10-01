@@ -2,8 +2,10 @@
 
 PDF는 메모리에서 한 번 읽고 버린다. 학번·이름은 추출하지 않고 과목 목록만 남긴다.
 """
+import io
 import json
-from typing import List, Literal, Optional
+import re
+from typing import List, Literal, Optional, Tuple
 
 from pydantic import BaseModel
 
@@ -47,11 +49,174 @@ PROMPT = """첨부한 대학 성적표에서 수강한 과목을 한 행도 빠�
 학번, 이름, 생년월일 같은 개인정보는 절대 뽑지 않는다. 학기별 소계·합계·평점 행은 제외한다."""
 
 
-def parse_pdf(data: bytes, filename: str = "transcript.pdf") -> List[dict]:
-    # FE는 90초 기다린다: 40초 × 2번 시도
+# ---- 학교 성적표(개인별 전체 성적조회) PDF를 글자 그대로 읽기 ----
+# 한 행은 년도 / 학기 / 이수구분 / 학수번호 / 과목명 / 학점 / 등급 / (인정구분) / (삭제구분) 순서로 나온다.
+# 학교 성적표 PDF는 한글 글꼴 때문에 AI 쪽 PDF 읽기에서 한글이 빠지므로, 이 형식이면 AI 없이 규칙으로 읽는다.
+# 다른 학생 성적표에서 생길 수 있는 경우를 함께 처리한다:
+#   행이 페이지 경계에서 잘림(머리글·쪽 번호가 끼어듦), 긴 과목명이 여러 줄, 학기 칸이 빈 행,
+#   성적이 아직 없는 과목(수강 중), 처음 보는 이수구분, 글자 사이에 끼는 띄어쓰기(NDG E05021, A +)
+# 읽은 뒤에는 학기별 '취득학점' 소계와 '총 취득학점'으로 검산해서, 맞지 않으면 경고를 남긴다.
+CATEGORY_MAP = {
+    "전필": "전필", "전공필수": "전필", "전기": "전필", "전공기초": "전필",
+    "전선": "전선", "전공선택": "전선",
+    "교필": "교필", "교양필수": "교필",
+    "교선": "교선", "교양선택": "교선", "기초": "교선", "심화": "교선", "소양": "교선", "인성": "교선", "핵심": "교선",
+    "일선": OTHER, "일교": OTHER, "자선": OTHER, "다필": OTHER, "다선": OTHER, "부필": OTHER, "부선": OTHER,
+    "교직": OTHER, "연계": OTHER,
+}
+GE_CODE_PREFIXES = ("BKSA", "BZZA")  # 교양 학수번호. 이수구분을 모를 때 교선으로 본다
+HEADER_WORDS = {"년도", "학기", "이수구분", "학수번호", "과목명", "학점", "등급", "인정구분", "삭제구분"}
+CODE_RE = re.compile(r"[A-Z]{3,5}\d{4,6}")
+CREDIT_RE = re.compile(r"\d{1,2}(\.\d+)?")
+GRADE_RE = re.compile(r"A\+|A0|A|B\+|B0|B|C\+|C0|C|D\+|D0|D|F|FA|P|NP|N|S|U|W|I")
+YEAR_RE = re.compile(r"(19|20)\d\d")
+TERM_RE = re.compile(r"\d학기|.*계절.*|.*하계.*|.*동계.*")
+SUBTOTAL_RE = re.compile(r"(총\s*)?(신청학점|취득학점|평점평균|평균평점|백분위)\s*:\s*([\d.]*)")
+PAGE_JUNK_RE = re.compile(r"\d+\s*/\s*\d+|\d{4}-\d{2}-\d{2}.*|개인별\s*전체\s*성적조회")
+
+
+def _despace(text: str) -> str:
+    return re.sub(r"\s+", "", text)
+
+
+def _clean(lines: List[str]) -> List[tuple]:
+    """인적사항(첫 머리글 앞)을 버리고, 머리글·쪽 번호·날짜를 지우고, 소계 줄을 ('sub', 이름, 값)으로 바꾼다.
+    나머지는 ('txt', 줄)."""
+    try:
+        start = next(i for i, l in enumerate(lines) if _despace(l) == "년도")
+    except StopIteration:
+        return []
+    out, i = [], start
+    while i < len(lines):
+        line = lines[i]
+        subs = list(SUBTOTAL_RE.finditer(line)) if SUBTOTAL_RE.match(line) else []
+        if subs:  # '신청학점 : 16.0'처럼 한 줄에 하나 또는 여러 개. 값이 다음 줄에 올 수도 있다
+            for m in subs:
+                value = m.group(3)
+                if not value and len(subs) == 1 and i + 1 < len(lines) and CREDIT_RE.fullmatch(lines[i + 1]):
+                    value, i = lines[i + 1], i + 1
+                out.append(("sub", ("총" if m.group(1) else "") + m.group(2), float(value) if value else None))
+        elif _despace(line) not in HEADER_WORDS and not PAGE_JUNK_RE.fullmatch(line):
+            out.append(("txt", line))
+        i += 1
+    return out
+
+
+def _category(raw: Optional[str], code: str, warnings: List[str]) -> str:
+    if raw in CATEGORY_MAP:
+        return CATEGORY_MAP[raw]
+    # 처음 보는 이수구분이거나 칸이 비었으면 학수번호로 정한다
+    info = catalog.course_info(code)
+    category = (info or {}).get("category") or ("교선" if code.startswith(GE_CODE_PREFIXES) else OTHER)
+    if category not in CATEGORIES:
+        category = OTHER
+    warnings.append(f"{code}: 이수구분 '{raw or '없음'}'을(를) 몰라 {category}(으)로 봤어요")
+    return category
+
+
+def parse_transcript_lines(lines: List[str]) -> Tuple[List[dict], List[str]]:
+    """성적표 글자 줄 → (과목 목록, 검산 경고). 이 형식이 아니면 ([], [])."""
+    items = _clean(lines)
+    warnings: List[str] = []
+    texts = [(n, it[1]) for n, it in enumerate(items) if it[0] == "txt"]
+    pos = {n: k for k, (n, _) in enumerate(texts)}  # items 위치 → texts 위치
+    codes = [k for k, (_, t) in enumerate(texts) if CODE_RE.fullmatch(_despace(t))]
+    rows = []
+    for c_i, k in enumerate(codes):
+        # 학수번호 앞: [년도] [학기] [이수구분] — 학기·이수구분은 빠질 수 있다
+        back = [texts[x][1] for x in range(max(0, k - 3), k)]
+        year_at = max((j for j, t in enumerate(back) if YEAR_RE.fullmatch(_despace(t))), default=None)
+        if year_at is None:
+            continue
+        head = back[year_at + 1:]
+        term = next((t for t in head if TERM_RE.fullmatch(_despace(t))), None)
+        raw_cat = next((_despace(t) for t in head if t != term), None)
+        # 이 행이 끝나는 곳: 다음 행의 년도 직전(없으면 끝)
+        nxt = codes[c_i + 1] if c_i + 1 < len(codes) else None
+        if nxt is not None:
+            nback = [texts[x][1] for x in range(max(0, nxt - 3), nxt)]
+            n_year = max((j for j, t in enumerate(nback) if YEAR_RE.fullmatch(_despace(t))), default=0)
+            end = nxt - len(nback) + n_year
+        else:
+            end = len(texts)
+        # 학수번호와 다음 행 사이에 소계가 있으면 소계 앞에서 끊는다
+        stop_item = texts[end][0] if end < len(texts) else len(items)
+        sub_item = next((n for n in range(texts[k][0] + 1, stop_item) if items[n][0] == "sub"), None)
+        if sub_item is not None:
+            end = min(end, next((pos[m] for m in range(sub_item, len(items)) if m in pos), len(texts)))
+        body = [texts[x][1] for x in range(k + 1, end)]
+        # 과목명 뒤 '학점 → 등급'. 등급이 없으면(수강 중) 마지막 숫자를 학점으로 본다
+        credit_at = next((j for j in range(len(body) - 1)
+                          if CREDIT_RE.fullmatch(body[j]) and GRADE_RE.fullmatch(_despace(body[j + 1]))), None)
+        grade = ""
+        if credit_at is not None:
+            grade = _despace(body[credit_at + 1])
+            extras = body[credit_at + 2:]
+        else:
+            credit_at = max((j for j, t in enumerate(body) if CREDIT_RE.fullmatch(t) and j > 0), default=None)
+            if credit_at is None:
+                warnings.append(f"{_despace(texts[k][1])}: 학점을 찾지 못해 뺐어요")
+                continue
+            extras = body[credit_at + 1:]
+        code = _despace(texts[k][1])
+        rows.append({
+            "course_id": code,
+            "name": _despace("".join(body[:credit_at])),
+            "category": _category(raw_cat, code, warnings),
+            "credits": float(body[credit_at]),
+            "grade": grade,
+            "deletion": next((x.strip() for x in extras if "포기" in x or "삭제" in x), None),
+            "_item": texts[k][0],
+        })
+    _verify(items, rows, warnings)
+    for r in rows:
+        r.pop("_item")
+    return rows, warnings
+
+
+def _counted(row: dict) -> bool:
+    """학교가 '취득학점'에 넣는 행: 성적이 있고, 낙제·미인정이 아니고, 학점포기가 아님"""
+    grade = row["grade"].upper()
+    return bool(grade) and grade not in EXCLUDED_GRADES and not row.get("deletion")
+
+
+def _verify(items: List[tuple], rows: List[dict], warnings: List[str]) -> None:
+    """학기별 '취득학점' 소계와 '총 취득학점'을 읽은 과목의 학점 합과 맞춰 본다."""
+    prev, total_counted = -1, 0.0
+    for n, it in enumerate(items):
+        if it[0] != "sub" or it[1] not in ("취득학점", "총취득학점") or it[2] is None:
+            continue
+        if it[1] == "취득학점":
+            got = sum(r["credits"] for r in rows if prev < r["_item"] < n and _counted(r))
+            total_counted += got
+            if abs(got - it[2]) > 0.01:
+                warnings.append(f"학기 소계 취득학점 {it[2]:g}학점인데 읽은 과목은 {got:g}학점이에요")
+            prev = n
+        elif abs(total_counted - it[2]) > 0.01:
+            warnings.append(f"총 취득학점 {it[2]:g}학점인데 읽은 과목은 {total_counted:g}학점이에요")
+
+
+def parse_text_transcript(data: bytes) -> Tuple[List[dict], List[str]]:
+    """PDF의 글자 데이터에서 과목 행을 읽는다. 이 형식이 아니면 ([], []). 인적사항(이름·학번)은 읽지 않는다."""
+    try:
+        from pypdf import PdfReader
+        reader = PdfReader(io.BytesIO(data))
+        lines = [l.strip() for page in reader.pages for l in (page.extract_text() or "").splitlines() if l.strip()]
+    except Exception as e:
+        print(f"[transcript] PDF 글자를 읽지 못해 AI로 읽습니다: {e}")
+        return [], []
+    return parse_transcript_lines(lines)
+
+
+def parse_pdf(data: bytes, filename: str = "transcript.pdf") -> Tuple[List[dict], List[str]]:
+    """성적표 PDF → (과목 목록, 검산 경고)."""
+    courses, warnings = parse_text_transcript(data)
+    if courses:
+        return courses, warnings
+    # 학교 성적표 형식이 아니면(스캔본 등) AI로 읽는다. FE는 90초 기다린다: 40초 × 2번 시도
     result = ask_json(TranscriptResult, PROMPT, system="너는 성적표를 정확하게 표로 옮기는 도우미다.",
                       pdf=(data, filename or "transcript.pdf"), timeout=40, retries=1)
-    return [c.model_dump() for c in result.courses]
+    return [c.model_dump() for c in result.courses], []
 
 
 def load_sample() -> dict:
@@ -97,6 +262,8 @@ def requirement_status(admission_year: Optional[int], major: Optional[str], comp
 
 def _excluded_reason(course: dict) -> Optional[str]:
     grade = str(course.get("grade") or "").strip().upper()
+    if not grade:
+        return "성적 없음(수강 중)"
     if grade in EXCLUDED_GRADES:
         return f"등급 {grade}"
     deletion = str(course.get("deletion") or "")
@@ -112,14 +279,15 @@ def summarize(courses: List[dict], admission_year: Optional[int], major: Optiona
     requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
     ge_required = set(requirement["required_course_ids"]) if requirement else set()
     passed, excluded = {}, []
-    for course in courses:
+    for n, course in enumerate(courses):
         reason = _excluded_reason(course)
         if reason:
             excluded.append({**course, "reason": reason})
             continue
         if course.get("category") == OTHER:
-            passed[OTHER + ":" + normalize_name(course["name"])] = {
-                "name": course["name"], "credits": course["credits"], "category": OTHER}
+            # 재수강이면 같은 학수번호(없으면 과목명)로 합치고, 둘 다 없으면 행마다 따로 센다
+            key = course.get("course_id") or normalize_name(course["name"]) or str(n)
+            passed[OTHER + ":" + key] = {"name": course["name"], "credits": course["credits"], "category": OTHER}
             continue
         cid = _catalog_id(course)
         category = course["category"]
