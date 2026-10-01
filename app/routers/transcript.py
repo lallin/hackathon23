@@ -32,14 +32,15 @@ def parse(
     if len(data) > MAX_PDF_BYTES:
         raise HTTPException(status_code=400, detail="PDF는 10MB까지 올릴 수 있어요.")
     try:
-        courses = parse_pdf(data, file.filename or "transcript.pdf")
+        courses, warnings = parse_pdf(data, file.filename or "transcript.pdf")
     except LLMError:
         raise HTTPException(status_code=503, detail="지금 성적표를 읽을 수 없어요. 잠시 후 다시 시도해 주세요.")
     finally:
         del data
     if not courses:
         raise HTTPException(status_code=422, detail="성적표에서 과목을 찾지 못했어요. 성적표 PDF가 맞는지 확인해 주세요.")
-    return _save(user, summarize(courses, admission_year, major))
+    # warnings: 성적표의 학기별·총 취득학점과 읽은 과목이 맞지 않을 때의 안내 (비어 있으면 검산 통과)
+    return _save(user, {**summarize(courses, admission_year, major), "warnings": warnings})
 
 
 @router.delete("")
