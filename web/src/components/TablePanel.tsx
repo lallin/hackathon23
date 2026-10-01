@@ -4,16 +4,12 @@ import { useApp } from '../state/store';
 import { Alert, Ban, ChevronLeft, ChevronRight, Pin, Refresh, X } from './icons';
 
 
-/** 같은 이수구분 안에서 과목마다 두 가지 색을 번갈아 쓴다 */
-function colorMap(sections: SectionInfo[]): Record<string, string> {
-  const seen: Record<string, number> = {};
-  const out: Record<string, string> = {};
+/** 이수구분마다 한 가지 색 (졸업 요건 막대와 같은 색)과 그 위 글자색 */
+function colorMap(sections: SectionInfo[]): Record<string, { bg: string; fg: string }> {
+  const out: Record<string, { bg: string; fg: string }> = {};
   sections.forEach((x) => {
-    if (out[x.course_id]) return;
-    const n = seen[x.category] ?? 0;
     const c = CATEGORY_COLOR[x.category] ?? CATEGORY_COLOR.전선;
-    out[x.course_id] = n % 2 ? c.alt : c.main;
-    seen[x.category] = n + 1;
+    out[x.course_id] = { bg: c.main, fg: c.text };
   });
   return out;
 }
@@ -160,7 +156,7 @@ export function TablePanel({ className }: { className: string }) {
                               open();
                             }
                           }}
-                          style={{ top: `${top}%`, height: `${h}%`, backgroundColor: colors[x.course_id], paddingRight: pinned ? 22 : 5 }}
+                          style={{ top: `${top}%`, height: `${h}%`, backgroundColor: colors[x.course_id].bg, color: colors[x.course_id].fg, paddingRight: pinned ? 22 : 5 }}
                         >
                           {/* 마우스를 올리면: 위 고정, 아래 제한. 짧은 블록은 둘 다 맨 위에 */}
                           <span className={`blk-act${minutes < 90 ? ' row' : ''}`}>
@@ -234,7 +230,7 @@ export function TablePanel({ className }: { className: string }) {
               >
                 <span className="ttg-online-tag">이러닝</span>
                 <span className="ttg-online-name">
-                  <i style={{ background: colors[x.course_id] }} />
+                  <i style={{ background: colors[x.course_id].bg }} />
                   <b>{x.course}</b>
                   <span className="faint">{x.professor}</span>
                   {pinned && <Pin size={12} stroke={2.4} />}
@@ -283,10 +279,7 @@ export function TablePanel({ className }: { className: string }) {
             ) : s.reqStatus === 'unsupported' ? (
               '지원하는 학과를 고르면 시간표를 만들 수 있어요.'
             ) : !s.transcript ? (
-              <>
-                <b style={{ color: 'var(--ink)' }}>성적표 PDF를 올리면 기본 추천 시간표가 여기에 떠요</b>
-                <span>왼쪽 [샘플 성적표로 시작]으로 바로 써 볼 수도 있어요.</span>
-              </>
+              <b style={{ color: 'var(--ink)' }}>성적표 PDF를 올리면 기본 추천 시간표가 여기에 떠요</b>
             ) : (
               '[생성하기]를 누르면 시간표를 만들어요.'
             )}

@@ -274,7 +274,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
   min-height: 0;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--line);
+  /* 시간표 바깥 테두리는 메인 초록색을 연하게 */
+  border: 2px solid #8fc4a7;
   border-radius: 0;
   overflow: hidden;
   background: #fff;
@@ -329,6 +330,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
   padding: 4px 5px;
   border-radius: 0;
   border: 0;
+  /* 같은 색 블록이 위아래로 붙어도 나뉘어 보이게 아래에 흰 줄 */
+  border-bottom: 2px solid #fff;
   text-align: left;
   overflow: hidden;
   display: flex;

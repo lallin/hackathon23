@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react';
 import { CATEGORIES, CATEGORY_COLOR, CATEGORY_NAME, UNSUPPORTED_MAJOR } from '../lib/constants';
 import { useApp } from '../state/store';
-import { Check, FileText, Upload } from './icons';
+import { Check, Upload } from './icons';
 import { Select } from './Select';
 
 export function GradPanel({ className }: { className: string }) {
@@ -128,12 +128,6 @@ export function GradPanel({ className }: { className: string }) {
             </span>
           </span>
         </label>
-        {!transcript && (
-          <button className="btn btn-sm" onClick={act.sample} disabled={blocked} style={{ alignSelf: 'flex-start' }}>
-            <FileText size={14} />
-            샘플 성적표로 시작
-          </button>
-        )}
         {s.uploadError && (
           <div className="notice notice-bad" role="alert">
             {s.uploadError}
@@ -248,7 +242,7 @@ export function GradPanel({ className }: { className: string }) {
                       <div className="sub" style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                         {/* 이수구분은 졸업 요건 막대와 같은 색의 둥근 칩으로 */}
                         {c.category && cc && (
-                          <span className="tag" style={{ background: cc.main, color: '#fff' }}>
+                          <span className="tag" style={{ background: cc.main, color: cc.text }}>
                             {c.category}
                           </span>
                         )}

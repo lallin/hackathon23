@@ -11,12 +11,13 @@ export const CATEGORY_NAME: Record<Category, string> = {
 };
 
 /** 이수구분 색 (시간표 블록, 태그, 막대) */
-export const CATEGORY_COLOR: Record<Category, { main: string; alt: string; tint: string; ink: string }> = {
-  전필: { main: '#5B78B8', alt: '#7A68B3', tint: '#E8EDF7', ink: '#2F4579' },
-  전선: { main: '#4F9A88', alt: '#82A956', tint: '#E3F1ED', ink: '#245C4F' },
-  // 교양필수는 빨간 계열, 교양선택은 갈색 계열 (시간표에서 둘을 구분하려고 서로 바꿈)
-  교필: { main: '#B8645A', alt: '#C77B6D', tint: '#F6E6E3', ink: '#7A3229' },
-  교선: { main: '#C0803F', alt: '#B4963F', tint: '#F7EDE2', ink: '#7A4B1C' }
+/** main: 시간표 블록·막대 색, text: main 위에 쓰는 글자색, tint/ink: 연한 칩 배경과 글자색 */
+export const CATEGORY_COLOR: Record<Category, { main: string; text: string; tint: string; ink: string }> = {
+  전필: { main: '#5B78B8', text: '#fff', tint: '#E8EDF7', ink: '#2F4579' },
+  전선: { main: '#4F9A88', text: '#fff', tint: '#E3F1ED', ink: '#245C4F' },
+  교필: { main: '#B8645A', text: '#fff', tint: '#F6E6E3', ink: '#7A3229' },
+  // 교양선택은 주황. 다른 색들과 채도·밝기를 맞춘 차분한 주황 (흰 글씨 대비는 전선과 비슷)
+  교선: { main: '#CC7A3E', text: '#fff', tint: '#F8E9DC', ink: '#7F4214' }
 };
 
 export const LEVEL_LABEL: Record<LevelValue, string> = { low: '적음', mid: '보통', high: '많음' };
