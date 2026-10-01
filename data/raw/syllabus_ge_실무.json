@@ -1,0 +1,457 @@
+[
+  {
+    "course_name": "대학생창업실습",
+    "course_code": "7141",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1500-1700(글로컬이음관 602)",
+    "professor": "이양희",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 30,
+      "assignment_2": 30,
+      "other_1": 10
+    }
+  },
+  {
+    "course_name": "MOS",
+    "course_code": "7179",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "",
+    "professor": "남재우",
+    "teaching_method": {
+      "e_learning": 100
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "certification_acquisition": 70
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7231",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "수1000-1200(글로컬이음관 501)",
+    "professor": "강주성",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 10,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7232",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "수1200-1400(글로컬이음관 501)",
+    "professor": "강주성",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 10,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7233",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "월1300-1500(글로컬이음관 501)",
+    "professor": "박세진",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 10,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7234",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "월1600-1800(글로컬이음관 501)",
+    "professor": "박세진",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 10,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7235",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "금0900-1100(글로컬이음관 401)",
+    "professor": "최영진",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7236",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "금1300-1500(글로컬이음관 401)",
+    "professor": "최영진",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7237",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "목0900-1100(글로컬이음관 501)",
+    "professor": "이보람",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 10,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7238",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "목1100-1300(글로컬이음관 501)",
+    "professor": "이보람",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 10,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7239",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "금1200-1400(글로컬이음관 501)",
+    "professor": "최지혜",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7240",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "금1400-1600(글로컬이음관 501)",
+    "professor": "최지혜",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7241",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "월1000-1200(글로컬이음관 404)",
+    "professor": "장우영",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 10,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발1",
+    "course_code": "7242",
+    "category": "2시간",
+    "credits": 2,
+    "target": "2학년",
+    "schedule": "월1200-1400(글로컬이음관 404)",
+    "professor": "장우영",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 10,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 50,
+      "counseling": 20
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발2",
+    "course_code": "7243",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1400-1600(글로컬이음관 405)",
+    "professor": "이양희",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 30,
+      "final": 30,
+      "counseling_assignment": 10
+    }
+  },
+  {
+    "course_name": "취업전략수립및역량개발3",
+    "course_code": "7244",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1100-1300(글로컬이음관 405)",
+    "professor": "이양희",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 10,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "assignment": 60,
+      "counseling_assignment": 10
+    }
+  },
+  {
+    "course_name": "창업속의법률디자인",
+    "course_code": "7246",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1600-1800(글로컬이음관 103)",
+    "professor": "이진홍",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "MOS활용",
+    "course_code": "7282",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1000-1200(자연과학관 204)",
+    "professor": "권영애",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "지적재산권사례탐구",
+    "course_code": "7285",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1200-1400(글로컬이음관 103)",
+    "professor": "노현숙",
+    "teaching_method": {
+      "lecture": 85,
+      "discussion": 15
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 40,
+      "final": 45
+    }
+  },
+  {
+    "course_name": "창업에필요한특허·디자인·상표",
+    "course_code": "7293",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1400-1600(글로컬이음관 404)",
+    "professor": "이진홍",
+    "teaching_method": {
+      "lecture": 80,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "여성리더십과경력개발",
+    "course_code": "7348",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1000-1200(실시간온라인)",
+    "professor": "이재숙",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "취업면접과전략",
+    "course_code": "7349",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1000-1200(글로컬이음관 102)",
+    "professor": "김신희",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 10,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "취업면접과전략",
+    "course_code": "7350",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1300-1500(글로컬이음관 102)",
+    "professor": "김신희",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 10,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "금융시장과금융투자의이해",
+    "course_code": "7417",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1400-1600(글로컬이음관 103)",
+    "professor": "서대교",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 40,
+      "midterm": 30,
+      "final": 30
+    }
+  }
+]

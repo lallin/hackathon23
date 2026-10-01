@@ -298,6 +298,13 @@
    "dept": "gen"
   },
   {
+   "course_id": "BKSA59472",
+   "name": "취업전략수립및역량개발1",
+   "credits": 2,
+   "category": "교필",
+   "dept": "gen"
+  },
+  {
    "course_id": "BKSA51432",
    "name": "러시아어기초",
    "credits": 2,
@@ -1972,8 +1979,7 @@
      "assignment": 10,
      "quiz": 10
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA56558-7144",
@@ -1998,8 +2004,7 @@
      "final": 35,
      "assignment": 15
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA56558-7145",
@@ -2024,8 +2029,7 @@
      "final": 35,
      "assignment": 15
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA67912-7387",
@@ -2050,8 +2054,7 @@
      "final": 35,
      "assignment": 15
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA67912-7388",
@@ -2076,8 +2079,7 @@
      "final": 35,
      "assignment": 15
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA67912-7389",
@@ -2260,8 +2262,7 @@
      "assignment": 10,
      "class_participation": 10
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA67913-7396",
@@ -2287,8 +2288,7 @@
      "assignment": 10,
      "class_participation": 10
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA67913-7397",
@@ -2313,8 +2313,7 @@
      "final": 35,
      "assignment": 15
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA67914-7398",
@@ -2339,8 +2338,7 @@
      "final": 35,
      "assignment": 20
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA67914-7399",
@@ -2365,8 +2363,7 @@
      "final": 35,
      "assignment": 20
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA67914-7400",
@@ -2391,8 +2388,7 @@
      "final": 35,
      "assignment": 20
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA67915-7402",
@@ -2419,8 +2415,7 @@
      "final": 30,
      "assignment": 25
     }
-   },
-   "new_course": true
+   }
   },
   {
    "section_id": "BKSA15891-7042",
@@ -4184,6 +4179,318 @@
      "assignment_participation": 20,
      "individual_evaluation": 20,
      "team_activity": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7231",
+   "course_id": "BKSA59472",
+   "professor": "강주성",
+   "times": [
+    {
+     "day": "수",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 10,
+     "practice": 30
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7232",
+   "course_id": "BKSA59472",
+   "professor": "강주성",
+   "times": [
+    {
+     "day": "수",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 10,
+     "practice": 30
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7233",
+   "course_id": "BKSA59472",
+   "professor": "박세진",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 10,
+     "practice": 30
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7234",
+   "course_id": "BKSA59472",
+   "professor": "박세진",
+   "times": [
+    {
+     "day": "월",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 10,
+     "practice": 30
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7235",
+   "course_id": "BKSA59472",
+   "professor": "최영진",
+   "times": [
+    {
+     "day": "금",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 20,
+     "practice": 20
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7236",
+   "course_id": "BKSA59472",
+   "professor": "최영진",
+   "times": [
+    {
+     "day": "금",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 20,
+     "practice": 20
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7237",
+   "course_id": "BKSA59472",
+   "professor": "이보람",
+   "times": [
+    {
+     "day": "목",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 10,
+     "practice": 30
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7238",
+   "course_id": "BKSA59472",
+   "professor": "이보람",
+   "times": [
+    {
+     "day": "목",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 10,
+     "practice": 30
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7239",
+   "course_id": "BKSA59472",
+   "professor": "최지혜",
+   "times": [
+    {
+     "day": "금",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 20,
+     "practice": 20
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7240",
+   "course_id": "BKSA59472",
+   "professor": "최지혜",
+   "times": [
+    {
+     "day": "금",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 20,
+     "practice": 20
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7241",
+   "course_id": "BKSA59472",
+   "professor": "장우영",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 10,
+     "practice": 30
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA59472-7242",
+   "course_id": "BKSA59472",
+   "professor": "장우영",
+   "times": [
+    {
+     "day": "월",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "2학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 10,
+     "practice": 30
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 50,
+     "counseling": 20
     }
    },
    "new_course": true

@@ -1508,6 +1508,465 @@
    }
   },
   {
+   "lecture_id": "BKSA67915-홍건표",
+   "course_id": "BKSA67915",
+   "course_name": "프로그래밍의기초",
+   "professor": "홍건표",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.42/5 (강의평 45개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 45개 중 과제: 보통 60% · 없음 38% · 많음 2%",
+    "team_project": "강의평 45개 중 팀플: 없음 93% · 보통 7% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식·주관식, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 45개] 별점 4.42/5 / 과제 보통 60% · 없음 38% · 많음 2% / 팀플 없음 93% · 보통 7% · 많음 0% / 학점 보통 60% · 너그러움 36% · 깐깐함 4% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 45,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.42,
+    "rating_distribution": {
+     "5": 56,
+     "4": 31,
+     "3": 13,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 38,
+     "mid": 60,
+     "high": 2,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 93,
+     "mid": 7,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 36,
+     "mid": 60,
+     "strict": 4,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA67914-황선민",
+   "course_id": "BKSA67914",
+   "course_name": "빅데이터의기초",
+   "professor": "황선민",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.45/5 (강의평 66개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 66개 중 과제: 없음 65% · 보통 30% · 많음 5%",
+    "team_project": "강의평 66개 중 팀플: 없음 95% · 보통 3% · 많음 2%",
+    "exam": "시험 두 번 (중간 객관식, 기말 객관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 66개] 별점 4.45/5 / 과제 없음 65% · 보통 30% · 많음 5% / 팀플 없음 95% · 보통 3% · 많음 2% / 학점 보통 59% · 너그러움 41% · 깐깐함 0% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 66,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.45,
+    "rating_distribution": {
+     "5": 59,
+     "4": 32,
+     "3": 6,
+     "2": 2,
+     "1": 2
+    },
+    "assignment": {
+     "none": 65,
+     "mid": 30,
+     "high": 5,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 95,
+     "mid": 3,
+     "high": 2,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 41,
+     "mid": 59,
+     "strict": 0,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA67913-오승홍",
+   "course_id": "BKSA67913",
+   "course_name": "AI리터러시",
+   "professor": "오승홍",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.7/5 (강의평 10개)",
+    "과제 없음, 팀플 보통",
+    "학점 보통, 시험 한 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 10개 중 과제: 없음 50% · 보통 50% · 많음 0%",
+    "team_project": "강의평 10개 중 팀플: 보통 70% · 없음 30% · 많음 0%",
+    "exam": "시험 한 번",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 10개] 별점 4.7/5 / 과제 없음 50% · 보통 50% · 많음 0% / 팀플 보통 70% · 없음 30% · 많음 0% / 학점 보통 50% · 너그러움 40% · 깐깐함 10% / 시험 한 번 / 출결 전자출결"
+   ],
+   "review_count": 10,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.7,
+    "rating_distribution": {
+     "5": 80,
+     "4": 10,
+     "3": 10,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 50,
+     "mid": 50,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 30,
+     "mid": 70,
+     "high": 0,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 40,
+     "mid": 50,
+     "strict": 10,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA67913-김연화",
+   "course_id": "BKSA67913",
+   "course_name": "AI리터러시",
+   "professor": "김연화",
+   "levels": {},
+   "summary": [
+    "별점 2.0/5 (강의평 1개)"
+   ],
+   "evidence": {},
+   "reviews": [
+    "[에브리타임 강의평 통계, 1개] 별점 2.0/5"
+   ],
+   "review_count": 1,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 2.0,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": null
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": null
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": null
+    },
+    "attendance": null,
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA67912-남재우",
+   "course_id": "BKSA67912",
+   "course_name": "데이터리터러시",
+   "professor": "남재우",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.96/5 (강의평 114개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 114개 중 과제: 없음 78% · 보통 22% · 많음 0%",
+    "team_project": "강의평 114개 중 팀플: 없음 96% · 보통 4% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식·T/F형, 기말 객관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 114개] 별점 4.96/5 / 과제 없음 78% · 보통 22% · 많음 0% / 팀플 없음 96% · 보통 4% · 많음 0% / 학점 너그러움 62% · 보통 37% · 깐깐함 1% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 114,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.96,
+    "rating_distribution": {
+     "5": 97,
+     "4": 2,
+     "3": 0,
+     "2": 1,
+     "1": 0
+    },
+    "assignment": {
+     "none": 78,
+     "mid": 22,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 96,
+     "mid": 4,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 62,
+     "mid": 37,
+     "strict": 1,
+     "top": "generous"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "T/F형"
+     ],
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA56558-권영애",
+   "course_id": "BKSA56558",
+   "course_name": "컴퓨팅적사고",
+   "professor": "권영애",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.87/5 (강의평 15개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 15개 중 과제: 보통 60% · 많음 27% · 없음 13%",
+    "team_project": "강의평 15개 중 팀플: 없음 100% · 보통 0% · 많음 0%",
+    "exam": "시험 두 번 (중간 주관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 15개] 별점 4.87/5 / 과제 보통 60% · 많음 27% · 없음 13% / 팀플 없음 100% · 보통 0% · 많음 0% / 학점 보통 53% · 너그러움 47% · 깐깐함 0% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 15,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.87,
+    "rating_distribution": {
+     "5": 87,
+     "4": 13,
+     "3": 0,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 13,
+     "mid": 60,
+     "high": 27,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 100,
+     "mid": 0,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 47,
+     "mid": 53,
+     "strict": 0,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA56558-고명철",
+   "course_id": "BKSA56558",
+   "course_name": "컴퓨팅적사고",
+   "professor": "고명철",
+   "levels": {
+    "assignment": 3,
+    "team_project": 2,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 3.39/5 (강의평 183개)",
+    "과제 많음, 팀플 보통",
+    "학점 보통, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 183개 중 과제: 많음 68% · 보통 31% · 없음 2%",
+    "team_project": "강의평 183개 중 팀플: 보통 78% · 없음 12% · 많음 10%",
+    "exam": "시험 두 번 (중간 객관식, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 183개] 별점 3.39/5 / 과제 많음 68% · 보통 31% · 없음 2% / 팀플 보통 78% · 없음 12% · 많음 10% / 학점 보통 58% · 너그러움 23% · 깐깐함 19% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 183,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.39,
+    "rating_distribution": {
+     "5": 28,
+     "4": 21,
+     "3": 27,
+     "2": 10,
+     "1": 14
+    },
+    "assignment": {
+     "none": 2,
+     "mid": 31,
+     "high": 68,
+     "top": "high"
+    },
+    "team_project": {
+     "none": 12,
+     "mid": 78,
+     "high": 10,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 23,
+     "mid": 58,
+     "strict": 19,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
    "lecture_id": "BKSA15891-현종윤",
    "course_id": "BKSA15891",
    "course_name": "대학기초수학",
