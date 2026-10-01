@@ -82,8 +82,9 @@ class PgUserStore(UserStore):
         return {"email": email, "name": name, "salt": salt, "password_hash": password_hash,
                 "transcript": transcript, "created_at": created_at}
 
-    def save_transcript(self, email: str, transcript: dict) -> None:
-        db.execute("update app_users set transcript = %s where email = %s", (db.jsonb(transcript), email))
+    def save_transcript(self, email: str, transcript: Optional[dict]) -> None:
+        value = db.jsonb(transcript) if transcript is not None else None
+        db.execute("update app_users set transcript = %s where email = %s", (value, email))
 
 
 store = PgUserStore() if db.init() else UserStore()

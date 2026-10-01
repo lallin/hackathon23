@@ -53,7 +53,9 @@ function toTranscript(r: Raw): TranscriptResult {
     summary: CATS.map((category) => ({ category, done: Number(credits[category] ?? 0) })),
     total_credits: Number(r.total_credits ?? 0),
     completed_credits: credits,
-    completed_course_ids: r.completed_course_ids ?? (r.courses ?? []).map((c: Raw) => c.course_id).filter(Boolean)
+    completed_course_ids: r.completed_course_ids ?? (r.courses ?? []).map((c: Raw) => c.course_id).filter(Boolean),
+    remaining_total: r.requirements?.remaining_total ?? undefined,
+    remaining_free: r.requirements?.remaining_free ?? undefined
   };
 }
 
@@ -82,7 +84,14 @@ function toRequirements(r: Raw): Requirements {
     major: r.major,
     categories: CATS.map((category) => ({ category, required: Number(credits[category] ?? 0), no_min: noMin.includes(category) })),
     total_required: r.total_required ?? undefined,
-    required_courses: (r.required_courses ?? []).map((c: Raw) => ({ course_id: c.course_id, name: c.name, category: c.category ?? '전필', credits: c.credits ?? 0 }))
+    // 이수구분·학점을 모르면 지어내지 않고 null 로 둔다
+    required_courses: (r.required_courses ?? []).map((c: Raw) => ({
+      course_id: c.course_id,
+      name: c.name ?? c.course_id,
+      category: c.category ?? null,
+      credits: c.credits ?? null,
+      offered: c.offered ?? true
+    }))
   };
 }
 

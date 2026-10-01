@@ -1,209 +1,209 @@
 {
  "sample": true,
- "note": "샘플 성적표 추출 결과 (2024학번 컴퓨터공학과 3학년 1학기까지 이수, 가상).",
+ "note": "샘플 성적표 추출 결과 (가상 학생). 2024학번 컴퓨터공학과, 3학년 1학기까지 이수. 학수번호·과목명은 학사요람(requirements.json) 기준, 교선 일부는 학수번호 없음.",
  "admission_year": 2024,
  "major": "cse",
  "courses": [
   {
-   "course_id": "CSE1010",
-   "name": "컴퓨터프로그래밍",
-   "category": "전필",
+   "course_id": "NDGE05021",
+   "name": "컴퓨터공학개론",
+   "category": "전선",
    "credits": 3,
    "grade": "A+"
   },
   {
-   "course_id": "CSE1020",
+   "course_id": "NDGE57957",
+   "name": "대학수학",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B0"
+  },
+  {
+   "course_id": "NDGE14465",
+   "name": "UNIX시스템",
+   "category": "전선",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "BKSA53699",
+   "name": "KUGEP1",
+   "category": "교필",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "BZZA62440",
+   "name": "성신의대학생활지도",
+   "category": "교필",
+   "credits": 1,
+   "grade": "P"
+  },
+  {
+   "course_id": null,
+   "name": "대학글쓰기",
+   "category": "교선",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "NDGE14419",
    "name": "이산수학",
-   "category": "전필",
-   "credits": 3,
-   "grade": "B+"
-  },
-  {
-   "course_id": "CSE2010",
-   "name": "자료구조",
-   "category": "전필",
-   "credits": 3,
-   "grade": "A0"
-  },
-  {
-   "course_id": "CSE2020",
-   "name": "컴퓨터구조",
-   "category": "전필",
-   "credits": 3,
-   "grade": "B0"
-  },
-  {
-   "course_id": "CSE2030",
-   "name": "객체지향프로그래밍",
-   "category": "전필",
-   "credits": 3,
-   "grade": "A0"
-  },
-  {
-   "course_id": "CSE3010",
-   "name": "알고리즘",
-   "category": "전필",
-   "credits": 3,
-   "grade": "B+"
-  },
-  {
-   "course_id": "CSE2110",
-   "name": "선형대수",
-   "category": "전선",
-   "credits": 3,
-   "grade": "B0"
-  },
-  {
-   "course_id": "CSE2120",
-   "name": "확률과통계",
-   "category": "전선",
-   "credits": 3,
-   "grade": "F"
-  },
-  {
-   "course_id": "CSE2120",
-   "name": "확률과통계",
-   "category": "전선",
-   "credits": 3,
-   "grade": "C+"
-  },
-  {
-   "course_id": "CSE2130",
-   "name": "C++프로그래밍",
-   "category": "전선",
-   "credits": 3,
-   "grade": "A0"
-  },
-  {
-   "course_id": "CSE2140",
-   "name": "웹기초",
-   "category": "전선",
-   "credits": 3,
-   "grade": "A+"
-  },
-  {
-   "course_id": "CSE3110",
-   "name": "모바일프로그래밍",
    "category": "전선",
    "credits": 3,
    "grade": "B+"
   },
   {
-   "course_id": "CSE3120",
-   "name": "데이터분석",
+   "course_id": "NDGE62441",
+   "name": "K-Project",
    "category": "전선",
-   "credits": 3,
-   "grade": "A0"
-  },
-  {
-   "course_id": "CSE3130",
-   "name": "리눅스시스템",
-   "category": "전선",
-   "credits": 3,
-   "grade": "B0"
-  },
-  {
-   "course_id": "CSE3140",
-   "name": "컴퓨터그래픽스",
-   "category": "전선",
-   "credits": 3,
-   "grade": "B+"
-  },
-  {
-   "course_id": "CSE3150",
-   "name": "오픈소스소프트웨어",
-   "category": "전선",
-   "credits": 3,
+   "credits": 1,
    "grade": "P"
   },
   {
-   "course_id": "CSE3160",
-   "name": "수치해석",
+   "course_id": "NDGE57369",
+   "name": "C프로그래밍",
    "category": "전선",
    "credits": 3,
-   "grade": "C+"
-  },
-  {
-   "course_id": "GEN1010",
-   "name": "글쓰기와 소통",
-   "category": "교필",
-   "credits": 3,
    "grade": "A0"
   },
   {
-   "course_id": "GEN1020",
-   "name": "대학영어",
-   "category": "교필",
-   "credits": 3,
-   "grade": "B+"
-  },
-  {
-   "course_id": "GEN1030",
-   "name": "컴퓨팅사고",
-   "category": "교필",
-   "credits": 3,
-   "grade": "A+"
-  },
-  {
-   "course_id": "GEN4010",
-   "name": "철학입문",
-   "category": "교선",
-   "credits": 3,
-   "grade": "B0"
-  },
-  {
-   "course_id": "GEN4020",
-   "name": "글로벌문화",
-   "category": "교선",
-   "credits": 3,
-   "grade": "A0"
-  },
-  {
-   "course_id": "GEN4030",
-   "name": "음악감상",
-   "category": "교선",
-   "credits": 2,
-   "grade": "P"
-  },
-  {
-   "course_id": "GEN4040",
-   "name": "환경과 인간",
+   "course_id": null,
+   "name": "발표와토론",
    "category": "교선",
    "credits": 3,
    "grade": "B+"
   },
   {
-   "course_id": "GEN4050",
+   "course_id": null,
    "name": "교양테니스",
    "category": "교선",
    "credits": 1,
    "grade": "NP"
   },
   {
-   "course_id": "GEN4060",
-   "name": "한국사의 이해",
+   "course_id": "NDGE12263",
+   "name": "컴퓨터구조",
+   "category": "전필",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "NDGE15060",
+   "name": "자료구조",
+   "category": "전필",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "NDGE14544",
+   "name": "전산통계",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B0"
+  },
+  {
+   "course_id": "NDGE48003",
+   "name": "Java프로그래밍1",
+   "category": "전선",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "NDGE11820",
+   "name": "웹프로그래밍",
+   "category": "전선",
+   "credits": 3,
+   "grade": "A+"
+  },
+  {
+   "course_id": "NDGE14393",
+   "name": "디지털논리회로",
+   "category": "전선",
+   "credits": 3,
+   "grade": "C+"
+  },
+  {
+   "course_id": null,
+   "name": "과학기술과사회",
    "category": "교선",
    "credits": 3,
    "grade": "A0"
   },
   {
-   "course_id": "GEN4070",
-   "name": "데이터리터러시",
+   "course_id": "NDGE48004",
+   "name": "Java프로그래밍2",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "NDGE15050",
+   "name": "시스템프로그래밍",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B0"
+  },
+  {
+   "course_id": "NDGE14570",
+   "name": "C++프로그래밍",
+   "category": "전선",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "NDGE50341",
+   "name": "창의공학설계",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": null,
+   "name": "심리학의이해",
    "category": "교선",
    "credits": 3,
    "grade": "B+"
   },
   {
-   "course_id": "GEN4080",
-   "name": "생활법률",
-   "category": "교선",
+   "course_id": "NDGE12137",
+   "name": "운영체제",
+   "category": "전필",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "NDGE14448",
+   "name": "컴퓨터알고리즘",
+   "category": "전선",
+   "credits": 3,
+   "grade": "F"
+  },
+  {
+   "course_id": "NDGE56032",
+   "name": "빅데이터기초",
+   "category": "전선",
    "credits": 3,
    "grade": "A0"
   },
   {
-   "course_id": "GEN4090",
-   "name": "교양요가",
+   "course_id": "NDGE66402",
+   "name": "인공지능기초",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": null,
+   "name": "생활속의경제",
    "category": "교선",
+   "credits": 2,
+   "grade": "A0"
+  },
+  {
+   "course_id": null,
+   "name": "사회봉사",
+   "category": "기타",
    "credits": 1,
    "grade": "P"
   }

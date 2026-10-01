@@ -68,6 +68,7 @@ checklist: 수업 성향 항목의 추가·변경. 기본 항목 key:
 - 기본 항목이 아니면서 수강평으로 판단할 수 있는 성향(교수님이 친절함, 녹화 강의 제공, 학점을 잘 줌, 시험 난이도, 실습 비중 등)은 key를 "custom"으로, label은 짧은 한국어 구로 쓴다.
   정도를 말할 수 있으면(난이도, 비중) type=level, 맞다/아니다만 있으면 type=toggle(level은 null).
 - 현재 체크리스트에 같은 뜻의 항목이 이미 있으면 그 항목의 key를 그대로 쓴다(다른 말로 다시 말해도 같은 항목).
+  이미 있는 조건을 다시 말해도 빼지 말고 그 항목을 checklist에 넣는다.
 - level: low(적음) / mid(보통) / high(많음). "적당히" 같은 애매한 말은 mid. 레벨형은 반드시 level을 채운다.
 - "OO는 상관없어"는 그 항목을 enabled=false로. 그 밖에는 enabled=true.
 - "1교시 싫어" → first_period low, "우주공강 싫어" → gap low, "공강 많게" 같은 말은 free_days로 판단하지 말고 무시.
@@ -87,7 +88,8 @@ def _parse(req: ChatRequest) -> ChatParse:
               f"현재 체크리스트: {current}\n"
               f"최근 대화:\n{history or '(없음)'}\n\n"
               f"사용자 메시지: {req.message}")
-    return ask_json(ChatParse, prompt, system=_system_prompt())
+    # FE는 45초 기다린다: 20초 × 2번 시도
+    return ask_json(ChatParse, prompt, system=_system_prompt(), timeout=20, retries=1)
 
 
 def _to_item(patch: ItemPatch, existing: List[ChecklistItem]) -> ChecklistItem:
@@ -148,7 +150,11 @@ def handle_chat(req: ChatRequest) -> dict:
     if new_cond.style != old_cond.style:
         checklist = apply_style(checklist, new_cond.style)
 
-    added, updated, disabled = [], [], []
+    original_keys = {i.key for i in req.checklist}
+    # 스타일을 바꿔서 프리셋으로 새로 들어온 항목도 답장에 알린다
+    added = [i for i in checklist if i.key not in original_keys]
+    changes += [f"checklist.{i.key}" for i in added]
+    updated, disabled, unchanged = [], [], []
     before = {i.key: i for i in checklist}
     for item_patch in parsed.checklist:
         item = _to_item(item_patch, checklist)
@@ -162,8 +168,11 @@ def handle_chat(req: ChatRequest) -> dict:
         elif merged.level != prev.level or merged.enabled != prev.enabled:
             updated.append(merged)
         else:
+            if item.key in original_keys:  # 이번 메시지에서 스타일이 막 넣은 항목은 '이미 있음'이 아니다
+                unchanged.append(merged)
             continue
         changes.append(f"checklist.{item.key}")
+    changes = list(dict.fromkeys(changes))
 
     review_target = None
     notes = []
@@ -189,6 +198,8 @@ def handle_chat(req: ChatRequest) -> dict:
             sentences.append(f"{josa(_quote(item.label), '을/를')} 다시 켰어요.")
     if disabled:
         sentences.append(f"{josa(', '.join(_quote(i.label) for i in disabled), '은/는')} 체크를 해제했어요.")
+    if unchanged:
+        sentences.append(f"{josa(', '.join(_quote(display_name(i)) for i in unchanged), '은/는')} 이미 체크리스트에 있어요.")
     if parsed.unsupported:
         sentences.append(f"{josa(', '.join(_quote(u) for u in parsed.unsupported), '은/는')} 수강평·계획서·시간표로 판단할 수 없어 반영하지 못했어요.")
 
@@ -199,8 +210,8 @@ def handle_chat(req: ChatRequest) -> dict:
         sentences.append("[생성하기]를 누르면 시간표에 반영돼요.")
     elif intent == "other":
         sentences.insert(0, parsed.answer or "원하는 시간표 조건을 말해 주세요. 예: '금요일 공강, 팀플 적게'")
-    elif intent == "set_preferences" and not parsed.unsupported:
-        sentences.append("바뀐 조건이 없어요. 원하는 조건을 말해 주세요.")
+    elif intent == "set_preferences" and not parsed.unsupported and not unchanged:
+        sentences.append("바꿀 조건을 찾지 못했어요. '금요일 공강', '팀플 적게', '1교시 싫어'처럼 말해 주세요.")
 
     reply = " ".join(sentences + notes).strip()
     return {

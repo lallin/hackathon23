@@ -8,7 +8,7 @@ import math
 from itertools import combinations
 from typing import Dict, List, Optional, Set
 
-from app.catalog import CATEGORIES, DAYS, catalog, lecture_id_of, min_credits, total_credits
+from app.catalog import CATEGORIES, DAYS, catalog, lecture_id_of, min_credits, normalize_name, total_credits
 from app.checklist import (BASE, LEVEL_NUM, STYLES, evaluate_item, is_custom, josa, lecture_value,
                            shape_counts, shape_level, to_minutes)
 from app.insights import judge_custom_items
@@ -69,7 +69,11 @@ class Context:
         self.required_credits = min_credits(requirement)  # 교선은 최소 학점이 없다
         self.total_required = total_credits(requirement)
         self.done = set(req.completed_course_ids)
-        self.required_remaining = [cid for cid in requirement["required_course_ids"] if cid not in self.done]
+        # 학수번호가 카탈로그와 달라도(개편·데이터 출처 차이) 과목명이 같으면 같은 과목으로 본다
+        self.done_names = {normalize_name(catalog.course_name(cid)) for cid in self.done}
+        self.required_remaining = [cid for cid in requirement["required_course_ids"]
+                                   if cid not in self.done and normalize_name(catalog.course_name(cid)) not in self.done_names]
+        self.required_by_name = {normalize_name(catalog.course_name(cid)): cid for cid in self.required_remaining}
         done_credits = req.completed_credits or completed_credits_of(req.completed_course_ids, req.admission_year, req.major)
         self.done_credits = {c: float(done_credits.get(c, 0)) for c in CATEGORIES}
         self.remaining = {c: max(0.0, self.required_credits.get(c, 0) - self.done_credits[c]) for c in CATEGORIES}
@@ -91,7 +95,8 @@ class Context:
         self.options = []  # [(course, [(score, section, mask)])]
         for course in catalog.courses.values():
             cid = course["course_id"]
-            if course["dept"] not in (req.major, "gen") or cid in self.done or cid in self.excluded or cid in pinned_courses:
+            if (course["dept"] not in (req.major, "gen") or cid in self.done or cid in self.excluded
+                    or cid in pinned_courses or normalize_name(course["name"]) in self.done_names):
                 continue
             opts = []
             for section in catalog.sections_by_course.get(cid, []):
@@ -107,10 +112,16 @@ class Context:
         """이 학생의 입학년도 교육과정 기준 이수구분."""
         return catalog.category(course_id, self.req.admission_year, self.req.major)
 
+    def required_id(self, course: dict) -> Optional[str]:
+        """이 과목이 남은 필수 과목이면 졸업 요건의 학수번호를 돌려준다."""
+        if course["course_id"] in self.required_remaining:
+            return course["course_id"]
+        return self.required_by_name.get(normalize_name(course["name"]))
+
     def section_score(self, course: dict, section: dict) -> float:
         w_req, w_def = self.weights
         score = 0.0
-        if course["course_id"] in self.required_remaining:
+        if self.required_id(course):
             score += w_req
         category = self.cat(course["course_id"])
         required = self.required_credits.get(category, 0)
@@ -250,7 +261,7 @@ def pick_diverse(results: List[tuple], top_n: int = TOP_N) -> List[tuple]:
 
 
 def make_reason(ctx: Context, sections: List[dict], satisfied: int, enabled: int) -> str:
-    placed = [s for s in sections if s["course_id"] in ctx.required_remaining]
+    placed = [s for s in sections if ctx.required_id(catalog.courses[s["course_id"]])]
     by_cat: Dict[str, int] = {}
     for s in placed:
         cat = ctx.cat(s["course_id"])
@@ -288,10 +299,10 @@ def build_combination(ctx: Context, rank: int, score: float, sections: List[dict
         out_sections.append({
             "section_id": s["section_id"], "lecture_id": lid, "course_id": course["course_id"],
             "course": course["name"], "professor": s["professor"], "category": ctx.cat(course["course_id"]),
-            "is_required": course["course_id"] in ctx.required_remaining, "credits": course["credits"],
+            "is_required": bool(ctx.required_id(course)), "credits": course["credits"],
             "pinned": s["section_id"] in pinned_ids, "times": s["times"], "has_insight": lid in catalog.insights,
         })
-    placed = {s["course_id"] for s in sections}
+    placed = {ctx.required_id(catalog.courses[s["course_id"]]) for s in sections}
     return {
         "rank": rank,
         "score": round(score, 1),
@@ -310,7 +321,7 @@ def build_combination(ctx: Context, rank: int, score: float, sections: List[dict
         "required_courses": [
             {"course_id": cid, "name": catalog.course_name(cid),
              "category": ctx.cat(cid),
-             "placed": cid in placed, "offered": bool(catalog.sections_by_course.get(cid))}
+             "placed": cid in placed, "offered": catalog.is_offered(cid)}
             for cid in ctx.required_remaining
         ],
         "reason": make_reason(ctx, sections, satisfied, len(enabled)) if rank == 1 else None,

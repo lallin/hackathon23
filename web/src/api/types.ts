@@ -61,6 +61,9 @@ export interface TranscriptResult {
   /** 서버가 계산한 영역별 이수 학점 (생성 요청의 completed_credits 로 그대로 보냄) */
   completed_credits?: Record<string, number>;
   completed_course_ids?: string[];
+  /** 서버가 계산한 남은 졸업 학점과 그중 자유 학점 (성적표를 올릴 때의 입학년도·전공 기준) */
+  remaining_total?: number;
+  remaining_free?: number;
 }
 
 export interface MeResponse {
@@ -93,7 +96,8 @@ export interface Requirements {
   categories: { category: Category; required: number; no_min?: boolean }[];
   /** 졸업 총 학점. 최소를 채우고 남는 학점은 네 영역 어디로든 채울 수 있다 (없으면 categories 합) */
   total_required?: number;
-  required_courses: { course_id: string; name: string; category: Category; credits: number }[];
+  /** category·credits 는 개설 과목 목록에 없는 과목이면 null, offered 는 이번 학기 개설 여부 */
+  required_courses: { course_id: string; name: string; category: Category | null; credits: number | null; offered?: boolean }[];
 }
 
 export interface TimeSlot {
@@ -133,7 +137,10 @@ export interface Combination {
   satisfied_count: number;
   enabled_count: number;
   days_used: Day[];
-  graduation_after?: { category: Category; done: number; this_semester: number; required: number }[];
+  /** 이 조합을 들은 뒤 영역별 학점. 최소 학점이 없는 영역(교선)은 required 가 null */
+  graduation_after?: { category: Category; done: number; this_semester: number; required: number | null }[];
+  /** 이 조합을 들은 뒤 졸업 총 학점 (총 학점 막대용) */
+  graduation_total_after?: { done: number; this_semester: number; required: number };
   reason?: string | null;
   /** 우선 배치 과목의 배치 여부 */
   required_courses?: { course_id: string; name: string; category: Category | null; placed: boolean; offered: boolean }[];
