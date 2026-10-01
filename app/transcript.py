@@ -24,7 +24,7 @@ class TranscriptCourse(BaseModel):
     category: Literal["전필", "전선", "교필", "교선", "기타"]
     credits: float
     grade: str
-    deletion: Optional[str] = None
+    deletion: Optional[str]
 
 
 class TranscriptResult(BaseModel):
