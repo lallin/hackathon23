@@ -464,12 +464,28 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 
 /* ---------- 챗봇 ---------- */
 
-/* 챗봇 크게 보기: 추천 시간표 칸 위로 덮어서 위아래 두 칸을 차지 (시간표 자리는 그대로) */
-.p-chat.chat-big {
-  grid-area: table-start / table-start / chat-end / table-end;
-  z-index: 20;
-  box-shadow: 0 10px 30px rgba(18, 24, 38, 0.18);
+/* 챗봇 높이 조절: 윗선 가운데 회색 손잡이를 끌면 시간표 위로 겹쳐 커진다 */
+.chat-card { position: relative; }
+.chat-card.raised { z-index: 20; box-shadow: 0 -8px 24px rgba(18, 24, 38, 0.14); }
+.chat-grip {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: ns-resize;
+  touch-action: none;
+  z-index: 1;
 }
+.chat-grip span { width: 44px; height: 5px; border-radius: 99px; background: #c4cad6; transition: background 0.15s; }
+.chat-grip:hover span,
+.chat-grip:focus-visible span { background: var(--muted); }
+.chat-grip:focus-visible { outline: 2px solid var(--green); outline-offset: 0; }
+body.resizing { cursor: ns-resize; user-select: none; }
 .bubble { padding: 8px 12px; font-size: 13px; line-height: 1.55; max-width: 90%; white-space: pre-wrap; word-break: keep-all; overflow-wrap: anywhere; }
 .bubble.me { align-self: flex-end; max-width: 85%; background: var(--green); color: #fff; border-radius: 14px 14px 4px 14px; }
 .bubble.bot { align-self: flex-start; background: var(--bg); color: var(--ink); border-radius: 14px 14px 14px 4px; }
@@ -632,5 +648,5 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
   .icon-btn { width: 44px; height: 44px; }
   .ttg { min-height: 480px; }
   .chat-log { max-height: 380px; }
-  .p-chat.chat-big .chat-log { max-height: none; }
+  .p-chat.raised .chat-log { max-height: none; }
 }

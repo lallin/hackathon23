@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from 'react';
 import type { FormEvent } from 'react';
 import type { CompareResult, OnDemandResponse, ReviewResult } from '../api/types';
 import { BASE_ITEMS, levelFromNum, LEVEL_LABEL } from '../lib/constants';
 import { useApp } from '../state/store';
-import { Maximize, Minimize, Send } from './icons';
+import { Send } from './icons';
 
 const CMP_KEYS = ['assignment', 'team_project', 'exam', 'attendance'];
 
@@ -128,24 +129,46 @@ function ReviewCards({ data, onOpen }: { data: OnDemandResponse; onOpen: (id: st
 export function ChatPanel({ className }: { className: string }) {
   const { s, act } = useApp();
   const [text, setText] = useState('');
-  // 크게 보기: 추천 시간표 칸 위에 덮어서 키운다 (시간표는 밀리지 않음)
-  const [big, setBig] = useState(false);
+  // 윗선 손잡이를 위로 끈 만큼(px) 챗봇이 추천 시간표 위로 덮이며 커진다 (시간표는 밀리지 않음)
+  const [extra, setExtra] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const drag = useRef<{ y: number; start: number; max: number } | null>(null);
   const logRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = logRef.current;
     if (el) el.scrollTop = el.scrollHeight;
-  }, [s.msgs, s.chatBusy, big]);
+  }, [s.msgs, s.chatBusy]);
 
-  useEffect(() => {
-    if (!big) return;
-    const onKey = (e: KeyboardEvent) => {
-      // 상세 창이 열려 있으면 Esc 는 상세 창이 먼저 받는다
-      if (e.key === 'Escape' && !document.querySelector('.modal')) setBig(false);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [big]);
+  /** 위로 늘릴 수 있는 최대치: 추천 시간표 칸 맨 위까지 */
+  const maxExtra = () => {
+    const chat = sectionRef.current?.getBoundingClientRect();
+    const table = document.querySelector('.p-table')?.getBoundingClientRect();
+    return chat && table ? Math.max(0, chat.top + extra - table.top) : 0;
+  };
+
+  const onDown = (e: ReactPointerEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.currentTarget.setPointerCapture(e.pointerId);
+    drag.current = { y: e.clientY, start: extra, max: maxExtra() };
+    document.body.classList.add('resizing');
+  };
+  const onMove = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const d = drag.current;
+    if (!d) return;
+    setExtra(Math.round(Math.min(d.max, Math.max(0, d.start + (d.y - e.clientY)))));
+  };
+  const onUp = () => {
+    drag.current = null;
+    document.body.classList.remove('resizing');
+  };
+  const onKey = (e: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      const step = e.key === 'ArrowUp' ? 40 : -40;
+      setExtra((v) => Math.min(maxExtra(), Math.max(0, v + step)));
+    } else if (e.key === 'Home') setExtra(0);
+  };
 
   const send = (v: string) => {
     const t = v.trim();
@@ -161,23 +184,34 @@ export function ChatPanel({ className }: { className: string }) {
   const waitingReply = s.chatBusy && !s.msgs.some((m) => m.kind === 'loading');
 
   return (
-    <section className={`card ${className}${big ? ' chat-big' : ''}`} aria-labelledby="h-chat">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap', minWidth: 0 }}>
-          <h2 id="h-chat">AI 챗봇</h2>
-          <span className="sub">말한 조건은 시간표 조건과 체크리스트에 들어가요</span>
-        </div>
-        <button
-          type="button"
-          className="icon-btn"
-          style={{ marginLeft: 'auto' }}
-          aria-expanded={big}
-          aria-label={big ? '챗봇 원래 크기로' : '챗봇 크게 보기'}
-          title={big ? '원래 크기로 (Esc)' : '크게 보기'}
-          onClick={() => setBig((v) => !v)}
-        >
-          {big ? <Minimize size={16} /> : <Maximize size={16} />}
-        </button>
+    <section
+      ref={sectionRef}
+      className={`card chat-card ${className}${extra > 0 ? ' raised' : ''}`}
+      aria-labelledby="h-chat"
+      // 음수 위 여백만큼 칸이 위로 늘어나 시간표 위에 겹친다
+      style={extra > 0 ? { marginTop: -extra } : undefined}
+    >
+      <div
+        className="chat-grip"
+        role="separator"
+        aria-orientation="horizontal"
+        aria-label="챗봇 높이 조절 (위아래로 끌기, 두 번 누르면 원래 크기)"
+        aria-valuenow={extra}
+        aria-valuemin={0}
+        tabIndex={0}
+        title="위아래로 끌어서 크기 조절 · 두 번 누르면 원래 크기"
+        onPointerDown={onDown}
+        onPointerMove={onMove}
+        onPointerUp={onUp}
+        onPointerCancel={onUp}
+        onDoubleClick={() => setExtra(0)}
+        onKeyDown={onKey}
+      >
+        <span />
+      </div>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
+        <h2 id="h-chat">AI 챗봇</h2>
+        <span className="sub">말한 조건은 시간표 조건과 체크리스트에 들어가요</span>
       </div>
 
       <div ref={logRef} className="scroll chat-log" style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8, padding: 2 }} aria-live="polite">
