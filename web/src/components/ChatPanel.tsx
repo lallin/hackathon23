@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent } from 'react';
 import type { FormEvent } from 'react';
 import { useApp } from '../state/store';
-import { ChooseCard, CompareCards, ReviewCards } from './ChatCards';
+import { AddChooseCard, ChooseCard, CompareCards, ReviewCards } from './ChatCards';
 import { Send } from './icons';
 
 export function ChatPanel({ className }: { className: string }) {
@@ -99,6 +99,8 @@ export function ChatPanel({ className }: { className: string }) {
             <ReviewCards key={m.id} data={m.reviews} />
           ) : m.kind === 'compare' && m.compare ? (
             <CompareCards key={m.id} data={m.compare} text={m.text} />
+          ) : m.kind === 'addchoose' && m.addPlan ? (
+            <AddChooseCard key={m.id} data={m.addPlan} text={m.text} />
           ) : m.kind === 'choose' && m.choices ? (
             <ChooseCard key={m.id} data={m.choices} text={m.text} />
           ) : m.kind === 'loading' ? (

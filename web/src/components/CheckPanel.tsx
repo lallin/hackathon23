@@ -6,6 +6,7 @@ import { Check, X } from './icons';
 import { Select } from './Select';
 
 const OPTIONS = LEVELS.map((l) => ({ value: l, label: LEVEL_LABEL[l] }));
+const COUNT_OPTIONS = [1, 2, 3, 4, 5, 6].map((n) => ({ value: String(n), label: `${n}개` }));
 
 export function CheckPanel({ className }: { className: string }) {
   const { s, act, current } = useApp();
@@ -45,6 +46,9 @@ export function CheckPanel({ className }: { className: string }) {
                   </span>
                   {it.type === 'level' && (
                     <Select compact ariaLabel={`${it.label} 정도`} value={it.level ?? 'mid'} onChange={(v) => act.setLevel(it.key, v as LevelValue)} options={OPTIONS} />
+                  )}
+                  {it.type === 'count' && (
+                    <Select compact ariaLabel={`${it.label} 개수`} value={String(it.count ?? 1)} onChange={(v) => act.setCount(it.key, Number(v))} options={COUNT_OPTIONS} />
                   )}
                   {it.source === 'style' && <span className="tag tag-gray">스타일</span>}
                   <span style={{ marginLeft: 'auto', display: 'inline-flex', alignItems: 'center', gap: 4 }}>

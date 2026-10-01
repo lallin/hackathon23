@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { CompareChoices, CompareResult, OnDemandResponse, ReviewResult, ReviewSection } from '../api/types';
+import type { AddCourseOption, AddCoursePlan, CompareChoices, CompareResult, OnDemandResponse, ReviewResult, ReviewSection } from '../api/types';
 import { levelFromNum, LEVEL_LABEL } from '../lib/constants';
 import { useApp } from '../state/store';
 
@@ -188,6 +188,66 @@ export function ReviewCards({ data }: { data: OnDemandResponse }) {
         </div>
       )}
       {data.more_professors && data.more_professors.length > 0 && <span className="faint">그 밖의 교수님: {data.more_professors.join(', ')}</span>}
+    </div>
+  );
+}
+
+/** "데이터베이스 시간표에 넣어줘"에서 분반이 여러 개일 때: 교수님별로 묶어 시간 버튼을 보여준다 */
+export function AddChooseCard({ data, text }: { data: AddCoursePlan; text: string }) {
+  const { s, act } = useApp();
+  const groups: { professor: string; rating: number | null; match: AddCourseOption['match']; options: AddCourseOption[] }[] = [];
+  (data.options ?? []).forEach((o) => {
+    let g = groups.find((x) => x.professor === o.professor);
+    if (!g) {
+      g = { professor: o.professor, rating: o.rating, match: o.match, options: [] };
+      groups.push(g);
+    }
+    g.options.push(o);
+  });
+  const pinned = new Set(s.draft.pinned);
+  return (
+    <div className="rv-wrap">
+      <div className="bubble bot">{text}</div>
+      <div className="add-groups">
+        {groups.map((g) => (
+          <div key={g.professor} className="add-group">
+            <div className="add-group-h">
+              <b>{g.professor} 교수님</b>
+              {g.rating != null && <span>★ {g.rating}</span>}
+              {g.match.total > 0 && (
+                <span className="faint">
+                  체크리스트 {g.match.satisfied}/{g.match.total}
+                </span>
+              )}
+            </div>
+            <div className="add-row">
+              {g.options.map((o) => {
+                const on = pinned.has(o.section_id);
+                const warn = o.free_day_clash.length
+                  ? `공강 ${o.free_day_clash.join('·')}요일과 겹침`
+                  : o.conflicts.length
+                    ? `${o.conflicts.join(', ')}와 겹침`
+                    : '';
+                return (
+                  <button
+                    key={o.section_id}
+                    type="button"
+                    className={`add-btn${on ? ' on' : ''}${o.recommended && !on ? ' rec' : ''}`}
+                    disabled={s.generating || on}
+                    title={warn ? `${warn} · 누르면 이 분반을 고정하고 다시 만들어요` : '이 분반을 고정하고 시간표를 다시 만들어요'}
+                    onClick={() => data.course_id && act.addSection(o.section_id, data.course_id, `'${data.course_name}' ${o.professor} 교수님`)}
+                  >
+                    {o.recommended && !on ? '추천 · ' : ''}
+                    {o.times}
+                    {warn && ` (${warn})`}
+                    {on && ' · 고정됨'}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -39,10 +39,28 @@ def is_custom(key: str) -> bool:
     return key.startswith("custom:")
 
 
+# 개수형 항목: "교양 과목 2개 넣어줘" → key "count:교양". 어떤 이수구분을 셀지.
+COUNT_GROUPS = {
+    "전공": ["전필", "전선"], "전필": ["전필"], "전선": ["전선"],
+    "교양": ["교필", "교선"], "교필": ["교필"], "교선": ["교선"],
+}
+
+
+def is_count(key: str) -> bool:
+    return key.startswith("count:") and key[6:] in COUNT_GROUPS
+
+
+def count_item(group: str, count: int, source: str = "chat") -> ChecklistItem:
+    return ChecklistItem(key=f"count:{group}", label=f"{group} 과목", type="count", count=max(1, min(8, count)),
+                         enabled=True, source=source)
+
+
 def display_name(item: ChecklistItem) -> str:
-    """'팀플 적음', '교수님이 친절함'처럼 화면과 답장에 쓰는 이름."""
+    """'팀플 적음', '교수님이 친절함', '교양 과목 2개'처럼 화면과 답장에 쓰는 이름."""
     if item.type == "level" and item.level:
         return f"{item.label} {LEVEL_KO[item.level]}"
+    if item.type == "count" and item.count:
+        return f"{item.label} {item.count}개"
     return item.label
 
 
@@ -88,6 +106,7 @@ def merge_item(checklist: List[ChecklistItem], update: ChecklistItem) -> List[Ch
         if item.key == update.key:
             merged = item.model_copy(update={
                 "level": update.level if update.type == "level" and update.level else item.level,
+                "count": update.count if update.type == "count" and update.count else item.count,
                 "enabled": update.enabled,
                 "source": update.source,
             })
@@ -176,9 +195,15 @@ def avg_level(avg: float) -> str:
 
 
 # ---- 충족 판정 ----
-def evaluate_item(item: ChecklistItem, lecture_ids: List[str], sections: List[dict]) -> dict:
-    """조합 하나에 대한 항목의 충족 여부와 분포."""
+def evaluate_item(item: ChecklistItem, lecture_ids: List[str], sections: List[dict],
+                  categories: Optional[List[str]] = None) -> dict:
+    """조합 하나에 대한 항목의 충족 여부와 분포. categories는 분반마다 이 학생 기준 이수구분(개수형 판정용)."""
     base = item.model_dump()
+    if is_count(item.key):
+        group = COUNT_GROUPS[item.key[6:]]
+        n = sum(1 for c in (categories or []) if c in group)
+        return {**base, "satisfied": n == item.count, "dist": {"count": n}, "avg": None,
+                "text": f"{n}과목 (목표 {item.count}과목)"}
     if item.key in BASE and BASE[item.key]["kind"] == "shape":
         count = shape_counts(sections)[item.key]
         level = shape_level(item.key, count)

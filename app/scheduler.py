@@ -10,7 +10,7 @@ from itertools import combinations
 from typing import Dict, List, Optional, Set
 
 from app.catalog import CATEGORIES, DAYS, catalog, lecture_id_of, min_credits, normalize_name, total_credits
-from app.checklist import (BASE, LEVEL_NUM, STYLES, evaluate_item, is_custom, josa, lecture_value,
+from app.checklist import (BASE, COUNT_GROUPS, LEVEL_NUM, STYLES, evaluate_item, is_count, is_custom, josa, lecture_value,
                            shape_counts, shape_level, to_minutes)
 from app.insights import judge_custom_items
 from app.schemas import ChecklistItem, GenerateRequest
@@ -33,6 +33,8 @@ W_CAREER_GAP_HOUR = 2
 W_YEAR_MATCH = 1
 W_YEAR_GAP = 1.5  # 대상 학년과 1학년 차이마다 감점
 W_RATING = 1.5
+W_COUNT = 15      # 개수형 항목(교양 2개 등)과 1과목 차이마다 감점
+W_COUNT_HINT = 3  # 개수형 항목 영역의 과목을 먼저 탐색하게 하는 가산
 W_PER_COURSE = 1.5
 URGENT_CREDITS = 9  # 영역에서 이만큼 이상 부족하면 가장 급한 것으로 본다
 
@@ -95,6 +97,8 @@ class Context:
         self.items = [i for i in items if i.enabled]
         self.lecture_items = [i for i in self.items if (i.key in BASE and BASE[i.key]["kind"] == "lecture") or is_custom(i.key)]
         self.shape_items = [i for i in self.items if i.key in BASE and BASE[i.key]["kind"] == "shape"]
+        # 개수형: [(셀 이수구분 목록, 목표 개수)]
+        self.count_items = [(COUNT_GROUPS[i.key[6:]], i.count) for i in self.items if is_count(i.key) and i.count]
 
         self.pinned = [catalog.sections[sid] for sid in req.pinned_section_ids if sid in catalog.sections]
         pinned_courses = {s["course_id"] for s in self.pinned}
@@ -158,6 +162,8 @@ class Context:
         rating = ((catalog.insights.get(lid) or {}).get("everytime") or {}).get("rating")
         if rating:
             score += scale * (rating - 3.5) * W_RATING
+        if any(category in group for group, _ in self.count_items):
+            score += W_COUNT_HINT
         for item in self.lecture_items:
             value = lecture_value(lid, item)
             if item.type == "level" and isinstance(value, int) and item.level:
@@ -185,6 +191,9 @@ class Context:
             if item.level:
                 diff = abs(LEVEL_NUM[shape_level(item.key, counts[item.key])] - LEVEL_NUM[item.level])
                 score += W_CHECK * (1 - diff)
+        for group, target in self.count_items:
+            n = sum(1 for s in sections if self.cat(s["course_id"]) in group)
+            score -= W_COUNT * abs(n - target)
         if self.style == "commute":
             score -= W_COMMUTE_DAY * len(days_used(sections))
         if self.style == "career":
@@ -312,7 +321,8 @@ def make_reason(ctx: Context, sections: List[dict], satisfied: int, enabled: int
 def build_combination(ctx: Context, rank: int, score: float, sections: List[dict], all_items: List[ChecklistItem]) -> dict:
     pinned_ids = {s["section_id"] for s in ctx.pinned}
     lecture_ids = [lecture_id_of(s["course_id"], s["professor"]) for s in sections]
-    evals = [evaluate_item(item, lecture_ids, sections) for item in all_items]
+    categories = [ctx.cat(s["course_id"]) for s in sections]
+    evals = [evaluate_item(item, lecture_ids, sections, categories) for item in all_items]
     enabled = [e for e in evals if e["enabled"]]
     satisfied = sum(1 for e in enabled if e["satisfied"])
 

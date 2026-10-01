@@ -276,3 +276,71 @@ def compare_lectures(lecture_ids: List[str], req: ChatRequest) -> dict:
                      "category": catalog.category(course_id, ctx.admission_year, ctx.major),
                      "credits": course["credits"], "lecture": lecture_facts(course_id, professor)})
     return _finish(cols, req)
+
+
+# ---- 과목을 시간표에 넣기 ----
+def add_course_plan(target: dict, req: ChatRequest) -> dict:
+    """'데이터베이스 시간표에 넣어줘': 분반이 하나면 바로 넣고(type=direct), 여러 개면 고르게 한다(type=choose).
+    분반마다 별점·체크리스트 충족·지금 시간표와 겹치는 과목·공강 요일 충돌을 알려 준다."""
+    from app.scheduler import section_mask  # 순환 import를 피해 늦게 불러온다
+
+    ctx = req.context or ChatContext()
+    course = catalog.find_course_by_name(target["course_name"])
+    if not course:
+        known = _find_known(target["course_name"])
+        message = (f"{josa(_q(known['name']), '은/는')} 이번 학기에 열리지 않아요." if known
+                   else f"{josa(_q(target['course_name']), '을/를')} 이번 학기 개설 강좌에서 찾지 못했어요.")
+        return {"type": "none", "message": message}
+    cid, name = course["course_id"], course["name"]
+    sections = catalog.sections_by_course.get(cid, [])
+    wanted = (target.get("professor") or "").replace("교수님", "").replace("교수", "").strip()
+    note = ""
+    if wanted:
+        mine = [s for s in sections if wanted in s["professor"]]
+        if mine:
+            sections = mine
+        else:
+            note = f"{wanted} 교수님 분반은 없어요. "
+
+    items = _enabled_lecture_items(req.checklist)
+    lecture_ids = sorted({lecture_id_of(cid, s["professor"]) for s in sections})
+    failed = judge_custom_items(items, lecture_ids)
+    current = [catalog.sections[sid] for sid in ctx.section_ids
+               if sid in catalog.sections and catalog.sections[sid]["course_id"] != cid]
+    options = []
+    for s in sections:
+        lid = lecture_id_of(cid, s["professor"])
+        evals = [evaluate_lecture(i, lid) for i in items if i.key not in failed]
+        mask = section_mask(s)
+        options.append({
+            "section_id": s["section_id"], "professor": s["professor"], "lecture_id": lid,
+            "times": _times_text(s["times"]), "target": s.get("target"), "elearning": bool(s.get("elearning")),
+            "rating": ((catalog.insights.get(lid) or {}).get("everytime") or {}).get("rating"),
+            "match": {"satisfied": sum(1 for e in evals if e["result"] == "match"), "total": len(evals)},
+            "conflicts": sorted({catalog.course_name(c["course_id"]) for c in current if section_mask(c) & mask}),
+            "free_day_clash": [d for d in req.conditions.free_days if any(t["day"] == d for t in s["times"])],
+            "recommended": False,
+        })
+    # 추천 순서: 공강 요일과 안 겹침 → 체크리스트에 맞는 수 → 지금 시간표와 덜 겹침 → 별점
+    options.sort(key=lambda o: (bool(o["free_day_clash"]), -o["match"]["satisfied"], len(o["conflicts"]),
+                                -(o["rating"] or 0), o["section_id"]))
+    if options:
+        options[0]["recommended"] = True
+    plan = {"course_id": cid, "course_name": name, "options": options}
+
+    if len(options) == 1:
+        o = options[0]
+        warn = ""
+        if o["free_day_clash"]:
+            warn = f" 다만 공강 요일({'·'.join(o['free_day_clash'])})과 겹쳐서 공강 조건을 바꿔야 들어갈 수 있어요."
+        elif o["conflicts"]:
+            warn = f" 지금 시간표의 {josa(', '.join(_q(c) for c in o['conflicts']), '과/와')} 겹쳐서 그 과목은 빼고 다시 짜요."
+        return {**plan, "type": "direct", "section_id": o["section_id"], "label": f"{_q(name)} {o['professor']} 교수님",
+                "message": f"{note}{_q(name)} {o['professor']} 교수님 분반({o['times']})을 시간표에 넣을게요.{warn}"}
+    return {**plan, "type": "choose",
+            "message": f"{note}{josa(_q(name), '은/는')} 분반이 {len(options)}개예요. 넣을 분반을 골라 주세요. "
+                       "체크리스트와 별점, 지금 시간표와 겹치는지를 보고 추천 분반에 표시해 뒀어요."}
+
+
+def _q(text: str) -> str:
+    return f"'{text}'"

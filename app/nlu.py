@@ -12,7 +12,8 @@ from pydantic import BaseModel
 from ai_service import LLMError, ask_json
 from app import answers
 from app.catalog import DAYS, normalize_name
-from app.checklist import BASE, BASE_ITEMS, LEVEL_KO, STYLES, apply_style, custom_key, display_name, josa, merge_item
+from app.checklist import (BASE, BASE_ITEMS, COUNT_GROUPS, LEVEL_KO, STYLES, apply_style, count_item, custom_key,
+                           display_name, is_count, josa, merge_item)
 from app.schemas import ChatRequest, ChecklistItem, Conditions
 
 AI_ERROR_REPLY = "지금 AI 응답이 늦어요. 잠시 후 다시 말씀해 주세요."
@@ -29,8 +30,9 @@ class CondPatch(BaseModel):
 class ItemPatch(BaseModel):
     key: str
     label: str
-    type: Literal["level", "toggle"]
+    type: Literal["level", "toggle", "count"]
     level: Optional[Literal["low", "mid", "high"]]
+    count: Optional[int]
     enabled: bool
 
 
@@ -40,7 +42,7 @@ class ReviewTarget(BaseModel):
 
 
 class ChatParse(BaseModel):
-    intent: Literal["set_preferences", "course_review", "compare_courses", "ask_info", "other"]
+    intent: Literal["set_preferences", "add_course", "course_review", "compare_courses", "ask_info", "other"]
     conditions: CondPatch
     checklist: List[ItemPatch]
     unsupported: List[str]
@@ -55,7 +57,9 @@ def _system_prompt() -> str:
     return f"""너는 대학생 시간표 추천 서비스 '에타빌더'의 챗봇 해석기다. 사용자 메시지를 읽고 JSON으로만 답한다.
 
 intent
-- set_preferences: 시간표 조건이나 수업 성향(체크리스트)을 말함
+- set_preferences: 시간표 조건이나 수업 성향(체크리스트)을 말함. 영역별 과목 개수("교양 과목 2개 넣어줘", "전공 3개 듣고 싶어")도 여기
+- add_course: 특정 과목 하나를 시간표에 넣어 달라고 함("데이터베이스 시간표에 넣어줘", "KUGEP1 박우식 교수님 걸로 추가해줘").
+  mentioned_courses에 그 과목(교수명 말했으면 함께)
 - course_review: 과목 하나의 교수님들을 보여 주거나 비교·추천해 달라고 함
   ("운영체제 수강평 알려줘", "OO 교수님 어때?", "데이터베이스 교수님별로 비교해줘", "KUGEP1 누가 나아?", "나랑 잘 맞는 교수님 찾아줘")
 - compare_courses: 서로 다른 두 과목, 또는 이름을 말한 두 교수님을 비교해 달라고 함("A랑 B 비교해줘", "A랑 B 중에 뭐가 나아?")
@@ -80,6 +84,8 @@ checklist: 수업 성향 항목의 추가·변경. 기본 항목 key:
 - level: low(적음) / mid(보통) / high(많음). "적당히" 같은 애매한 말은 mid. 레벨형은 반드시 level을 채운다.
 - "OO는 상관없어"는 그 항목을 enabled=false로. 그 밖에는 enabled=true.
 - "1교시 싫어" → first_period low, "우주공강 싫어" → gap low, "공강 많게" 같은 말은 free_days로 판단하지 말고 무시.
+- 영역별 과목 개수("교양 과목 2개 넣어줘", "전공 3개")는 key를 "count:영역"(영역은 전공·전필·전선·교양·교필·교선 중 하나),
+  label은 "영역 과목", type=count, count=개수(1~8), level=null로. 레벨형·적용형 항목은 count=null.
 
 unsupported: 수강평·수강계획서·시간표 어디에서도 판단할 수 없는 조건(강의실이 가까운, 친구와 같은 수업 등)을 원문 표현으로.
 review_targets: course_review일 때 물어본 과목들(과목명, 교수명 없으면 null). 다른 intent에서도 메시지에 수강평 질문이 섞여 있으면 채운다.
@@ -105,6 +111,10 @@ def _parse(req: ChatRequest) -> ChatParse:
 
 def _to_item(patch: ItemPatch, existing: List[ChecklistItem]) -> ChecklistItem:
     keys = {i.key: i for i in existing}
+    if patch.type == "count" or patch.key.startswith("count:"):
+        group = patch.key[6:] if is_count(patch.key) else next((g for g in COUNT_GROUPS if g in patch.label), "교양")
+        item = count_item(group, patch.count or 1)
+        return item.model_copy(update={"enabled": patch.enabled})
     if patch.key in BASE:
         key, label, typ = patch.key, BASE[patch.key]["label"], "level"
     elif patch.key in keys:
@@ -176,7 +186,7 @@ def handle_chat(req: ChatRequest) -> dict:
             (added if merged.enabled else disabled).append(merged)
         elif not merged.enabled and prev.enabled:
             disabled.append(merged)
-        elif merged.level != prev.level or merged.enabled != prev.enabled:
+        elif merged.level != prev.level or merged.count != prev.count or merged.enabled != prev.enabled:
             updated.append(merged)
         else:
             if item.key in original_keys:  # 이번 메시지에서 스타일이 막 넣은 항목은 '이미 있음'이 아니다
@@ -207,6 +217,8 @@ def handle_chat(req: ChatRequest) -> dict:
     for item in updated:
         if item.type == "level" and item.level:
             sentences.append(f"{josa(_quote(item.label), '을/를')} {josa(LEVEL_KO[item.level], '으로/로')} 바꿨어요.")
+        elif item.type == "count" and item.count:
+            sentences.append(f"{josa(_quote(item.label), '을/를')} {item.count}개로 바꿨어요.")
         else:
             sentences.append(f"{josa(_quote(item.label), '을/를')} 다시 켰어요.")
     if disabled:
@@ -226,6 +238,13 @@ def handle_chat(req: ChatRequest) -> dict:
     state_req = req.model_copy(update={"conditions": new_cond, "checklist": checklist})
     mentioned = [t.model_dump() for t in parsed.mentioned_courses]
     compare_result = None
+    add_plan = None
+    if intent == "add_course":
+        if mentioned:
+            add_plan = answers.add_course_plan(mentioned[0], state_req)
+            notes.append(add_plan["message"])
+        else:
+            notes.append("넣을 과목을 말해 주세요. 예: '데이터베이스 시간표에 넣어줘'")
     distinct = {(normalize_name(m["course_name"]), m.get("professor")) for m in mentioned}
     if intent == "compare_courses" and len(mentioned) >= 2 and len(distinct) >= 2:
         compare_result = answers.compare(mentioned, state_req)
@@ -237,7 +256,7 @@ def handle_chat(req: ChatRequest) -> dict:
         notes.append(f"{_quote(mentioned[0]['course_name'])} 교수님들을 비교해 볼게요.")
     elif intent == "compare_courses":
         notes.append("비교할 두 과목을 함께 말해 주세요. 예: '데이터베이스랑 컴퓨터네트워크 비교해줘'")
-    elif intent in ("ask_info", "other") or (parsed.needs_answer and intent != "course_review"):
+    elif intent in ("ask_info", "other") or (parsed.needs_answer and intent not in ("course_review", "add_course")):
         # 정해진 동작 밖의 질문·대화는 AI가 데이터를 보고 답장을 쓴다. 바뀐 조건 안내는 서버 문장이 앞에 붙는다.
         try:
             notes.append(answers.answer(state_req, mentioned, sentences))
@@ -256,4 +275,5 @@ def handle_chat(req: ChatRequest) -> dict:
         "unsupported": parsed.unsupported,
         "review_target": review_target,
         "compare": compare_result,
+        "add_course": add_plan,
     }

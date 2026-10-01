@@ -10,10 +10,12 @@ PreferredTime = Literal["any", "morning", "afternoon"]
 
 
 class ChecklistItem(BaseModel):
-    key: str = Field(..., examples=["team_project"], description='자유 항목은 "custom:교수님이친절함"')
+    key: str = Field(..., examples=["team_project"],
+                     description='자유 항목은 "custom:교수님이친절함", 개수형은 "count:교양"')
     label: str = Field(..., examples=["팀플"])
-    type: Literal["level", "toggle"] = "level"
-    level: Optional[Level] = Field(None, description="toggle이면 null")
+    type: Literal["level", "toggle", "count"] = "level"
+    level: Optional[Level] = Field(None, description="toggle·count면 null")
+    count: Optional[int] = Field(None, ge=1, le=8, description="count형: 이 영역 과목을 몇 개 넣을지")
     enabled: bool = True
     source: Literal["style", "chat", "user"] = "user"
 

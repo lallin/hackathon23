@@ -538,6 +538,11 @@ body.resizing { cursor: ns-resize; user-select: none; }
 .opt { display: flex; flex-direction: column; gap: 2px; text-align: left; border: 1px solid var(--line-strong); border-radius: 10px; background: #fff; padding: 7px 9px; font-size: 12px; cursor: pointer; color: var(--ink); }
 .opt.on { border-color: var(--green); box-shadow: 0 0 0 1px var(--green) inset; background: var(--green-tint); }
 .opt-name { display: flex; align-items: center; gap: 4px; font-weight: 700; }
+.add-groups { display: flex; flex-direction: column; gap: 6px; }
+.add-group { border: 1px solid var(--line-strong); border-radius: 10px; background: #fff; padding: 7px 9px; display: flex; flex-direction: column; gap: 5px; font-size: 12px; }
+.add-group-h { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.add-btn.rec { background: var(--green); color: #fff; }
+.add-btn.rec:hover:not(:disabled) { background: var(--green); filter: brightness(1.08); }
 
 /* ---------- 이번 조합 과목 ---------- */
 

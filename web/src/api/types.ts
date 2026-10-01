@@ -15,9 +15,11 @@ export interface ChecklistItem {
   /** 기본 항목은 assignment 같은 키, 자유 항목은 "custom:교수님이친절함" */
   key: string;
   label: string;
-  type: 'level' | 'toggle';
-  /** toggle 이면 null */
+  type: 'level' | 'toggle' | 'count';
+  /** toggle·count 이면 null */
   level: LevelValue | null;
+  /** count 형("교양 과목 2개"): 이 영역 과목을 몇 개 넣을지 */
+  count?: number | null;
   enabled: boolean;
   source: ItemSource;
 }
@@ -306,10 +308,40 @@ export interface CompareRequest {
   context?: ChatContext;
 }
 
+/** "데이터베이스 시간표에 넣어줘": 넣을 수 있는 분반 */
+export interface AddCourseOption {
+  section_id: string;
+  professor: string;
+  lecture_id: string;
+  times: string;
+  target: string | null;
+  elearning: boolean;
+  rating: number | null;
+  match: { satisfied: number; total: number };
+  /** 지금 보고 있는 시간표에서 시간이 겹치는 과목 */
+  conflicts: string[];
+  /** 공강 요일과 겹치는 요일 */
+  free_day_clash: string[];
+  recommended: boolean;
+}
+
+export interface AddCoursePlan {
+  /** direct: 분반이 하나라 바로 넣는다, choose: 고르게 한다, none: 넣을 수 없음 */
+  type: 'direct' | 'choose' | 'none';
+  message: string;
+  course_id?: string;
+  course_name?: string;
+  section_id?: string;
+  label?: string;
+  options?: AddCourseOption[];
+}
+
 export interface ChatResponse {
   intent: 'set_preferences' | 'course_review' | 'compare_courses' | 'ask_info' | 'other';
   /** 과목 비교 결과 (intent가 compare_courses일 때) */
   compare?: CompareResult | CompareChoices | null;
+  /** 과목을 시간표에 넣기 (intent가 add_course일 때) */
+  add_course?: AddCoursePlan | null;
   reply: string;
   conditions: Conditions;
   checklist: ChecklistItem[];

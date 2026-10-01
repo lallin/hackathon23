@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { ApiError, getApi, getToken, setToken } from '../api';
 import type { Api, ApiMode } from '../api';
 import type {
+  AddCoursePlan,
   ChecklistItem,
   Combination,
   CompareChoices,
@@ -32,7 +33,9 @@ export interface ChatMsg {
   id: number;
   role: 'user' | 'assistant';
   text: string;
-  kind?: 'error' | 'loading' | 'reviews' | 'compare' | 'choose';
+  kind?: 'error' | 'loading' | 'reviews' | 'compare' | 'choose' | 'addchoose';
+  /** 과목 넣기: 고를 분반 */
+  addPlan?: AddCoursePlan;
   reviews?: OnDemandResponse;
   compare?: CompareResult;
   /** 교수님이 여러 분인 과목을 비교하기 전에 고르는 선택지 */
@@ -136,7 +139,8 @@ function reducer(s: State, a: Action): State {
 
 /* ---------- draft 와 applied 비교 ---------- */
 
-const sameItem = (a: ChecklistItem, b: ChecklistItem) => a.level === b.level && a.enabled === b.enabled;
+const sameItem = (a: ChecklistItem, b: ChecklistItem) =>
+  a.level === b.level && (a.count ?? null) === (b.count ?? null) && a.enabled === b.enabled;
 const symDiff = (a: string[], b: string[]) => a.filter((x) => !b.includes(x)).length + b.filter((x) => !a.includes(x)).length;
 
 /** [생성하기] 옆 "변경 N개 대기 중" 의 N */
@@ -178,6 +182,8 @@ interface Actions {
   setTime(t: Conditions['preferred_time']): void;
   setStyle(style: StyleId): Promise<void>;
   setLevel(key: string, level: LevelValue): void;
+  /** 개수형 항목("교양 과목 2개")의 개수 */
+  setCount(key: string, count: number): void;
   toggleItem(key: string): void;
   removeItem(key: string): void;
   generate(): Promise<void>;
@@ -359,6 +365,24 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
   }, [set]);
 
+  /** 분반을 고정하고 바로 다시 생성한다. 같은 과목의 다른 고정은 풀고, 제한해 둔 과목이면 제한도 푼다 */
+  const pinAndGenerate = useCallback(
+    async (sectionId: string, courseId: string) => {
+      const st = ref.current;
+      if (st.generating) return;
+      const draft: Draft = {
+        ...st.draft,
+        pinned: st.draft.pinned.filter((x) => !x.startsWith(`${courseId}-`)).concat(sectionId),
+        excluded: st.draft.excluded.filter((x) => x !== courseId)
+      };
+      dispatch({ type: 'draft', patch: { pinned: draft.pinned, excluded: draft.excluded } });
+      // generate()는 ref.current를 읽으므로 화면이 다시 그려지기 전에 바뀐 초안을 넣어 둔다
+      ref.current = { ...ref.current, draft };
+      await generate();
+    },
+    [generate]
+  );
+
   // 이수 현황이 채워지면 기본 조건으로 바로 생성
   useEffect(() => {
     if (autoGen.current && s.transcript && s.reqStatus === 'ready' && !s.generating) {
@@ -463,6 +487,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
       },
       setLevel(key, level) {
         const list = ref.current.draft.checklist.map((i) => (i.key === key ? { ...i, level, enabled: true, source: 'user' as const } : i));
+        dispatch({ type: 'draft', patch: { checklist: list } });
+      },
+      setCount(key, count) {
+        const list = ref.current.draft.checklist.map((i) => (i.key === key ? { ...i, count, enabled: true, source: 'user' as const } : i));
         dispatch({ type: 'draft', patch: { checklist: list } });
       },
       toggleItem(key) {
@@ -609,7 +637,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
           }
           flash(res.changes.map((c) => (c.startsWith('checklist.') ? c.slice(10) : c.replace('conditions.', 'cond.'))));
         }
-        if (res.compare?.type === 'choose') {
+        if (res.add_course?.type === 'choose') {
+          // 과목 넣기: 분반이 여러 개면 고르게 한다
+          dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', kind: 'addchoose', text: res.reply, addPlan: res.add_course } });
+        } else if (res.compare?.type === 'choose') {
           // 교수님이 여러 분이면 먼저 고르게 한다
           dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', kind: 'choose', text: res.reply, choices: res.compare } });
         } else if (res.compare && res.compare.courses.length) {
@@ -617,6 +648,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
           dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', kind: 'compare', text: res.reply, compare: res.compare } });
         } else {
           dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', text: res.reply } });
+        }
+        if (res.add_course?.type === 'direct' && res.add_course.section_id && res.add_course.course_id) {
+          // 분반이 하나뿐이면 바로 고정하고 다시 생성한다
+          await pinAndGenerate(res.add_course.section_id, res.add_course.course_id);
         }
         if (res.intent === 'course_review' && res.review_target) {
           const t = res.review_target;
@@ -635,19 +670,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
         set({ chatBusy: false });
       },
       async addSection(sectionId, courseId, label) {
-        const st = ref.current;
-        if (st.generating) return;
-        // 같은 과목의 다른 고정은 풀고 이 분반만 고정한다. 제한해 둔 과목이면 제한도 푼다.
-        const draft: Draft = {
-          ...st.draft,
-          pinned: st.draft.pinned.filter((x) => !x.startsWith(`${courseId}-`)).concat(sectionId),
-          excluded: st.draft.excluded.filter((x) => x !== courseId)
-        };
-        dispatch({ type: 'draft', patch: { pinned: draft.pinned, excluded: draft.excluded } });
+        if (ref.current.generating) return;
         dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', text: `${label} 분반을 고정하고 시간표를 다시 만들게요.` } });
-        // generate()는 ref.current를 읽으므로 화면이 다시 그려지기 전에 바뀐 초안을 넣어 둔다
-        ref.current = { ...ref.current, draft };
-        await generate();
+        await pinAndGenerate(sectionId, courseId);
       },
       async compareChosen(lectureIds) {
         const api = apiRef.current;
@@ -674,7 +699,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       },
       toast
     }),
-    [enter, flash, generate, loadRequirements, set, toast]
+    [enter, flash, generate, loadRequirements, pinAndGenerate, set, toast]
   );
 
   const current = s.combos[s.rank] ?? null;
