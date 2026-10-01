@@ -3,7 +3,7 @@ import type { FormEvent } from 'react';
 import type { CompareResult, OnDemandResponse, ReviewResult } from '../api/types';
 import { BASE_ITEMS, levelFromNum, LEVEL_LABEL } from '../lib/constants';
 import { useApp } from '../state/store';
-import { Send } from './icons';
+import { Maximize, Minimize, Send } from './icons';
 
 const CMP_KEYS = ['assignment', 'team_project', 'exam', 'attendance'];
 
@@ -128,12 +128,24 @@ function ReviewCards({ data, onOpen }: { data: OnDemandResponse; onOpen: (id: st
 export function ChatPanel({ className }: { className: string }) {
   const { s, act } = useApp();
   const [text, setText] = useState('');
+  // 크게 보기: 추천 시간표 칸 위에 덮어서 키운다 (시간표는 밀리지 않음)
+  const [big, setBig] = useState(false);
   const logRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = logRef.current;
     if (el) el.scrollTop = el.scrollHeight;
-  }, [s.msgs, s.chatBusy]);
+  }, [s.msgs, s.chatBusy, big]);
+
+  useEffect(() => {
+    if (!big) return;
+    const onKey = (e: KeyboardEvent) => {
+      // 상세 창이 열려 있으면 Esc 는 상세 창이 먼저 받는다
+      if (e.key === 'Escape' && !document.querySelector('.modal')) setBig(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [big]);
 
   const send = (v: string) => {
     const t = v.trim();
@@ -149,10 +161,23 @@ export function ChatPanel({ className }: { className: string }) {
   const waitingReply = s.chatBusy && !s.msgs.some((m) => m.kind === 'loading');
 
   return (
-    <section className={`card ${className}`} aria-labelledby="h-chat">
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
-        <h2 id="h-chat">AI 챗봇</h2>
-        <span className="sub">말한 조건은 시간표 조건과 체크리스트에 들어가요</span>
+    <section className={`card ${className}${big ? ' chat-big' : ''}`} aria-labelledby="h-chat">
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap', minWidth: 0 }}>
+          <h2 id="h-chat">AI 챗봇</h2>
+          <span className="sub">말한 조건은 시간표 조건과 체크리스트에 들어가요</span>
+        </div>
+        <button
+          type="button"
+          className="icon-btn"
+          style={{ marginLeft: 'auto' }}
+          aria-expanded={big}
+          aria-label={big ? '챗봇 원래 크기로' : '챗봇 크게 보기'}
+          title={big ? '원래 크기로 (Esc)' : '크게 보기'}
+          onClick={() => setBig((v) => !v)}
+        >
+          {big ? <Minimize size={16} /> : <Maximize size={16} />}
+        </button>
       </div>
 
       <div ref={logRef} className="scroll chat-log" style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8, padding: 2 }} aria-live="polite">

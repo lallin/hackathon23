@@ -93,3 +93,19 @@ export const FileText = make(
   </>
 );
 export const Sparkle = make(<path d="M12 3l1.9 5.6L19.5 10.5l-5.6 1.9L12 18l-1.9-5.6L4.5 10.5l5.6-1.9z" />);
+export const Maximize = make(
+  <>
+    <path d="M15 3h6v6" />
+    <path d="M9 21H3v-6" />
+    <path d="M21 3l-7 7" />
+    <path d="M3 21l7-7" />
+  </>
+);
+export const Minimize = make(
+  <>
+    <path d="M4 14h6v6" />
+    <path d="M20 10h-6V4" />
+    <path d="M14 10l7-7" />
+    <path d="M3 21l7-7" />
+  </>
+);
