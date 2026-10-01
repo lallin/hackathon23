@@ -31,9 +31,10 @@ W_CREDITS = 4
 W_COMMUTE_DAY = 6
 W_CAREER_GAP_HOUR = 2
 W_YEAR_MATCH = 1
-W_YEAR_LOWER = 2
-W_YEAR_HIGHER = 0.5
+W_YEAR_GAP = 1.5  # 대상 학년과 1학년 차이마다 감점
 W_RATING = 1.5
+W_PER_COURSE = 1.5
+URGENT_CREDITS = 9  # 영역에서 이만큼 이상 부족하면 가장 급한 것으로 본다
 
 
 class GenerateError(ValueError):
@@ -133,24 +134,28 @@ class Context:
         score = 0.0
         if self.required_id(course):
             score += w_req
+        # 학점에 비례하는 점수는 scale을 곱한다. 1학점 과목을 여러 개 넣어 점수를 불리지 못하게.
+        scale = course["credits"] / 3
+        score -= W_PER_COURSE  # 과목이 많을수록 부담이 크다
         category = self.cat(course["course_id"])
-        required = self.required_credits.get(category, 0)
-        if self.remaining.get(category, 0) > 0 and required:
-            score += w_def * min(1.0, self.remaining[category] / required) * course["credits"] / 3 + 2
+        if self.remaining.get(category, 0) > 0 and self.required_credits.get(category):
+            # 부족한 비율이 아니라 부족한 학점으로 급한 정도를 본다(교선 15/29가 전선 8/54보다 과하게 앞서지 않게)
+            urgency = min(1.0, self.remaining[category] / URGENT_CREDITS)
+            score += (w_def * urgency + 2) * scale
         elif self.remaining_total > 0:
-            score += course["credits"] / 3  # 최소 학점은 찼어도 남은 졸업 학점은 채운다
+            score += scale  # 최소 학점은 찼어도 남은 졸업 학점은 채운다
         else:
             score -= 2
         lid = lecture_id_of(course["course_id"], section["professor"])
         # 대상 학년이 다른 분반은 조금 감점한다(필수 과목은 가산이 커서 그대로 들어간다)
         target = re.match(r"(\d)학년", section.get("target") or "")
         if target:
-            year = int(target.group(1))
-            score += W_YEAR_MATCH if year == self.student_year else -W_YEAR_LOWER if year < self.student_year else -W_YEAR_HIGHER
+            gap = abs(int(target.group(1)) - self.student_year)
+            score += scale * (W_YEAR_MATCH if gap == 0 else -W_YEAR_GAP * gap)
         # 조건이 같으면 강의평 별점이 높은 강의를 조금 우대한다
         rating = ((catalog.insights.get(lid) or {}).get("everytime") or {}).get("rating")
         if rating:
-            score += (rating - 3.5) * W_RATING
+            score += scale * (rating - 3.5) * W_RATING
         for item in self.lecture_items:
             value = lecture_value(lid, item)
             if item.type == "level" and isinstance(value, int) and item.level:
