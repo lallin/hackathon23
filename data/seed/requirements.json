@@ -1,13 +1,166 @@
 {
+  "sample": false,
+  "note": "건국대 글로컬캠퍼스 학사요람 실제 값. credits는 최소 이수 학점(전필·전선·교필, 교선은 최소 없음), total_credits는 졸업 총 학점이며 모자란 학점은 네 영역 어디로든 채울 수 있다. 경영학과 전공 과목 목록은 추후 추가.",
   "university": "건국대학교 글로컬캠퍼스",
-  "semester": "2026-2",
-  "categories": [
-    "전필",
-    "전선",
-    "교필",
-    "교선"
+  "admission_years": [
+    2026,
+    2025,
+    2024,
+    2023,
+    2022,
+    2021,
+    2020,
+    2019
   ],
-  "ge_required_rule": "교양 과목(기초·심화·소양·인성) 중 required_courses에 있는 학수번호는 교필, 나머지는 교선",
+  "supported_years": [
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "majors": [
+    {
+      "id": "cse",
+      "name": "컴퓨터공학과",
+      "supported": true
+    },
+    {
+      "id": "biz",
+      "name": "경영학과",
+      "supported": true
+    },
+    {
+      "id": "ind_design",
+      "name": "산업디자인학과",
+      "supported": false
+    },
+    {
+      "id": "interior",
+      "name": "실내디자인학과",
+      "supported": false
+    },
+    {
+      "id": "fashion",
+      "name": "패션디자인학과",
+      "supported": false
+    },
+    {
+      "id": "visual",
+      "name": "시각영상디자인학과",
+      "supported": false
+    },
+    {
+      "id": "media_contents",
+      "name": "미디어콘텐츠학과",
+      "supported": false
+    },
+    {
+      "id": "fine_arts",
+      "name": "조형예술학과",
+      "supported": false
+    },
+    {
+      "id": "econ_trade",
+      "name": "경제통상학과",
+      "supported": false
+    },
+    {
+      "id": "police",
+      "name": "경찰학과",
+      "supported": false
+    },
+    {
+      "id": "fire",
+      "name": "소방방재융합학과",
+      "supported": false
+    },
+    {
+      "id": "lis",
+      "name": "문헌정보학과",
+      "supported": false
+    },
+    {
+      "id": "early_edu",
+      "name": "유아교육과",
+      "supported": false
+    },
+    {
+      "id": "welfare",
+      "name": "사회복지학과",
+      "supported": false
+    },
+    {
+      "id": "journalism",
+      "name": "신문방송학과",
+      "supported": false
+    },
+    {
+      "id": "korean_culture",
+      "name": "동화·한국어문화학과",
+      "supported": false
+    },
+    {
+      "id": "english",
+      "name": "영어문화학과",
+      "supported": false
+    },
+    {
+      "id": "mechatronics",
+      "name": "메카트로닉스공학과",
+      "supported": false
+    },
+    {
+      "id": "biomedical",
+      "name": "바이오메디컬공학과",
+      "supported": false
+    },
+    {
+      "id": "green_tech",
+      "name": "녹색기술융합학과",
+      "supported": false
+    },
+    {
+      "id": "energy_materials",
+      "name": "에너지신소재공학과",
+      "supported": false
+    },
+    {
+      "id": "nursing",
+      "name": "간호학과",
+      "supported": false
+    },
+    {
+      "id": "biopharm",
+      "name": "바이오의약학과",
+      "supported": false
+    },
+    {
+      "id": "biotech",
+      "name": "생명공학과",
+      "supported": false
+    },
+    {
+      "id": "food_nutrition",
+      "name": "식품영양학과",
+      "supported": false
+    },
+    {
+      "id": "beauty",
+      "name": "뷰티화장품학과",
+      "supported": false
+    },
+    {
+      "id": "sports_health",
+      "name": "스포츠건강학과",
+      "supported": false
+    },
+    {
+      "id": "golf",
+      "name": "골프산업학과",
+      "supported": false
+    }
+  ],
+  "ge_required_rule": "교양 과목(기초·심화·소양·인성) 중 required_course_ids에 있는 학수번호는 교필, 나머지는 교선",
   "category_mapping": {
     "전필": "전필",
     "전선": "전선",
@@ -21,64 +174,15 @@
     "다선": null,
     "교직": null
   },
-  "admission_years": [
+  "requirements": [
     {
-      "year": 2019,
-      "supported": false
-    },
-    {
-      "year": 2020,
-      "supported": false
-    },
-    {
-      "year": 2021,
-      "supported": false
-    },
-    {
-      "year": 2022,
-      "supported": false
-    },
-    {
-      "year": 2023,
-      "supported": true
-    },
-    {
-      "year": 2024,
-      "supported": true
-    },
-    {
-      "year": 2025,
-      "supported": true
-    },
-    {
-      "year": 2026,
-      "supported": true
-    }
-  ],
-  "majors": [
-    {
-      "id": "cse",
-      "name": "컴퓨터공학과",
-      "college": "과학기술대학",
-      "supported": true
-    },
-    {
-      "id": "biz",
-      "name": "경영학과",
-      "college": "인문사회융합대학",
-      "supported": true
-    }
-  ],
-  "requirements": {
-    "2023-cse": {
       "admission_year": 2023,
       "major": "cse",
       "total_credits": 132,
       "credits": {
         "전필": 15,
         "전선": 51,
-        "교필": 6,
-        "교선": null
+        "교필": 6
       },
       "ge_credits": {
         "기초": 18,
@@ -89,6 +193,16 @@
         "전공계": 40
       },
       "minor_credits": null,
+      "required_course_ids": [
+        "NDGE05021",
+        "NDGE12263",
+        "NDGE15060",
+        "NDGE11863",
+        "NDGE12137",
+        "BKSA53699",
+        "BZZA62440",
+        "BKSA59472"
+      ],
       "required_courses": [
         {
           "course_id": "NDGE05021",
@@ -561,171 +675,14 @@
       "curriculum_year": 2023,
       "verified": true
     },
-    "2023-biz": {
-      "admission_year": 2023,
-      "major": "biz",
-      "total_credits": 124,
-      "credits": {
-        "전필": 27,
-        "전선": 39,
-        "교필": 6,
-        "교선": null
-      },
-      "ge_credits": {
-        "기초": 18,
-        "심화": 8,
-        "소양": 9
-      },
-      "double_major_credits": {
-        "전공계": 45
-      },
-      "minor_credits": null,
-      "required_courses": [
-        {
-          "course_id": "BKSA53699",
-          "name": "KUGEP1",
-          "category": "교필",
-          "area": "기초교양/외국어기초",
-          "credits": 3,
-          "year_semester": "1-1,2"
-        },
-        {
-          "course_id": "BZZA62440",
-          "name": "성신의대학생활지도",
-          "category": "교필",
-          "area": "KU소양/인성",
-          "credits": 1,
-          "year_semester": "1-1"
-        },
-        {
-          "course_id": "BKSA59472",
-          "name": "취업전략수립및역량개발1",
-          "category": "교필",
-          "area": "KU소양/실무",
-          "credits": 2,
-          "year_semester": "2-1,2"
-        }
-      ],
-      "major_required_listed": false,
-      "major_courses": [],
-      "ge_sub_requirements": [
-        {
-          "area": "기초교양",
-          "ge_area": "기초",
-          "min_credits": 18,
-          "children": [
-            {
-              "area": "글쓰기",
-              "min_credits": 3,
-              "course_ids": [
-                "BKSA64611",
-                "BKSA64612",
-                "BKSA64613",
-                "BKSA64623"
-              ]
-            },
-            {
-              "area": "발표와토론",
-              "min_credits": 3,
-              "course_ids": [
-                "BKSA39798",
-                "BKSA64608",
-                "BKSA64609",
-                "BKSA64610"
-              ]
-            },
-            {
-              "area": "외국어기초",
-              "min_credits": 6,
-              "course_ids": [
-                "BKSA53699",
-                "BKSA53700",
-                "BKSA58109",
-                "BKSA51431",
-                "BKSA51432",
-                "BKSA58149"
-              ],
-              "must_include": [
-                "BKSA53699"
-              ]
-            },
-            {
-              "area": "인문기초",
-              "min_credits": 3,
-              "course_ids": [
-                "BKSA58110",
-                "BKSA58112",
-                "BKSA58113"
-              ]
-            },
-            {
-              "area": "과학기초",
-              "min_credits": 3,
-              "course_ids": [
-                "BKSA15891",
-                "BKSA58133",
-                "BKSA58224",
-                "BKSA59512",
-                "BKSA56558",
-                "BKSA81308",
-                "BKSA63377"
-              ]
-            }
-          ]
-        },
-        {
-          "area": "심화교양",
-          "ge_area": "심화",
-          "min_credits": 8,
-          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
-        },
-        {
-          "area": "KU소양",
-          "ge_area": "소양",
-          "min_credits": 9,
-          "children": [
-            {
-              "area": "인성",
-              "min_credits": 3,
-              "must_include": [
-                "BZZA62440"
-              ]
-            },
-            {
-              "area": "실무",
-              "min_credits": 4,
-              "must_include": [
-                "BKSA59472"
-              ]
-            },
-            {
-              "area": "실기",
-              "min_credits": 2
-            }
-          ]
-        }
-      ],
-      "notes": [
-        "전필 27 + 전선 39 + 교필 6 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
-        "교선은 최소 학점이 없고 수강한 학점만 표시",
-        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 35학점) 원문 데이터"
-      ],
-      "inferred": [],
-      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2023), 교양(2023)",
-      "credit_table_year": 2023,
-      "ge_year": 2023,
-      "curriculum_year": null,
-      "verified": false
-    },
-    "2024-cse": {
+    {
       "admission_year": 2024,
       "major": "cse",
       "total_credits": 132,
       "credits": {
         "전필": 12,
         "전선": 54,
-        "교필": 6,
-        "교선": null
+        "교필": 6
       },
       "ge_credits": {
         "기초": 18,
@@ -736,6 +693,15 @@
         "전공계": 40
       },
       "minor_credits": null,
+      "required_course_ids": [
+        "NDGE12263",
+        "NDGE15060",
+        "NDGE11863",
+        "NDGE12137",
+        "BKSA53699",
+        "BZZA62440",
+        "BKSA59472"
+      ],
       "required_courses": [
         {
           "course_id": "NDGE12263",
@@ -1214,171 +1180,14 @@
       "curriculum_year": 2024,
       "verified": true
     },
-    "2024-biz": {
-      "admission_year": 2024,
-      "major": "biz",
-      "total_credits": 124,
-      "credits": {
-        "전필": 27,
-        "전선": 39,
-        "교필": 6,
-        "교선": null
-      },
-      "ge_credits": {
-        "기초": 18,
-        "심화": 8,
-        "소양": 9
-      },
-      "double_major_credits": {
-        "전공계": 45
-      },
-      "minor_credits": null,
-      "required_courses": [
-        {
-          "course_id": "BKSA53699",
-          "name": "KUGEP1",
-          "category": "교필",
-          "area": "기초교양/외국어기초",
-          "credits": 3,
-          "year_semester": "1-1,2"
-        },
-        {
-          "course_id": "BZZA62440",
-          "name": "성신의대학생활지도",
-          "category": "교필",
-          "area": "KU소양/인성",
-          "credits": 1,
-          "year_semester": "1-1"
-        },
-        {
-          "course_id": "BKSA59472",
-          "name": "취업전략수립및역량개발1",
-          "category": "교필",
-          "area": "KU소양/실무",
-          "credits": 2,
-          "year_semester": "2-1,2"
-        }
-      ],
-      "major_required_listed": false,
-      "major_courses": [],
-      "ge_sub_requirements": [
-        {
-          "area": "기초교양",
-          "ge_area": "기초",
-          "min_credits": 18,
-          "children": [
-            {
-              "area": "글쓰기",
-              "min_credits": 3,
-              "course_ids": [
-                "BKSA64611",
-                "BKSA64612",
-                "BKSA64613",
-                "BKSA64623"
-              ]
-            },
-            {
-              "area": "발표와토론",
-              "min_credits": 3,
-              "course_ids": [
-                "BKSA39798",
-                "BKSA64608",
-                "BKSA64609",
-                "BKSA64610"
-              ]
-            },
-            {
-              "area": "외국어기초",
-              "min_credits": 6,
-              "course_ids": [
-                "BKSA53699",
-                "BKSA53700",
-                "BKSA58109",
-                "BKSA51431",
-                "BKSA51432",
-                "BKSA58149"
-              ],
-              "must_include": [
-                "BKSA53699"
-              ]
-            },
-            {
-              "area": "인문기초",
-              "min_credits": 3,
-              "course_ids": [
-                "BKSA58110",
-                "BKSA58112",
-                "BKSA58113"
-              ]
-            },
-            {
-              "area": "과학기초",
-              "min_credits": 3,
-              "course_ids": [
-                "BKSA15891",
-                "BKSA58133",
-                "BKSA58224",
-                "BKSA59512",
-                "BKSA56558",
-                "BKSA81308",
-                "BKSA63377"
-              ]
-            }
-          ]
-        },
-        {
-          "area": "심화교양",
-          "ge_area": "심화",
-          "min_credits": 8,
-          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
-        },
-        {
-          "area": "KU소양",
-          "ge_area": "소양",
-          "min_credits": 9,
-          "children": [
-            {
-              "area": "인성",
-              "min_credits": 3,
-              "must_include": [
-                "BZZA62440"
-              ]
-            },
-            {
-              "area": "실무",
-              "min_credits": 4,
-              "must_include": [
-                "BKSA59472"
-              ]
-            },
-            {
-              "area": "실기",
-              "min_credits": 2
-            }
-          ]
-        }
-      ],
-      "notes": [
-        "전필 27 + 전선 39 + 교필 6 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
-        "교선은 최소 학점이 없고 수강한 학점만 표시",
-        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 35학점) 원문 데이터"
-      ],
-      "inferred": [],
-      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2024), 교양(2024)",
-      "credit_table_year": 2024,
-      "ge_year": 2024,
-      "curriculum_year": null,
-      "verified": false
-    },
-    "2025-cse": {
+    {
       "admission_year": 2025,
       "major": "cse",
       "total_credits": 132,
       "credits": {
         "전필": 3,
         "전선": 63,
-        "교필": 5,
-        "교선": null
+        "교필": 5
       },
       "ge_credits": {
         "기초": 14,
@@ -1389,6 +1198,12 @@
         "전공계": 40
       },
       "minor_credits": 24,
+      "required_course_ids": [
+        "NDGE15060",
+        "BKSA53699",
+        "BZZA62440",
+        "BKSA59472"
+      ],
       "required_courses": [
         {
           "course_id": "NDGE15060",
@@ -1912,180 +1727,14 @@
       "curriculum_year": 2025,
       "verified": true
     },
-    "2025-biz": {
-      "admission_year": 2025,
-      "major": "biz",
-      "total_credits": 124,
-      "credits": {
-        "전필": 27,
-        "전선": 39,
-        "교필": 5,
-        "교선": null
-      },
-      "ge_credits": {
-        "기초": 14,
-        "심화": 8,
-        "소양": 9
-      },
-      "double_major_credits": {
-        "전공계": 45
-      },
-      "minor_credits": 24,
-      "required_courses": [
-        {
-          "course_id": "BKSA53699",
-          "name": "KUGEP1",
-          "category": "교필",
-          "area": "기초교양/외국어기초",
-          "credits": 2,
-          "year_semester": "1-1,2"
-        },
-        {
-          "course_id": "BZZA62440",
-          "name": "성신의대학생활지도",
-          "category": "교필",
-          "area": "KU소양/인성",
-          "credits": 1,
-          "year_semester": "1-1"
-        },
-        {
-          "course_id": "BKSA59472",
-          "name": "취업전략수립및역량개발1",
-          "category": "교필",
-          "area": "KU소양/실무",
-          "credits": 2,
-          "year_semester": "2-1,2"
-        }
-      ],
-      "major_required_listed": false,
-      "major_courses": [],
-      "ge_sub_requirements": [
-        {
-          "area": "기초교양",
-          "ge_area": "기초",
-          "min_credits": 14,
-          "children": [
-            {
-              "area": "글쓰기",
-              "min_credits": 2,
-              "course_ids": [
-                "BKSA64611",
-                "BKSA64612",
-                "BKSA64613",
-                "BKSA64623"
-              ]
-            },
-            {
-              "area": "발표와토론",
-              "min_credits": 2,
-              "course_ids": [
-                "BKSA39798",
-                "BKSA64608",
-                "BKSA64609",
-                "BKSA64610"
-              ]
-            },
-            {
-              "area": "외국어기초",
-              "min_credits": 4,
-              "course_ids": [
-                "BKSA53699",
-                "BKSA53700",
-                "BKSA58109",
-                "BKSA51431",
-                "BKSA51432",
-                "BKSA58149"
-              ],
-              "must_include": [
-                "BKSA53699"
-              ]
-            },
-            {
-              "area": "인문기초",
-              "min_credits": 2,
-              "course_ids": [
-                "BKSA58110",
-                "BKSA58112",
-                "BKSA58113"
-              ]
-            },
-            {
-              "area": "과학기초",
-              "min_credits": 2,
-              "course_ids": [
-                "BKSA15891",
-                "BKSA58133",
-                "BKSA58224",
-                "BKSA59512",
-                "BKSA81308"
-              ]
-            },
-            {
-              "area": "AI/데이터",
-              "min_credits": 2,
-              "course_ids": [
-                "BKSA56558",
-                "BKSA67912",
-                "BKSA67913",
-                "BKSA67914",
-                "BKSA67915"
-              ]
-            }
-          ]
-        },
-        {
-          "area": "심화교양",
-          "ge_area": "심화",
-          "min_credits": 8,
-          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
-        },
-        {
-          "area": "KU소양",
-          "ge_area": "소양",
-          "min_credits": 9,
-          "children": [
-            {
-              "area": "인성",
-              "min_credits": 3,
-              "must_include": [
-                "BZZA62440"
-              ]
-            },
-            {
-              "area": "실무",
-              "min_credits": 4,
-              "must_include": [
-                "BKSA59472"
-              ]
-            },
-            {
-              "area": "실기",
-              "min_credits": 2
-            }
-          ]
-        }
-      ],
-      "notes": [
-        "전필 27 + 전선 39 + 교필 5 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
-        "교선은 최소 학점이 없고 수강한 학점만 표시",
-        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 31학점) 원문 데이터"
-      ],
-      "inferred": [],
-      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2025), 교양(2025)",
-      "credit_table_year": 2025,
-      "ge_year": 2025,
-      "curriculum_year": null,
-      "verified": false
-    },
-    "2026-cse": {
+    {
       "admission_year": 2026,
       "major": "cse",
       "total_credits": 132,
       "credits": {
         "전필": 3,
         "전선": 63,
-        "교필": 5,
-        "교선": null
+        "교필": 5
       },
       "ge_credits": {
         "기초": 14,
@@ -2096,6 +1745,12 @@
         "전공계": 40
       },
       "minor_credits": 24,
+      "required_course_ids": [
+        "NDGE15060",
+        "BKSA53699",
+        "BZZA62440",
+        "BKSA59472"
+      ],
       "required_courses": [
         {
           "course_id": "NDGE15060",
@@ -2626,15 +2281,334 @@
       "curriculum_year": 2026,
       "verified": true
     },
-    "2026-biz": {
-      "admission_year": 2026,
+    {
+      "admission_year": 2023,
       "major": "biz",
       "total_credits": 124,
       "credits": {
         "전필": 27,
         "전선": 39,
-        "교필": 5,
-        "교선": null
+        "교필": 6
+      },
+      "ge_credits": {
+        "기초": 18,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 45
+      },
+      "minor_credits": null,
+      "required_course_ids": [
+        "BKSA53699",
+        "BZZA62440",
+        "BKSA59472"
+      ],
+      "required_courses": [
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 3,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": false,
+      "major_courses": [],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 18,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 6,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA56558",
+                "BKSA81308",
+                "BKSA63377"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 27 + 전선 39 + 교필 6 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 35학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2023), 교양(2023)",
+      "credit_table_year": 2023,
+      "ge_year": 2023,
+      "curriculum_year": null,
+      "verified": false
+    },
+    {
+      "admission_year": 2024,
+      "major": "biz",
+      "total_credits": 124,
+      "credits": {
+        "전필": 27,
+        "전선": 39,
+        "교필": 6
+      },
+      "ge_credits": {
+        "기초": 18,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 45
+      },
+      "minor_credits": null,
+      "required_course_ids": [
+        "BKSA53699",
+        "BZZA62440",
+        "BKSA59472"
+      ],
+      "required_courses": [
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 3,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": false,
+      "major_courses": [],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 18,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 6,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA56558",
+                "BKSA81308",
+                "BKSA63377"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 27 + 전선 39 + 교필 6 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 35학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2024), 교양(2024)",
+      "credit_table_year": 2024,
+      "ge_year": 2024,
+      "curriculum_year": null,
+      "verified": false
+    },
+    {
+      "admission_year": 2025,
+      "major": "biz",
+      "total_credits": 124,
+      "credits": {
+        "전필": 27,
+        "전선": 39,
+        "교필": 5
       },
       "ge_credits": {
         "기초": 14,
@@ -2645,6 +2619,180 @@
         "전공계": 45
       },
       "minor_credits": 24,
+      "required_course_ids": [
+        "BKSA53699",
+        "BZZA62440",
+        "BKSA59472"
+      ],
+      "required_courses": [
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 2,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": false,
+      "major_courses": [],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 14,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 4,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA81308"
+              ]
+            },
+            {
+              "area": "AI/데이터",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA56558",
+                "BKSA67912",
+                "BKSA67913",
+                "BKSA67914",
+                "BKSA67915"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 27 + 전선 39 + 교필 5 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 31학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2025), 교양(2025)",
+      "credit_table_year": 2025,
+      "ge_year": 2025,
+      "curriculum_year": null,
+      "verified": false
+    },
+    {
+      "admission_year": 2026,
+      "major": "biz",
+      "total_credits": 124,
+      "credits": {
+        "전필": 27,
+        "전선": 39,
+        "교필": 5
+      },
+      "ge_credits": {
+        "기초": 14,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 45
+      },
+      "minor_credits": 24,
+      "required_course_ids": [
+        "BKSA53699",
+        "BZZA62440",
+        "BKSA59472"
+      ],
       "required_courses": [
         {
           "course_id": "BKSA53699",
@@ -2791,5 +2939,5 @@
       "curriculum_year": null,
       "verified": false
     }
-  }
+  ]
 }

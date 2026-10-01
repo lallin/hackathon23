@@ -93,13 +93,14 @@ def entry(year, major):
     if ge_year != year: inferred.append(f"{year} 교양 기준 없음: {ge_year} 교양 기준 사용")
     assert sum(ge["ge"].values()) == g_total or table_year != ge_year, (year, major, "교양 학점 불일치")
     gp = sum(c["credits"] for c in ge["required"])
-    credits = {"전필": jp, "전선": js, "교필": gp, "교선": None}   # 교선은 최소 학점 없음
+    credits = {"전필": jp, "전선": js, "교필": gp}   # 교선은 최소 학점 없음 -> 키 없음 (서버 샘플 형식)
     return {
         "admission_year": year, "major": major,
         "total_credits": grad,
         "credits": credits,
         "ge_credits": dict(ge["ge"]),
         "double_major_credits": {"전공계": dm}, "minor_credits": minor,
+        "required_course_ids": [c["course_id"] for c in major_req + ge["required"]],
         "required_courses": major_req + copy.deepcopy(ge["required"]),
         "major_required_listed": bool(curriculum),
         "major_courses": [{"course_id": c, "name": n, "category": cat, "credits": int(cr), "year_semester": ys,
@@ -117,17 +118,31 @@ def entry(year, major):
     }
 
 SUPPORTED = [2023, 2024, 2025, 2026]
+# 드롭다운에만 보이는 미지원 학과 (2026 학사요람 글로컬캠퍼스 학과)
+OTHER_MAJORS = [("ind_design", "산업디자인학과"), ("interior", "실내디자인학과"), ("fashion", "패션디자인학과"),
+    ("visual", "시각영상디자인학과"), ("media_contents", "미디어콘텐츠학과"), ("fine_arts", "조형예술학과"),
+    ("econ_trade", "경제통상학과"), ("police", "경찰학과"), ("fire", "소방방재융합학과"), ("lis", "문헌정보학과"),
+    ("early_edu", "유아교육과"), ("welfare", "사회복지학과"), ("journalism", "신문방송학과"),
+    ("korean_culture", "동화·한국어문화학과"), ("english", "영어문화학과"), ("mechatronics", "메카트로닉스공학과"),
+    ("biomedical", "바이오메디컬공학과"), ("green_tech", "녹색기술융합학과"), ("energy_materials", "에너지신소재공학과"),
+    ("nursing", "간호학과"), ("biopharm", "바이오의약학과"), ("biotech", "생명공학과"), ("food_nutrition", "식품영양학과"),
+    ("beauty", "뷰티화장품학과"), ("sports_health", "스포츠건강학과"), ("golf", "골프산업학과")]
+
+# 서버(app) 샘플 형식에 맞춘 출력. 샘플에 없는 필드는 추가 정보(서버는 무시해도 됨)
 out = {
+    "sample": False,
+    "note": "건국대 글로컬캠퍼스 학사요람 실제 값. credits는 최소 이수 학점(전필·전선·교필, 교선은 최소 없음), "
+            "total_credits는 졸업 총 학점이며 모자란 학점은 네 영역 어디로든 채울 수 있다. 경영학과 전공 과목 목록은 추후 추가.",
     "university": "건국대학교 글로컬캠퍼스",
-    "semester": "2026-2",
-    "categories": ["전필", "전선", "교필", "교선"],
-    "ge_required_rule": "교양 과목(기초·심화·소양·인성) 중 required_courses에 있는 학수번호는 교필, 나머지는 교선",
+    "admission_years": list(range(2026, 2018, -1)),
+    "supported_years": SUPPORTED,
+    "majors": [{"id": k, "name": v["name"], "supported": True} for k, v in MAJORS.items()]
+              + [{"id": i, "name": n, "supported": False} for i, n in OTHER_MAJORS],
+    "ge_required_rule": "교양 과목(기초·심화·소양·인성) 중 required_course_ids에 있는 학수번호는 교필, 나머지는 교선",
     "category_mapping": {  # 성적표 이수구분 약어. "교양"은 ge_required_rule로 교필/교선 결정, null = 총학점에만 합산
         "전필": "전필", "전선": "전선", "기초": "교양", "소양": "교양", "인성": "교양", "심화": "교양",
         "일선": None, "자선": None, "다필": None, "다선": None, "교직": None},
-    "admission_years": [{"year": y, "supported": y in SUPPORTED} for y in range(2019, 2027)],
-    "majors": [{"id": k, **v, "supported": True} for k, v in MAJORS.items()],
-    "requirements": {f"{y}-{m}": entry(y, m) for y in SUPPORTED for m in MAJORS},
+    "requirements": [entry(y, m) for m in MAJORS for y in SUPPORTED],
 }
 OUT.parent.mkdir(parents=True, exist_ok=True)
 json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=2)

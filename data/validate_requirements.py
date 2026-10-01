@@ -1,34 +1,36 @@
-"""requirements.json 검증: 8개 조합, 학점 합계, 필수 과목 형식, 확인 여부."""
+"""requirements.json 검증: 서버 샘플 형식, 8개 조합, 학점, 같은 연도 학점표·과목 목록 일치."""
 import json, sys
 from pathlib import Path
 path = sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent / "seed" / "requirements.json"
 d = json.load(open(path, encoding="utf-8"))
-cats = d["categories"]; errs, warns = [], []
-years = [y["year"] for y in d["admission_years"] if y["supported"]]
-majors = [m["id"] for m in d["majors"] if m["supported"]]
-for y in years:
+errs, warns = [], []
+MIN = ["전필", "전선", "교필"]
+for key in ["admission_years", "supported_years", "majors", "requirements"]:
+    if key not in d: errs.append(f"최상위 키 없음: {key}")
+reqs = {(r["admission_year"], r["major"]): r for r in d.get("requirements", [])}
+majors = [m["id"] for m in d.get("majors", []) if m["supported"]]
+for y in d.get("supported_years", []):
+    if y not in d["admission_years"]: errs.append(f"{y}: admission_years에 없음")
     for m in majors:
-        k = f"{y}-{m}"; r = d["requirements"].get(k)
+        k = f"{y}-{m}"; r = reqs.get((y, m))
         if not r: errs.append(f"{k}: 없음"); continue
         c = r["credits"]
-        if any(c.get(x) is None for x in ["전필", "전선", "교필"]): errs.append(f"{k}: 최소 학점 비어 있음"); continue
-        if c.get("교선") is not None: errs.append(f"{k}: 교선은 최소 학점 없음(null)이어야 함")
-        s = sum(c[x] for x in ["전필", "전선", "교필"])
-        if s > r["total_credits"]: errs.append(f"{k}: 최저 학점 합 {s} > 졸업 {r['total_credits']}")
-
-        if "free_credits" in r: errs.append(f"{k}: free_credits 남아 있음")
-        for rc in r["required_courses"]:
-            if rc["category"] not in cats or not rc["course_id"] or "TODO" in rc["course_id"]:
-                errs.append(f"{k}: 필수 과목 형식 오류 {rc}")
-        for cat in cats:
-            req = sum(rc["credits"] for rc in r["required_courses"] if rc["category"] == cat)
-            if c[cat] is not None and req != c[cat] and cat == "교필": errs.append(f"{k}: 교필 {c[cat]} != 필수 교양 합 {req}")
-            if c[cat] is not None and req > c[cat]: errs.append(f"{k}: {cat} 필수 과목 합 {req} > 요구 {c[cat]}")
+        if set(c) != set(MIN) or any(not isinstance(c[x], int) for x in MIN):
+            errs.append(f"{k}: credits는 전필·전선·교필 정수만 ({c})"); continue
+        if sum(c.values()) > r["total_credits"]: errs.append(f"{k}: 최소 학점 합 > 졸업 {r['total_credits']}")
+        ids = r.get("required_course_ids")
+        if not isinstance(ids, list) or not ids: errs.append(f"{k}: required_course_ids 없음"); continue
+        if len(ids) != len(set(ids)): errs.append(f"{k}: required_course_ids 중복")
+        rc = {x["course_id"]: x for x in r.get("required_courses", [])}
+        if set(ids) != set(rc): errs.append(f"{k}: required_course_ids와 required_courses 불일치")
+        gp = sum(x["credits"] for x in rc.values() if x["category"] == "교필")
+        if gp != c["교필"]: errs.append(f"{k}: 교필 {c['교필']} != 필수 교양 합 {gp}")
         if not r.get("major_required_listed"): warns.append(f"{k}: 전필 과목 목록 없음")
         else:
             jp = sum(x["credits"] for x in r["major_courses"] if x["category"] == "전필")
             js = sum(x["credits"] for x in r["major_courses"] if x["category"] == "전선")
-            if jp != c["전필"]: errs.append(f"{k}: 학점표 전필 {c['전필']} != 전필 과목 합 {jp}")
+            jr = sum(x["credits"] for x in rc.values() if x["category"] == "전필")
+            if jp != c["전필"] or jr != c["전필"]: errs.append(f"{k}: 학점표 전필 {c['전필']} != 전필 과목 합 {jp}")
             if js < c["전선"]: errs.append(f"{k}: 전선 과목 전체 {js} < 학점표 전선 {c['전선']}")
         for i in r.get("inferred", []): warns.append(f"{k}: 추정 - {i}")
 print("\n".join(["ERROR " + e for e in errs] + ["WARN  " + w for w in warns]) or "OK")
