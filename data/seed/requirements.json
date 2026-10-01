@@ -1,0 +1,2795 @@
+{
+  "university": "건국대학교 글로컬캠퍼스",
+  "semester": "2026-2",
+  "categories": [
+    "전필",
+    "전선",
+    "교필",
+    "교선"
+  ],
+  "ge_required_rule": "교양 과목(기초·심화·소양·인성) 중 required_courses에 있는 학수번호는 교필, 나머지는 교선",
+  "category_mapping": {
+    "전필": "전필",
+    "전선": "전선",
+    "기초": "교양",
+    "소양": "교양",
+    "인성": "교양",
+    "심화": "교양",
+    "일선": null,
+    "자선": null,
+    "다필": null,
+    "다선": null,
+    "교직": null
+  },
+  "admission_years": [
+    {
+      "year": 2019,
+      "supported": false
+    },
+    {
+      "year": 2020,
+      "supported": false
+    },
+    {
+      "year": 2021,
+      "supported": false
+    },
+    {
+      "year": 2022,
+      "supported": false
+    },
+    {
+      "year": 2023,
+      "supported": true
+    },
+    {
+      "year": 2024,
+      "supported": true
+    },
+    {
+      "year": 2025,
+      "supported": true
+    },
+    {
+      "year": 2026,
+      "supported": true
+    }
+  ],
+  "majors": [
+    {
+      "id": "cse",
+      "name": "컴퓨터공학과",
+      "college": "과학기술대학",
+      "supported": true
+    },
+    {
+      "id": "biz",
+      "name": "경영학과",
+      "college": "인문사회융합대학",
+      "supported": true
+    }
+  ],
+  "requirements": {
+    "2023-cse": {
+      "admission_year": 2023,
+      "major": "cse",
+      "total_credits": 132,
+      "credits": {
+        "전필": 15,
+        "전선": 51,
+        "교필": 6,
+        "교선": null
+      },
+      "ge_credits": {
+        "기초": 18,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 40
+      },
+      "minor_credits": null,
+      "required_courses": [
+        {
+          "course_id": "NDGE05021",
+          "name": "컴퓨터공학개론",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE12263",
+          "name": "컴퓨터구조",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE15060",
+          "name": "자료구조",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE11863",
+          "name": "데이터베이스",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE12137",
+          "name": "운영체제",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 3,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": true,
+      "major_courses": [
+        {
+          "course_id": "NDGE05021",
+          "name": "컴퓨터공학개론",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE12263",
+          "name": "컴퓨터구조",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE15060",
+          "name": "자료구조",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE11863",
+          "name": "데이터베이스",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE12137",
+          "name": "운영체제",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE57957",
+          "name": "대학수학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE14465",
+          "name": "UNIX시스템",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE14419",
+          "name": "이산수학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE62441",
+          "name": "K-Project",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE11989",
+          "name": "컴퓨터프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE14544",
+          "name": "전산통계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE48003",
+          "name": "Java프로그래밍1",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE11820",
+          "name": "웹프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE62442",
+          "name": "Nano-LAB기초1",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE14393",
+          "name": "디지털논리회로",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE21122",
+          "name": "프로그래밍실습",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE48004",
+          "name": "Java프로그래밍2",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE50341",
+          "name": "창의공학설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE15050",
+          "name": "시스템프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE62443",
+          "name": "Nano-LAB기초2",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE14570",
+          "name": "C++프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE14448",
+          "name": "컴퓨터알고리즘",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE56032",
+          "name": "빅데이터기초",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE62444",
+          "name": "Nano-LAB심화1",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE14382",
+          "name": "데이터통신",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE59586",
+          "name": "Swift프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE14446",
+          "name": "컴퓨터네트워크",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE14514",
+          "name": "소프트웨어공학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE50346",
+          "name": "고급웹프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE53985",
+          "name": "iOS프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE54361",
+          "name": "데이터과학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE62445",
+          "name": "Nano-LAB심화2",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE57518",
+          "name": "안드로이드프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE24429",
+          "name": "컴퓨터보안",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE46040",
+          "name": "인간컴퓨터상호작용",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE39602",
+          "name": "게임프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE56030",
+          "name": "소프트웨어종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE56572",
+          "name": "기계학습",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE63510",
+          "name": "인공지능컴퓨터보안",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE15817",
+          "name": "멀티미디어와가상현실",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE62731",
+          "name": "클라우드컴퓨팅",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE56031",
+          "name": "프로젝트종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        }
+      ],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 18,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 6,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA56558",
+                "BKSA81308",
+                "BKSA63377"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 15 + 전선 51 + 교필 6 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 132학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 35학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2023), 교양(2023), 전공교육과정(2023)",
+      "credit_table_year": 2023,
+      "ge_year": 2023,
+      "curriculum_year": 2023,
+      "verified": true
+    },
+    "2023-biz": {
+      "admission_year": 2023,
+      "major": "biz",
+      "total_credits": 124,
+      "credits": {
+        "전필": 27,
+        "전선": 39,
+        "교필": 6,
+        "교선": null
+      },
+      "ge_credits": {
+        "기초": 18,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 45
+      },
+      "minor_credits": null,
+      "required_courses": [
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 3,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": false,
+      "major_courses": [],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 18,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 6,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA56558",
+                "BKSA81308",
+                "BKSA63377"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 27 + 전선 39 + 교필 6 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 35학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2023), 교양(2023)",
+      "credit_table_year": 2023,
+      "ge_year": 2023,
+      "curriculum_year": null,
+      "verified": false
+    },
+    "2024-cse": {
+      "admission_year": 2024,
+      "major": "cse",
+      "total_credits": 132,
+      "credits": {
+        "전필": 12,
+        "전선": 54,
+        "교필": 6,
+        "교선": null
+      },
+      "ge_credits": {
+        "기초": 18,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 40
+      },
+      "minor_credits": null,
+      "required_courses": [
+        {
+          "course_id": "NDGE12263",
+          "name": "컴퓨터구조",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "2-1,2"
+        },
+        {
+          "course_id": "NDGE15060",
+          "name": "자료구조",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "2-1,2"
+        },
+        {
+          "course_id": "NDGE11863",
+          "name": "데이터베이스",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "3-1,2"
+        },
+        {
+          "course_id": "NDGE12137",
+          "name": "운영체제",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 3,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": true,
+      "major_courses": [
+        {
+          "course_id": "NDGE12263",
+          "name": "컴퓨터구조",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "2-1,2"
+        },
+        {
+          "course_id": "NDGE15060",
+          "name": "자료구조",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "2-1,2"
+        },
+        {
+          "course_id": "NDGE11863",
+          "name": "데이터베이스",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "3-1,2"
+        },
+        {
+          "course_id": "NDGE12137",
+          "name": "운영체제",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE05021",
+          "name": "컴퓨터공학개론",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "NDGE57957",
+          "name": "대학수학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE14465",
+          "name": "UNIX시스템",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE14419",
+          "name": "이산수학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE62441",
+          "name": "K-Project",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE57369",
+          "name": "C프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE14544",
+          "name": "전산통계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1,2"
+        },
+        {
+          "course_id": "NDGE48003",
+          "name": "Java프로그래밍1",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE11820",
+          "name": "웹프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE62442",
+          "name": "Nano-LAB기초1",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE14393",
+          "name": "디지털논리회로",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE21122",
+          "name": "프로그래밍실습",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE48004",
+          "name": "Java프로그래밍2",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE50341",
+          "name": "창의공학설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE15050",
+          "name": "시스템프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE62443",
+          "name": "Nano-LAB기초2",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE14570",
+          "name": "C++프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE14448",
+          "name": "컴퓨터알고리즘",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE56032",
+          "name": "빅데이터기초",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE62444",
+          "name": "Nano-LAB심화1",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE14382",
+          "name": "데이터통신",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE59586",
+          "name": "Swift프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE66402",
+          "name": "인공지능기초",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE14446",
+          "name": "컴퓨터네트워크",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE14514",
+          "name": "소프트웨어공학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE50346",
+          "name": "고급웹프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE53985",
+          "name": "iOS프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE54361",
+          "name": "데이터과학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE62445",
+          "name": "Nano-LAB심화2",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE57518",
+          "name": "안드로이드프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE62731",
+          "name": "클라우드컴퓨팅",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE24429",
+          "name": "컴퓨터보안",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE46040",
+          "name": "인간컴퓨터상호작용",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE39602",
+          "name": "게임프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE56030",
+          "name": "소프트웨어종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE56572",
+          "name": "기계학습",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE66422",
+          "name": "인공지능컴퓨터보안종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE15817",
+          "name": "멀티미디어와가상현실",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE65059",
+          "name": "딥러닝",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE56031",
+          "name": "프로젝트종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        }
+      ],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 18,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 6,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA56558",
+                "BKSA81308",
+                "BKSA63377"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 12 + 전선 54 + 교필 6 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 132학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 35학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2024), 교양(2024), 전공교육과정(2024)",
+      "credit_table_year": 2024,
+      "ge_year": 2024,
+      "curriculum_year": 2024,
+      "verified": true
+    },
+    "2024-biz": {
+      "admission_year": 2024,
+      "major": "biz",
+      "total_credits": 124,
+      "credits": {
+        "전필": 27,
+        "전선": 39,
+        "교필": 6,
+        "교선": null
+      },
+      "ge_credits": {
+        "기초": 18,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 45
+      },
+      "minor_credits": null,
+      "required_courses": [
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 3,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": false,
+      "major_courses": [],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 18,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 6,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 3,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA56558",
+                "BKSA81308",
+                "BKSA63377"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 27 + 전선 39 + 교필 6 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 35학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2024), 교양(2024)",
+      "credit_table_year": 2024,
+      "ge_year": 2024,
+      "curriculum_year": null,
+      "verified": false
+    },
+    "2025-cse": {
+      "admission_year": 2025,
+      "major": "cse",
+      "total_credits": 132,
+      "credits": {
+        "전필": 3,
+        "전선": 63,
+        "교필": 5,
+        "교선": null
+      },
+      "ge_credits": {
+        "기초": 14,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 40
+      },
+      "minor_credits": 24,
+      "required_courses": [
+        {
+          "course_id": "NDGE15060",
+          "name": "자료구조",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "2-1,2"
+        },
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 2,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": true,
+      "major_courses": [
+        {
+          "course_id": "NDGE15060",
+          "name": "자료구조",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "2-1,2"
+        },
+        {
+          "course_id": "NDGE05021",
+          "name": "컴퓨터공학개론",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1,2",
+          "remark": "cluster(대표)"
+        },
+        {
+          "course_id": "NDGE14419",
+          "name": "이산수학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1,2",
+          "remark": "cluster"
+        },
+        {
+          "course_id": "NDGE57369",
+          "name": "C프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1,2",
+          "remark": "cluster"
+        },
+        {
+          "course_id": "NDGE67863",
+          "name": "Python프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1,2",
+          "remark": "cluster"
+        },
+        {
+          "course_id": "NDGE14465",
+          "name": "UNIX시스템",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE14544",
+          "name": "전산통계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE56032",
+          "name": "빅데이터기초",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE62441",
+          "name": "K-Project",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE14393",
+          "name": "디지털논리회로",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE54361",
+          "name": "데이터과학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE21122",
+          "name": "프로그래밍실습",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE11820",
+          "name": "웹프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE48003",
+          "name": "Java프로그래밍1",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE05022",
+          "name": "컴퓨터시스템",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE67560",
+          "name": "Nano-LAB기초1(컴퓨터공학)",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE48004",
+          "name": "Java프로그래밍2",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE50341",
+          "name": "창의공학설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE15050",
+          "name": "시스템프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE67864",
+          "name": "크로스플랫폼프로그래밍1",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE66532",
+          "name": "빅데이터와인공지능",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE14570",
+          "name": "C++프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE12263",
+          "name": "컴퓨터구조",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE67588",
+          "name": "Nano-LAB기초2(컴퓨터공학)",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE11863",
+          "name": "데이터베이스",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1,2"
+        },
+        {
+          "course_id": "NDGE66402",
+          "name": "인공지능기초",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE12137",
+          "name": "운영체제",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE67866",
+          "name": "Kotlin프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE67865",
+          "name": "크로스플랫폼프로그래밍2",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE59586",
+          "name": "Swift프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE14448",
+          "name": "컴퓨터알고리즘",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE67616",
+          "name": "Nano-LAB심화1(컴퓨터공학)",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE66422",
+          "name": "인공지능컴퓨터보안종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE67868",
+          "name": "모바일앱UX디자인",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE57518",
+          "name": "안드로이드프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE53985",
+          "name": "iOS프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE14446",
+          "name": "컴퓨터네트워크",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE67867",
+          "name": "데이터시각화분석",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE15879",
+          "name": "정보처리이론",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE50346",
+          "name": "고급웹프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE14514",
+          "name": "소프트웨어공학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE62731",
+          "name": "클라우드컴퓨팅",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE67644",
+          "name": "Nano-LAB심화2(컴퓨터공학)",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE67869",
+          "name": "정보처리실무",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE39602",
+          "name": "게임프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE56572",
+          "name": "기계학습",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE46040",
+          "name": "인간컴퓨터상호작용",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE24429",
+          "name": "컴퓨터보안",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE56030",
+          "name": "소프트웨어종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE15817",
+          "name": "멀티미디어와가상현실",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE65059",
+          "name": "딥러닝",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE56031",
+          "name": "프로젝트종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        }
+      ],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 14,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 4,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA81308"
+              ]
+            },
+            {
+              "area": "AI/데이터",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA56558",
+                "BKSA67912",
+                "BKSA67913",
+                "BKSA67914",
+                "BKSA67915"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 3 + 전선 63 + 교필 5 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 132학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 31학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2025), 교양(2025), 전공교육과정(2025)",
+      "credit_table_year": 2025,
+      "ge_year": 2025,
+      "curriculum_year": 2025,
+      "verified": true
+    },
+    "2025-biz": {
+      "admission_year": 2025,
+      "major": "biz",
+      "total_credits": 124,
+      "credits": {
+        "전필": 27,
+        "전선": 39,
+        "교필": 5,
+        "교선": null
+      },
+      "ge_credits": {
+        "기초": 14,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 45
+      },
+      "minor_credits": 24,
+      "required_courses": [
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 2,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": false,
+      "major_courses": [],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 14,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 4,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA81308"
+              ]
+            },
+            {
+              "area": "AI/데이터",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA56558",
+                "BKSA67912",
+                "BKSA67913",
+                "BKSA67914",
+                "BKSA67915"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 27 + 전선 39 + 교필 5 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 31학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2025), 교양(2025)",
+      "credit_table_year": 2025,
+      "ge_year": 2025,
+      "curriculum_year": null,
+      "verified": false
+    },
+    "2026-cse": {
+      "admission_year": 2026,
+      "major": "cse",
+      "total_credits": 132,
+      "credits": {
+        "전필": 3,
+        "전선": 63,
+        "교필": 5,
+        "교선": null
+      },
+      "ge_credits": {
+        "기초": 14,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 40
+      },
+      "minor_credits": 24,
+      "required_courses": [
+        {
+          "course_id": "NDGE15060",
+          "name": "자료구조",
+          "category": "전필",
+          "area": "전공",
+          "credits": 3,
+          "year_semester": "2-1,2"
+        },
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 2,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": true,
+      "major_courses": [
+        {
+          "course_id": "NDGE15060",
+          "name": "자료구조",
+          "category": "전필",
+          "credits": 3,
+          "year_semester": "2-1,2"
+        },
+        {
+          "course_id": "NDGE05021",
+          "name": "컴퓨터공학개론",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1,2",
+          "remark": "cluster(대표)"
+        },
+        {
+          "course_id": "NDGE14419",
+          "name": "이산수학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1,2",
+          "remark": "cluster"
+        },
+        {
+          "course_id": "NDGE57369",
+          "name": "C프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1,2",
+          "remark": "cluster"
+        },
+        {
+          "course_id": "NDGE67863",
+          "name": "Python프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1,2",
+          "remark": "cluster"
+        },
+        {
+          "course_id": "NDGE14465",
+          "name": "UNIX시스템",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE14544",
+          "name": "전산통계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "NDGE56032",
+          "name": "빅데이터기초",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE62441",
+          "name": "K-Project",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "1-2"
+        },
+        {
+          "course_id": "NDGE14393",
+          "name": "디지털논리회로",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE69127",
+          "name": "지식발견머신러닝",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE54361",
+          "name": "데이터과학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE21122",
+          "name": "프로그래밍실습",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE11820",
+          "name": "웹프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE48003",
+          "name": "Java프로그래밍1",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE05022",
+          "name": "컴퓨터시스템",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE67560",
+          "name": "Nano-LAB기초1(컴퓨터공학)",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "2-1"
+        },
+        {
+          "course_id": "NDGE48004",
+          "name": "Java프로그래밍2",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE50341",
+          "name": "창의공학설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE15050",
+          "name": "시스템프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE67864",
+          "name": "크로스플랫폼프로그래밍1",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE66532",
+          "name": "빅데이터와인공지능",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE14570",
+          "name": "C++프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE12263",
+          "name": "컴퓨터구조",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE67588",
+          "name": "Nano-LAB기초2(컴퓨터공학)",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "2-2"
+        },
+        {
+          "course_id": "NDGE11863",
+          "name": "데이터베이스",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1,2"
+        },
+        {
+          "course_id": "NDGE66402",
+          "name": "인공지능기초",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE12137",
+          "name": "운영체제",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE67866",
+          "name": "Kotlin프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE67865",
+          "name": "크로스플랫폼프로그래밍2",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE59586",
+          "name": "Swift프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE14448",
+          "name": "컴퓨터알고리즘",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE67616",
+          "name": "Nano-LAB심화1(컴퓨터공학)",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "3-1"
+        },
+        {
+          "course_id": "NDGE66422",
+          "name": "인공지능컴퓨터보안종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE67868",
+          "name": "모바일앱UX디자인",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE57518",
+          "name": "안드로이드프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE53985",
+          "name": "iOS프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE14446",
+          "name": "컴퓨터네트워크",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE67867",
+          "name": "데이터시각화분석",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE15879",
+          "name": "정보처리이론",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE50346",
+          "name": "고급웹프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE14514",
+          "name": "소프트웨어공학",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE62731",
+          "name": "클라우드컴퓨팅",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE67644",
+          "name": "Nano-LAB심화2(컴퓨터공학)",
+          "category": "전선",
+          "credits": 1,
+          "year_semester": "3-2"
+        },
+        {
+          "course_id": "NDGE67869",
+          "name": "정보처리실무",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE39602",
+          "name": "게임프로그래밍",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE56572",
+          "name": "기계학습",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE46040",
+          "name": "인간컴퓨터상호작용",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE24429",
+          "name": "컴퓨터보안",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE56030",
+          "name": "소프트웨어종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-1"
+        },
+        {
+          "course_id": "NDGE15817",
+          "name": "멀티미디어와가상현실",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE65059",
+          "name": "딥러닝",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        },
+        {
+          "course_id": "NDGE56031",
+          "name": "프로젝트종합설계",
+          "category": "전선",
+          "credits": 3,
+          "year_semester": "4-2"
+        }
+      ],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 14,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 4,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA81308"
+              ]
+            },
+            {
+              "area": "AI/데이터",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA56558",
+                "BKSA67912",
+                "BKSA67913",
+                "BKSA67914",
+                "BKSA67915"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 3 + 전선 63 + 교필 5 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 132학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 31학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2026), 교양(2026), 전공교육과정(2026)",
+      "credit_table_year": 2026,
+      "ge_year": 2026,
+      "curriculum_year": 2026,
+      "verified": true
+    },
+    "2026-biz": {
+      "admission_year": 2026,
+      "major": "biz",
+      "total_credits": 124,
+      "credits": {
+        "전필": 27,
+        "전선": 39,
+        "교필": 5,
+        "교선": null
+      },
+      "ge_credits": {
+        "기초": 14,
+        "심화": 8,
+        "소양": 9
+      },
+      "double_major_credits": {
+        "전공계": 45
+      },
+      "minor_credits": 24,
+      "required_courses": [
+        {
+          "course_id": "BKSA53699",
+          "name": "KUGEP1",
+          "category": "교필",
+          "area": "기초교양/외국어기초",
+          "credits": 2,
+          "year_semester": "1-1,2"
+        },
+        {
+          "course_id": "BZZA62440",
+          "name": "성신의대학생활지도",
+          "category": "교필",
+          "area": "KU소양/인성",
+          "credits": 1,
+          "year_semester": "1-1"
+        },
+        {
+          "course_id": "BKSA59472",
+          "name": "취업전략수립및역량개발1",
+          "category": "교필",
+          "area": "KU소양/실무",
+          "credits": 2,
+          "year_semester": "2-1,2"
+        }
+      ],
+      "major_required_listed": false,
+      "major_courses": [],
+      "ge_sub_requirements": [
+        {
+          "area": "기초교양",
+          "ge_area": "기초",
+          "min_credits": 14,
+          "children": [
+            {
+              "area": "글쓰기",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA64611",
+                "BKSA64612",
+                "BKSA64613",
+                "BKSA64623"
+              ]
+            },
+            {
+              "area": "발표와토론",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA39798",
+                "BKSA64608",
+                "BKSA64609",
+                "BKSA64610"
+              ]
+            },
+            {
+              "area": "외국어기초",
+              "min_credits": 4,
+              "course_ids": [
+                "BKSA53699",
+                "BKSA53700",
+                "BKSA58109",
+                "BKSA51431",
+                "BKSA51432",
+                "BKSA58149"
+              ],
+              "must_include": [
+                "BKSA53699"
+              ]
+            },
+            {
+              "area": "인문기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA58110",
+                "BKSA58112",
+                "BKSA58113"
+              ]
+            },
+            {
+              "area": "과학기초",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA15891",
+                "BKSA58133",
+                "BKSA58224",
+                "BKSA59512",
+                "BKSA81308"
+              ]
+            },
+            {
+              "area": "AI/데이터",
+              "min_credits": 2,
+              "course_ids": [
+                "BKSA56558",
+                "BKSA67912",
+                "BKSA67913",
+                "BKSA67914",
+                "BKSA67915"
+              ]
+            }
+          ]
+        },
+        {
+          "area": "심화교양",
+          "ge_area": "심화",
+          "min_credits": 8,
+          "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"
+        },
+        {
+          "area": "KU소양",
+          "ge_area": "소양",
+          "min_credits": 9,
+          "children": [
+            {
+              "area": "인성",
+              "min_credits": 3,
+              "must_include": [
+                "BZZA62440"
+              ]
+            },
+            {
+              "area": "실무",
+              "min_credits": 4,
+              "must_include": [
+                "BKSA59472"
+              ]
+            },
+            {
+              "area": "실기",
+              "min_credits": 2
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "전필 27 + 전선 39 + 교필 5 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 124학점",
+        "교선은 최소 학점이 없고 수강한 학점만 표시",
+        "ge_sub_requirements는 학사요람 교양 영역 기준(교양 31학점) 원문 데이터"
+      ],
+      "inferred": [],
+      "source": "건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점(2026), 교양(2026)",
+      "credit_table_year": 2026,
+      "ge_year": 2026,
+      "curriculum_year": null,
+      "verified": false
+    }
+  }
+}
