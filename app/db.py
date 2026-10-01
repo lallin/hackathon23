@@ -5,6 +5,7 @@
 - app_users: 계정과 저장된 이수 내역
 - seed_data: requirements / catalog / insights JSON 문서. 행이 있으면 data/seed/ 파일 대신 쓴다.
 - collected_insights: 온디맨드로 수집한 강의 데이터
+- llm_cache: 챗봇 해석·자유 항목 판정의 AI 응답 (재배포 뒤에도 같은 입력엔 같은 답). 성적표 결과는 넣지 않는다
 """
 import os
 import threading
@@ -34,6 +35,12 @@ create table if not exists collected_insights (
     lecture_id text primary key,
     data jsonb not null,
     collected_at timestamptz not null default now()
+);
+create table if not exists llm_cache (
+    key text primary key,
+    kind text not null,
+    value jsonb not null,
+    created_at timestamptz not null default now()
 );
 """
 

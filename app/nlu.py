@@ -89,7 +89,7 @@ def _parse(req: ChatRequest) -> ChatParse:
               f"최근 대화:\n{history or '(없음)'}\n\n"
               f"사용자 메시지: {req.message}")
     # FE는 45초 기다린다: 20초 × 2번 시도
-    return ask_json(ChatParse, prompt, system=_system_prompt(), timeout=20, retries=1)
+    return ask_json(ChatParse, prompt, system=_system_prompt(), timeout=20, retries=1, persist=True)
 
 
 def _to_item(patch: ItemPatch, existing: List[ChecklistItem]) -> ChecklistItem:

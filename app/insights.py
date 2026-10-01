@@ -122,7 +122,7 @@ def _judge_chunk(items: List[ChecklistItem], lecture_ids: List[str]) -> Dict[tup
               "근거가 없으면 unknown.")
     # 생성 요청 안에서 불린다(FE는 60초 기다린다). 단순 분류라 추론 없이 빠르게.
     result = ask_json(JudgmentResult, prompt, system="너는 수강평을 읽고 강의가 조건에 맞는지 판정하는 도우미다.",
-                      timeout=25, retries=1, effort="none")
+                      timeout=25, retries=1, effort="none", persist=True)
     out: Dict[tuple, object] = {}
     for lj in result.lectures:
         if lj.lecture_id not in lecture_ids or len(lj.values) != len(items):

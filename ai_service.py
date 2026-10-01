@@ -4,6 +4,7 @@
 - 모델은 .env의 OPENAI_MODEL / OPENAI_FALLBACK_MODEL로 바꿀 수 있다.
 - 호출마다 시간 예산(timeout, 재시도 횟수)을 받는다. FE가 기다리는 시간 안에 성공이든 실패든 끝나게 한다.
 - 같은 입력(모델·프롬프트·첨부 파일)이면 저장해 둔 응답을 바로 돌려준다. 시연 재현성과 속도용.
+  메모리에 저장하고, persist=True인 호출(챗봇 해석·자유 항목 판정)은 DB llm_cache에도 저장해 재배포 뒤에도 쓴다.
 """
 import base64
 import hashlib
@@ -128,6 +129,36 @@ def _cache_put(key: str, value) -> None:
             _cache.popitem(last=False)
 
 
+# ---- DB 캐시: 재배포·서버 재시작 뒤에도 같은 입력엔 같은 답 ----
+# DB가 없거나 실패하면 조용히 메모리 캐시만 쓴다.
+def _db():
+    from app import db  # 서버 밖(스크립트)에서 ai_service만 쓸 때도 import가 깨지지 않게 늦게 불러온다
+
+    return db if db.enabled() else None
+
+
+def _db_get(key: str):
+    db = _db()
+    if not db:
+        return None
+    try:
+        rows = db.execute("select value from llm_cache where key = %s", (key,))
+        return rows[0][0] if rows else None
+    except Exception:
+        return None
+
+
+def _db_put(key: str, kind: str, value) -> None:
+    db = _db()
+    if not db:
+        return
+    try:
+        db.execute("insert into llm_cache (key, kind, value) values (%s, %s, %s) on conflict (key) do nothing",
+                   (key, kind, db.jsonb(value)))
+    except Exception:
+        pass
+
+
 def _with_fallback(call):
     errors = []
     for model in _models():
@@ -141,12 +172,16 @@ def _with_fallback(call):
 
 
 def ask_text(prompt: str, system: Optional[str] = None, timeout: float = DEFAULT_TIMEOUT, retries: int = 2,
-             effort: str = "low") -> str:
-    """프롬프트를 보내고 응답 텍스트를 돌려준다."""
+             effort: str = "low", persist: bool = False) -> str:
+    """프롬프트를 보내고 응답 텍스트를 돌려준다. persist=True면 DB에도 저장한다."""
     key = _cache_key("text:" + effort, system, prompt)
     cached = _cache_get(key)
     if cached is not None:
         return cached
+    stored = _db_get(key) if persist else None
+    if stored is not None:
+        _cache_put(key, stored["text"])
+        return stored["text"]
     client = _get_client().with_options(timeout=timeout, max_retries=retries)
 
     def call(model: str) -> str:
@@ -159,6 +194,8 @@ def ask_text(prompt: str, system: Optional[str] = None, timeout: float = DEFAULT
 
     result = _with_fallback(call)
     _cache_put(key, result)
+    if persist:
+        _db_put(key, "text", {"text": result})
     return result
 
 
@@ -171,17 +208,27 @@ def ask_json(
     timeout: float = DEFAULT_TIMEOUT,
     retries: int = 2,
     effort: str = "low",
+    persist: bool = False,
 ) -> T:
     """Structured Outputs로 pydantic 모델 형식의 응답을 받는다.
 
     schema의 필드에는 기본값을 두지 않는다(strict 모드는 모든 필드가 필수).
     timeout은 시도 한 번의 제한 시간, retries는 429·5xx·타임아웃 때 다시 시도하는 횟수다.
     effort는 추론 모델의 추론 강도("none"은 단순 분류용으로 가장 빠르다).
+    persist=True면 응답을 DB에도 저장해 재배포 뒤에도 쓴다. 개인정보가 담긴 응답(성적표)은 넣지 않는다.
     """
     key = _cache_key(f"json:{schema.__name__}:{effort}", system, prompt, pdf=pdf, images=images)
     cached = _cache_get(key)
     if cached is not None:
         return cached.model_copy(deep=True)
+    stored = _db_get(key) if persist else None
+    if stored is not None:
+        try:
+            result = schema.model_validate(stored)
+            _cache_put(key, result)
+            return result.model_copy(deep=True)
+        except ValueError:
+            pass  # 스키마가 바뀌어 맞지 않으면 새로 받는다
     client = _get_client().with_options(timeout=timeout, max_retries=retries)
     content = _user_content(prompt, pdf=pdf, images=images)
 
@@ -199,4 +246,6 @@ def ask_json(
 
     result = _with_fallback(call)
     _cache_put(key, result)
+    if persist:
+        _db_put(key, "json:" + schema.__name__, result.model_dump(mode="json"))
     return result.model_copy(deep=True)
