@@ -20,6 +20,9 @@ COLLECTED_FILE = RUNTIME_DIR / "insights_collected.json"
 
 DAYS = ["월", "화", "수", "목", "금"]
 CATEGORIES = ["전필", "전선", "교필", "교선"]
+# 팀 결정(10/2): 졸업 최소 요건은 전필·전선·교필뿐이고 교선은 들은 학점만 센다.
+# 졸업 요건 데이터에 학사요람의 교선 값이 들어 있어도 서버는 최소 학점으로 쓰지 않는다.
+NO_MIN_CATEGORIES = ("교선",)
 
 
 def lecture_id_of(course_id: str, professor: str) -> str:
@@ -27,8 +30,8 @@ def lecture_id_of(course_id: str, professor: str) -> str:
 
 
 def min_credits(requirement: dict) -> Dict[str, float]:
-    """영역별 최소 이수 학점. 최소가 없는(0인) 영역은 빠진다."""
-    return {c: v for c, v in requirement["credits"].items() if v}
+    """영역별 최소 이수 학점. 교선과 0인 영역은 빠진다."""
+    return {c: v for c, v in requirement["credits"].items() if v and c not in NO_MIN_CATEGORIES}
 
 
 def total_credits(requirement: dict) -> float:
