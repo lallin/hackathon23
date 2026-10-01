@@ -184,26 +184,26 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .shell {
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr) 360px;
-  grid-template-rows: minmax(0, 1.4fr) minmax(0, 1fr);
+  /* 추천 시간표를 더 크게. 졸업 요건·(시간표 조건+AI 체크리스트)는 위아래로 길게 */
+  /* 위 칸 : 아래 칸 = 1.8 : 1. 이러닝 줄이 있으면 그만큼(--online-extra) 위 칸을 늘린다 */
+  grid-template-rows: minmax(0, calc((100% - 14px) * 0.643 + var(--online-extra, 0px))) minmax(0, 1fr);
   grid-template-areas:
     'grad table check'
-    'cond chat list';
+    'grad chat check';
   gap: 14px;
   max-width: 1560px;
   margin: 0 auto;
   padding: 0 24px 20px;
 }
 .p-grad { grid-area: grad; }
-.p-cond { grid-area: cond; }
 .p-table { grid-area: table; overflow: hidden; }
 .p-chat { grid-area: chat; }
 .p-check { grid-area: check; }
-.p-list { grid-area: list; }
 
 .card {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 0;
   padding: 14px 16px;
   min-width: 0;
   min-height: 0;
@@ -214,6 +214,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .card h2 { margin: 0; font-size: 16px; font-weight: 700; }
 .card-h { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
 .scroll { overflow-y: auto; min-height: 0; scrollbar-width: thin; }
+/* 칸 안에서 묶음을 나누는 가로선 */
+.divider { flex: none; height: 1px; background: var(--line); margin: 4px 0; }
 
 .mobnav { display: none; }
 
@@ -244,6 +246,15 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .legend { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
 @media (prefers-reduced-motion: reduce) { .bar > div { transition: none; } }
 
+/* 졸업 요건 영역별 줄: 이름 · 이수/요구 · (+이번 학기, 남은 학점) */
+.grad-row { display: flex; align-items: center; gap: 8px; font-size: 12px; min-height: 22px; }
+.grad-name { font-weight: 700; flex: none; }
+.grad-num { color: var(--muted); font-variant-numeric: tabular-nums; }
+.grad-num b { color: var(--ink); font-size: 14px; }
+.grad-tags { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; }
+.grad-left { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.grad-done { font-weight: 700; color: var(--ok); }
+
 .req-row {
   flex: none;
   display: flex;
@@ -263,7 +274,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
   display: flex;
   flex-direction: column;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
   background: #fff;
 }
@@ -282,6 +293,28 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 }
 .ttg-head > div:last-child { border-right: 0; }
 .ttg-body { flex: 1; min-height: 0; grid-template-rows: minmax(0, 1fr); }
+/* 이러닝 줄: 시간 칸 자리에 "이러닝", 나머지 폭에 과목명 */
+.ttg-online {
+  position: relative;
+  flex: none;
+  height: 36px;
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: center;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+  font-size: 13px;
+}
+.ttg-online:hover { background: var(--panel); }
+.ttg-online:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.ttg-online-tag { height: 100%; display: flex; align-items: center; justify-content: center; background: var(--panel); border-right: 1px solid var(--line); font-size: 10px; font-weight: 700; color: var(--muted); }
+.ttg-online-name { display: flex; align-items: center; gap: 8px; padding: 0 12px; min-width: 0; white-space: nowrap; overflow: hidden; }
+.ttg-online-name i { width: 10px; height: 10px; flex: none; }
+.ttg-online.pinned { box-shadow: 0 0 0 2px var(--ink) inset; }
+.ttg-online.excluded { opacity: 0.4; }
+.ttg-online .blk-act { inset: 0 8px 0 auto; align-items: center; }
+.ttg-online:hover .blk-act,
+.ttg-online:has(.blk-btn:focus-visible) .blk-act { opacity: 1; pointer-events: auto; }
 .ttg-hours { position: relative; background: var(--panel); border-right: 1px solid var(--line); }
 .ttg-hours span { position: absolute; right: 5px; font-size: 11px; color: var(--muted); transform: translateY(3px); }
 .ttg-col { position: relative; border-right: 1px solid var(--line); background-image: linear-gradient(to bottom, #e8ebf3 1px, transparent 1px); }
@@ -293,7 +326,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
   left: 2px;
   right: 2px;
   padding: 4px 5px;
-  border-radius: 6px;
+  border-radius: 0;
   border: 0;
   text-align: left;
   overflow: hidden;
@@ -310,6 +343,50 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .blk.excluded { opacity: 0.32; background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.22) 0 5px, transparent 5px 10px); }
 .blk .nm { font-weight: 700; font-size: 12px; line-height: 1.25; word-break: keep-all; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .blk .pf { font-size: 11px; opacity: 0.9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.blk { cursor: pointer; }
+.blk:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+/* 블록에 마우스를 올리면 고정(위)·제한(아래) 버튼. 글자 위에 겹쳐 뜬다 */
+.blk-act {
+  position: absolute;
+  inset: 3px 3px 3px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 3px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+.blk-act.row { flex-direction: row; justify-content: flex-end; align-items: flex-start; bottom: auto; }
+/* 마우스로 누른 뒤 남는 포커스로는 버튼을 붙잡아 두지 않는다. 키보드(Tab)로 왔을 때만 보이게 */
+.blk:hover .blk-act,
+.blk:focus-visible .blk-act,
+.blk:has(.blk-btn:focus-visible) .blk-act { opacity: 1; pointer-events: auto; }
+@media (hover: none) { .blk-act { opacity: 1; pointer-events: auto; } }
+.blk-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 6px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.blk-btn:hover:not(:disabled) { background: var(--ink); color: #fff; }
+.blk-btn.ban { color: var(--bad); }
+.blk-btn.ban:hover:not(:disabled) { background: var(--bad); color: #fff; }
+.blk-btn.on { background: var(--ink); color: #fff; }
+.blk-btn.ban.on { background: var(--bad); color: #fff; }
+.blk-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.blk.excluded .blk-act { opacity: 1; pointer-events: auto; }
+.blk.excluded:not(:hover) .blk-act .blk-btn:not(.ban) { visibility: hidden; }
 .blk .pin {
   position: absolute;
   top: 3px;
@@ -323,12 +400,6 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
   align-items: center;
   justify-content: center;
 }
-
-/* 강의 시간이 없는 분반(e-러닝): 시간표 아래 이러닝 자리 */
-.ttg-online { display: grid; grid-template-columns: 38px minmax(0, 1fr); border-top: 1px solid var(--line); background: var(--panel); }
-.ttg-online-h { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--muted); border-right: 1px solid var(--line); writing-mode: vertical-rl; letter-spacing: 1px; padding: 4px 0; }
-.ttg-online-list { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; }
-.blk.blk-online { position: relative; left: auto; right: auto; min-width: 120px; max-width: 220px; padding: 5px 8px; }
 
 .blk-bar {
   display: flex;
@@ -352,7 +423,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
   flex-direction: column;
   gap: 8px;
   background: rgba(255, 255, 255, 0.78);
-  border-radius: 12px;
+  border-radius: 0;
   font-size: 13px;
   color: var(--muted);
   text-align: center;
@@ -469,6 +540,13 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .lv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
 .lv-card { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
 .lv-card ul { margin: 0; padding-left: 16px; font-size: 12px; color: var(--muted); line-height: 1.5; }
+/* 별점: 빈 별 위에 채운 별을 너비만큼 겹친다 */
+.stars { display: inline-flex; gap: 2px; }
+.star { position: relative; width: 20px; height: 20px; display: inline-block; }
+.star svg { width: 20px; height: 20px; display: block; }
+.star-empty { fill: var(--line); }
+.star-fill { position: absolute; inset: 0 auto 0 0; overflow: hidden; }
+.star-fill svg path { fill: #f2b01e; }
 .dots { display: inline-flex; gap: 3px; }
 .dots i { width: 10px; height: 10px; border-radius: 3px; background: var(--line); display: inline-block; }
 .dots i.on { background: var(--green); }
@@ -526,7 +604,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
   .shell {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: none;
-    grid-template-areas: 'table' 'chat' 'check' 'list' 'grad' 'cond';
+    grid-template-areas: 'table' 'chat' 'check' 'grad';
     padding: 0 16px 16px;
   }
   .is-off { display: none; }

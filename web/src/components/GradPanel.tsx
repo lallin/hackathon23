@@ -34,8 +34,8 @@ export function GradPanel({ className }: { className: string }) {
   const sameProfile = transcript?.admission_year === s.year && transcript?.major === s.major;
   const serverTotal = loaded && sameProfile ? transcript.remaining_total : undefined;
   const remaining = serverTotal != null ? Math.max(serverTotal, remainingMin) : Math.max(totalNeed - earned, remainingMin);
-  const serverFree = loaded && sameProfile ? transcript.remaining_free : undefined;
-  const remainingFree = serverFree != null ? serverFree : remaining - remainingMin;
+  // 기타(일반선택·일반교양): 네 영역에 들지 않는 과목. 졸업 요건 막대 없이 이수 학점만 보여준다
+  const etcDone = loaded ? transcript.courses.filter((c) => !CATEGORIES.includes(c.category)).reduce((n, c) => n + c.credits, 0) : 0;
 
   // 이번 조합을 들은 뒤 예상치 (graduation_after · graduation_total_after)
   const plan = loaded ? current : null;
@@ -55,10 +55,9 @@ export function GradPanel({ className }: { className: string }) {
   );
   // 이번 학기에 열리는 과목을 위로, 미개설 과목은 아래로
   const reqLeft = (req?.required_courses ?? []).filter((c) => !completed.has(c.course_id)).sort((a, b) => Number(b.offered !== false) - Number(a.offered !== false));
-  const notOffered = reqLeft.filter((c) => c.offered === false).length;
 
   return (
-    <section className={`card scroll ${className}`} aria-labelledby="h-grad">
+    <section className={`card ${className}`} aria-labelledby="h-grad">
       <h2 id="h-grad">졸업 요건</h2>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 5fr) minmax(0, 8fr)', gap: 10 }}>
@@ -114,9 +113,9 @@ export function GradPanel({ className }: { className: string }) {
             {s.uploading ? <span className="spinner" /> : transcript ? <Check size={17} stroke={2.4} /> : <Upload size={17} />}
           </span>
           <span style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: 1 }}>
-            <span style={{ fontSize: 13, fontWeight: 700 }}>
-              {s.uploading ? '성적표를 읽는 중이에요…' : transcript ? `인식된 과목 ${transcript.recognized_count}개` : '성적표 PDF 업로드'}
-            </span>
+            {(s.uploading || !transcript) && (
+              <span style={{ fontSize: 13, fontWeight: 700 }}>{s.uploading ? '성적표를 읽는 중이에요…' : '성적표 PDF 업로드'}</span>
+            )}
             <span style={{ fontSize: 11, lineHeight: 1.4, color: 'var(--muted)' }}>
               {s.uploading
                 ? 'AI가 과목명·학수번호·이수구분·학점·성적을 뽑고 있어요 (F·NP 제외)'
@@ -181,64 +180,76 @@ export function GradPanel({ className }: { className: string }) {
         </div>
       )}
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+      {/* 세 묶음(남은 학점 / 영역별 학점 / 졸업 필수 과목) 사이 가로선. 시간표 조건과 체크리스트 사이 선과 같은 모양 */}
+      <div aria-hidden="true" className="divider" />
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
         {rows.map((r) => {
           const pct = r.need ? Math.min(100, Math.round((r.done / r.need) * 100)) : 0;
           const sem = plan ? semOf(r.cat) : 0;
-          const plus = sem ? ` (+${sem})` : '';
+          const left = Math.max(0, r.need - r.done);
+          const color = CATEGORY_COLOR[r.cat];
+          // 교양선택은 막대를 그리지 않는다
+          const showBar = r.cat !== '교선' && !r.noMin;
           return (
-            <div key={r.cat}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 4 }}>
-                <span style={{ fontWeight: 700 }}>{CATEGORY_NAME[r.cat]}</span>
-                <span className="faint" style={{ color: 'var(--muted)' }}>
-                  {!req
-                    ? '–'
-                    : r.noMin
-                      ? `이수 ${r.done}학점${plus} · 최소 없음`
-                      : `${r.done}/${r.need}학점${plus} · ${Math.max(0, r.need - r.done)} 남음`}
+            <div key={r.cat} style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+              <div className="grad-row">
+                <span className="grad-name">{CATEGORY_NAME[r.cat]}</span>
+                <span className="grad-num">
+                  {!req ? '–' : r.noMin ? <><b>{r.done}</b>학점</> : <><b>{r.done}</b> / {r.need}학점</>}
+                </span>
+                <span className="grad-tags">
+                  {sem > 0 && (
+                    <span className="tag" style={{ background: color.tint, color: color.ink }} title="이번 시간표에서 듣는 학점">
+                      +{sem} 이번 학기
+                    </span>
+                  )}
+                  {req && !r.noMin && (left > 0 ? <span className="grad-left">{left} 남음</span> : <span className="grad-done">완료</span>)}
                 </span>
               </div>
-              {r.noMin ? (
-                // 최소 학점이 없는 영역은 채울 목표가 없어서 막대 대신 빈 선만 둔다
-                <div className="bar" aria-hidden="true" style={{ background: 'transparent', borderTop: '1px dashed var(--line-strong)', height: 0, marginTop: 3 }} />
-              ) : (
+              {showBar && (
                 <div className="bar stack" role="progressbar" aria-label={`${CATEGORY_NAME[r.cat]} 이수율`} aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
-                  <div style={{ width: `${pct}%`, background: CATEGORY_COLOR[r.cat].main }} />
-                  {sem > 0 && <div className="sem" style={{ width: `${Math.min(pctOf(sem, r.need), 100 - pct)}%`, background: CATEGORY_COLOR[r.cat].main }} />}
+                  <div style={{ width: `${pct}%`, background: color.main }} />
+                  {sem > 0 && <div className="sem" style={{ width: `${Math.min(pctOf(sem, r.need), 100 - pct)}%`, background: color.main }} />}
                 </div>
               )}
             </div>
           );
         })}
-        {loaded && remainingFree > 0 && (
-          <div className="sub" style={{ display: 'flex', justifyContent: 'space-between', gap: 8 }}>
-            <span style={{ fontWeight: 700, color: 'var(--ink)' }}>자유 학점</span>
-            <span>{remainingFree} 남음 · 네 영역 어디서든 채우면 돼요</span>
-          </div>
-        )}
+        <div className="grad-row">
+          <span className="grad-name">기타(일선/일교)</span>
+          <span className="grad-num">{req ? <><b>{etcDone}</b>학점</> : '–'}</span>
+          <span className="grad-tags" />
+        </div>
       </div>
+
+      {req && <div aria-hidden="true" className="divider" />}
 
       {req && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, minHeight: 0 }}>
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 8 }}>
-            <h3 style={{ margin: 0, fontSize: 13, fontWeight: 700 }}>우선 배치 과목</h3>
-            <span className="sub">
-              {transcript
-                ? `남은 필수 ${reqLeft.length}과목 · 배치 ${reqLeft.filter((c) => placed.has(c.course_id)).length}${notOffered ? ` · 미개설 ${notOffered}` : ''}`
-                : '성적표를 올리면 남은 필수 과목이 나와요'}
-            </span>
+            <h3 style={{ margin: 0, fontSize: 13, fontWeight: 700 }}>졸업 필수 과목</h3>
+            <span className="sub">{transcript ? `배치 ${reqLeft.filter((c) => placed.has(c.course_id)).length}` : '성적표를 올리면 남은 필수 과목이 나와요'}</span>
           </div>
           {transcript &&
             reqLeft.map((c) => {
               const on = placed.has(c.course_id);
               const off = c.offered === false;
-              // 모르는 값(이수구분·학점)은 빼고, 이름이 학수번호와 같으면 학수번호를 한 번만 보여준다
-              const info = [c.category, c.credits != null ? `${c.credits}학점` : null, c.name !== c.course_id ? c.course_id : null].filter(Boolean).join(' · ');
+              const cc = c.category ? CATEGORY_COLOR[c.category] : null;
               return (
                 <div key={c.course_id} className="req-row" style={off ? { background: 'var(--panel)' } : undefined}>
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontSize: 13, fontWeight: 500, color: off ? 'var(--muted)' : undefined }}>{c.name}</div>
-                    {info && <div className="sub">{info}</div>}
+                    <div className="sub" style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                      {/* 이수구분은 졸업 요건 막대와 같은 색의 둥근 칩으로 */}
+                      {c.category && cc && (
+                        <span className="tag" style={{ background: cc.main, color: '#fff' }}>
+                          {c.category}
+                        </span>
+                      )}
+                      {c.credits != null && <span>{c.credits}학점</span>}
+                      {c.name === c.course_id ? null : <span className="faint">{c.course_id}</span>}
+                    </div>
                   </div>
                   {off ? (
                     <span className="tag tag-gray" style={{ padding: '4px 10px' }} title="이번 학기에 개설되지 않아 시간표에 넣을 수 없어요">

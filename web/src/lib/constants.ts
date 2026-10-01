@@ -14,8 +14,9 @@ export const CATEGORY_NAME: Record<Category, string> = {
 export const CATEGORY_COLOR: Record<Category, { main: string; alt: string; tint: string; ink: string }> = {
   전필: { main: '#5B78B8', alt: '#7A68B3', tint: '#E8EDF7', ink: '#2F4579' },
   전선: { main: '#4F9A88', alt: '#82A956', tint: '#E3F1ED', ink: '#245C4F' },
-  교필: { main: '#C0803F', alt: '#B4963F', tint: '#F7EDE2', ink: '#7A4B1C' },
-  교선: { main: '#B8645A', alt: '#C77B6D', tint: '#F6E6E3', ink: '#7A3229' }
+  // 교양필수는 빨간 계열, 교양선택은 갈색 계열 (시간표에서 둘을 구분하려고 서로 바꿈)
+  교필: { main: '#B8645A', alt: '#C77B6D', tint: '#F6E6E3', ink: '#7A3229' },
+  교선: { main: '#C0803F', alt: '#B4963F', tint: '#F7EDE2', ink: '#7A4B1C' }
 };
 
 export const LEVEL_LABEL: Record<LevelValue, string> = { low: '적음', mid: '보통', high: '많음' };
@@ -62,6 +63,10 @@ export const TARGET_MAX = 21;
 /** 그리드에 그릴 시간 범위 (시) */
 export const GRID_START = 9;
 export const GRID_END = 18;
+
+/** 이러닝 한 줄 높이(px)와, 그만큼 시간표 칸을 늘릴 때 최대 줄 수 (판별은 아래 isOnline) */
+export const ONLINE_ROW_PX = 36;
+export const ONLINE_MAX_ROWS = 4;
 
 export const toMin = (hhmm: string): number => {
   const [h, m] = hhmm.split(':').map(Number);

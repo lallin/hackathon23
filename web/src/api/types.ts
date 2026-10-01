@@ -266,6 +266,8 @@ export interface LectureDetail {
   summary: string[];
   /** 수강계획서 이미지 주소 */
   syllabus_images: string[];
+  /** 이 교수가 여는 분반과 시간 */
+  sections?: { section_id: string; times: TimeSlot[] }[];
 }
 
 export interface ReviewEval {

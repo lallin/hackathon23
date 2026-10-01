@@ -1,6 +1,7 @@
 import type { LevelValue } from '../api/types';
 import { CHECKLIST_EMPTY, LEVEL_LABEL, LEVELS } from '../lib/constants';
 import { isPendingItem, useApp } from '../state/store';
+import { CondPanel } from './CondPanel';
 import { Check, X } from './icons';
 import { Select } from './Select';
 
@@ -15,8 +16,10 @@ export function CheckPanel({ className }: { className: string }) {
   const satisfied = enabled.filter((i) => !isPendingItem(i, s.applied) && evalOf(i.key)?.satisfied === true).length;
 
   return (
-    <section className={`card ${className}`} aria-labelledby="h-check">
-      <div className="card-h">
+    <section className={`card scroll ${className}`} aria-label="시간표 조건과 AI 체크리스트" style={{ gap: 12 }}>
+      <CondPanel />
+      <div aria-hidden="true" className="divider" style={{ margin: 0 }} />
+      <div className="card-h" style={{ flex: 'none' }}>
         <h2 id="h-check">AI 체크리스트</h2>
         {enabled.length > 0 && (
           <span style={{ fontSize: 12, fontWeight: 700 }} aria-live="polite">
@@ -26,11 +29,11 @@ export function CheckPanel({ className }: { className: string }) {
       </div>
 
       {list.length === 0 ? (
-        <div className="notice notice-info" style={{ flex: 1, alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 20 }}>
+        <div className="notice notice-info" style={{ flex: 1, minHeight: 100, alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 20 }}>
           {CHECKLIST_EMPTY}
         </div>
       ) : (
-        <div className="scroll" style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8, padding: 3, margin: -3 }}>
+        <div className="scroll" style={{ flex: 1, minHeight: 130, display: 'flex', flexDirection: 'column', gap: 8, padding: 3, margin: -3 }}>
           {list.map((it) => {
             const pendingEval = isPendingItem(it, s.applied);
             const ev = pendingEval ? null : evalOf(it.key);
@@ -79,9 +82,6 @@ export function CheckPanel({ className }: { className: string }) {
           })}
         </div>
       )}
-      <p className="sub" style={{ margin: 0 }}>
-        레벨은 드롭다운으로 바꾸고, 체크를 풀면 항목은 남고 생성에서만 빠져요.
-      </p>
     </section>
   );
 }

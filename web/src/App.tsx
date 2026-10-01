@@ -2,24 +2,25 @@ import { useState } from 'react';
 import { AuthScreen } from './components/AuthScreen';
 import { ChatPanel } from './components/ChatPanel';
 import { CheckPanel } from './components/CheckPanel';
-import { CondPanel } from './components/CondPanel';
 import { GradPanel } from './components/GradPanel';
 import { Header } from './components/Header';
 import { LectureModal } from './components/LectureModal';
-import { ListPanel } from './components/ListPanel';
 import { TablePanel } from './components/TablePanel';
+import { isOnline, ONLINE_MAX_ROWS, ONLINE_ROW_PX } from './lib/constants';
 import { AppProvider, useApp } from './state/store';
 
-type Tab = 'table' | 'list' | 'cond';
+type Tab = 'table' | 'cond' | 'grad';
 
 const TABS: [Tab, string][] = [
   ['table', '시간표'],
-  ['list', '과목'],
-  ['cond', '조건']
+  ['cond', '조건'],
+  ['grad', '졸업 요건']
 ];
 
 function Builder() {
-  const { s } = useApp();
+  const { s, current } = useApp();
+  // 이러닝 과목이 있으면 그 줄 수만큼 추천 시간표를 늘리고 챗봇을 아래로 내린다
+  const onlineRows = Math.min(ONLINE_MAX_ROWS, current?.sections.filter(isOnline).length ?? 0);
   // 좁은 화면에서는 탭으로 패널 묶음을 바꿔 본다
   const [tab, setTab] = useState<Tab>('table');
   const cls = (name: string, on: boolean) => `${name}${on ? '' : ' is-off'}`;
@@ -27,13 +28,11 @@ function Builder() {
   return (
     <div className="app">
       <Header />
-      <main className="shell">
-        <GradPanel className={cls('p-grad', tab === 'cond')} />
+      <main className="shell" style={{ ['--online-extra' as string]: `${onlineRows * ONLINE_ROW_PX}px` }}>
+        <GradPanel className={cls('p-grad', tab === 'grad')} />
         <TablePanel className={cls('p-table', tab === 'table')} />
-        <CheckPanel className={cls('p-check', tab === 'list')} />
-        <CondPanel className={cls('p-cond', tab === 'cond')} />
+        <CheckPanel className={cls('p-check', tab === 'cond')} />
         <ChatPanel className={cls('p-chat', tab === 'table')} />
-        <ListPanel className={cls('p-list', tab === 'list')} />
       </main>
       <nav className="mobnav" aria-label="화면 전환">
         {TABS.map(([k, label]) => (

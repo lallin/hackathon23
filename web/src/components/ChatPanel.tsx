@@ -5,13 +5,6 @@ import { BASE_ITEMS, CHAT_HINT, levelFromNum, LEVEL_LABEL } from '../lib/constan
 import { useApp } from '../state/store';
 import { Send } from './icons';
 
-const SUGGESTS = [
-  '수요일 공강이고 팀플은 적게, 교수님 친절한 수업이면 좋겠어',
-  '시스템프로그래밍 수강평 알려줘',
-  '데이터베이스랑 컴퓨터네트워크 비교해줘',
-  '남은 졸업 학점 얼마야?'
-];
-
 const CMP_KEYS = ['assignment', 'team_project', 'exam', 'attendance'];
 
 function CmpRow({ label, value }: { label: string; value: string }) {
@@ -185,14 +178,6 @@ export function ChatPanel({ className }: { className: string }) {
             생각하는 중…
           </div>
         )}
-      </div>
-
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-        {SUGGESTS.map((t) => (
-          <button key={t} className="btn btn-sm" style={{ borderRadius: 99, fontWeight: 400, whiteSpace: 'normal', textAlign: 'left' }} onClick={() => send(t)} disabled={s.chatBusy}>
-            {t}
-          </button>
-        ))}
       </div>
 
       <form onSubmit={submit} style={{ display: 'flex', gap: 8 }}>

@@ -122,7 +122,8 @@ function toLecture(r: Raw): LectureDetail {
     levels,
     evidence,
     summary: r.summary ?? [],
-    syllabus_images: r.syllabus_image_url ? [r.syllabus_image_url] : r.syllabus_images ?? []
+    syllabus_images: r.syllabus_image_url ? [r.syllabus_image_url] : r.syllabus_images ?? [],
+    sections: (r.sections ?? []).map((x: Raw) => ({ section_id: x.section_id, times: x.times ?? [] }))
   };
 }
 

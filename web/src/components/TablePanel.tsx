@@ -29,11 +29,7 @@ export function TablePanel({ className }: { className: string }) {
   const SPAN = (gridEnd - GRID_START) * 60;
   const HOURS = Array.from({ length: gridEnd - GRID_START }, (_, i) => GRID_START + i);
   const free = s.draft.conditions.free_days;
-  // 강의 시간이 없는 분반(e-러닝)은 요일 칸 대신 시간표 아래 이러닝 자리에 놓는다
   const online = sections.filter(isOnline);
-  const sel = sections.find((x) => x.section_id === s.selected) ?? null;
-  const selPinned = !!sel && s.draft.pinned.includes(sel.section_id);
-  const selExcluded = !!sel && s.draft.excluded.includes(sel.course_id);
   const canGenerate = s.reqStatus === 'ready' && !s.generating;
 
   return (
@@ -66,12 +62,8 @@ export function TablePanel({ className }: { className: string }) {
 
       {current && (
         <div className="sub" style={{ display: 'flex', flexWrap: 'wrap', gap: '2px 8px', alignItems: 'baseline' }}>
-          <span style={{ color: 'var(--ink)', fontWeight: 700 }}>
-            {current.total_credits}학점 · 점수 {current.score}
-            {current.enabled_count > 0 && ` · 체크리스트 ${current.satisfied_count}/${current.enabled_count} 충족`}
-          </span>
           {current.reason && s.rank === 0 && <span style={{ color: 'var(--ok)', fontWeight: 500 }}>{current.reason}</span>}
-          {!sel && <span className="faint" style={{ marginLeft: 'auto' }}>블록을 눌러 고정·제한</span>}
+          <span className="faint" style={{ marginLeft: 'auto' }}>블록을 누르면 상세 정보 표시</span>
         </div>
       )}
 
@@ -84,36 +76,6 @@ export function TablePanel({ className }: { className: string }) {
               <X size={12} stroke={2.4} />
             </button>
           ))}
-        </div>
-      )}
-
-      {sel && (
-        <div className="blk-bar" aria-live="polite">
-          <span style={{ fontWeight: 700 }}>
-            {sel.course} {sel.section_id.split('-').pop()}분반 · {sel.professor}
-          </span>
-          <span style={{ display: 'inline-flex', gap: 6, marginLeft: 'auto', flexWrap: 'wrap' }}>
-            <button className="btn btn-sm" aria-pressed={selPinned} onClick={() => act.pin(sel.section_id)} disabled={selExcluded}>
-              <Pin size={13} />
-              {selPinned ? '고정 풀기' : '고정'}
-            </button>
-            {selExcluded ? (
-              <button className="btn btn-sm" onClick={() => act.unexclude(sel.course_id)}>
-                제한 풀기
-              </button>
-            ) : (
-              <button className="btn btn-sm btn-danger" onClick={() => act.exclude(sel.course_id, sel.course)}>
-                <Ban size={13} />
-                제한
-              </button>
-            )}
-            <button className="btn btn-sm" onClick={() => act.openDetail(sel.lecture_id)}>
-              상세
-            </button>
-            <button className="icon-btn bare" aria-label="선택 해제" onClick={() => act.select(null)}>
-              <X size={14} />
-            </button>
-          </span>
         </div>
       )}
 
@@ -177,16 +139,60 @@ export function TablePanel({ className }: { className: string }) {
                       const h = ((toMin(t.end) - toMin(t.start)) / SPAN) * 100;
                       const pinned = s.draft.pinned.includes(x.section_id);
                       const excluded = s.draft.excluded.includes(x.course_id);
-                      const tall = toMin(t.end) - toMin(t.start) >= 90;
+                      const minutes = toMin(t.end) - toMin(t.start);
+                      const tall = minutes >= 90;
+                      const open = () => {
+                        act.select(x.section_id);
+                        act.openDetail(x.lecture_id);
+                      };
                       return (
-                        <button
+                        // 안에 고정·제한 버튼이 있어서 블록 자체는 button 대신 role="button"
+                        <div
                           key={`${x.section_id}-${t.day}-${t.start}`}
+                          role="button"
+                          tabIndex={0}
                           className={`blk${s.selected === x.section_id ? ' sel' : ''}${pinned ? ' pinned' : ''}${excluded ? ' excluded' : ''}`}
-                          aria-pressed={s.selected === x.section_id}
-                          aria-label={`${x.course} ${x.professor}, ${t.day}요일 ${t.start}~${t.end}${pinned ? ', 고정됨' : ''}${excluded ? ', 제한됨' : ''}`}
-                          onClick={() => act.select(x.section_id)}
+                          aria-label={`${x.course} ${x.professor}, ${t.day}요일 ${t.start}~${t.end}${pinned ? ', 고정됨' : ''}${excluded ? ', 제한됨' : ''}. 누르면 상세 정보`}
+                          onClick={open}
+                          onKeyDown={(e) => {
+                            if (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) {
+                              e.preventDefault();
+                              open();
+                            }
+                          }}
                           style={{ top: `${top}%`, height: `${h}%`, backgroundColor: colors[x.course_id], paddingRight: pinned ? 22 : 5 }}
                         >
+                          {/* 마우스를 올리면: 위 고정, 아래 제한. 짧은 블록은 둘 다 맨 위에 */}
+                          <span className={`blk-act${minutes < 90 ? ' row' : ''}`}>
+                            <button
+                              type="button"
+                              className={`blk-btn${pinned ? ' on' : ''}`}
+                              aria-pressed={pinned}
+                              disabled={excluded}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                e.currentTarget.blur();
+                                act.pin(x.section_id);
+                              }}
+                            >
+                              <Pin size={11} stroke={2.4} />
+                              {pinned ? '고정 해제' : '고정'}
+                            </button>
+                            <button
+                              type="button"
+                              className={`blk-btn ban${excluded ? ' on' : ''}`}
+                              aria-pressed={excluded}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                e.currentTarget.blur();
+                                if (excluded) act.unexclude(x.course_id);
+                                else act.exclude(x.course_id, x.course);
+                              }}
+                            >
+                              <Ban size={11} stroke={2.4} />
+                              {excluded ? '제한 해제' : '제한'}
+                            </button>
+                          </span>
                           <span className="nm" style={tall ? undefined : { WebkitLineClamp: 1, fontSize: 11 }}>
                             {x.course}
                           </span>
@@ -196,42 +202,76 @@ export function TablePanel({ className }: { className: string }) {
                               <Pin size={10} stroke={2.4} />
                             </span>
                           )}
-                        </button>
+                        </div>
                       );
                     })
                 )}
               </div>
             ))}
           </div>
-          {online.length > 0 && (
-            <div className="ttg-online">
-              <div className="ttg-online-h">이러닝</div>
-              <div className="ttg-online-list">
-                {online.map((x) => {
-                  const pinned = s.draft.pinned.includes(x.section_id);
-                  const excluded = s.draft.excluded.includes(x.course_id);
-                  return (
-                    <button
-                      key={x.section_id}
-                      className={`blk blk-online${s.selected === x.section_id ? ' sel' : ''}${pinned ? ' pinned' : ''}${excluded ? ' excluded' : ''}`}
-                      aria-pressed={s.selected === x.section_id}
-                      aria-label={`${x.course} ${x.professor}, 이러닝(시간 없음)${pinned ? ', 고정됨' : ''}${excluded ? ', 제한됨' : ''}`}
-                      onClick={() => act.select(x.section_id)}
-                      style={{ backgroundColor: colors[x.course_id], paddingRight: pinned ? 22 : 8 }}
-                    >
-                      <span className="nm">{x.course}</span>
-                      <span className="pf">{`${x.professor} · ${x.credits}학점`}</span>
-                      {pinned && (
-                        <span className="pin">
-                          <Pin size={10} stroke={2.4} />
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
+          {/* 이러닝 과목: 요일·시간이 없어서 그리드 아래에 한 줄씩 */}
+          {online.map((x) => {
+            const pinned = s.draft.pinned.includes(x.section_id);
+            const excluded = s.draft.excluded.includes(x.course_id);
+            const open = () => {
+              act.select(x.section_id);
+              act.openDetail(x.lecture_id);
+            };
+            return (
+              <div
+                key={x.section_id}
+                role="button"
+                tabIndex={0}
+                className={`ttg-online${pinned ? ' pinned' : ''}${excluded ? ' excluded' : ''}`}
+                aria-label={`이러닝 ${x.course} ${x.professor}${pinned ? ', 고정됨' : ''}${excluded ? ', 제한됨' : ''}. 누르면 상세 정보`}
+                onClick={open}
+                onKeyDown={(e) => {
+                  if (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault();
+                    open();
+                  }
+                }}
+              >
+                <span className="ttg-online-tag">이러닝</span>
+                <span className="ttg-online-name">
+                  <i style={{ background: colors[x.course_id] }} />
+                  <b>{x.course}</b>
+                  <span className="faint">{x.professor}</span>
+                  {pinned && <Pin size={12} stroke={2.4} />}
+                </span>
+                <span className="blk-act row">
+                  <button
+                    type="button"
+                    className={`blk-btn${pinned ? ' on' : ''}`}
+                    aria-pressed={pinned}
+                    disabled={excluded}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.currentTarget.blur();
+                      act.pin(x.section_id);
+                    }}
+                  >
+                    <Pin size={11} stroke={2.4} />
+                    {pinned ? '고정 해제' : '고정'}
+                  </button>
+                  <button
+                    type="button"
+                    className={`blk-btn ban${excluded ? ' on' : ''}`}
+                    aria-pressed={excluded}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.currentTarget.blur();
+                      if (excluded) act.unexclude(x.course_id);
+                      else act.exclude(x.course_id, x.course);
+                    }}
+                  >
+                    <Ban size={11} stroke={2.4} />
+                    {excluded ? '제한 해제' : '제한'}
+                  </button>
+                </span>
               </div>
-            </div>
-          )}
+            );
+          })}
         </div>
         {(s.generating || !current) && (
           <div className="ttg-over" role="status">

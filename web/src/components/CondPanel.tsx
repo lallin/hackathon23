@@ -4,7 +4,8 @@ import { Check, Minus, Plus } from './icons';
 
 const rowLabel = { flex: 'none', width: 64, fontSize: 12, fontWeight: 700 } as const;
 
-export function CondPanel({ className }: { className: string }) {
+/** 시간표 조건. 카드는 CheckPanel 이 만들고, 이 컴포넌트는 그 안의 윗부분만 그린다 */
+export function CondPanel() {
   const { s, act } = useApp();
   const c = s.draft.conditions;
   const a = s.applied?.conditions;
@@ -14,7 +15,7 @@ export function CondPanel({ className }: { className: string }) {
   const dot = (on: boolean) => (on ? <span title="생성하기 전 변경" style={{ width: 6, height: 6, borderRadius: 99, background: '#E0A100', display: 'inline-block', marginLeft: 4 }} /> : null);
 
   return (
-    <section className={`card scroll ${className}`} aria-labelledby="h-cond" style={{ gap: 12 }}>
+    <section aria-labelledby="h-cond" style={{ display: 'flex', flexDirection: 'column', gap: 12, flex: 'none' }}>
       <div className="card-h">
         <h2 id="h-cond">시간표 조건</h2>
         <div role="group" aria-label="목표 학점" className={fl('cond.target_credits')} style={{ display: 'flex', alignItems: 'center', gap: 6, borderRadius: 10 }}>
@@ -83,14 +84,6 @@ export function CondPanel({ className }: { className: string }) {
             );
           })}
         </div>
-        <p className="sub" style={{ margin: '6px 0 0' }}>
-          {(() => {
-            const items = s.meta?.styles.find((x) => x.id === c.style)?.items ?? [];
-            return items.length
-              ? `체크리스트에 ${items.map((i) => (i.level ? `'${i.label} ${s.meta!.levels[i.level]}'` : `'${i.label}'`)).join(', ')}을 넣어요.`
-              : '남은 필수 과목과 부족한 영역을 먼저 채워요.';
-          })()}
-        </p>
       </div>
     </section>
   );

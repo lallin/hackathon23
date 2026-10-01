@@ -144,6 +144,8 @@ function sectionScore(p: Pick, ctx: Ctx): number {
   if (ctx.requiredIds.has(course.course_id)) w += 30 * grad;
   const r = ctx.required[course.category] || 1;
   w += (ctx.need[course.category] / r) * 10 * grad * (course.credits / 3);
+  // 모의 데이터에서 이러닝 줄(시간 없는 분반)이 조합에 들어오는 걸 확인할 수 있게 조금 가산
+  if (!section.times.length) w += 12;
   section.times.forEach((t) => {
     const am = toMin(t.start) < 12 * 60;
     if (ctx.req.conditions.preferred_time === 'morning') w += am ? 2 : -2;
