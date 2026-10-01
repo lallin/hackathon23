@@ -30,6 +30,8 @@ MAX_COLUMNS = 2
 
 
 def _times_text(times: List[dict]) -> str:
+    if not times:
+        return "이러닝(정해진 수업 시간 없음)"
     return ", ".join(f"{t['day']} {t['start']}-{t['end']}" for t in times)
 
 
