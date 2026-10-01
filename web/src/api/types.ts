@@ -93,7 +93,8 @@ export interface Requirements {
   categories: { category: Category; required: number; no_min?: boolean }[];
   /** 졸업 총 학점. 최소를 채우고 남는 학점은 네 영역 어디로든 채울 수 있다 (없으면 categories 합) */
   total_required?: number;
-  required_courses: { course_id: string; name: string; category: Category; credits: number }[];
+  /** category·credits 는 개설 과목 목록에 없는 과목이면 null, offered 는 이번 학기 개설 여부 */
+  required_courses: { course_id: string; name: string; category: Category | null; credits: number | null; offered?: boolean }[];
 }
 
 export interface TimeSlot {

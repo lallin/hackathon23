@@ -38,7 +38,9 @@ export function GradPanel({ className }: { className: string }) {
   const placed = new Set(
     current?.required_courses ? current.required_courses.filter((c) => c.placed).map((c) => c.course_id) : (current?.sections.map((x) => x.course_id) ?? [])
   );
-  const reqLeft = (req?.required_courses ?? []).filter((c) => !completed.has(c.course_id));
+  // 이번 학기에 열리는 과목을 위로, 미개설 과목은 아래로
+  const reqLeft = (req?.required_courses ?? []).filter((c) => !completed.has(c.course_id)).sort((a, b) => Number(b.offered !== false) - Number(a.offered !== false));
+  const notOffered = reqLeft.filter((c) => c.offered === false).length;
 
   return (
     <section className={`card scroll ${className}`} aria-labelledby="h-grad">
@@ -167,24 +169,35 @@ export function GradPanel({ className }: { className: string }) {
           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 8 }}>
             <h3 style={{ margin: 0, fontSize: 13, fontWeight: 700 }}>우선 배치 과목</h3>
             <span className="sub">
-              {transcript ? `남은 필수 ${reqLeft.length}과목 · 배치 ${reqLeft.filter((c) => placed.has(c.course_id)).length}` : '성적표를 올리면 남은 필수 과목이 나와요'}
+              {transcript
+                ? `남은 필수 ${reqLeft.length}과목 · 배치 ${reqLeft.filter((c) => placed.has(c.course_id)).length}${notOffered ? ` · 미개설 ${notOffered}` : ''}`
+                : '성적표를 올리면 남은 필수 과목이 나와요'}
             </span>
           </div>
           {transcript &&
             reqLeft.map((c) => {
               const on = placed.has(c.course_id);
+              const off = c.offered === false;
+              // 모르는 값(이수구분·학점)은 빼고, 이름이 학수번호와 같으면 학수번호를 한 번만 보여준다
+              const info = [c.category, c.credits != null ? `${c.credits}학점` : null, c.name !== c.course_id ? c.course_id : null].filter(Boolean).join(' · ');
               return (
-                <div key={c.course_id} className="req-row">
+                <div key={c.course_id} className="req-row" style={off ? { background: 'var(--panel)' } : undefined}>
                   <div style={{ minWidth: 0 }}>
-                    <div style={{ fontSize: 13, fontWeight: 500 }}>{c.name}</div>
-                    <div className="sub">{`${c.category} · ${c.credits}학점 · ${c.course_id}`}</div>
+                    <div style={{ fontSize: 13, fontWeight: 500, color: off ? 'var(--muted)' : undefined }}>{c.name}</div>
+                    {info && <div className="sub">{info}</div>}
                   </div>
-                  <span
-                    className="tag"
-                    style={{ padding: '4px 10px', border: `1px solid ${on ? 'var(--green)' : '#9CCBB3'}`, background: on ? 'var(--green)' : '#fff', color: on ? '#fff' : '#2E7D57' }}
-                  >
-                    {on ? '배치됨' : '미배치'}
-                  </span>
+                  {off ? (
+                    <span className="tag tag-gray" style={{ padding: '4px 10px' }} title="이번 학기에 개설되지 않아 시간표에 넣을 수 없어요">
+                      이번 학기 미개설
+                    </span>
+                  ) : (
+                    <span
+                      className="tag"
+                      style={{ padding: '4px 10px', border: `1px solid ${on ? 'var(--green)' : '#9CCBB3'}`, background: on ? 'var(--green)' : '#fff', color: on ? '#fff' : '#2E7D57' }}
+                    >
+                      {on ? '배치됨' : '미배치'}
+                    </span>
+                  )}
                 </div>
               );
             })}
