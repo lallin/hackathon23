@@ -1,0 +1,596 @@
+[
+  {
+    "course_name": "비판적사고와토론",
+    "course_code": "7046",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1000-1200(글로컬이음관 604)",
+    "professor": "정진헌",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "비판적사고와토론",
+    "course_code": "7047",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1400-1600(글로컬이음관 604)",
+    "professor": "정진헌",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "비판적사고와토론",
+    "course_code": "7048",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(글로컬이음관 604)",
+    "professor": "정진헌",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "비판적사고와토론",
+    "course_code": "7049",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(글로컬이음관 604)",
+    "professor": "정진헌",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "비판적사고와토론",
+    "course_code": "7050",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(글로컬이음관 408)",
+    "professor": "이연주",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "비판적사고와토론",
+    "course_code": "7051",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1600-1800(글로컬이음관 604)",
+    "professor": "이연주",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "비판적사고와토론",
+    "course_code": "7052",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(글로컬이음관 505)",
+    "professor": "김현희",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "비판적사고와토론",
+    "course_code": "7053",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1600-1800(글로컬이음관 505)",
+    "professor": "김현희",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "비판적사고와토론",
+    "course_code": "7054",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1600-1800(글로컬이음관 604)",
+    "professor": "추은혜",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "공감적소통과발표",
+    "course_code": "7303",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1600-1800(글로컬이음관 605)",
+    "professor": "조영주",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "공감적소통과발표",
+    "course_code": "7304",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(글로컬이음관 605)",
+    "professor": "조영주",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "공감적소통과발표",
+    "course_code": "7305",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(글로컬이음관 605)",
+    "professor": "조영주",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "공감적소통과발표",
+    "course_code": "7306",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1600-1800(글로컬이음관 605)",
+    "professor": "조영주",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "공감적소통과발표",
+    "course_code": "7308",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(글로컬이음관 505)",
+    "professor": "김현희",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "공감적소통과발표",
+    "course_code": "7309",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(글로컬이음관 406)",
+    "professor": "정영진",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 16,
+      "final": 14,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "공감적소통과발표",
+    "course_code": "7310",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1600-1800(글로컬이음관 406)",
+    "professor": "정영진",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 16,
+      "final": 14,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "열린사고와실용적말하기",
+    "course_code": "7311",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1000-1200(글로컬이음관 604)",
+    "professor": "정진헌",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "열린사고와실용적말하기",
+    "course_code": "7312",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1000-1200(글로컬이음관 604)",
+    "professor": "정진헌",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "열린사고와실용적말하기",
+    "course_code": "7313",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1400-1600(글로컬이음관 604)",
+    "professor": "정진헌",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "열린사고와실용적말하기",
+    "course_code": "7314",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1000-1200(글로컬이음관 605)",
+    "professor": "김현희",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "열린사고와실용적말하기",
+    "course_code": "7315",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1200-1400(글로컬이음관 605)",
+    "professor": "김현희",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "협력적사고와토의",
+    "course_code": "7316",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1000-1200(글로컬이음관 605)",
+    "professor": "조영주",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "협력적사고와토의",
+    "course_code": "7317",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1000-1200(글로컬이음관 605)",
+    "professor": "조영주",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "협력적사고와토의",
+    "course_code": "7318",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1200-1400(글로컬이음관 605)",
+    "professor": "조영주",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "협력적사고와토의",
+    "course_code": "7319",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1200-1400(글로컬이음관 605)",
+    "professor": "정영진",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 16,
+      "final": 14,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "협력적사고와토의",
+    "course_code": "7320",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1200-1400(글로컬이음관 604)",
+    "professor": "추은혜",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  },
+  {
+    "course_name": "협력적사고와토의",
+    "course_code": "7321",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1400-1600(글로컬이음관 605)",
+    "professor": "추은혜",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 15,
+      "final": 15,
+      "assignment_participation": 20,
+      "individual_evaluation": 20,
+      "team_activity": 10
+    }
+  }
+]

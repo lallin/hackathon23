@@ -1,0 +1,735 @@
+[
+  {
+    "course_name": "스크린영어",
+    "course_code": "7019",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1400-1600(글로컬이음관 303)",
+    "professor": "윤소영",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 10,
+      "sentence_organization": 5
+    }
+  },
+  {
+    "course_name": "스크린영어",
+    "course_code": "7020",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1500-1700(글로컬이음관 303)",
+    "professor": "강석한",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "영어회화2",
+    "course_code": "7027",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1000-1200(글로컬이음관 503)",
+    "professor": "노버트모반",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 25,
+      "practice": 25
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "영어회화2",
+    "course_code": "7028",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1000-1200(글로컬이음관 504)",
+    "professor": "모랄레스저스틴",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "영어회화1",
+    "course_code": "7031",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1000-1200(글로컬이음관 503)",
+    "professor": "노버트모반",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "영어회화1",
+    "course_code": "7032",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1000-1200(글로컬이음관 503)",
+    "professor": "노버트모반",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "영어회화1",
+    "course_code": "7033",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1300-1500(글로컬이음관 503)",
+    "professor": "노버트모반",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "영어회화1",
+    "course_code": "7034",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1000-1200(글로컬이음관 504)",
+    "professor": "모랄레스저스틴",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 25,
+      "practice": 25
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "영어회화1",
+    "course_code": "7035",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1300-1500(글로컬이음관 503)",
+    "professor": "모랄레스저스틴",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 25,
+      "practice": 25
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "영어회화1",
+    "course_code": "7036",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1000-1200(글로컬이음관 504)",
+    "professor": "모랄레스저스틴",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 25,
+      "practice": 25
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "실용한국어2",
+    "course_code": "7059",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화0900-1100(글로컬이음관 503)",
+    "professor": "김은영",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 10,
+      "class_participation": 20
+    }
+  },
+  {
+    "course_name": "실용한국어2",
+    "course_code": "7060",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화0900-1100(글로컬이음관 302)",
+    "professor": "김세준",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 30,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 20,
+      "attitude_and_participation": 10
+    }
+  },
+  {
+    "course_name": "언어의세계",
+    "course_code": "7068",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "",
+    "professor": "김병건",
+    "teaching_method": {
+      "e_learning": 100
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "영어프레젠테이션",
+    "course_code": "7070",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1300-1500(글로컬이음관 406)",
+    "professor": "모랄레스저스틴",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 25,
+      "practice": 25
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "토익1",
+    "course_code": "7071",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "",
+    "professor": "윤소영",
+    "teaching_method": {
+      "e_learning": 100
+    },
+    "evaluation_method": {
+      "midterm": 15,
+      "final": 15,
+      "assignment": 40,
+      "video_lecture": 30
+    }
+  },
+  {
+    "course_name": "토익2",
+    "course_code": "7072",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "",
+    "professor": "강석한",
+    "teaching_method": {
+      "e_learning": 100
+    },
+    "evaluation_method": {
+      "midterm": 15,
+      "final": 15,
+      "video_lecture": 30,
+      "homework": 40
+    }
+  },
+  {
+    "course_name": "기초영어문장학습",
+    "course_code": "7087",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1000-1200(실시간온라인)",
+    "professor": "박선화",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "생활한국어2",
+    "course_code": "7129",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1300-1500(글로컬이음관 504)",
+    "professor": "김은영",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 50,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "participation": 10
+    }
+  },
+  {
+    "course_name": "생활한국어2",
+    "course_code": "7130",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1100-1300(글로컬이음관 406)",
+    "professor": "신동선",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 20,
+      "participation": 10
+    }
+  },
+  {
+    "course_name": "한국어회화2",
+    "course_code": "7131",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목0900-1100(글로컬이음관 505)",
+    "professor": "정지윤",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 20,
+      "class_participation": 20
+    }
+  },
+  {
+    "course_name": "한국어회화2",
+    "course_code": "7132",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월0900-1100(글로컬이음관 505)",
+    "professor": "이희원",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 30,
+      "assignment": 15,
+      "attitude_and_participation": 10
+    }
+  },
+  {
+    "course_name": "한국어작문2",
+    "course_code": "7133",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1300-1500(글로컬이음관 505)",
+    "professor": "신동선",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 5,
+      "practice": 35
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 10,
+      "midterm_writing": 10
+    }
+  },
+  {
+    "course_name": "한국어작문2",
+    "course_code": "7134",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1100-1300(글로컬이음관 505)",
+    "professor": "정지윤",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 20,
+      "class_participation": 20
+    }
+  },
+  {
+    "course_name": "한국어고급표현2",
+    "course_code": "7135",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1100-1300(글로컬이음관 504)",
+    "professor": "김은영",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 20,
+      "practice": 10
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "한국어고급표현2",
+    "course_code": "7136",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1100-1300(글로컬이음관 505)",
+    "professor": "이희원",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 15,
+      "attitude_and_participation": 5
+    }
+  },
+  {
+    "course_name": "TOPIK고급",
+    "course_code": "7137",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수0900-1100(글로컬이음관 406)",
+    "professor": "신동선",
+    "teaching_method": {
+      "lecture": 90,
+      "discussion": 10
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "TOPIK고급",
+    "course_code": "7138",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1300-1500(글로컬이음관 406)",
+    "professor": "김세준",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 10,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "시사영어읽기",
+    "course_code": "7184",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1000-1200(글로컬이음관 402)",
+    "professor": "박선화",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "한중소통연습",
+    "course_code": "7185",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1500-1700(글로컬이음관 505)",
+    "professor": "정인숙",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 40,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 30,
+      "assignment": 10,
+      "midterm_oral": 10,
+      "final_oral": 10
+    }
+  },
+  {
+    "course_name": "글쓰기심화",
+    "course_code": "7187",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1200-1400(글로컬이음관 403)",
+    "professor": "이효숙",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 20,
+      "practice": 60
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 40
+    }
+  },
+  {
+    "course_name": "미디어중국어",
+    "course_code": "7222",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1400-1600(글로컬이음관 606)",
+    "professor": "이앤슈아이",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "입트이는영어동사",
+    "course_code": "7292",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "",
+    "professor": "양윤정",
+    "teaching_method": {
+      "e_learning": 100
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 10,
+      "assignment_2": 10
+    }
+  },
+  {
+    "course_name": "중국어심화",
+    "course_code": "7297",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1600-1800(글로컬이음관 103)",
+    "professor": "이앤슈아이",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "쉽게배우는러시아어",
+    "course_code": "7370",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1000-1200(자연과학관 516)",
+    "professor": "고영랑",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "HASS실용영어",
+    "course_code": "7419",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1300-1500(인문사회관 407)",
+    "professor": "모랄레스저스틴",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "STEM실용영어",
+    "course_code": "7420",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1500-1700(글로컬이음관 102)",
+    "professor": "노버트모반",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 30,
+      "e_learning": 10,
+      "flipped_learning": 10
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "STEM실용영어",
+    "course_code": "7421",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1500-1700(글로컬이음관 102)",
+    "professor": "노버트모반",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 30,
+      "e_learning": 10,
+      "flipped_learning": 10
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  }
+]

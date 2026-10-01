@@ -1,845 +1,3761 @@
 {
  "sample": true,
- "note": "개발용 샘플 값(수강평 모두 가상). BE-데이터가 배치 추출 결과로 같은 형식에 맞춰 교체한다. levels는 1(적음)~3(많음).",
+ "note": "source=everytime_stats: 에브리타임 강의평 통계(실제 값, data/raw/). sample=true인 강의는 개발용 가상 값으로, 실제 카탈로그가 들어오면 --drop-sample로 지운다. levels는 1(적음)~3(많음).",
  "lectures": [
   {
-   "lecture_id": "CSE1010-김서연",
-   "course_id": "CSE1010",
-   "professor": "김서연",
-   "levels": {
-    "assignment": 1,
-    "team_project": 1,
-    "exam": 1,
-    "presentation": 2,
-    "attendance": 2
-   },
-   "summary": [
-    "과제 부담이 적음, 팀플 없음",
-    "시험은 기말 1회",
-    "교수님이 친절함, 실습 비중이 높음"
-   ],
-   "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "시험은 기말 한 번뿐이에요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "과제가 거의 없어요. 교수님이 질문에 친절하게 답해 주세요.",
-    "팀플은 없어요. 출석은 전자출결로 가끔 확인해요.",
-    "실습 비중이 높아서 직접 해 보는 게 많아요. 시험은 기말 한 번뿐이에요. 발표가 한 번 있어요."
-   ],
-   "review_count": 24,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE1010-이준호",
-   "course_id": "CSE1010",
-   "professor": "이준호",
+   "lecture_id": "NDGE11863-신문선",
+   "course_id": "NDGE11863",
+   "course_name": "데이터베이스",
+   "professor": "신문선",
    "levels": {
     "assignment": 2,
     "team_project": 1,
-    "exam": 3,
-    "presentation": 2,
+    "exam": 2,
     "attendance": 3
    },
    "summary": [
-    "과제량은 보통, 팀플 없음",
-    "퀴즈 포함 시험이 잦음",
-    "교수님이 엄격함, 녹화 강의 제공"
+    "별점 4.51/5 (강의평 146개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
    ],
    "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 매번 엄격하게 체크해요."
+    "assignment": "강의평 146개 중 과제: 보통 78% · 많음 19% · 없음 3%",
+    "team_project": "강의평 146개 중 팀플: 없음 47% · 보통 47% · 많음 7%",
+    "exam": "시험 두 번 (중간 객관식, 기말 객관식)",
+    "attendance": "출결 방식: 직접호명"
    },
    "reviews": [
-    "학점은 짜게 주세요. A 받기 힘들어요. 발표가 한 번 있어요.",
-    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 시험이 정말 어려워요.",
-    "출석을 매번 엄격하게 체크해요. 팀플은 없어요.",
-    "과제는 2~3주에 한 번 정도라 무난해요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
-    "중간·기말에 퀴즈까지 자주 봐요."
+    "[에브리타임 강의평 통계, 146개] 별점 4.51/5 / 과제 보통 78% · 많음 19% · 없음 3% / 팀플 없음 47% · 보통 47% · 많음 7% / 학점 보통 70% · 너그러움 27% · 깐깐함 3% / 시험 두 번 / 출결 직접호명"
    ],
-   "review_count": 35,
+   "review_count": 146,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.51,
+    "rating_distribution": {
+     "5": 64,
+     "4": 27,
+     "3": 7,
+     "2": 2,
+     "1": 1
+    },
+    "assignment": {
+     "none": 3,
+     "mid": 78,
+     "high": 19,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 47,
+     "mid": 47,
+     "high": 7,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 27,
+     "mid": 70,
+     "strict": 3,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
   },
   {
-   "lecture_id": "CSE1020-최민지",
-   "course_id": "CSE1020",
-   "professor": "최민지",
-   "levels": {
-    "assignment": 2,
-    "team_project": 1,
-    "exam": 1,
-    "presentation": 1,
-    "attendance": 1
-   },
-   "summary": [
-    "과제량은 보통, 팀플 없음",
-    "시험은 기말 1회",
-    "시험은 무난함, 실습 비중이 높음"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "시험은 기말 한 번뿐이에요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "과제는 2~3주에 한 번 정도라 무난해요. 출석을 거의 안 불러요.",
-    "시험은 수업 내용만 보면 충분해요. 실습 비중이 높아서 직접 해 보는 게 많아요. 발표는 없어요.",
-    "시험은 기말 한 번뿐이에요. 팀플은 없어요."
-   ],
-   "review_count": 37,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE2010-정하늘",
-   "course_id": "CSE2010",
-   "professor": "정하늘",
-   "levels": {
-    "assignment": 3,
-    "team_project": 2,
-    "exam": 2,
-    "presentation": 2,
-    "attendance": 1
-   },
-   "summary": [
-    "매주 과제가 있어 과제량이 많음, 팀 과제 1회",
-    "중간·기말 2회",
-    "교수님이 엄격함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "발표가 한 번 있어요. 출석을 거의 안 불러요. 매주 과제가 있어서 시간이 많이 들어요.",
-    "중간·기말 두 번 봐요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
-    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 작은 팀 과제가 한 번 있어요."
-   ],
-   "review_count": 15,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE2010-한지우",
-   "course_id": "CSE2010",
-   "professor": "한지우",
-   "levels": {
-    "assignment": 2,
-    "team_project": 1,
-    "exam": 2,
-    "presentation": 2,
-    "attendance": 2
-   },
-   "summary": [
-    "과제량은 보통, 팀플 없음",
-    "중간·기말 2회",
-    "교수님이 친절함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "출석은 전자출결로 가끔 확인해요. 팀플은 없어요.",
-    "중간·기말 두 번 봐요. 시험은 수업 내용만 보면 충분해요. 교수님이 질문에 친절하게 답해 주세요.",
-    "학점은 짜게 주세요. A 받기 힘들어요. 과제는 2~3주에 한 번 정도라 무난해요.",
-    "발표가 한 번 있어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요."
-   ],
-   "review_count": 9,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE2020-윤태경",
-   "course_id": "CSE2020",
-   "professor": "윤태경",
+   "lecture_id": "NDGE12263-박민규",
+   "course_id": "NDGE12263",
+   "course_name": "컴퓨터구조",
+   "professor": "박민규",
    "levels": {
     "assignment": 1,
     "team_project": 1,
     "exam": 2,
-    "presentation": 2,
     "attendance": 2
    },
    "summary": [
-    "과제 부담이 적음, 팀플 없음",
-    "중간·기말 2회",
-    "교수님이 엄격함, 시험은 무난함"
+    "별점 3.15/5 (강의평 52개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 전자출결"
    ],
    "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
+    "assignment": "강의평 52개 중 과제: 없음 88% · 보통 12% · 많음 0%",
+    "team_project": "강의평 52개 중 팀플: 없음 98% · 보통 2% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식·주관식, 기말 객관식)",
+    "attendance": "출결 방식: 전자출결"
    },
    "reviews": [
-    "중간·기말 두 번 봐요. 출석은 전자출결로 가끔 확인해요.",
-    "발표가 한 번 있어요. 과제가 거의 없어요.",
-    "팀플은 없어요. 시험은 수업 내용만 보면 충분해요.",
-    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 실습 비중이 높아서 직접 해 보는 게 많아요."
+    "[에브리타임 강의평 통계, 52개] 별점 3.15/5 / 과제 없음 88% · 보통 12% · 많음 0% / 팀플 없음 98% · 보통 2% · 많음 0% / 학점 보통 44% · 깐깐함 42% · 너그러움 13% / 시험 두 번 / 출결 전자출결"
    ],
-   "review_count": 18,
+   "review_count": 52,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.15,
+    "rating_distribution": {
+     "5": 27,
+     "4": 19,
+     "3": 23,
+     "2": 4,
+     "1": 27
+    },
+    "assignment": {
+     "none": 88,
+     "mid": 12,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 98,
+     "mid": 2,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 13,
+     "mid": 44,
+     "strict": 42,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
   },
   {
-   "lecture_id": "CSE2030-강민서",
-   "course_id": "CSE2030",
-   "professor": "강민서",
-   "levels": {
-    "assignment": 2,
-    "team_project": 3,
-    "exam": 1,
-    "presentation": 1,
-    "attendance": 2
-   },
-   "summary": [
-    "과제량은 보통, 학기 내내 팀 프로젝트",
-    "시험은 기말 1회",
-    "교수님이 친절함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "학기 내내 팀 프로젝트를 해요.",
-    "exam": "시험은 기말 한 번뿐이에요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "실습 비중이 높아서 직접 해 보는 게 많아요. 시험은 기말 한 번뿐이에요.",
-    "시험은 수업 내용만 보면 충분해요. 발표는 없어요.",
-    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 과제는 2~3주에 한 번 정도라 무난해요. 출석은 전자출결로 가끔 확인해요.",
-    "교수님이 질문에 친절하게 답해 주세요. 학기 내내 팀 프로젝트를 해요."
-   ],
-   "review_count": 39,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE2040-조은비",
-   "course_id": "CSE2040",
-   "professor": "조은비",
-   "levels": {
-    "assignment": 1,
-    "team_project": 1,
-    "exam": 3,
-    "presentation": 2,
-    "attendance": 1
-   },
-   "summary": [
-    "과제 부담이 적음, 팀플 없음",
-    "퀴즈 포함 시험이 잦음",
-    "교수님이 엄격함, 학점이 짬"
-   ],
-   "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "시험이 정말 어려워요. 과제가 거의 없어요.",
-    "중간·기말에 퀴즈까지 자주 봐요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 발표가 한 번 있어요.",
-    "학점은 짜게 주세요. A 받기 힘들어요. 팀플은 없어요. 출석을 거의 안 불러요."
-   ],
-   "review_count": 24,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE2040-신동혁",
-   "course_id": "CSE2040",
-   "professor": "신동혁",
-   "levels": {
-    "assignment": 2,
-    "team_project": 2,
-    "exam": 1,
-    "presentation": 2,
-    "attendance": 1
-   },
-   "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "시험은 기말 1회",
-    "교수님이 엄격함, 학점이 짬"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "시험은 기말 한 번뿐이에요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "학점은 짜게 주세요. A 받기 힘들어요. 발표가 한 번 있어요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요.",
-    "작은 팀 과제가 한 번 있어요. 출석을 거의 안 불러요.",
-    "시험은 기말 한 번뿐이에요. 과제는 2~3주에 한 번 정도라 무난해요."
-   ],
-   "review_count": 37,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE3010-임가영",
-   "course_id": "CSE3010",
-   "professor": "임가영",
-   "levels": {
-    "assignment": 2,
-    "team_project": 2,
-    "exam": 3,
-    "presentation": 3,
-    "attendance": 2
-   },
-   "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "퀴즈 포함 시험이 잦음",
-    "교수님이 엄격함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표를 여러 번 해야 해요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "학점은 잘 주시는 편이에요. 과제는 2~3주에 한 번 정도라 무난해요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
-    "작은 팀 과제가 한 번 있어요. 발표를 여러 번 해야 해요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요.",
-    "출석은 전자출결로 가끔 확인해요. 중간·기말에 퀴즈까지 자주 봐요."
-   ],
-   "review_count": 41,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE3010-정하늘",
-   "course_id": "CSE3010",
-   "professor": "정하늘",
-   "levels": {
-    "assignment": 1,
-    "team_project": 1,
-    "exam": 2,
-    "presentation": 2,
-    "attendance": 2
-   },
-   "summary": [
-    "과제 부담이 적음, 팀플 없음",
-    "중간·기말 2회",
-    "시험은 무난함, 이론 위주"
-   ],
-   "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "발표가 한 번 있어요. 출석은 전자출결로 가끔 확인해요.",
-    "과제가 거의 없어요. 이론 위주 강의예요.",
-    "중간·기말 두 번 봐요. 팀플은 없어요.",
-    "시험은 수업 내용만 보면 충분해요."
-   ],
-   "review_count": 18,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE3020-서지훈",
-   "course_id": "CSE3020",
-   "professor": "서지훈",
-   "levels": {
-    "assignment": 1,
-    "team_project": 3,
-    "exam": 3,
-    "presentation": 2,
-    "attendance": 3
-   },
-   "summary": [
-    "과제 부담이 적음, 학기 내내 팀 프로젝트",
-    "퀴즈 포함 시험이 잦음",
-    "학점을 잘 줌, 이론 위주"
-   ],
-   "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "학기 내내 팀 프로젝트를 해요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 매번 엄격하게 체크해요."
-   },
-   "reviews": [
-    "학점은 잘 주시는 편이에요. 이론 위주 강의예요. 출석을 매번 엄격하게 체크해요.",
-    "중간·기말에 퀴즈까지 자주 봐요. 발표가 한 번 있어요.",
-    "학기 내내 팀 프로젝트를 해요. 과제가 거의 없어요."
-   ],
-   "review_count": 6,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE3020-권나래",
-   "course_id": "CSE3020",
-   "professor": "권나래",
-   "levels": {
-    "assignment": 2,
-    "team_project": 2,
-    "exam": 2,
-    "presentation": 3,
-    "attendance": 2
-   },
-   "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "중간·기말 2회",
-    "교수님이 엄격함, 실습 비중이 높음"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표를 여러 번 해야 해요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "발표를 여러 번 해야 해요. 실습 비중이 높아서 직접 해 보는 게 많아요.",
-    "작은 팀 과제가 한 번 있어요. 과제는 2~3주에 한 번 정도라 무난해요. 중간·기말 두 번 봐요.",
-    "출석은 전자출결로 가끔 확인해요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요."
-   ],
-   "review_count": 35,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE3030-박도윤",
-   "course_id": "CSE3030",
-   "professor": "박도윤",
+   "lecture_id": "NDGE14419-김창호",
+   "course_id": "NDGE14419",
+   "course_name": "이산수학",
+   "professor": "김창호",
    "levels": {
     "assignment": 3,
     "team_project": 1,
     "exam": 2,
-    "presentation": 1,
-    "attendance": 2
-   },
-   "summary": [
-    "매주 과제가 있어 과제량이 많음, 팀플 없음",
-    "중간·기말 2회",
-    "교수님이 친절함, 실습 비중이 높음"
-   ],
-   "evidence": {
-    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "교수님이 질문에 친절하게 답해 주세요. 발표는 없어요.",
-    "중간·기말 두 번 봐요. 출석은 전자출결로 가끔 확인해요.",
-    "실습 비중이 높아서 직접 해 보는 게 많아요. 매주 과제가 있어서 시간이 많이 들어요.",
-    "팀플은 없어요."
-   ],
-   "review_count": 34,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE3030-장윤호",
-   "course_id": "CSE3030",
-   "professor": "장윤호",
-   "levels": {
-    "assignment": 2,
-    "team_project": 2,
-    "exam": 3,
-    "presentation": 1,
     "attendance": 3
    },
    "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "퀴즈 포함 시험이 잦음",
-    "교수님이 엄격함, 시험이 어려움"
+    "별점 3.72/5 (강의평 123개)",
+    "과제 많음, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
    ],
    "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 매번 엄격하게 체크해요."
+    "assignment": "강의평 123개 중 과제: 많음 59% · 보통 41% · 없음 0%",
+    "team_project": "강의평 123개 중 팀플: 없음 97% · 보통 2% · 많음 2%",
+    "exam": "시험 두 번 (중간 주관식·객관식, 기말 주관식)",
+    "attendance": "출결 방식: 직접호명"
    },
    "reviews": [
-    "시험이 정말 어려워요. 중간·기말에 퀴즈까지 자주 봐요.",
-    "출석을 매번 엄격하게 체크해요. 과제는 2~3주에 한 번 정도라 무난해요. 작은 팀 과제가 한 번 있어요.",
-    "발표는 없어요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요."
+    "[에브리타임 강의평 통계, 123개] 별점 3.72/5 / 과제 많음 59% · 보통 41% · 없음 0% / 팀플 없음 97% · 보통 2% · 많음 2% / 학점 보통 77% · 너그러움 15% · 깐깐함 7% / 시험 두 번 / 출결 직접호명"
    ],
-   "review_count": 13,
+   "review_count": 123,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.72,
+    "rating_distribution": {
+     "5": 30,
+     "4": 28,
+     "3": 31,
+     "2": 7,
+     "1": 4
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 41,
+     "high": 59,
+     "top": "high"
+    },
+    "team_project": {
+     "none": 97,
+     "mid": 2,
+     "high": 2,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 15,
+     "mid": 77,
+     "strict": 7,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식",
+      "객관식"
+     ],
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
   },
   {
-   "lecture_id": "CSE3040-홍예린",
-   "course_id": "CSE3040",
-   "professor": "홍예린",
+   "lecture_id": "NDGE14446-최수민",
+   "course_id": "NDGE14446",
+   "course_name": "컴퓨터네트워크",
+   "professor": "최수민",
    "levels": {
     "assignment": 1,
     "team_project": 1,
     "exam": 2,
-    "presentation": 1,
-    "attendance": 1
+    "attendance": 3
    },
    "summary": [
-    "과제 부담이 적음, 팀플 없음",
-    "중간·기말 2회",
-    "녹화 강의 제공, 학점을 잘 줌"
+    "별점 4.78/5 (강의평 45개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 복합적"
    ],
    "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 거의 안 불러요."
+    "assignment": "강의평 45개 중 과제: 없음 64% · 보통 36% · 많음 0%",
+    "team_project": "강의평 45개 중 팀플: 없음 98% · 보통 2% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식·주관식)",
+    "attendance": "출결 방식: 복합적"
    },
    "reviews": [
-    "중간·기말 두 번 봐요. 출석을 거의 안 불러요.",
-    "팀플은 없어요. 학점은 잘 주시는 편이에요. 발표는 없어요.",
-    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 과제가 거의 없어요."
+    "[에브리타임 강의평 통계, 45개] 별점 4.78/5 / 과제 없음 64% · 보통 36% · 많음 0% / 팀플 없음 98% · 보통 2% · 많음 0% / 학점 보통 56% · 너그러움 44% · 깐깐함 0% / 시험 두 번 / 출결 복합적"
    ],
-   "review_count": 20,
+   "review_count": 45,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.78,
+    "rating_distribution": {
+     "5": 84,
+     "4": 11,
+     "3": 2,
+     "2": 2,
+     "1": 0
+    },
+    "assignment": {
+     "none": 64,
+     "mid": 36,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 98,
+     "mid": 2,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 44,
+     "mid": 56,
+     "strict": 0,
+     "top": "mid"
+    },
+    "attendance": "복합적",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
   },
   {
-   "lecture_id": "CSE3040-남궁현",
-   "course_id": "CSE3040",
-   "professor": "남궁현",
+   "lecture_id": "NDGE14514-이광배",
+   "course_id": "NDGE14514",
+   "course_name": "소프트웨어공학",
+   "professor": "이광배",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.96/5 (강의평 23개)",
+    "과제 없음, 팀플 보통",
+    "학점 보통, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 23개 중 과제: 없음 57% · 보통 43% · 많음 0%",
+    "team_project": "강의평 23개 중 팀플: 보통 78% · 없음 22% · 많음 0%",
+    "exam": "시험 한 번 (중간 논술형, 기말 기타)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 23개] 별점 4.96/5 / 과제 없음 57% · 보통 43% · 많음 0% / 팀플 보통 78% · 없음 22% · 많음 0% / 학점 보통 61% · 너그러움 35% · 깐깐함 4% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 23,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.96,
+    "rating_distribution": {
+     "5": 96,
+     "4": 4,
+     "3": 0,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 57,
+     "mid": 43,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 22,
+     "mid": 78,
+     "high": 0,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 35,
+     "mid": 61,
+     "strict": 4,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": [
+      "논술형"
+     ],
+     "final": [
+      "기타"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE14570-고명철",
+   "course_id": "NDGE14570",
+   "course_name": "C++프로그래밍",
+   "professor": "고명철",
    "levels": {
     "assignment": 2,
-    "team_project": 3,
+    "team_project": 1,
     "exam": 2,
-    "presentation": 3,
     "attendance": 2
    },
    "summary": [
-    "과제량은 보통, 학기 내내 팀 프로젝트",
-    "중간·기말 2회",
-    "교수님이 친절함"
+    "별점 3.38/5 (강의평 8개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 전자출결"
    ],
    "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "학기 내내 팀 프로젝트를 해요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표를 여러 번 해야 해요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
+    "assignment": "강의평 8개 중 과제: 대부분 보통",
+    "team_project": "강의평 8개 중 팀플: 대부분 없음",
+    "exam": "시험 두 번",
+    "attendance": "출결 방식: 전자출결"
    },
    "reviews": [
-    "중간·기말 두 번 봐요. 교수님이 질문에 친절하게 답해 주세요. 학기 내내 팀 프로젝트를 해요.",
-    "발표를 여러 번 해야 해요. 과제는 2~3주에 한 번 정도라 무난해요.",
-    "출석은 전자출결로 가끔 확인해요."
+    "[에브리타임 강의평 통계, 8개] 별점 3.38/5 / 과제 대부분 보통 / 팀플 대부분 없음 / 학점 대부분 보통 / 시험 두 번 / 출결 전자출결"
    ],
    "review_count": 8,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.38,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
   },
   {
-   "lecture_id": "CSE4010-안재민",
-   "course_id": "CSE4010",
-   "professor": "안재민",
-   "levels": {
-    "assignment": 3,
-    "team_project": 2,
-    "exam": 3,
-    "presentation": 2,
-    "attendance": 1
-   },
-   "summary": [
-    "매주 과제가 있어 과제량이 많음, 팀 과제 1회",
-    "퀴즈 포함 시험이 잦음",
-    "학점을 잘 줌, 시험은 무난함"
-   ],
-   "evidence": {
-    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "출석을 거의 안 불러요. 실습 비중이 높아서 직접 해 보는 게 많아요.",
-    "발표가 한 번 있어요. 학점은 잘 주시는 편이에요.",
-    "시험은 수업 내용만 보면 충분해요. 작은 팀 과제가 한 번 있어요.",
-    "매주 과제가 있어서 시간이 많이 들어요. 중간·기말에 퀴즈까지 자주 봐요."
-   ],
-   "review_count": 18,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE4010-백서윤",
-   "course_id": "CSE4010",
-   "professor": "백서윤",
+   "lecture_id": "NDGE15050-김창호",
+   "course_id": "NDGE15050",
+   "course_name": "시스템프로그래밍",
+   "professor": "김창호",
    "levels": {
     "assignment": 2,
-    "team_project": 2,
+    "team_project": 1,
     "exam": 2,
-    "presentation": 1,
-    "attendance": 1
+    "attendance": 3
    },
    "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "중간·기말 2회",
-    "시험이 어려움"
+    "별점 3.2/5 (강의평 35개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
    ],
    "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 거의 안 불러요."
+    "assignment": "강의평 35개 중 과제: 보통 77% · 많음 23% · 없음 0%",
+    "team_project": "강의평 35개 중 팀플: 없음 89% · 보통 11% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
    },
    "reviews": [
-    "중간·기말 두 번 봐요. 과제는 2~3주에 한 번 정도라 무난해요. 발표는 없어요.",
-    "시험이 정말 어려워요. 출석을 거의 안 불러요. 작은 팀 과제가 한 번 있어요."
+    "[에브리타임 강의평 통계, 35개] 별점 3.2/5 / 과제 보통 77% · 많음 23% · 없음 0% / 팀플 없음 89% · 보통 11% · 많음 0% / 학점 보통 66% · 너그러움 26% · 깐깐함 9% / 시험 두 번 / 출결 직접호명"
    ],
-   "review_count": 21,
+   "review_count": 35,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.2,
+    "rating_distribution": {
+     "5": 17,
+     "4": 17,
+     "3": 46,
+     "2": 9,
+     "1": 11
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 77,
+     "high": 23,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 89,
+     "mid": 11,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 26,
+     "mid": 66,
+     "strict": 9,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
   },
   {
-   "lecture_id": "CSE3050-노지환",
-   "course_id": "CSE3050",
-   "professor": "노지환",
+   "lecture_id": "NDGE15050-박민규",
+   "course_id": "NDGE15050",
+   "course_name": "시스템프로그래밍",
+   "professor": "박민규",
    "levels": {
     "assignment": 1,
-    "team_project": 2,
-    "exam": 3,
-    "presentation": 2,
-    "attendance": 2
+    "team_project": 1,
+    "exam": 2
    },
    "summary": [
-    "과제 부담이 적음, 팀 과제 1회",
-    "퀴즈 포함 시험이 잦음",
-    "녹화 강의 제공, 학점이 짬"
+    "별점 4.06/5 (강의평 33개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 두 번"
    ],
    "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
+    "assignment": "강의평 33개 중 과제: 없음 73% · 보통 24% · 많음 3%",
+    "team_project": "강의평 33개 중 팀플: 없음 97% · 보통 3% · 많음 0%",
+    "exam": "시험 두 번"
    },
    "reviews": [
-    "발표가 한 번 있어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 중간·기말에 퀴즈까지 자주 봐요.",
-    "출석은 전자출결로 가끔 확인해요. 과제가 거의 없어요. 학점은 짜게 주세요. A 받기 힘들어요.",
-    "작은 팀 과제가 한 번 있어요."
-   ],
-   "review_count": 37,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE3060-하유진",
-   "course_id": "CSE3060",
-   "professor": "하유진",
-   "levels": {
-    "assignment": 1,
-    "team_project": 2,
-    "exam": 2,
-    "presentation": 2,
-    "attendance": 1
-   },
-   "summary": [
-    "과제 부담이 적음, 팀 과제 1회",
-    "중간·기말 2회",
-    "녹화 강의 제공, 학점을 잘 줌"
-   ],
-   "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "발표가 한 번 있어요. 작은 팀 과제가 한 번 있어요. 과제가 거의 없어요.",
-    "출석을 거의 안 불러요. 중간·기말 두 번 봐요.",
-    "학점은 잘 주시는 편이에요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 시험은 수업 내용만 보면 충분해요."
-   ],
-   "review_count": 38,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE3060-구본석",
-   "course_id": "CSE3060",
-   "professor": "구본석",
-   "levels": {
-    "assignment": 1,
-    "team_project": 3,
-    "exam": 3,
-    "presentation": 2,
-    "attendance": 2
-   },
-   "summary": [
-    "과제 부담이 적음, 학기 내내 팀 프로젝트",
-    "퀴즈 포함 시험이 잦음",
-    "녹화 강의 제공, 이론 위주"
-   ],
-   "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "학기 내내 팀 프로젝트를 해요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "발표가 한 번 있어요. 과제가 거의 없어요. 출석은 전자출결로 가끔 확인해요.",
-    "학기 내내 팀 프로젝트를 해요. 중간·기말에 퀴즈까지 자주 봐요.",
-    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 이론 위주 강의예요."
-   ],
-   "review_count": 10,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE3070-표은지",
-   "course_id": "CSE3070",
-   "professor": "표은지",
-   "levels": {
-    "assignment": 3,
-    "team_project": 3,
-    "exam": 2,
-    "presentation": 2,
-    "attendance": 1
-   },
-   "summary": [
-    "매주 과제가 있어 과제량이 많음, 학기 내내 팀 프로젝트",
-    "중간·기말 2회",
-    "시험은 무난함, 실습 비중이 높음"
-   ],
-   "evidence": {
-    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
-    "team_project": "학기 내내 팀 프로젝트를 해요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "실습 비중이 높아서 직접 해 보는 게 많아요. 매주 과제가 있어서 시간이 많이 들어요.",
-    "중간·기말 두 번 봐요. 발표가 한 번 있어요. 학기 내내 팀 프로젝트를 해요.",
-    "시험은 수업 내용만 보면 충분해요. 출석을 거의 안 불러요."
-   ],
-   "review_count": 8,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "CSE4020-하유진",
-   "course_id": "CSE4020",
-   "professor": "하유진",
-   "levels": {
-    "assignment": 2,
-    "team_project": 2,
-    "exam": 3,
-    "presentation": 2,
-    "attendance": 1
-   },
-   "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "퀴즈 포함 시험이 잦음",
-    "교수님이 친절함, 학점을 잘 줌"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "출석을 거의 안 불러요. 학점은 잘 주시는 편이에요.",
-    "중간·기말에 퀴즈까지 자주 봐요. 작은 팀 과제가 한 번 있어요.",
-    "시험이 정말 어려워요. 교수님이 질문에 친절하게 답해 주세요. 발표가 한 번 있어요.",
-    "과제는 2~3주에 한 번 정도라 무난해요."
+    "[에브리타임 강의평 통계, 33개] 별점 4.06/5 / 과제 없음 73% · 보통 24% · 많음 3% / 팀플 없음 97% · 보통 3% · 많음 0% / 학점 보통 70% · 깐깐함 18% · 너그러움 12% / 시험 두 번"
    ],
    "review_count": 33,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.06,
+    "rating_distribution": {
+     "5": 39,
+     "4": 39,
+     "3": 15,
+     "2": 0,
+     "1": 6
+    },
+    "assignment": {
+     "none": 73,
+     "mid": 24,
+     "high": 3,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 97,
+     "mid": 3,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 12,
+     "mid": 70,
+     "strict": 18,
+     "top": "mid"
+    },
+    "attendance": null,
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
   },
   {
-   "lecture_id": "CSE4030-류승우",
-   "course_id": "CSE4030",
-   "professor": "류승우",
+   "lecture_id": "NDGE15060-김정환",
+   "course_id": "NDGE15060",
+   "course_name": "자료구조",
+   "professor": "김정환",
    "levels": {
     "assignment": 2,
-    "team_project": 2,
+    "team_project": 1,
     "exam": 2,
-    "presentation": 1,
-    "attendance": 1
+    "attendance": 2
    },
    "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "중간·기말 2회",
-    "교수님이 친절함, 학점이 짬"
+    "별점 4.73/5 (강의평 145개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 전자출결"
    ],
    "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 거의 안 불러요."
+    "assignment": "강의평 145개 중 과제: 보통 72% · 많음 26% · 없음 2%",
+    "team_project": "강의평 145개 중 팀플: 없음 88% · 보통 10% · 많음 1%",
+    "exam": "시험 두 번 (중간 객관식·주관식, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 전자출결"
    },
    "reviews": [
-    "실습 비중이 높아서 직접 해 보는 게 많아요. 과제는 2~3주에 한 번 정도라 무난해요. 시험이 정말 어려워요.",
-    "학점은 짜게 주세요. A 받기 힘들어요. 교수님이 질문에 친절하게 답해 주세요. 작은 팀 과제가 한 번 있어요.",
-    "중간·기말 두 번 봐요. 출석을 거의 안 불러요. 발표는 없어요."
+    "[에브리타임 강의평 통계, 145개] 별점 4.73/5 / 과제 보통 72% · 많음 26% · 없음 2% / 팀플 없음 88% · 보통 10% · 많음 1% / 학점 보통 73% · 너그러움 23% · 깐깐함 3% / 시험 두 번 / 출결 전자출결"
    ],
-   "review_count": 11,
+   "review_count": 145,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.73,
+    "rating_distribution": {
+     "5": 79,
+     "4": 15,
+     "3": 5,
+     "2": 1,
+     "1": 0
+    },
+    "assignment": {
+     "none": 2,
+     "mid": 72,
+     "high": 26,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 88,
+     "mid": 10,
+     "high": 1,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 23,
+     "mid": 73,
+     "strict": 3,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
   },
   {
-   "lecture_id": "CSE4040-진수빈",
-   "course_id": "CSE4040",
-   "professor": "진수빈",
+   "lecture_id": "NDGE15817-고명철",
+   "course_id": "NDGE15817",
+   "course_name": "멀티미디어와가상현실",
+   "professor": "고명철",
    "levels": {
     "assignment": 2,
-    "team_project": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.0/5 (강의평 6개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 한 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 6개 중 과제: 대부분 보통",
+    "team_project": "강의평 6개 중 팀플: 대부분 없음",
+    "exam": "시험 한 번",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 6개] 별점 4.0/5 / 과제 대부분 보통 / 팀플 대부분 없음 / 학점 대부분 보통 / 시험 한 번 / 출결 전자출결"
+   ],
+   "review_count": 6,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.0,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE48004-한상철",
+   "course_id": "NDGE48004",
+   "course_name": "Java프로그래밍2",
+   "professor": "한상철",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
     "exam": 2,
-    "presentation": 3,
     "attendance": 3
    },
    "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "중간·기말 2회",
-    "녹화 강의 제공"
+    "별점 4.89/5 (강의평 112개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 직접호명"
    ],
    "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표를 여러 번 해야 해요.",
-    "attendance": "출석을 매번 엄격하게 체크해요."
+    "assignment": "강의평 112개 중 과제: 보통 65% · 많음 32% · 없음 3%",
+    "team_project": "강의평 112개 중 팀플: 없음 97% · 보통 3% · 많음 0%",
+    "exam": "시험 두 번 (중간 주관식)",
+    "attendance": "출결 방식: 직접호명"
    },
    "reviews": [
-    "발표를 여러 번 해야 해요. 출석을 매번 엄격하게 체크해요. 과제는 2~3주에 한 번 정도라 무난해요.",
-    "중간·기말 두 번 봐요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 작은 팀 과제가 한 번 있어요."
+    "[에브리타임 강의평 통계, 112개] 별점 4.89/5 / 과제 보통 65% · 많음 32% · 없음 3% / 팀플 없음 97% · 보통 3% · 많음 0% / 학점 너그러움 52% · 보통 44% · 깐깐함 4% / 시험 두 번 / 출결 직접호명"
    ],
-   "review_count": 16,
+   "review_count": 112,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.89,
+    "rating_distribution": {
+     "5": 89,
+     "4": 11,
+     "3": 0,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 3,
+     "mid": 65,
+     "high": 32,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 97,
+     "mid": 3,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 52,
+     "mid": 44,
+     "strict": 4,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE50341-전흥석",
+   "course_id": "NDGE50341",
+   "course_name": "창의공학설계",
+   "professor": "전흥석",
+   "levels": {
+    "assignment": 2,
+    "team_project": 3,
+    "exam": 1
+   },
+   "summary": [
+    "별점 3.98/5 (강의평 64개)",
+    "과제 보통, 팀플 많음",
+    "학점 보통, 시험 없음"
+   ],
+   "evidence": {
+    "assignment": "강의평 64개 중 과제: 보통 45% · 많음 33% · 없음 22%",
+    "team_project": "강의평 64개 중 팀플: 많음 84% · 보통 16% · 없음 0%",
+    "exam": "시험 없음 (기타 기타)"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 64개] 별점 3.98/5 / 과제 보통 45% · 많음 33% · 없음 22% / 팀플 많음 84% · 보통 16% · 없음 0% / 학점 보통 64% · 너그러움 25% · 깐깐함 11% / 시험 없음"
+   ],
+   "review_count": 64,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.98,
+    "rating_distribution": {
+     "5": 45,
+     "4": 28,
+     "3": 14,
+     "2": 5,
+     "1": 8
+    },
+    "assignment": {
+     "none": 22,
+     "mid": 45,
+     "high": 33,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 0,
+     "mid": 16,
+     "high": 84,
+     "top": "high"
+    },
+    "grading": {
+     "generous": 25,
+     "mid": 64,
+     "strict": 11,
+     "top": "mid"
+    },
+    "attendance": null,
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": [
+      "기타"
+     ]
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE50346-조도은",
+   "course_id": "NDGE50346",
+   "course_name": "고급웹프로그래밍",
+   "professor": "조도은",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.18/5 (강의평 11개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 한 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 11개 중 과제: 보통 55% · 많음 45% · 없음 0%",
+    "team_project": "강의평 11개 중 팀플: 없음 55% · 보통 45% · 많음 0%",
+    "exam": "시험 한 번",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 11개] 별점 4.18/5 / 과제 보통 55% · 많음 45% · 없음 0% / 팀플 없음 55% · 보통 45% · 많음 0% / 학점 보통 82% · 너그러움 18% · 깐깐함 0% / 시험 한 번 / 출결 전자출결"
+   ],
+   "review_count": 11,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.18,
+    "rating_distribution": {
+     "5": 45,
+     "4": 45,
+     "3": 0,
+     "2": 0,
+     "1": 9
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 55,
+     "high": 45,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 55,
+     "mid": 45,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 18,
+     "mid": 82,
+     "strict": 0,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE56032-선우하식",
+   "course_id": "NDGE56032",
+   "course_name": "빅데이터기초",
+   "professor": "선우하식",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.61/5 (강의평 54개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 54개 중 과제: 보통 61% · 많음 39% · 없음 0%",
+    "team_project": "강의평 54개 중 팀플: 없음 91% · 보통 9% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 54개] 별점 4.61/5 / 과제 보통 61% · 많음 39% · 없음 0% / 팀플 없음 91% · 보통 9% · 많음 0% / 학점 보통 61% · 너그러움 31% · 깐깐함 7% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 54,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.61,
+    "rating_distribution": {
+     "5": 72,
+     "4": 22,
+     "3": 2,
+     "2": 2,
+     "1": 2
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 61,
+     "high": 39,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 91,
+     "mid": 9,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 31,
+     "mid": 61,
+     "strict": 7,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE56032-신문선",
+   "course_id": "NDGE56032",
+   "course_name": "빅데이터기초",
+   "professor": "신문선",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.55/5 (강의평 40개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 40개 중 과제: 보통 75% · 많음 20% · 없음 5%",
+    "team_project": "강의평 40개 중 팀플: 없음 70% · 보통 30% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식, 기말 기타)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 40개] 별점 4.55/5 / 과제 보통 75% · 많음 20% · 없음 5% / 팀플 없음 70% · 보통 30% · 많음 0% / 학점 보통 73% · 너그러움 25% · 깐깐함 3% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 40,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.55,
+    "rating_distribution": {
+     "5": 68,
+     "4": 20,
+     "3": 13,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 5,
+     "mid": 75,
+     "high": 20,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 70,
+     "mid": 30,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 25,
+     "mid": 73,
+     "strict": 3,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "기타"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE57369-강현규",
+   "course_id": "NDGE57369",
+   "course_name": "C프로그래밍",
+   "professor": "강현규",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.02/5 (강의평 51개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 51개 중 과제: 보통 65% · 많음 35% · 없음 0%",
+    "team_project": "강의평 51개 중 팀플: 없음 98% · 보통 2% · 많음 0%",
+    "exam": "시험 두 번 (중간 주관식, 기말 주관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 51개] 별점 4.02/5 / 과제 보통 65% · 많음 35% · 없음 0% / 팀플 없음 98% · 보통 2% · 많음 0% / 학점 보통 78% · 너그러움 16% · 깐깐함 6% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 51,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.02,
+    "rating_distribution": {
+     "5": 59,
+     "4": 14,
+     "3": 10,
+     "2": 6,
+     "1": 12
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 65,
+     "high": 35,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 98,
+     "mid": 2,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 16,
+     "mid": 78,
+     "strict": 6,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식"
+     ],
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE57518-박민규",
+   "course_id": "NDGE57518",
+   "course_name": "안드로이드프로그래밍",
+   "professor": "박민규",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2
+   },
+   "summary": [
+    "별점 3.33/5 (강의평 39개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번"
+   ],
+   "evidence": {
+    "assignment": "강의평 39개 중 과제: 보통 56% · 없음 41% · 많음 3%",
+    "team_project": "강의평 39개 중 팀플: 없음 97% · 많음 3% · 보통 0%",
+    "exam": "시험 두 번 (중간 객관식, 기말 객관식·주관식)"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 39개] 별점 3.33/5 / 과제 보통 56% · 없음 41% · 많음 3% / 팀플 없음 97% · 많음 3% · 보통 0% / 학점 보통 62% · 깐깐함 31% · 너그러움 8% / 시험 두 번"
+   ],
+   "review_count": 39,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.33,
+    "rating_distribution": {
+     "5": 15,
+     "4": 44,
+     "3": 13,
+     "2": 15,
+     "1": 13
+    },
+    "assignment": {
+     "none": 41,
+     "mid": 56,
+     "high": 3,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 97,
+     "mid": 0,
+     "high": 3,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 8,
+     "mid": 62,
+     "strict": 31,
+     "top": "mid"
+    },
+    "attendance": null,
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE62731-백우진",
+   "course_id": "NDGE62731",
+   "course_name": "클라우드컴퓨팅",
+   "professor": "백우진",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2
+   },
+   "summary": [
+    "별점 4.56/5 (강의평 18개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번"
+   ],
+   "evidence": {
+    "assignment": "강의평 18개 중 과제: 보통 50% · 많음 44% · 없음 6%",
+    "team_project": "강의평 18개 중 팀플: 없음 94% · 많음 6% · 보통 0%",
+    "exam": "시험 두 번"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 18개] 별점 4.56/5 / 과제 보통 50% · 많음 44% · 없음 6% / 팀플 없음 94% · 많음 6% · 보통 0% / 학점 보통 61% · 너그러움 28% · 깐깐함 11% / 시험 두 번"
+   ],
+   "review_count": 18,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.56,
+    "rating_distribution": {
+     "5": 78,
+     "4": 6,
+     "3": 11,
+     "2": 6,
+     "1": 0
+    },
+    "assignment": {
+     "none": 6,
+     "mid": 50,
+     "high": 44,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 94,
+     "mid": 0,
+     "high": 6,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 28,
+     "mid": 61,
+     "strict": 11,
+     "top": "mid"
+    },
+    "attendance": null,
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE65059-백우진",
+   "course_id": "NDGE65059",
+   "course_name": "딥러닝",
+   "professor": "백우진",
+   "levels": {
+    "assignment": 3,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 3.5/5 (강의평 10개)",
+    "과제 많음, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 10개 중 과제: 많음 60% · 보통 40% · 없음 0%",
+    "team_project": "강의평 10개 중 팀플: 없음 100% · 보통 0% · 많음 0%",
+    "exam": "시험 두 번",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 10개] 별점 3.5/5 / 과제 많음 60% · 보통 40% · 없음 0% / 팀플 없음 100% · 보통 0% · 많음 0% / 학점 보통 70% · 깐깐함 20% · 너그러움 10% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 10,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.5,
+    "rating_distribution": {
+     "5": 30,
+     "4": 20,
+     "3": 30,
+     "2": 10,
+     "1": 10
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 40,
+     "high": 60,
+     "top": "high"
+    },
+    "team_project": {
+     "none": 100,
+     "mid": 0,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 10,
+     "mid": 70,
+     "strict": 20,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE67863-이철원",
+   "course_id": "NDGE67863",
+   "course_name": "Python프로그래밍",
+   "professor": "이철원",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.66/5 (강의평 29개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 29개 중 과제: 보통 72% · 없음 28% · 많음 0%",
+    "team_project": "강의평 29개 중 팀플: 없음 97% · 보통 3% · 많음 0%",
+    "exam": "시험 두 번 (중간 기타, 기말 기타)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 29개] 별점 4.66/5 / 과제 보통 72% · 없음 28% · 많음 0% / 팀플 없음 97% · 보통 3% · 많음 0% / 학점 보통 48% · 너그러움 28% · 깐깐함 24% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 29,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.66,
+    "rating_distribution": {
+     "5": 79,
+     "4": 10,
+     "3": 7,
+     "2": 3,
+     "1": 0
+    },
+    "assignment": {
+     "none": 28,
+     "mid": 72,
+     "high": 0,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 97,
+     "mid": 3,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 28,
+     "mid": 48,
+     "strict": 24,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "기타"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE62441-한상철",
+   "course_id": "NDGE62441",
+   "course_name": "K-Project",
+   "professor": "한상철",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.71/5 (강의평 14개)",
+    "과제 보통, 팀플 보통",
+    "학점 너그러움, 시험 없음, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 14개 중 과제: 보통 57% · 없음 36% · 많음 7%",
+    "team_project": "강의평 14개 중 팀플: 보통 57% · 없음 29% · 많음 14%",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 14개] 별점 4.71/5 / 과제 보통 57% · 없음 36% · 많음 7% / 팀플 보통 57% · 없음 29% · 많음 14% / 학점 너그러움 71% · 보통 29% · 깐깐함 0% / 시험 없음 / 출결 직접호명"
+   ],
+   "review_count": 14,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.71,
+    "rating_distribution": {
+     "5": 79,
+     "4": 14,
+     "3": 7,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 36,
+     "mid": 57,
+     "high": 7,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 29,
+     "mid": 57,
+     "high": 14,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 71,
+     "mid": 29,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE67588-한상철",
+   "course_id": "NDGE67588",
+   "course_name": "Nano-LAB기초2(컴퓨터공학)",
+   "professor": "한상철",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.88/5 (강의평 8개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 없음, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 8개 중 과제: 대부분 없음",
+    "team_project": "강의평 8개 중 팀플: 대부분 없음",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 8개] 별점 4.88/5 / 과제 대부분 없음 / 팀플 대부분 없음 / 학점 대부분 너그러움 / 시험 없음 / 출결 직접호명"
+   ],
+   "review_count": 8,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.88,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "NDGE67644-백우진",
+   "course_id": "NDGE67644",
+   "course_name": "Nano-LAB심화2(컴퓨터공학)",
+   "professor": "백우진",
+   "levels": {},
+   "summary": [
+    "별점 4.5/5 (강의평 2개)"
+   ],
+   "evidence": {},
+   "reviews": [
+    "[에브리타임 강의평 통계, 2개] 별점 4.5/5"
+   ],
+   "review_count": 2,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.5,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": null
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": null
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": null
+    },
+    "attendance": null,
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA15891-현종윤",
+   "course_id": "BKSA15891",
+   "course_name": "대학기초수학",
+   "professor": "현종윤",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.1/5 (강의평 400개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 400개 중 과제: 보통 53% · 없음 43% · 많음 4%",
+    "team_project": "강의평 400개 중 팀플: 없음 90% · 보통 9% · 많음 1%",
+    "exam": "시험 두 번 (중간 주관식, 기말 주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 400개] 별점 4.1/5 / 과제 보통 53% · 없음 43% · 많음 4% / 팀플 없음 90% · 보통 9% · 많음 1% / 학점 보통 67% · 너그러움 24% · 깐깐함 10% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 400,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.1,
+    "rating_distribution": {
+     "5": 44,
+     "4": 33,
+     "3": 16,
+     "2": 3,
+     "1": 4
+    },
+    "assignment": {
+     "none": 43,
+     "mid": 53,
+     "high": 4,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 90,
+     "mid": 9,
+     "high": 1,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 24,
+     "mid": 67,
+     "strict": 10,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식"
+     ],
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA81308-현종윤",
+   "course_id": "BKSA81308",
+   "course_name": "기초통계학",
+   "professor": "현종윤",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 3.44/5 (강의평 102개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 102개 중 과제: 없음 75% · 보통 20% · 많음 5%",
+    "team_project": "강의평 102개 중 팀플: 없음 97% · 보통 3% · 많음 0%",
+    "exam": "시험 두 번 (중간 주관식, 기말 주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 102개] 별점 3.44/5 / 과제 없음 75% · 보통 20% · 많음 5% / 팀플 없음 97% · 보통 3% · 많음 0% / 학점 보통 73% · 깐깐함 18% · 너그러움 10% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 102,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.44,
+    "rating_distribution": {
+     "5": 29,
+     "4": 31,
+     "3": 14,
+     "2": 5,
+     "1": 21
+    },
+    "assignment": {
+     "none": 75,
+     "mid": 20,
+     "high": 5,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 97,
+     "mid": 3,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 10,
+     "mid": 73,
+     "strict": 18,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식"
+     ],
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA59512-주희경",
+   "course_id": "BKSA59512",
+   "course_name": "대학기초생물학",
+   "professor": "주희경",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.46/5 (강의평 224개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 224개 중 과제: 없음 62% · 보통 38% · 많음 0%",
+    "team_project": "강의평 224개 중 팀플: 없음 96% · 보통 4% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식·주관식, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 224개] 별점 4.46/5 / 과제 없음 62% · 보통 38% · 많음 0% / 팀플 없음 96% · 보통 4% · 많음 0% / 학점 보통 68% · 너그러움 28% · 깐깐함 4% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 224,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.46,
+    "rating_distribution": {
+     "5": 59,
+     "4": 31,
+     "3": 8,
+     "2": 0,
+     "1": 1
+    },
+    "assignment": {
+     "none": 62,
+     "mid": 38,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 96,
+     "mid": 4,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 28,
+     "mid": 68,
+     "strict": 4,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA59512-김종보",
+   "course_id": "BKSA59512",
+   "course_name": "대학기초생물학",
+   "professor": "김종보",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 3.66/5 (강의평 38개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 38개 중 과제: 보통 76% · 많음 18% · 없음 5%",
+    "team_project": "강의평 38개 중 팀플: 없음 76% · 보통 24% · 많음 0%",
+    "exam": "시험 두 번 (중간 주관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 38개] 별점 3.66/5 / 과제 보통 76% · 많음 18% · 없음 5% / 팀플 없음 76% · 보통 24% · 많음 0% / 학점 보통 53% · 너그러움 39% · 깐깐함 8% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 38,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.66,
+    "rating_distribution": {
+     "5": 24,
+     "4": 34,
+     "3": 32,
+     "2": 5,
+     "1": 5
+    },
+    "assignment": {
+     "none": 5,
+     "mid": 76,
+     "high": 18,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 76,
+     "mid": 24,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 39,
+     "mid": 53,
+     "strict": 8,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA58224-전영진",
+   "course_id": "BKSA58224",
+   "course_name": "대학기초화학",
+   "professor": "전영진",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 3,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 3.93/5 (강의평 168개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 세 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 168개 중 과제: 없음 92% · 보통 8% · 많음 0%",
+    "team_project": "강의평 168개 중 팀플: 없음 95% · 보통 5% · 많음 0%",
+    "exam": "시험 세 번 (중간 객관식, 기말 객관식, 기타 1차: 객관식·2차: 객관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 168개] 별점 3.93/5 / 과제 없음 92% · 보통 8% · 많음 0% / 팀플 없음 95% · 보통 5% · 많음 0% / 학점 보통 72% · 너그러움 20% · 깐깐함 8% / 시험 세 번 / 출결 전자출결"
+   ],
+   "review_count": 168,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.93,
+    "rating_distribution": {
+     "5": 35,
+     "4": 37,
+     "3": 20,
+     "2": 4,
+     "1": 4
+    },
+    "assignment": {
+     "none": 92,
+     "mid": 8,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 95,
+     "mid": 5,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 20,
+     "mid": 72,
+     "strict": 8,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "세 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식"
+     ],
+     "other": [
+      "1차: 객관식",
+      "2차: 객관식"
+     ]
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA58133-김지원",
+   "course_id": "BKSA58133",
+   "course_name": "대학기초물리학",
+   "professor": "김지원",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2
+   },
+   "summary": [
+    "별점 4.78/5 (강의평 139개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 두 번"
+   ],
+   "evidence": {
+    "assignment": "강의평 139개 중 과제: 없음 68% · 보통 32% · 많음 1%",
+    "team_project": "강의평 139개 중 팀플: 없음 93% · 보통 6% · 많음 1%",
+    "exam": "시험 두 번 (중간 주관식, 기말 주관식·객관식)"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 139개] 별점 4.78/5 / 과제 없음 68% · 보통 32% · 많음 1% / 팀플 없음 93% · 보통 6% · 많음 1% / 학점 너그러움 74% · 보통 26% · 깐깐함 0% / 시험 두 번"
+   ],
+   "review_count": 139,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.78,
+    "rating_distribution": {
+     "5": 86,
+     "4": 8,
+     "3": 6,
+     "2": 0,
+     "1": 1
+    },
+    "assignment": {
+     "none": 68,
+     "mid": 32,
+     "high": 1,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 93,
+     "mid": 6,
+     "high": 1,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 74,
+     "mid": 26,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": null,
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식"
+     ],
+     "final": [
+      "주관식",
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64623-김병건",
+   "course_id": "BKSA64623",
+   "course_name": "미디어글쓰기",
+   "professor": "김병건",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.02/5 (강의평 104개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 없음, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 104개 중 과제: 보통 56% · 많음 41% · 없음 3%",
+    "team_project": "강의평 104개 중 팀플: 없음 43% · 많음 31% · 보통 26%",
+    "exam": "시험 없음 (중간 기타, 기말 기타)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 104개] 별점 4.02/5 / 과제 보통 56% · 많음 41% · 없음 3% / 팀플 없음 43% · 많음 31% · 보통 26% / 학점 보통 43% · 너그러움 38% · 깐깐함 19% / 시험 없음 / 출결 전자출결"
+   ],
+   "review_count": 104,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.02,
+    "rating_distribution": {
+     "5": 52,
+     "4": 26,
+     "3": 6,
+     "2": 5,
+     "1": 12
+    },
+    "assignment": {
+     "none": 3,
+     "mid": 56,
+     "high": 41,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 43,
+     "mid": 26,
+     "high": 31,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 38,
+     "mid": 43,
+     "strict": 19,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "기타"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-권도경",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "권도경",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 3.15/5 (강의평 26개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 없음, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 26개 중 과제: 보통 50% · 많음 50% · 없음 0%",
+    "team_project": "강의평 26개 중 팀플: 없음 96% · 보통 4% · 많음 0%",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 26개] 별점 3.15/5 / 과제 보통 50% · 많음 50% · 없음 0% / 팀플 없음 96% · 보통 4% · 많음 0% / 학점 보통 77% · 너그러움 15% · 깐깐함 8% / 시험 없음 / 출결 직접호명"
+   ],
+   "review_count": 26,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.15,
+    "rating_distribution": {
+     "5": 23,
+     "4": 15,
+     "3": 23,
+     "2": 31,
+     "1": 8
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 50,
+     "high": 50,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 96,
+     "mid": 4,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 15,
+     "mid": 77,
+     "strict": 8,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-김정호",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "김정호",
+   "levels": {
+    "assignment": 3,
+    "team_project": 3,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 3.85/5 (강의평 106개)",
+    "과제 많음, 팀플 많음",
+    "학점 보통, 시험 한 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 106개 중 과제: 많음 55% · 보통 45% · 없음 0%",
+    "team_project": "강의평 106개 중 팀플: 많음 73% · 보통 25% · 없음 2%",
+    "exam": "시험 한 번 (중간 기타, 기말 논술형)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 106개] 별점 3.85/5 / 과제 많음 55% · 보통 45% · 없음 0% / 팀플 많음 73% · 보통 25% · 없음 2% / 학점 보통 52% · 깐깐함 28% · 너그러움 20% / 시험 한 번 / 출결 전자출결"
+   ],
+   "review_count": 106,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.85,
+    "rating_distribution": {
+     "5": 43,
+     "4": 26,
+     "3": 14,
+     "2": 4,
+     "1": 12
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 45,
+     "high": 55,
+     "top": "high"
+    },
+    "team_project": {
+     "none": 2,
+     "mid": 25,
+     "high": 73,
+     "top": "high"
+    },
+    "grading": {
+     "generous": 20,
+     "mid": 52,
+     "strict": 28,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "논술형"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-이효숙",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "이효숙",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.58/5 (강의평 159개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 159개 중 과제: 보통 67% · 많음 28% · 없음 5%",
+    "team_project": "강의평 159개 중 팀플: 없음 82% · 보통 18% · 많음 1%",
+    "exam": "시험 한 번 (기말 주관식·객관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 159개] 별점 4.58/5 / 과제 보통 67% · 많음 28% · 없음 5% / 팀플 없음 82% · 보통 18% · 많음 1% / 학점 보통 60% · 너그러움 36% · 깐깐함 4% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 159,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.58,
+    "rating_distribution": {
+     "5": 73,
+     "4": 18,
+     "3": 6,
+     "2": 1,
+     "1": 3
+    },
+    "assignment": {
+     "none": 5,
+     "mid": 67,
+     "high": 28,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 82,
+     "mid": 18,
+     "high": 1,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 36,
+     "mid": 60,
+     "strict": 4,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": [
+      "주관식",
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-안미영",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "안미영",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.78/5 (강의평 55개)",
+    "과제 보통, 팀플 보통",
+    "학점 너그러움, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 55개 중 과제: 보통 67% · 없음 20% · 많음 13%",
+    "team_project": "강의평 55개 중 팀플: 보통 80% · 많음 13% · 없음 7%",
+    "exam": "시험 한 번 (중간 기타, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 55개] 별점 4.78/5 / 과제 보통 67% · 없음 20% · 많음 13% / 팀플 보통 80% · 많음 13% · 없음 7% / 학점 너그러움 58% · 보통 40% · 깐깐함 2% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 55,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.78,
+    "rating_distribution": {
+     "5": 78,
+     "4": 22,
+     "3": 0,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 20,
+     "mid": 67,
+     "high": 13,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 7,
+     "mid": 80,
+     "high": 13,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 58,
+     "mid": 40,
+     "strict": 2,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-조미숙",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "조미숙",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 3.19/5 (강의평 26개)",
+    "과제 보통, 팀플 보통",
+    "학점 보통, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 26개 중 과제: 보통 54% · 많음 42% · 없음 4%",
+    "team_project": "강의평 26개 중 팀플: 보통 50% · 많음 46% · 없음 4%",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 26개] 별점 3.19/5 / 과제 보통 54% · 많음 42% · 없음 4% / 팀플 보통 50% · 많음 46% · 없음 4% / 학점 보통 58% · 너그러움 23% · 깐깐함 19% / 출결 전자출결"
+   ],
+   "review_count": 26,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.19,
+    "rating_distribution": {
+     "5": 15,
+     "4": 35,
+     "3": 23,
+     "2": 8,
+     "1": 19
+    },
+    "assignment": {
+     "none": 4,
+     "mid": 54,
+     "high": 42,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 4,
+     "mid": 50,
+     "high": 46,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 23,
+     "mid": 58,
+     "strict": 19,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64612-김병건",
+   "course_id": "BKSA64612",
+   "course_name": "실용글쓰기",
+   "professor": "김병건",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 3.89/5 (강의평 19개)",
+    "과제 보통, 팀플 보통",
+    "학점 보통, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 19개 중 과제: 보통 74% · 많음 16% · 없음 11%",
+    "team_project": "강의평 19개 중 팀플: 보통 53% · 없음 37% · 많음 11%",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 19개] 별점 3.89/5 / 과제 보통 74% · 많음 16% · 없음 11% / 팀플 보통 53% · 없음 37% · 많음 11% / 학점 보통 47% · 깐깐함 37% · 너그러움 16% / 출결 전자출결"
+   ],
+   "review_count": 19,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.89,
+    "rating_distribution": {
+     "5": 47,
+     "4": 26,
+     "3": 11,
+     "2": 0,
+     "1": 16
+    },
+    "assignment": {
+     "none": 11,
+     "mid": 74,
+     "high": 16,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 37,
+     "mid": 53,
+     "high": 11,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 16,
+     "mid": 47,
+     "strict": 37,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64612-엄태경",
+   "course_id": "BKSA64612",
+   "course_name": "실용글쓰기",
+   "professor": "엄태경",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.59/5 (강의평 155개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 155개 중 과제: 보통 73% · 많음 23% · 없음 4%",
+    "team_project": "강의평 155개 중 팀플: 없음 55% · 보통 43% · 많음 3%",
+    "exam": "시험 한 번 (중간 논술형·기타, 기말 주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 155개] 별점 4.59/5 / 과제 보통 73% · 많음 23% · 없음 4% / 팀플 없음 55% · 보통 43% · 많음 3% / 학점 보통 66% · 너그러움 20% · 깐깐함 14% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 155,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.59,
+    "rating_distribution": {
+     "5": 69,
+     "4": 25,
+     "3": 3,
+     "2": 2,
+     "1": 1
+    },
+    "assignment": {
+     "none": 4,
+     "mid": 73,
+     "high": 23,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 55,
+     "mid": 43,
+     "high": 3,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 20,
+     "mid": 66,
+     "strict": 14,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": [
+      "논술형",
+      "기타"
+     ],
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64611-권도경",
+   "course_id": "BKSA64611",
+   "course_name": "창의글쓰기",
+   "professor": "권도경",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 3.86/5 (강의평 7개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 없음, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 7개 중 과제: 대부분 보통",
+    "team_project": "강의평 7개 중 팀플: 대부분 없음",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 7개] 별점 3.86/5 / 과제 대부분 보통 / 팀플 대부분 없음 / 학점 대부분 보통 / 시험 없음 / 출결 직접호명"
+   ],
+   "review_count": 7,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.86,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64611-이광욱",
+   "course_id": "BKSA64611",
+   "course_name": "창의글쓰기",
+   "professor": "이광욱",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.49/5 (강의평 55개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 55개 중 과제: 보통 60% · 많음 38% · 없음 2%",
+    "team_project": "강의평 55개 중 팀플: 없음 64% · 보통 35% · 많음 2%",
+    "exam": "시험 한 번 (기말 주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 55개] 별점 4.49/5 / 과제 보통 60% · 많음 38% · 없음 2% / 팀플 없음 64% · 보통 35% · 많음 2% / 학점 보통 58% · 너그러움 35% · 깐깐함 7% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 55,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.49,
+    "rating_distribution": {
+     "5": 67,
+     "4": 16,
+     "3": 15,
+     "2": 2,
+     "1": 0
+    },
+    "assignment": {
+     "none": 2,
+     "mid": 60,
+     "high": 38,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 64,
+     "mid": 35,
+     "high": 2,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 35,
+     "mid": 58,
+     "strict": 7,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64611-조미숙",
+   "course_id": "BKSA64611",
+   "course_name": "창의글쓰기",
+   "professor": "조미숙",
+   "levels": {
+    "assignment": 3,
+    "team_project": 3
+   },
+   "summary": [
+    "별점 3.53/5 (강의평 105개)",
+    "과제 많음, 팀플 많음",
+    "학점 보통"
+   ],
+   "evidence": {
+    "assignment": "강의평 105개 중 과제: 많음 49% · 보통 44% · 없음 8%",
+    "team_project": "강의평 105개 중 팀플: 많음 65% · 보통 28% · 없음 8%"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 105개] 별점 3.53/5 / 과제 많음 49% · 보통 44% · 없음 8% / 팀플 많음 65% · 보통 28% · 없음 8% / 학점 보통 60% · 너그러움 24% · 깐깐함 16%"
+   ],
+   "review_count": 105,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.53,
+    "rating_distribution": {
+     "5": 31,
+     "4": 28,
+     "3": 17,
+     "2": 10,
+     "1": 13
+    },
+    "assignment": {
+     "none": 8,
+     "mid": 44,
+     "high": 49,
+     "top": "high"
+    },
+    "team_project": {
+     "none": 8,
+     "mid": 28,
+     "high": 65,
+     "top": "high"
+    },
+    "grading": {
+     "generous": 24,
+     "mid": 60,
+     "strict": 16,
+     "top": "mid"
+    },
+    "attendance": null,
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA51432-심성보",
+   "course_id": "BKSA51432",
+   "course_name": "러시아어기초",
+   "professor": "심성보",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.1/5 (강의평 122개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 122개 중 과제: 보통 79% · 많음 11% · 없음 10%",
+    "team_project": "강의평 122개 중 팀플: 없음 89% · 보통 11% · 많음 0%",
+    "exam": "시험 두 번 (중간 주관식·객관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 122개] 별점 4.1/5 / 과제 보통 79% · 많음 11% · 없음 10% / 팀플 없음 89% · 보통 11% · 많음 0% / 학점 너그러움 58% · 보통 37% · 깐깐함 5% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 122,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.1,
+    "rating_distribution": {
+     "5": 39,
+     "4": 39,
+     "3": 20,
+     "2": 1,
+     "1": 2
+    },
+    "assignment": {
+     "none": 10,
+     "mid": 79,
+     "high": 11,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 89,
+     "mid": 11,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 58,
+     "mid": 37,
+     "strict": 5,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식",
+      "객관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA51432-전병국",
+   "course_id": "BKSA51432",
+   "course_name": "러시아어기초",
+   "professor": "전병국",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.89/5 (강의평 263개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 263개 중 과제: 보통 56% · 없음 43% · 많음 2%",
+    "team_project": "강의평 263개 중 팀플: 없음 95% · 보통 5% · 많음 0%",
+    "exam": "시험 두 번 (중간 주관식, 기말 주관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 263개] 별점 4.89/5 / 과제 보통 56% · 없음 43% · 많음 2% / 팀플 없음 95% · 보통 5% · 많음 0% / 학점 너그러움 67% · 보통 31% · 깐깐함 2% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 263,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.89,
+    "rating_distribution": {
+     "5": 91,
+     "4": 7,
+     "3": 1,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 43,
+     "mid": 56,
+     "high": 2,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 95,
+     "mid": 5,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 67,
+     "mid": 31,
+     "strict": 2,
+     "top": "generous"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식"
+     ],
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53699-양윤정",
+   "course_id": "BKSA53699",
+   "course_name": "KUGEP1",
+   "professor": "양윤정",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.36/5 (강의평 222개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 222개 중 과제: 보통 64% · 없음 33% · 많음 3%",
+    "team_project": "강의평 222개 중 팀플: 없음 74% · 보통 25% · 많음 1%",
+    "exam": "시험 두 번 (중간 객관식, 기말 객관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 222개] 별점 4.36/5 / 과제 보통 64% · 없음 33% · 많음 3% / 팀플 없음 74% · 보통 25% · 많음 1% / 학점 너그러움 51% · 보통 47% · 깐깐함 2% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 222,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.36,
+    "rating_distribution": {
+     "5": 55,
+     "4": 33,
+     "3": 9,
+     "2": 2,
+     "1": 2
+    },
+    "assignment": {
+     "none": 33,
+     "mid": 64,
+     "high": 3,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 74,
+     "mid": 25,
+     "high": 1,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 51,
+     "mid": 47,
+     "strict": 2,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53699-박선화",
+   "course_id": "BKSA53699",
+   "course_name": "KUGEP1",
+   "professor": "박선화",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.28/5 (강의평 269개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 269개 중 과제: 보통 70% · 없음 23% · 많음 7%",
+    "team_project": "강의평 269개 중 팀플: 없음 83% · 보통 16% · 많음 0%",
+    "exam": "시험 두 번 (중간 주관식·객관식, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 269개] 별점 4.28/5 / 과제 보통 70% · 없음 23% · 많음 7% / 팀플 없음 83% · 보통 16% · 많음 0% / 학점 보통 53% · 너그러움 43% · 깐깐함 4% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 269,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.28,
+    "rating_distribution": {
+     "5": 52,
+     "4": 30,
+     "3": 14,
+     "2": 3,
+     "1": 1
+    },
+    "assignment": {
+     "none": 23,
+     "mid": 70,
+     "high": 7,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 83,
+     "mid": 16,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 43,
+     "mid": 53,
+     "strict": 4,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식",
+      "객관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53699-윤소영",
+   "course_id": "BKSA53699",
+   "course_name": "KUGEP1",
+   "professor": "윤소영",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 3.62/5 (강의평 268개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 268개 중 과제: 보통 71% · 많음 16% · 없음 13%",
+    "team_project": "강의평 268개 중 팀플: 없음 87% · 보통 13% · 많음 1%",
+    "exam": "시험 두 번 (중간 주관식·객관식, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 268개] 별점 3.62/5 / 과제 보통 71% · 많음 16% · 없음 13% / 팀플 없음 87% · 보통 13% · 많음 1% / 학점 보통 62% · 너그러움 32% · 깐깐함 6% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 268,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.62,
+    "rating_distribution": {
+     "5": 25,
+     "4": 33,
+     "3": 26,
+     "2": 9,
+     "1": 7
+    },
+    "assignment": {
+     "none": 13,
+     "mid": 71,
+     "high": 16,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 87,
+     "mid": 13,
+     "high": 1,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 32,
+     "mid": 62,
+     "strict": 6,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식",
+      "객관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53699-강석한",
+   "course_id": "BKSA53699",
+   "course_name": "KUGEP1",
+   "professor": "강석한",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.59/5 (강의평 455개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 455개 중 과제: 없음 56% · 보통 44% · 많음 0%",
+    "team_project": "강의평 455개 중 팀플: 없음 94% · 보통 6% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 455개] 별점 4.59/5 / 과제 없음 56% · 보통 44% · 많음 0% / 팀플 없음 94% · 보통 6% · 많음 0% / 학점 너그러움 59% · 보통 40% · 깐깐함 1% / 시험 두 번 / 출결 전자출결"
+   ],
+   "review_count": 455,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.59,
+    "rating_distribution": {
+     "5": 72,
+     "4": 19,
+     "3": 6,
+     "2": 2,
+     "1": 1
+    },
+    "assignment": {
+     "none": 56,
+     "mid": 44,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 94,
+     "mid": 6,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 59,
+     "mid": 40,
+     "strict": 1,
+     "top": "generous"
+    },
+    "attendance": "전자출결",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53699-김윤진",
+   "course_id": "BKSA53699",
+   "course_name": "KUGEP1",
+   "professor": "김윤진",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.71/5 (강의평 184개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 184개 중 과제: 보통 57% · 없음 43% · 많음 1%",
+    "team_project": "강의평 184개 중 팀플: 없음 83% · 보통 17% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식, 기말 객관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 184개] 별점 4.71/5 / 과제 보통 57% · 없음 43% · 많음 1% / 팀플 없음 83% · 보통 17% · 많음 0% / 학점 너그러움 74% · 보통 24% · 깐깐함 2% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 184,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.71,
+    "rating_distribution": {
+     "5": 79,
+     "4": 15,
+     "3": 5,
+     "2": 1,
+     "1": 1
+    },
+    "assignment": {
+     "none": 43,
+     "mid": 57,
+     "high": 1,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 83,
+     "mid": 17,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 74,
+     "mid": 24,
+     "strict": 2,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53699-박우식",
+   "course_id": "BKSA53699",
+   "course_name": "KUGEP1",
+   "professor": "박우식",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.73/5 (강의평 274개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 274개 중 과제: 보통 66% · 없음 30% · 많음 4%",
+    "team_project": "강의평 274개 중 팀플: 없음 93% · 보통 7% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식, 기말 객관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 274개] 별점 4.73/5 / 과제 보통 66% · 없음 30% · 많음 4% / 팀플 없음 93% · 보통 7% · 많음 0% / 학점 너그러움 65% · 보통 35% · 깐깐함 0% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 274,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.73,
+    "rating_distribution": {
+     "5": 78,
+     "4": 17,
+     "3": 4,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 30,
+     "mid": 66,
+     "high": 4,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 93,
+     "mid": 7,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 65,
+     "mid": 35,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53699-박정희",
+   "course_id": "BKSA53699",
+   "course_name": "KUGEP1",
+   "professor": "박정희",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.71/5 (강의평 238개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 238개 중 과제: 보통 60% · 없음 39% · 많음 1%",
+    "team_project": "강의평 238개 중 팀플: 없음 84% · 보통 15% · 많음 2%",
+    "exam": "시험 두 번 (중간 객관식, 기말 객관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 238개] 별점 4.71/5 / 과제 보통 60% · 없음 39% · 많음 1% / 팀플 없음 84% · 보통 15% · 많음 2% / 학점 너그러움 66% · 보통 33% · 깐깐함 0% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 238,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.71,
+    "rating_distribution": {
+     "5": 80,
+     "4": 14,
+     "3": 5,
+     "2": 1,
+     "1": 1
+    },
+    "assignment": {
+     "none": 39,
+     "mid": 60,
+     "high": 1,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 84,
+     "mid": 15,
+     "high": 2,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 66,
+     "mid": 33,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식"
+     ],
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53700-박선화",
+   "course_id": "BKSA53700",
+   "course_name": "KUGEP2",
+   "professor": "박선화",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.33/5 (강의평 99개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 99개 중 과제: 보통 81% · 없음 10% · 많음 9%",
+    "team_project": "강의평 99개 중 팀플: 없음 82% · 보통 18% · 많음 0%",
+    "exam": "시험 두 번 (중간 주관식·객관식, 기말 주관식·객관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 99개] 별점 4.33/5 / 과제 보통 81% · 없음 10% · 많음 9% / 팀플 없음 82% · 보통 18% · 많음 0% / 학점 너그러움 64% · 보통 32% · 깐깐함 4% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 99,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.33,
+    "rating_distribution": {
+     "5": 56,
+     "4": 23,
+     "3": 20,
+     "2": 1,
+     "1": 0
+    },
+    "assignment": {
+     "none": 10,
+     "mid": 81,
+     "high": 9,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 82,
+     "mid": 18,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 64,
+     "mid": 32,
+     "strict": 4,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식",
+      "객관식"
+     ],
+     "final": [
+      "주관식",
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53700-윤소영",
+   "course_id": "BKSA53700",
+   "course_name": "KUGEP2",
+   "professor": "윤소영",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 3.2/5 (강의평 75개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 75개 중 과제: 보통 81% · 없음 11% · 많음 8%",
+    "team_project": "강의평 75개 중 팀플: 없음 76% · 보통 24% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 75개] 별점 3.2/5 / 과제 보통 81% · 없음 11% · 많음 8% / 팀플 없음 76% · 보통 24% · 많음 0% / 학점 보통 68% · 너그러움 24% · 깐깐함 8% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 75,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.2,
+    "rating_distribution": {
+     "5": 19,
+     "4": 25,
+     "3": 24,
+     "2": 21,
+     "1": 11
+    },
+    "assignment": {
+     "none": 11,
+     "mid": 81,
+     "high": 8,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 76,
+     "mid": 24,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 24,
+     "mid": 68,
+     "strict": 8,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53700-강석한",
+   "course_id": "BKSA53700",
+   "course_name": "KUGEP2",
+   "professor": "강석한",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2
+   },
+   "summary": [
+    "별점 4.17/5 (강의평 120개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 두 번"
+   ],
+   "evidence": {
+    "assignment": "강의평 120개 중 과제: 없음 65% · 보통 33% · 많음 2%",
+    "team_project": "강의평 120개 중 팀플: 없음 93% · 보통 7% · 많음 0%",
+    "exam": "시험 두 번 (중간 객관식·주관식, 기말 객관식·주관식)"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 120개] 별점 4.17/5 / 과제 없음 65% · 보통 33% · 많음 2% / 팀플 없음 93% · 보통 7% · 많음 0% / 학점 너그러움 49% · 보통 48% · 깐깐함 3% / 시험 두 번"
+   ],
+   "review_count": 120,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.17,
+    "rating_distribution": {
+     "5": 53,
+     "4": 23,
+     "3": 15,
+     "2": 3,
+     "1": 5
+    },
+    "assignment": {
+     "none": 65,
+     "mid": 33,
+     "high": 2,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 93,
+     "mid": 7,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 49,
+     "mid": 48,
+     "strict": 3,
+     "top": "generous"
+    },
+    "attendance": null,
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA53700-이철희",
+   "course_id": "BKSA53700",
+   "course_name": "KUGEP2",
+   "professor": "이철희",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.25/5 (강의평 101개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 101개 중 과제: 없음 57% · 보통 42% · 많음 1%",
+    "team_project": "강의평 101개 중 팀플: 없음 92% · 보통 5% · 많음 3%",
+    "exam": "시험 두 번 (중간 객관식·주관식, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 101개] 별점 4.25/5 / 과제 없음 57% · 보통 42% · 많음 1% / 팀플 없음 92% · 보통 5% · 많음 3% / 학점 보통 58% · 너그러움 39% · 깐깐함 3% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 101,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.25,
+    "rating_distribution": {
+     "5": 51,
+     "4": 31,
+     "3": 12,
+     "2": 3,
+     "1": 3
+    },
+    "assignment": {
+     "none": 57,
+     "mid": 42,
+     "high": 1,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 92,
+     "mid": 5,
+     "high": 3,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 39,
+     "mid": 58,
+     "strict": 3,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA58109-현성준",
+   "course_id": "BKSA58109",
+   "course_name": "중국어기초",
+   "professor": "현성준",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.67/5 (강의평 419개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 419개 중 과제: 보통 83% · 많음 10% · 없음 7%",
+    "team_project": "강의평 419개 중 팀플: 없음 81% · 보통 16% · 많음 3%",
+    "exam": "시험 두 번 (중간 주관식, 기말 주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 419개] 별점 4.67/5 / 과제 보통 83% · 많음 10% · 없음 7% / 팀플 없음 81% · 보통 16% · 많음 3% / 학점 너그러움 60% · 보통 35% · 깐깐함 4% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 419,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.67,
+    "rating_distribution": {
+     "5": 77,
+     "4": 16,
+     "3": 5,
+     "2": 1,
+     "1": 1
+    },
+    "assignment": {
+     "none": 7,
+     "mid": 83,
+     "high": 10,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 81,
+     "mid": 16,
+     "high": 3,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 60,
+     "mid": 35,
+     "strict": 4,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "주관식"
+     ],
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA58109-이앤슈아이",
+   "course_id": "BKSA58109",
+   "course_name": "중국어기초",
+   "professor": "이앤슈아이",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1
+   },
+   "summary": [
+    "별점 4.77/5 (강의평 630개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 한 번"
+   ],
+   "evidence": {
+    "assignment": "강의평 630개 중 과제: 보통 57% · 없음 40% · 많음 3%",
+    "team_project": "강의평 630개 중 팀플: 없음 64% · 보통 30% · 많음 6%",
+    "exam": "시험 한 번 (기말 객관식·주관식)"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 630개] 별점 4.77/5 / 과제 보통 57% · 없음 40% · 많음 3% / 팀플 없음 64% · 보통 30% · 많음 6% / 학점 너그러움 57% · 보통 39% · 깐깐함 3% / 시험 한 번"
+   ],
+   "review_count": 630,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.77,
+    "rating_distribution": {
+     "5": 83,
+     "4": 12,
+     "3": 5,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 40,
+     "mid": 57,
+     "high": 3,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 64,
+     "mid": 30,
+     "high": 6,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 57,
+     "mid": 39,
+     "strict": 3,
+     "top": "generous"
+    },
+    "attendance": null,
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA58149-김범수",
+   "course_id": "BKSA58149",
+   "course_name": "일본어기초",
+   "professor": "김범수",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2
+   },
+   "summary": [
+    "별점 2.97/5 (강의평 324개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번"
+   ],
+   "evidence": {
+    "assignment": "강의평 324개 중 과제: 보통 49% · 없음 41% · 많음 10%",
+    "team_project": "강의평 324개 중 팀플: 없음 42% · 많음 31% · 보통 27%",
+    "exam": "시험 두 번 (중간 객관식·주관식, 기말 주관식·객관식)"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 324개] 별점 2.97/5 / 과제 보통 49% · 없음 41% · 많음 10% / 팀플 없음 42% · 많음 31% · 보통 27% / 학점 보통 60% · 깐깐함 28% · 너그러움 11% / 시험 두 번"
+   ],
+   "review_count": 324,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 2.97,
+    "rating_distribution": {
+     "5": 15,
+     "4": 24,
+     "3": 26,
+     "2": 12,
+     "1": 23
+    },
+    "assignment": {
+     "none": 41,
+     "mid": 49,
+     "high": 10,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 42,
+     "mid": 27,
+     "high": 31,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 11,
+     "mid": 60,
+     "strict": 28,
+     "top": "mid"
+    },
+    "attendance": null,
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": [
+      "주관식",
+      "객관식"
+     ],
+     "other": null
+    }
+   }
   },
   {
    "lecture_id": "BIZ1010-김재훈",
@@ -871,7 +3787,8 @@
    ],
    "review_count": 28,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ1010-이서현",
@@ -902,7 +3819,8 @@
    ],
    "review_count": 12,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ1020-박세영",
@@ -935,7 +3853,8 @@
    ],
    "review_count": 23,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ2010-최도윤",
@@ -969,7 +3888,8 @@
    ],
    "review_count": 26,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ2010-정유나",
@@ -1001,7 +3921,8 @@
    ],
    "review_count": 12,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ2020-강태민",
@@ -1033,7 +3954,8 @@
    ],
    "review_count": 23,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ2030-조민아",
@@ -1065,7 +3987,8 @@
    ],
    "review_count": 8,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ2040-신혜원",
@@ -1098,7 +4021,8 @@
    ],
    "review_count": 40,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ2040-임준서",
@@ -1130,7 +4054,8 @@
    ],
    "review_count": 15,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ2050-서동건",
@@ -1162,7 +4087,8 @@
    ],
    "review_count": 15,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ3010-권오성",
@@ -1194,7 +4120,8 @@
    ],
    "review_count": 36,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ3010-오지현",
@@ -1227,7 +4154,8 @@
    ],
    "review_count": 36,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ3020-장민호",
@@ -1259,7 +4187,8 @@
    ],
    "review_count": 27,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ3020-구하나",
@@ -1292,7 +4221,8 @@
    ],
    "review_count": 24,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ4010-노은정",
@@ -1324,7 +4254,8 @@
    ],
    "review_count": 36,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ3030-남주원",
@@ -1357,7 +4288,8 @@
    ],
    "review_count": 30,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ3040-류지수",
@@ -1389,7 +4321,8 @@
    ],
    "review_count": 20,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ3050-백승민",
@@ -1420,7 +4353,8 @@
    ],
    "review_count": 15,
    "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   },
   {
    "lecture_id": "BIZ4020-송하윤",
@@ -1452,490 +4386,8 @@
    ],
    "review_count": 37,
    "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN1010-이수정",
-   "course_id": "GEN1010",
-   "professor": "이수정",
-   "levels": {
-    "assignment": 2,
-    "team_project": 1,
-    "exam": 2,
-    "presentation": 2,
-    "attendance": 3
-   },
-   "summary": [
-    "과제량은 보통, 팀플 없음",
-    "중간·기말 2회",
-    "교수님이 친절함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 매번 엄격하게 체크해요."
-   },
-   "reviews": [
-    "발표가 한 번 있어요. 교수님이 질문에 친절하게 답해 주세요. 과제는 2~3주에 한 번 정도라 무난해요.",
-    "팀플은 없어요. 중간·기말 두 번 봐요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
-    "출석을 매번 엄격하게 체크해요."
-   ],
-   "review_count": 15,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN1010-김도현",
-   "course_id": "GEN1010",
-   "professor": "김도현",
-   "levels": {
-    "assignment": 2,
-    "team_project": 2,
-    "exam": 2,
-    "presentation": 1,
-    "attendance": 2
-   },
-   "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "중간·기말 2회",
-    "녹화 강의 제공, 시험은 무난함"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "과제는 2~3주에 한 번 정도라 무난해요. 작은 팀 과제가 한 번 있어요. 출석은 전자출결로 가끔 확인해요.",
-    "발표는 없어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 중간·기말 두 번 봐요.",
-    "시험은 수업 내용만 보면 충분해요."
-   ],
-   "review_count": 33,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN1020-최윤아",
-   "course_id": "GEN1020",
-   "professor": "최윤아",
-   "levels": {
-    "assignment": 2,
-    "team_project": 2,
-    "exam": 1,
-    "presentation": 2,
-    "attendance": 2
-   },
-   "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "시험은 기말 1회",
-    "교수님이 친절함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "시험은 기말 한 번뿐이에요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "출석은 전자출결로 가끔 확인해요. 과제는 2~3주에 한 번 정도라 무난해요. 작은 팀 과제가 한 번 있어요.",
-    "교수님이 질문에 친절하게 답해 주세요. 발표가 한 번 있어요. 시험은 기말 한 번뿐이에요.",
-    "수업 녹화본을 올려 주셔서 복습하기 좋아요."
-   ],
-   "review_count": 16,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN1020-정민규",
-   "course_id": "GEN1020",
-   "professor": "정민규",
-   "levels": {
-    "assignment": 3,
-    "team_project": 1,
-    "exam": 1,
-    "presentation": 1,
-    "attendance": 1
-   },
-   "summary": [
-    "매주 과제가 있어 과제량이 많음, 팀플 없음",
-    "시험은 기말 1회",
-    "교수님이 엄격함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "시험은 기말 한 번뿐이에요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "학점은 잘 주시는 편이에요. 발표는 없어요.",
-    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 팀플은 없어요.",
-    "출석을 거의 안 불러요. 매주 과제가 있어서 시간이 많이 들어요.",
-    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 시험은 기말 한 번뿐이에요."
-   ],
-   "review_count": 22,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN1030-오다은",
-   "course_id": "GEN1030",
-   "professor": "오다은",
-   "levels": {
-    "assignment": 3,
-    "team_project": 1,
-    "exam": 2,
-    "presentation": 1,
-    "attendance": 2
-   },
-   "summary": [
-    "매주 과제가 있어 과제량이 많음, 팀플 없음",
-    "중간·기말 2회",
-    "학점이 짬, 시험이 어려움"
-   ],
-   "evidence": {
-    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "학점은 짜게 주세요. A 받기 힘들어요. 매주 과제가 있어서 시간이 많이 들어요. 발표는 없어요.",
-    "시험이 정말 어려워요. 실습 비중이 높아서 직접 해 보는 게 많아요. 중간·기말 두 번 봐요.",
-    "출석은 전자출결로 가끔 확인해요. 팀플은 없어요."
-   ],
-   "review_count": 35,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN2010-문서윤",
-   "course_id": "GEN2010",
-   "professor": "문서윤",
-   "levels": {
-    "assignment": 2,
-    "team_project": 1,
-    "exam": 1,
-    "presentation": 1,
-    "attendance": 1
-   },
-   "summary": [
-    "과제량은 보통, 팀플 없음",
-    "시험은 기말 1회",
-    "녹화 강의 제공, 시험이 어려움"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "시험은 기말 한 번뿐이에요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "과제는 2~3주에 한 번 정도라 무난해요. 팀플은 없어요. 시험이 정말 어려워요.",
-    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 출석을 거의 안 불러요. 시험은 기말 한 번뿐이에요.",
-    "실습 비중이 높아서 직접 해 보는 게 많아요. 발표는 없어요."
-   ],
-   "review_count": 38,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN2010-송태호",
-   "course_id": "GEN2010",
-   "professor": "송태호",
-   "levels": {
-    "assignment": 2,
-    "team_project": 1,
-    "exam": 3,
-    "presentation": 1,
-    "attendance": 3
-   },
-   "summary": [
-    "과제량은 보통, 팀플 없음",
-    "퀴즈 포함 시험이 잦음",
-    "학점을 잘 줌"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 매번 엄격하게 체크해요."
-   },
-   "reviews": [
-    "팀플은 없어요. 과제는 2~3주에 한 번 정도라 무난해요. 학점은 잘 주시는 편이에요.",
-    "출석을 매번 엄격하게 체크해요. 발표는 없어요.",
-    "중간·기말에 퀴즈까지 자주 봐요."
-   ],
-   "review_count": 23,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN2010-이가은",
-   "course_id": "GEN2010",
-   "professor": "이가은",
-   "levels": {
-    "assignment": 2,
-    "team_project": 1,
-    "exam": 3,
-    "presentation": 1,
-    "attendance": 2
-   },
-   "summary": [
-    "과제량은 보통, 팀플 없음",
-    "퀴즈 포함 시험이 잦음",
-    "교수님이 친절함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "팀플은 없어요. 출석은 전자출결로 가끔 확인해요. 중간·기말에 퀴즈까지 자주 봐요.",
-    "과제는 2~3주에 한 번 정도라 무난해요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 교수님이 질문에 친절하게 답해 주세요.",
-    "발표는 없어요."
-   ],
-   "review_count": 38,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN3010-장하린",
-   "course_id": "GEN3010",
-   "professor": "장하린",
-   "levels": {
-    "assignment": 2,
-    "team_project": 3,
-    "exam": 2,
-    "presentation": 2,
-    "attendance": 2
-   },
-   "summary": [
-    "과제량은 보통, 학기 내내 팀 프로젝트",
-    "중간·기말 2회",
-    "녹화 강의 제공, 시험은 무난함"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "학기 내내 팀 프로젝트를 해요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "중간·기말 두 번 봐요. 시험은 수업 내용만 보면 충분해요.",
-    "과제는 2~3주에 한 번 정도라 무난해요. 발표가 한 번 있어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
-    "출석은 전자출결로 가끔 확인해요. 학기 내내 팀 프로젝트를 해요."
-   ],
-   "review_count": 21,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN3010-배지호",
-   "course_id": "GEN3010",
-   "professor": "배지호",
-   "levels": {
-    "assignment": 2,
-    "team_project": 1,
-    "exam": 2,
-    "presentation": 3,
-    "attendance": 2
-   },
-   "summary": [
-    "과제량은 보통, 팀플 없음",
-    "중간·기말 2회",
-    "교수님이 엄격함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표를 여러 번 해야 해요.",
-    "attendance": "출석은 전자출결로 가끔 확인해요."
-   },
-   "reviews": [
-    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
-    "과제는 2~3주에 한 번 정도라 무난해요. 팀플은 없어요. 발표를 여러 번 해야 해요.",
-    "시험은 수업 내용만 보면 충분해요. 중간·기말 두 번 봐요. 학점은 짜게 주세요. A 받기 힘들어요.",
-    "출석은 전자출결로 가끔 확인해요."
-   ],
-   "review_count": 40,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN3020-고은서",
-   "course_id": "GEN3020",
-   "professor": "고은서",
-   "levels": {
-    "assignment": 2,
-    "team_project": 1,
-    "exam": 3,
-    "presentation": 1,
-    "attendance": 3
-   },
-   "summary": [
-    "과제량은 보통, 팀플 없음",
-    "퀴즈 포함 시험이 잦음",
-    "교수님이 엄격함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "팀플은 없어요.",
-    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 매번 엄격하게 체크해요."
-   },
-   "reviews": [
-    "팀플은 없어요. 출석을 매번 엄격하게 체크해요. 발표는 없어요.",
-    "학점은 짜게 주세요. A 받기 힘들어요. 이론 위주 강의예요.",
-    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 과제는 2~3주에 한 번 정도라 무난해요.",
-    "중간·기말에 퀴즈까지 자주 봐요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요."
-   ],
-   "review_count": 41,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN3030-김태윤",
-   "course_id": "GEN3030",
-   "professor": "김태윤",
-   "levels": {
-    "assignment": 2,
-    "team_project": 2,
-    "exam": 1,
-    "presentation": 2,
-    "attendance": 1
-   },
-   "summary": [
-    "과제량은 보통, 팀 과제 1회",
-    "시험은 기말 1회",
-    "교수님이 엄격함, 녹화 강의 제공"
-   ],
-   "evidence": {
-    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "시험은 기말 한 번뿐이에요.",
-    "presentation": "발표가 한 번 있어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "발표가 한 번 있어요. 출석을 거의 안 불러요. 시험은 수업 내용만 보면 충분해요.",
-    "작은 팀 과제가 한 번 있어요. 과제는 2~3주에 한 번 정도라 무난해요.",
-    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 시험은 기말 한 번뿐이에요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요."
-   ],
-   "review_count": 17,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN3040-서민재",
-   "course_id": "GEN3040",
-   "professor": "서민재",
-   "levels": {
-    "assignment": 1,
-    "team_project": 2,
-    "exam": 1,
-    "presentation": 1,
-    "attendance": 1
-   },
-   "summary": [
-    "과제 부담이 적음, 팀 과제 1회",
-    "시험은 기말 1회",
-    "녹화 강의 제공, 학점을 잘 줌"
-   ],
-   "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "시험은 기말 한 번뿐이에요.",
-    "presentation": "발표는 없어요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "과제가 거의 없어요. 시험은 기말 한 번뿐이에요. 시험은 수업 내용만 보면 충분해요.",
-    "작은 팀 과제가 한 번 있어요. 발표는 없어요. 학점은 잘 주시는 편이에요.",
-    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 출석을 거의 안 불러요."
-   ],
-   "review_count": 30,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN3050-엄태섭",
-   "course_id": "GEN3050",
-   "professor": "엄태섭",
-   "levels": {
-    "assignment": 3,
-    "team_project": 2,
-    "exam": 2,
-    "presentation": 3,
-    "attendance": 1
-   },
-   "summary": [
-    "매주 과제가 있어 과제량이 많음, 팀 과제 1회",
-    "중간·기말 2회",
-    "학점이 짬"
-   ],
-   "evidence": {
-    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
-    "team_project": "작은 팀 과제가 한 번 있어요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표를 여러 번 해야 해요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "발표를 여러 번 해야 해요. 중간·기말 두 번 봐요.",
-    "매주 과제가 있어서 시간이 많이 들어요. 출석을 거의 안 불러요.",
-    "학점은 짜게 주세요. A 받기 힘들어요. 작은 팀 과제가 한 번 있어요."
-   ],
-   "review_count": 11,
-   "syllabus_image": null,
-   "source": "batch"
-  },
-  {
-   "lecture_id": "GEN3060-차은호",
-   "course_id": "GEN3060",
-   "professor": "차은호",
-   "levels": {
-    "assignment": 1,
-    "team_project": 3,
-    "exam": 2,
-    "presentation": 3,
-    "attendance": 1
-   },
-   "summary": [
-    "과제 부담이 적음, 학기 내내 팀 프로젝트",
-    "중간·기말 2회",
-    "교수님이 엄격함, 학점이 짬"
-   ],
-   "evidence": {
-    "assignment": "과제가 거의 없어요.",
-    "team_project": "학기 내내 팀 프로젝트를 해요.",
-    "exam": "중간·기말 두 번 봐요.",
-    "presentation": "발표를 여러 번 해야 해요.",
-    "attendance": "출석을 거의 안 불러요."
-   },
-   "reviews": [
-    "학기 내내 팀 프로젝트를 해요. 과제가 거의 없어요. 학점은 짜게 주세요. A 받기 힘들어요.",
-    "이론 위주 강의예요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 발표를 여러 번 해야 해요.",
-    "출석을 거의 안 불러요. 중간·기말 두 번 봐요."
-   ],
-   "review_count": 8,
-   "syllabus_image": null,
-   "source": "batch"
+   "source": "batch",
+   "sample": true
   }
  ]
 }

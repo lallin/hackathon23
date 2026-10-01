@@ -69,6 +69,11 @@ class Catalog:
         self.requirements: Dict[tuple, dict] = {
             (r["admission_year"], r["major"]): r for r in req["requirements"]
         }
+        # (입학년도, 학과) -> {학수번호: 이수구분}. 같은 과목도 입학년도 교육과정마다 전필/전선이 다르다.
+        self.categories_by_req: Dict[tuple, Dict[str, str]] = {
+            key: {c["course_id"]: c["category"] for c in r.get("major_courses", []) + r.get("required_courses", [])}
+            for key, r in self.requirements.items()
+        }
         self.courses: Dict[str, dict] = {c["course_id"]: c for c in cat["courses"]}
         self.sections: Dict[str, dict] = {s["section_id"]: s for s in cat["sections"]}
         self.sections_by_course: Dict[str, List[dict]] = defaultdict(list)
@@ -95,6 +100,13 @@ class Catalog:
 
     def is_supported(self, admission_year: int, major_id: str) -> bool:
         return (admission_year, major_id) in self.requirements
+
+    def category(self, course_id: str, admission_year: Optional[int] = None, major: Optional[str] = None) -> Optional[str]:
+        """그 입학년도·학과 교육과정의 이수구분. 교육과정에 없는 과목이면 카탈로그·졸업 요건 데이터의 값을 쓴다."""
+        by_req = self.categories_by_req.get((admission_year, major), {})
+        if course_id in by_req:
+            return by_req[course_id]
+        return (self.course_info(course_id) or {}).get("category")
 
     def course_info(self, course_id: str) -> Optional[dict]:
         """이번 학기 카탈로그에 있으면 그 과목, 없으면 졸업 요건 데이터에 적힌 정보."""
