@@ -2058,6 +2058,36 @@
    }
   },
   {
+   "section_id": "NDGE62731-8251",
+   "course_id": "NDGE62731",
+   "professor": "백우진",
+   "times": [],
+   "target": "3학년",
+   "elearning": true,
+   "tags": [
+    "이러닝"
+   ],
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 0,
+     "discussion": 0,
+     "lab": 50,
+     "field": 0,
+     "elearning": 50,
+     "blended": 0,
+     "flipped": 0
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 20,
+     "participation": 0,
+     "others": []
+    }
+   }
+  },
+  {
    "section_id": "NDGE65059-8252",
    "course_id": "NDGE65059",
    "professor": "백우진",
@@ -3401,6 +3431,29 @@
    "new_course": true
   },
   {
+   "section_id": "TMP655AB7-7068",
+   "course_id": "TMP655AB7",
+   "professor": "김병건",
+   "times": [],
+   "target": "전학년",
+   "elearning": true,
+   "tags": [
+    "이러닝"
+   ],
+   "syllabus": {
+    "teaching_method": {
+     "e_learning": 100
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
    "section_id": "TMP72AEB8-7070",
    "course_id": "TMP72AEB8",
    "professor": "모랄레스저스틴",
@@ -3423,6 +3476,52 @@
      "midterm": 35,
      "final": 35,
      "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP391A44-7071",
+   "course_id": "TMP391A44",
+   "professor": "윤소영",
+   "times": [],
+   "target": "전학년",
+   "elearning": true,
+   "tags": [
+    "이러닝"
+   ],
+   "syllabus": {
+    "teaching_method": {
+     "e_learning": 100
+    },
+    "evaluation_method": {
+     "midterm": 15,
+     "final": 15,
+     "assignment": 40,
+     "video_lecture": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPBC4863-7072",
+   "course_id": "TMPBC4863",
+   "professor": "강석한",
+   "times": [],
+   "target": "전학년",
+   "elearning": true,
+   "tags": [
+    "이러닝"
+   ],
+   "syllabus": {
+    "teaching_method": {
+     "e_learning": 100
+    },
+    "evaluation_method": {
+     "midterm": 15,
+     "final": 15,
+     "video_lecture": 30,
+     "homework": 40
     }
    },
    "new_course": true
@@ -3558,6 +3657,30 @@
      "final": 40,
      "assignment": 10,
      "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPD9891B-7292",
+   "course_id": "TMPD9891B",
+   "professor": "양윤정",
+   "times": [],
+   "target": "전학년",
+   "elearning": true,
+   "tags": [
+    "이러닝"
+   ],
+   "syllabus": {
+    "teaching_method": {
+     "e_learning": 100
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 10,
+     "assignment_2": 10
     }
    },
    "new_course": true
@@ -6121,6 +6244,27 @@
      "assignment": 30,
      "assignment_2": 30,
      "other_1": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP392ED7-7179",
+   "course_id": "TMP392ED7",
+   "professor": "남재우",
+   "times": [],
+   "target": "전학년",
+   "elearning": true,
+   "tags": [
+    "이러닝"
+   ],
+   "syllabus": {
+    "teaching_method": {
+     "e_learning": 100
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "certification_acquisition": 70
     }
    },
    "new_course": true
@@ -8903,6 +9047,29 @@
      "reflection_report_2": 20,
      "reflection_report_3": 20,
      "discussion": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP7682CC-8270",
+   "course_id": "TMP7682CC",
+   "professor": "문선아",
+   "times": [],
+   "target": "전학년",
+   "elearning": true,
+   "tags": [
+    "이러닝"
+   ],
+   "syllabus": {
+    "teaching_method": {
+     "e_learning": 100
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 25,
+     "final": 35,
+     "assignment": 20
     }
    },
    "new_course": true

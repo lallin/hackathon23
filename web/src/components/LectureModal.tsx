@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { API_BASE } from '../api/http';
 import type { LectureDetail } from '../api/types';
-import { BASE_ITEMS, CATEGORY_COLOR, levelFromNum, LEVEL_LABEL } from '../lib/constants';
+import { BASE_ITEMS, CATEGORY_COLOR, isOnline, levelFromNum, LEVEL_LABEL } from '../lib/constants';
 import { useApp } from '../state/store';
 import { X } from './icons';
 
@@ -68,7 +68,9 @@ export function LectureModal() {
               {(data?.credits ?? section?.credits) && <span>· {data?.credits ?? section?.credits}학점</span>}
               {data?.review_count != null && <span>· 수강평 {data.review_count}개 분석</span>}
             </div>
-            {section && <div className="sub">{section.times.map((t) => `${t.day} ${t.start}–${t.end}`).join(', ')}</div>}
+            {section && (
+              <div className="sub">{isOnline(section) ? '이러닝 (정해진 강의 시간 없음)' : section.times.map((t) => `${t.day} ${t.start}–${t.end}`).join(', ')}</div>
+            )}
           </div>
           <button ref={closeRef} className="icon-btn" aria-label="닫기" onClick={() => act.openDetail(null)}>
             <X />

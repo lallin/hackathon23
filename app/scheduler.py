@@ -327,6 +327,8 @@ def build_combination(ctx: Context, rank: int, score: float, sections: List[dict
             "course": course["name"], "professor": s["professor"], "category": ctx.cat(course["course_id"]),
             "is_required": bool(ctx.required_id(course)), "credits": course["credits"],
             "pinned": s["section_id"] in pinned_ids, "times": s["times"], "has_insight": lid in catalog.insights,
+            # 강의 시간이 없는 분반(e-러닝). 시간 겹침·공강 검사에 걸리지 않고, 화면은 시간표 칸의 이러닝 자리에 놓는다
+            "elearning": bool(s.get("elearning")) or not s["times"],
         })
     placed = {ctx.required_id(catalog.courses[s["course_id"]]) for s in sections}
     return {

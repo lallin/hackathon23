@@ -1,5 +1,5 @@
 import type { SectionInfo } from '../api/types';
-import { CATEGORY_COLOR, DAYS, GRID_END, GRID_START, toMin } from '../lib/constants';
+import { CATEGORY_COLOR, DAYS, GRID_END, GRID_START, isOnline, toMin } from '../lib/constants';
 import { useApp } from '../state/store';
 import { Alert, Ban, ChevronLeft, ChevronRight, Pin, Refresh, X } from './icons';
 
@@ -29,6 +29,8 @@ export function TablePanel({ className }: { className: string }) {
   const SPAN = (gridEnd - GRID_START) * 60;
   const HOURS = Array.from({ length: gridEnd - GRID_START }, (_, i) => GRID_START + i);
   const free = s.draft.conditions.free_days;
+  // 강의 시간이 없는 분반(e-러닝)은 요일 칸 대신 시간표 아래 이러닝 자리에 놓는다
+  const online = sections.filter(isOnline);
   const sel = sections.find((x) => x.section_id === s.selected) ?? null;
   const selPinned = !!sel && s.draft.pinned.includes(sel.section_id);
   const selExcluded = !!sel && s.draft.excluded.includes(sel.course_id);
@@ -201,6 +203,35 @@ export function TablePanel({ className }: { className: string }) {
               </div>
             ))}
           </div>
+          {online.length > 0 && (
+            <div className="ttg-online">
+              <div className="ttg-online-h">이러닝</div>
+              <div className="ttg-online-list">
+                {online.map((x) => {
+                  const pinned = s.draft.pinned.includes(x.section_id);
+                  const excluded = s.draft.excluded.includes(x.course_id);
+                  return (
+                    <button
+                      key={x.section_id}
+                      className={`blk blk-online${s.selected === x.section_id ? ' sel' : ''}${pinned ? ' pinned' : ''}${excluded ? ' excluded' : ''}`}
+                      aria-pressed={s.selected === x.section_id}
+                      aria-label={`${x.course} ${x.professor}, 이러닝(시간 없음)${pinned ? ', 고정됨' : ''}${excluded ? ', 제한됨' : ''}`}
+                      onClick={() => act.select(x.section_id)}
+                      style={{ backgroundColor: colors[x.course_id], paddingRight: pinned ? 22 : 8 }}
+                    >
+                      <span className="nm">{x.course}</span>
+                      <span className="pf">{`${x.professor} · ${x.credits}학점`}</span>
+                      {pinned && (
+                        <span className="pin">
+                          <Pin size={10} stroke={2.4} />
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
         {(s.generating || !current) && (
           <div className="ttg-over" role="status">

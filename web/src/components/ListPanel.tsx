@@ -1,9 +1,9 @@
 import type { SectionInfo } from '../api/types';
-import { CATEGORIES, CATEGORY_COLOR, CATEGORY_NAME } from '../lib/constants';
+import { CATEGORIES, CATEGORY_COLOR, CATEGORY_NAME, isOnline } from '../lib/constants';
 import { useApp } from '../state/store';
 import { Copy, Pin } from './icons';
 
-const fmtTimes = (x: SectionInfo) => x.times.map((t) => `${t.day} ${t.start}–${t.end}`).join(', ');
+const fmtTimes = (x: SectionInfo) => (isOnline(x) ? '이러닝 (정해진 강의 시간 없음)' : x.times.map((t) => `${t.day} ${t.start}–${t.end}`).join(', '));
 const secNo = (x: SectionInfo) => x.section_id.slice(x.course_id.length).replace(/^-/, '') || x.section_id;
 
 async function copyText(text: string): Promise<boolean> {
@@ -66,6 +66,7 @@ export function ListPanel({ className }: { className: string }) {
                         {x.category}
                       </span>
                       {x.is_required && <span className="tag tag-dark">필수</span>}
+                      {isOnline(x) && <span className="tag tag-gray">이러닝</span>}
                       {pinned && (
                         <span className="tag tag-line">
                           <Pin size={10} stroke={2.4} />
