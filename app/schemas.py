@@ -93,8 +93,9 @@ class RegroupCourse(BaseModel):
     category: Literal["전필", "전선", "교필", "교선", "기타"]
     credits: float
     grade: Optional[str] = None
-    # 성적표에 찍힌 이수구분 (/api/transcript/parse 응답의 courses[].transcript_category)
+    # 성적표에 찍힌 이수구분과 교양 영역 (/api/transcript/parse 응답의 courses[].transcript_category·ge_area)
     transcript_category: Optional[str] = None
+    ge_area: Optional[str] = None
 
 
 class RegroupTranscriptRequest(BaseModel):

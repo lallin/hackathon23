@@ -254,6 +254,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .grad-tags { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; }
 .grad-left { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .grad-done { font-weight: 700; color: var(--ok); }
+.ge-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.ge-chip { font-size: 11px; line-height: 1.6; padding: 0 7px; border-radius: 99px; white-space: nowrap; }
+.ge-chip.ok { background: var(--ok-tint); color: var(--ok); }
+.ge-chip.no { background: var(--bad-tint); color: var(--bad); }
+.ge-chip.unk { background: var(--warn-tint); color: var(--warn); }
 
 .req-list { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 6px; padding-right: 2px; }
 .req-row {

@@ -44,6 +44,14 @@ EXCLUDED_COURSES = {
 COURSE_IDS_FILE = DATA / "raw" / "ge_course_ids.json"
 # 강의계획서의 수강 대상 "9학년"은 전학년 수강 가능을 뜻한다.
 TARGET_ALIASES = {"9학년": "전학년"}
+# 교양 강의계획서 파일 이름(syllabus_ge_<영역>.json)의 영역 → 학사요람 교양 영역. 과목의 area("KU소양/실기")로 넣고,
+# 성적표 교양 과목의 세부 영역(인성·실무·실기, 심화 6개 영역)을 정할 때 쓴다. 요람 필수 과목의 area와 같은 형식이다.
+GE_FILE_AREAS = {
+    "글쓰기": "기초교양/글쓰기", "발표와토론": "기초교양/발표와토론", "외국어기초": "기초교양/외국어기초",
+    "인문기초": "기초교양/인문기초", "과학기초": "기초교양/과학기초", "AI데이터": "기초교양/AI/데이터",
+    "글로벌언어": "심화교양/글로벌언어",
+    "인성": "KU소양/인성", "실무": "KU소양/실무", "실기": "KU소양/실기",
+}
 TIME_RE = re.compile(r"([월화수목금토일])\s*(\d{2})(\d{2})-(\d{2})(\d{2})")
 
 
@@ -130,8 +138,9 @@ def main():
             if name in EXCLUDED_COURSES:
                 excluded.append(f"{label}: {EXCLUDED_COURSES[name]}")
                 continue
-            temp_id = False
+            temp_id, ge_area = False, None
             if major == "ge":
+                ge_area = GE_FILE_AREAS.get(path.stem.split("_", 2)[2])
                 cid = row.get("course_id") or ge_ids.get(name)
                 if not cid:  # 학수번호를 모르면 과목명으로 만든 임시 키로 넣는다(성적표·이수 과목은 과목명으로도 매칭된다)
                     cid, temp_id = temp_course_id(name), True
@@ -143,7 +152,8 @@ def main():
                 skipped.append(f"{label}: 학수번호나 이수구분을 못 찾음 ({path.name})")
                 continue
             courses.setdefault(cid, {"course_id": cid, "name": name, "credits": num(row["credits"]),
-                                     "category": category, "dept": dept, **({"temp_id": True} if temp_id else {})})
+                                     "category": category, "dept": dept, **({"temp_id": True} if temp_id else {}),
+                                     **({"area": ge_area} if ge_area else {})})
             for note in row.get("needs_check", []):
                 needs_check.append(f"{label}: {note}")
             times = parse_times(row.get("schedule") or "")

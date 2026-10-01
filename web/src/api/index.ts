@@ -59,7 +59,8 @@ function toTranscript(r: Raw): TranscriptResult {
       category: c.category,
       credits: Number(c.credits),
       grade: c.grade,
-      transcript_category: c.transcript_category
+      transcript_category: c.transcript_category,
+      ge_area: c.ge_area
     })),
     recognized_count: r.recognized_count ?? (r.courses ?? []).length,
     summary: CATS.map((category) => ({ category, done: Number(credits[category] ?? 0) })),
@@ -68,7 +69,8 @@ function toTranscript(r: Raw): TranscriptResult {
     completed_course_ids: r.completed_course_ids ?? (r.courses ?? []).map((c: Raw) => c.course_id).filter(Boolean),
     remaining_total: r.requirements?.remaining_total ?? undefined,
     remaining_free: r.requirements?.remaining_free ?? undefined,
-    excluded: r.excluded ?? []
+    excluded: r.excluded ?? [],
+    ge: r.requirements?.ge ?? null
   };
 }
 

@@ -1,8 +1,75 @@
 import type { ChangeEvent } from 'react';
+import type { GeArea, GeStatus } from '../api/types';
 import { CATEGORIES, CATEGORY_COLOR, CATEGORY_NAME, UNSUPPORTED_MAJOR } from '../lib/constants';
 import { useApp } from '../state/store';
 import { Check, FileText, Upload } from './icons';
 import { Select } from './Select';
+
+const chipClass = (ok: boolean | null) => `ge-chip ${ok === true ? 'ok' : ok === false ? 'no' : 'unk'}`;
+
+function geStatusTag(a: GeArea) {
+  if (a.satisfied === true) return <span className="grad-done">완료</span>;
+  if (a.satisfied === null)
+    return (
+      <span className="ge-chip unk" title="세부 영역을 모르는 과목이 있어 다 채웠는지 확인이 필요해요">
+        확인 필요
+      </span>
+    );
+  const left = Math.max(0, a.min_credits - a.done_credits);
+  return <span className="grad-left">{left > 0 ? `${left} 남음` : '세부 영역 부족'}</span>;
+}
+
+/** 학사요람 교양 영역 (기초교양·심화교양·KU소양). 기초교양 세부 영역은 최소 과목 수, KU소양은 최소 학점, 심화교양은 영역 수로 본다 */
+function GeBlock({ ge }: { ge: GeStatus }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <h3 style={{ margin: 0, fontSize: 13, fontWeight: 700 }}>교양 영역</h3>
+      {ge.areas.map((a) => (
+        <div key={a.area} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div className="grad-row">
+            <span className="grad-name">{a.area}</span>
+            <span className="grad-num">
+              <b>{a.done_credits}</b> / {a.min_credits}학점
+            </span>
+            <span className="grad-tags">{geStatusTag(a)}</span>
+          </div>
+          <div className="ge-chips">
+            {a.children?.map((c) => {
+              const missing = c.must_include.filter((m) => !m.done).map((m) => m.name);
+              const count = c.min_courses != null ? `${c.done_courses}/${c.min_courses}과목` : `${c.done_credits}/${c.min_credits}학점`;
+              return (
+                <span key={c.area} className={chipClass(c.satisfied)} title={c.courses.join(', ') || '들은 과목 없음'}>
+                  {c.area} {count}
+                  {missing.length > 0 && ` · ${missing.join(', ')} 필수`}
+                </span>
+              );
+            })}
+            {a.areas && a.min_areas != null && (
+              <span
+                className={chipClass((a.done_areas ?? 0) >= a.min_areas ? true : a.unclassified.length ? null : false)}
+                title={
+                  a.areas
+                    .filter((x) => x.courses.length)
+                    .map((x) => `${x.area}: ${x.courses.join(', ')}`)
+                    .join(' / ') || '영역을 아는 과목 없음'
+                }
+              >
+                {a.min_areas}개 영역 이상 · {a.done_areas ?? 0}개 확인
+              </span>
+            )}
+          </div>
+          {a.unclassified.length > 0 && (
+            <div className="sub" title={a.unclassified.join(', ')}>
+              세부 영역을 모르는 과목 {a.unclassified.length}개: {a.unclassified.slice(0, 3).join(', ')}
+              {a.unclassified.length > 3 ? ' 외' : ''}
+            </div>
+          )}
+        </div>
+      ))}
+      {ge.unknown.length > 0 && <div className="sub">교양 영역을 모르는 과목: {ge.unknown.join(', ')}</div>}
+    </div>
+  );
+}
 
 export function GradPanel({ className }: { className: string }) {
   const { s, act, current } = useApp();
@@ -225,6 +292,14 @@ export function GradPanel({ className }: { className: string }) {
           <span className="grad-tags" />
         </div>
       </div>
+
+      {/* 교양 영역 현황: 지금 고른 입학년도로 계산된 성적표일 때만 */}
+      {loaded && sameProfile && transcript.ge && (
+        <>
+          <div aria-hidden="true" className="divider" />
+          <GeBlock ge={transcript.ge} />
+        </>
+      )}
 
       {req && <div aria-hidden="true" className="divider" />}
 
