@@ -68,7 +68,7 @@ class Context:
             majors = "와 ".join(m["name"] for m in catalog.majors if m.get("supported"))
             years = f"{min(catalog.supported_years)}~{max(catalog.supported_years)}"
             raise GenerateError(f"지원하지 않는 입학년도·학과예요. 지금은 {majors}({years}학번)만 쓸 수 있어요.")
-        self.required_credits = min_credits(requirement)  # 교선은 최소 학점이 없다
+        self.required_credits = min_credits(requirement)  # 영역별 최소 학점 (교필+교선 = 학사요람 교양 최저 학점)
         self.total_required = total_credits(requirement)
         self.done = set(req.completed_course_ids)
         # 학수번호가 카탈로그와 달라도(개편·데이터 출처 차이) 과목명이 같으면 같은 과목으로 본다
@@ -316,7 +316,7 @@ def build_combination(ctx: Context, rank: int, score: float, sections: List[dict
         "days_used": days_used(sections),
         "graduation_after": [
             {"category": c, "done": ctx.done_credits[c], "this_semester": this_semester[c],
-             "required": ctx.required_credits.get(c)} for c in CATEGORIES  # 교선은 required가 null
+             "required": ctx.required_credits.get(c)} for c in CATEGORIES  # 최소가 없는 영역은 required가 null
         ],
         "graduation_total_after": {"done": sum(ctx.done_credits.values()), "this_semester": sum(this_semester.values()),
                                    "required": ctx.total_required},
