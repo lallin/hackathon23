@@ -92,7 +92,7 @@ export const CATALOG: CatalogCourse[] = [
 
 export const MAJORS = [
   { id: 'cse', name: '컴퓨터공학과', supported: true },
-  { id: 'biz', name: '경영학과', supported: true },
+  { id: 'biz', name: '경영학과', supported: false },
   { id: 'sw', name: '소프트웨어학과', supported: false },
   { id: 'ee', name: '전기전자공학과', supported: false },
   { id: 'mech', name: '기계공학과', supported: false },
@@ -201,7 +201,7 @@ const GEN_PAST: TranscriptCourse[] = [
 export const SAMPLE_TRANSCRIPT = (major: 'cse' | 'biz'): TranscriptCourse[] => [...PAST[major], ...GEN_PAST, { course_id: 'GEN3130', name: '논리와비판적사고', category: '교선', credits: 3, grade: 'B0' }, { course_id: 'GEN3140', name: '경제와생활', category: '교선', credits: 3, grade: 'A0' }, { course_id: 'GEN3150', name: '데이터리터러시', category: '교선', credits: 2, grade: 'A+' }, { course_id: 'GEN3160', name: '근대미술사', category: '교선', credits: 2, grade: 'B+' }, { course_id: 'GEN3170', name: '생활법률', category: '교선', credits: 2, grade: 'A0' }];
 
 export function requirementsFor(year: number, major: string): Requirements | null {
-  if (year < 2023 || year > 2026 || (major !== 'cse' && major !== 'biz')) return null;
+  if (year < 2023 || year > 2026 || major !== 'cse') return null; // 이번 버전은 컴퓨터공학과만 지원
   const newer = year >= 2025;
   if (major === 'cse') {
     return {
