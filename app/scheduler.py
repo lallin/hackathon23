@@ -84,8 +84,10 @@ class Context:
         self.required_by_name = {normalize_name(catalog.course_name(cid)): cid for cid in self.required_remaining}
         done_credits = req.completed_credits or completed_credits_of(req.completed_course_ids, req.admission_year, req.major)
         self.done_credits = {c: float(done_credits.get(c, 0)) for c in CATEGORIES}
+        # 기타(일선·일교 등): 네 영역에는 안 들어가고 졸업 총 학점에만 더한다
+        self.other_done = float(done_credits.get("기타", 0))
         self.remaining = {c: max(0.0, self.required_credits.get(c, 0) - self.done_credits[c]) for c in CATEGORIES}
-        self.remaining_total = max(0.0, self.total_required - sum(self.done_credits.values()))
+        self.remaining_total = max(0.0, self.total_required - sum(self.done_credits.values()) - self.other_done)
         # 이번 학기 기준 학년 (2026-2 학기에 2024학번이면 3학년)
         semester_year = int(catalog.semester.split("-")[0])
         self.student_year = min(4, max(1, semester_year - req.admission_year + 1))
@@ -340,7 +342,8 @@ def build_combination(ctx: Context, rank: int, score: float, sections: List[dict
             {"category": c, "done": ctx.done_credits[c], "this_semester": this_semester[c],
              "required": ctx.required_credits.get(c)} for c in CATEGORIES  # 최소가 없는 영역은 required가 null
         ],
-        "graduation_total_after": {"done": sum(ctx.done_credits.values()), "this_semester": sum(this_semester.values()),
+        "graduation_total_after": {"done": sum(ctx.done_credits.values()) + ctx.other_done,
+                                   "this_semester": sum(this_semester.values()),
                                    "required": ctx.total_required},
         "required_courses": [
             {"course_id": cid, "name": catalog.course_name(cid),
