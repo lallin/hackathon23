@@ -39,14 +39,19 @@ BASIC_2025 = [(c, n, k, "AI/데이터" if c == "BKSA56558" else a) for c, n, k, 
 BASIC_2025 += [("BKSA67912", "데이터리터러시", 2, "AI/데이터"), ("BKSA67913", "AI리터러시", 2, "AI/데이터"),
                ("BKSA67914", "빅데이터의기초", 2, "AI/데이터"), ("BKSA67915", "프로그래밍의기초", 2, "AI/데이터")]
 
+DEEP_AREAS = ["글로벌언어", "인간과문화", "인간과사회", "과학과기술", "예술과체육", "융복합"]
+
 def ge_rules(basic, mins, total_basic):
+    """mins: (세부 영역, 최소 학점, 최소 과목 수). 기초교양 세부 영역은 과목 수로 채웠는지 본다."""
     ids = lambda area: [c for c, _, _, a in basic if a == area]
     return [
         {"area": "기초교양", "ge_area": "기초", "min_credits": total_basic, "children": [
-            {"area": a, "min_credits": m, "course_ids": ids(a), **({"must_include": ["BKSA53699"]} if a == "외국어기초" else {})}
-            for a, m in mins]},
+            {"area": a, "min_credits": m, "min_courses": n, "course_ids": ids(a),
+             **({"must_include": ["BKSA53699"]} if a == "외국어기초" else {})}
+            for a, m, n in mins]},
         {"area": "심화교양", "ge_area": "심화", "min_credits": 8,
-         "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상"},
+         "rule": "글로벌언어·인간과문화·인간과사회·과학과기술·예술과체육·융복합 6개 영역 중 4개 영역 이상, 영역별 1학점 이상",
+         "areas": DEEP_AREAS, "min_areas": 4, "min_credits_per_area": 1},
         {"area": "KU소양", "ge_area": "소양", "min_credits": 9, "children": [
             {"area": "인성", "min_credits": 3, "must_include": ["BZZA62440"]},
             {"area": "실무", "min_credits": 4, "must_include": ["BKSA59472"]},
@@ -63,10 +68,12 @@ def required(kugep1):
 # 교양 기준 (교양 학점, 기초/심화/소양, 세부 규칙, 필수 과목)
 GE = {
     2023: {"ge": {"기초": 18, "심화": 8, "소양": 9},
-           "rules": ge_rules(BASIC_2023, [("글쓰기", 3), ("발표와토론", 3), ("외국어기초", 6), ("인문기초", 3), ("과학기초", 3)], 18),
+           "rules": ge_rules(BASIC_2023, [("글쓰기", 3, 1), ("발표와토론", 3, 1), ("외국어기초", 6, 2), ("인문기초", 3, 1),
+                                   ("과학기초", 3, 1)], 18),
            "required": required(3)},
     2025: {"ge": {"기초": 14, "심화": 8, "소양": 9},
-           "rules": ge_rules(BASIC_2025, [("글쓰기", 2), ("발표와토론", 2), ("외국어기초", 4), ("인문기초", 2), ("과학기초", 2), ("AI/데이터", 2)], 14),
+           "rules": ge_rules(BASIC_2025, [("글쓰기", 2, 1), ("발표와토론", 2, 1), ("외국어기초", 4, 2), ("인문기초", 2, 1),
+                                   ("과학기초", 2, 1), ("AI/데이터", 2, 1)], 14),
            "required": required(2)},
 }
 GE[2024] = copy.deepcopy(GE[2023])   # 2024 학사요람 교양 기준 = 2023과 동일 (확인함)

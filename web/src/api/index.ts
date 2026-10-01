@@ -32,6 +32,8 @@ export interface Api {
   requirements(admissionYear: number, major: string): Promise<Requirements>;
   parseTranscript(file: File, admissionYear: number, major: string): Promise<TranscriptResult>;
   sampleTranscript(admissionYear: number, major: string): Promise<TranscriptResult>;
+  /** 이미 읽은 성적표를 다른 입학년도·전공의 요람 기준으로 다시 나눈다 (PDF는 다시 보내지 않음) */
+  regroupTranscript(t: TranscriptResult, admissionYear: number, major: string): Promise<TranscriptResult>;
   checklistStyle(req: StyleRequest): Promise<StyleResponse>;
   generate(req: GenerateRequest): Promise<GenerateResponse>;
   chat(req: ChatRequest): Promise<ChatResponse>;
@@ -51,14 +53,24 @@ function toTranscript(r: Raw): TranscriptResult {
   return {
     admission_year: r.admission_year ?? undefined,
     major: r.major ?? undefined,
-    courses: (r.courses ?? []).map((c: Raw) => ({ course_id: c.course_id ?? '', name: c.name, category: c.category, credits: Number(c.credits), grade: c.grade })),
+    courses: (r.courses ?? []).map((c: Raw) => ({
+      course_id: c.course_id ?? '',
+      name: c.name,
+      category: c.category,
+      credits: Number(c.credits),
+      grade: c.grade,
+      transcript_category: c.transcript_category,
+      ge_area: c.ge_area
+    })),
     recognized_count: r.recognized_count ?? (r.courses ?? []).length,
     summary: CATS.map((category) => ({ category, done: Number(credits[category] ?? 0) })),
     total_credits: Number(r.total_credits ?? 0),
     completed_credits: credits,
     completed_course_ids: r.completed_course_ids ?? (r.courses ?? []).map((c: Raw) => c.course_id).filter(Boolean),
     remaining_total: r.requirements?.remaining_total ?? undefined,
-    remaining_free: r.requirements?.remaining_free ?? undefined
+    remaining_free: r.requirements?.remaining_free ?? undefined,
+    excluded: r.excluded ?? [],
+    ge: r.requirements?.ge ?? null
   };
 }
 
@@ -182,6 +194,13 @@ const realApi: Api = {
     return toTranscript(await request('/api/transcript/parse', { method: 'POST', form, timeoutMs: 90000 }));
   },
   sampleTranscript: async (y, m) => toTranscript(await request('/api/transcript/sample', { method: 'POST', body: { admission_year: y, major: m } })),
+  regroupTranscript: async (t, y, m) =>
+    toTranscript(
+      await request('/api/transcript/regroup', {
+        method: 'POST',
+        body: { admission_year: y, major: m, courses: t.courses, excluded: t.excluded ?? [], recognized_count: t.recognized_count }
+      })
+    ),
   checklistStyle: (req) => request('/api/checklist/style', { method: 'POST', body: req }),
   generate: (req) => request('/api/timetable/generate', { method: 'POST', body: req, timeoutMs: 60000 }),
   chat: (req) => request('/api/chat', { method: 'POST', body: req, timeoutMs: 45000 }),

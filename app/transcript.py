@@ -65,6 +65,8 @@ CATEGORY_MAP = {
     "교직": OTHER, "연계": OTHER,
 }
 GE_CODE_PREFIXES = ("BKSA", "BZZA")  # 교양 학수번호. 이수구분을 모를 때 교선으로 본다
+# 성적표 이수구분 칸의 교양 영역 → 학사요람 교양 영역(requirements의 ge_sub_requirements[].ge_area)
+TRANSCRIPT_GE_AREAS = {"기초": "기초", "심화": "심화", "소양": "소양", "인성": "소양"}
 HEADER_WORDS = {"년도", "학기", "이수구분", "학수번호", "과목명", "학점", "등급", "인정구분", "삭제구분"}
 CODE_RE = re.compile(r"[A-Z]{3,5}\d{4,6}")
 CREDIT_RE = re.compile(r"\d{1,2}(\.\d+)?")
@@ -166,6 +168,7 @@ def parse_transcript_lines(lines: List[str]) -> Tuple[List[dict], List[str]]:
             "credits": float(body[credit_at]),
             "grade": grade,
             "deletion": next((x.strip() for x in extras if "포기" in x or "삭제" in x), None),
+            "ge_area": TRANSCRIPT_GE_AREAS.get(raw_cat or ""),
             "_item": texts[k][0],
         })
     _verify(items, rows, warnings)
@@ -236,8 +239,95 @@ def _catalog_id(course: dict) -> Optional[str]:
     return cid or None
 
 
+def _ge_place(course: dict, requirement: dict) -> Tuple[Optional[str], Optional[str]]:
+    """교양 과목의 (영역, 세부 영역). 영역은 기초/심화/소양(ge_sub_requirements의 ge_area).
+    영역은 성적표 이수구분 칸(ge_area)을 먼저 쓰고, 세부 영역은
+    그 해 요람의 기초교양 과목표 → 요람 필수 과목·카탈로그(강의계획서 파일)의 area("KU소양/실기") 순으로 찾는다."""
+    rules = requirement.get("ge_sub_requirements") or []
+    cid = course.get("course_id")
+    for group in rules:
+        for child in group.get("children", []):
+            if cid and cid in child.get("course_ids", []):
+                return group["ge_area"], child["area"]
+    transcript_area = course.get("ge_area")
+    area = (catalog.course_info(cid) or {}).get("area", "") if cid else ""
+    if "/" in area:
+        group_name, sub = area.split("/", 1)
+        ge_area = next((g["ge_area"] for g in rules if g["area"] == group_name), None)
+        # 기초교양 세부 영역은 해마다 과목표가 달라(컴퓨팅적사고: 23 과학기초 → 25 AI/데이터) 그 해 과목표로만 정한다
+        if ge_area and ge_area != "기초" and transcript_area in (None, ge_area):
+            return ge_area, sub
+        if ge_area and transcript_area is None:
+            return ge_area, None
+    return transcript_area, None
+
+
+def _met(ok: bool, unknown: bool) -> Optional[bool]:
+    """채웠으면 True, 못 채웠지만 영역을 모르는 과목이 그 자리를 채울 수도 있으면 None(확인 필요), 아니면 False"""
+    return True if ok else (None if unknown else False)
+
+
+def _all_met(parts: List[Optional[bool]]) -> Optional[bool]:
+    return False if False in parts else (None if None in parts else True)
+
+
+def ge_status(requirement: dict, courses: List[dict]) -> dict:
+    """학사요람 교양 영역(기초교양·심화교양·KU소양)별 이수 현황.
+    기초교양 세부 영역은 최소 과목 수, KU소양 세부 영역은 최소 학점, 심화교양은 영역 수로 본다.
+    세부 영역을 모르는 과목은 영역 학점에는 넣고 unclassified로 따로 알려 준다."""
+    rules = requirement.get("ge_sub_requirements") or []
+    placed = {g["ge_area"]: [] for g in rules}
+    unknown = []
+    for course in courses:
+        if course.get("category") not in ("교필", "교선"):
+            continue
+        ge_area, sub = _ge_place(course, requirement)
+        if ge_area in placed:
+            placed[ge_area].append({"name": course["name"], "course_id": course.get("course_id"),
+                                    "credits": float(course["credits"]), "sub": sub})
+        else:
+            unknown.append(course["name"])
+
+    areas = []
+    for group in rules:
+        mine = placed[group["ge_area"]]
+        unclassified = [c["name"] for c in mine if not c["sub"]]
+        credits = sum(c["credits"] for c in mine)
+        item = {"area": group["area"], "ge_area": group["ge_area"], "min_credits": group["min_credits"],
+                "done_credits": credits, "unclassified": unclassified}
+        parts = [credits >= group["min_credits"]]
+        if group.get("children"):
+            item["children"] = []
+            for child in group["children"]:
+                taken = [c for c in mine if c["sub"] == child["area"]]
+                taken_ids = {c["course_id"] for c in taken}
+                must = [{"course_id": m, "name": catalog.course_name(m), "done": m in taken_ids}
+                        for m in child.get("must_include", [])]
+                row = {"area": child["area"], "min_credits": child["min_credits"],
+                       "done_credits": sum(c["credits"] for c in taken), "done_courses": len(taken),
+                       "courses": [c["name"] for c in taken], "must_include": must}
+                if "min_courses" in child:
+                    row["min_courses"] = child["min_courses"]
+                    ok = len(taken) >= child["min_courses"]
+                else:
+                    ok = row["done_credits"] >= child["min_credits"]
+                row["satisfied"] = _met(ok and all(m["done"] for m in must), bool(unclassified))
+                parts.append(row["satisfied"])
+                item["children"].append(row)
+        if group.get("areas"):
+            per_area = [{"area": a, "done_credits": sum(c["credits"] for c in mine if c["sub"] == a),
+                         "courses": [c["name"] for c in mine if c["sub"] == a]} for a in group["areas"]]
+            done_areas = sum(1 for a in per_area if a["done_credits"] >= group.get("min_credits_per_area", 1))
+            item.update(areas=per_area, min_areas=group["min_areas"], done_areas=done_areas)
+            parts.append(_met(done_areas >= group["min_areas"], bool(unclassified)))
+        item["satisfied"] = _all_met(parts)
+        areas.append(item)
+    return {"areas": areas, "unknown": unknown, "satisfied": _all_met([a["satisfied"] for a in areas])}
+
+
 def requirement_status(admission_year: Optional[int], major: Optional[str], completed_ids: List[str],
-                       completed_credits: dict) -> Optional[dict]:
+                       completed_credits: dict, courses: Optional[List[dict]] = None) -> Optional[dict]:
+    """졸업 요건 대비 남은 것. courses(이수한 과목 목록)를 주면 교양 영역별 현황(ge)도 함께 계산한다."""
     requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
     if not requirement:
         return None
@@ -257,6 +347,7 @@ def requirement_status(admission_year: Optional[int], major: Optional[str], comp
             {"course_id": cid, "name": catalog.course_name(cid), "offered": catalog.is_offered(cid)}
             for cid in requirement["required_course_ids"] if cid not in done
         ],
+        "ge": ge_status(requirement, courses) if courses is not None else None,
     }
 
 
@@ -272,12 +363,36 @@ def _excluded_reason(course: dict) -> Optional[str]:
     return None
 
 
+MAJOR_CATEGORIES = ("전필", "전선")
+
+
+def _year_course(course: dict, requirement: Optional[dict]) -> Tuple[Optional[str], str]:
+    """이수한 과목의 (학수번호, 이수구분)을 입학년도 요람에 맞춘다. 성적표에 찍힌 이수구분은 전공·교양·기타 구분에만 쓴다.
+    전공: 그 해 요람의 전필/전선. 요람에 없는 전공 과목(폐지·개편된 과목 등)은 전선으로 센다.
+    교양: 그 해 요람의 필수 교양이면 교필, 아니면 교선. 기타(일선·일교 등)는 그대로 둔다.
+    학수번호가 요람과 달라도 과목명이 같으면 같은 과목으로 본다."""
+    cid = course.get("course_id") or None
+    category = course.get("transcript_category") or course["category"]
+    if category == OTHER or not requirement:
+        return cid, category
+    listed = requirement.get("major_courses", []) + requirement.get("required_courses", [])
+    name = normalize_name(course.get("name") or "")
+    match = next((c for c in listed if c["course_id"] == cid), None) or \
+        next((c for c in listed if name and normalize_name(c["name"]) == name), None)
+    if category in MAJOR_CATEGORIES:
+        if match and match["category"] in MAJOR_CATEGORIES:
+            return match["course_id"], match["category"]
+        return cid, "전선"
+    if match and match["category"] == "교필":
+        return match["course_id"], "교필"
+    return cid, "교선"
+
+
 def summarize(courses: List[dict], admission_year: Optional[int], major: Optional[str]) -> dict:
     """추출한 과목 → 영역별 이수 학점.
     등급 N·F 등과 삭제구분 '취득학점포기'는 빼고, 재수강은 마지막 기록만 센다.
-    이수구분이 기타(일선·일교 등)인 과목은 과목명·학점만 남기고 졸업 총 학점에만 더한다."""
-    requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
-    ge_required = set(requirement["required_course_ids"]) if requirement else set()
+    이수구분이 기타(일선·일교 등)인 과목은 과목명·학점만 남기고 졸업 총 학점에만 더한다.
+    나머지 과목의 이수구분은 입학년도 요람으로 정한다(regroup)."""
     passed, excluded = {}, []
     for n, course in enumerate(courses):
         reason = _excluded_reason(course)
@@ -290,29 +405,48 @@ def summarize(courses: List[dict], admission_year: Optional[int], major: Optiona
             passed[OTHER + ":" + key] = {"name": course["name"], "credits": course["credits"], "category": OTHER}
             continue
         cid = _catalog_id(course)
-        category = course["category"]
-        # 교양 과목은 졸업 요건의 필수 학수번호에 있으면 교필, 없으면 교선 (학사요람 규칙)
-        if requirement and category in ("교필", "교선"):
-            category = "교필" if cid in ge_required else "교선"
         key = cid or normalize_name(course["name"])
-        passed[key] = {**course, "course_id": cid, "category": category, "in_catalog": cid in catalog.courses}
+        # 성적표에 찍힌 이수구분은 transcript_category로 남겨, 입학년도를 바꿔 다시 나눌 때 쓴다
+        passed[key] = {**course, "course_id": cid, "transcript_category": course["category"]}
         passed[key].pop("deletion", None)
+    return regroup(list(passed.values()), excluded, admission_year, major, recognized_count=len(courses))
+
+
+def regroup(courses: List[dict], excluded: List[dict], admission_year: Optional[int], major: Optional[str],
+            recognized_count: Optional[int] = None) -> dict:
+    """이수한 과목을 입학년도 요람의 이수구분으로 나누고 영역별 학점을 센다.
+    성적표를 올린 뒤 입학년도를 바꾸면 PDF를 다시 읽지 않고 이것만 다시 부른다."""
+    requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
+    grouped = {}
+    for n, course in enumerate(courses):
+        cid, category = _year_course(course, requirement)
+        if category == OTHER:
+            grouped[f"{OTHER}:{n}"] = {"name": course["name"], "credits": course["credits"], "category": OTHER}
+            continue
+        grouped[cid or normalize_name(course["name"]) or str(n)] = {
+            **course, "course_id": cid, "category": category,
+            "transcript_category": course.get("transcript_category") or course["category"],
+            "in_catalog": cid in catalog.courses,
+        }
 
     # 네 영역 + 기타. 기타는 영역 최소 요건에는 안 들어가고 졸업 총 학점에만 더해진다
     completed_credits = {c: 0.0 for c in CATEGORIES + [OTHER]}
-    for course in passed.values():
+    for course in grouped.values():
         if course["category"] in completed_credits:
             completed_credits[course["category"]] += float(course["credits"])
-    completed_ids = [c["course_id"] for c in passed.values() if c.get("course_id")]
+    completed_ids = [c["course_id"] for c in grouped.values() if c.get("course_id")]
+    if recognized_count is None:
+        recognized_count = len(courses) + len(excluded)
     return {
         "admission_year": admission_year,
         "major": major,
-        "recognized_count": len(courses),
-        "message": f"인식된 과목 {len(courses)}개",
-        "courses": list(passed.values()),
+        "recognized_count": recognized_count,
+        "message": f"인식된 과목 {recognized_count}개",
+        "courses": list(grouped.values()),
         "excluded": excluded,
         "completed_course_ids": completed_ids,
         "completed_credits": completed_credits,
         "total_credits": sum(completed_credits.values()),
-        "requirements": requirement_status(admission_year, major, completed_ids, completed_credits),
+        "requirements": requirement_status(admission_year, major, completed_ids, completed_credits,
+                                           list(grouped.values())),
     }

@@ -4,8 +4,9 @@ from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 
 from ai_service import LLMError
 from app.auth import current_user, optional_user, store
-from app.schemas import SampleTranscriptRequest
-from app.transcript import load_sample, parse_pdf, summarize
+from app.catalog import catalog
+from app.schemas import RegroupTranscriptRequest, SampleTranscriptRequest
+from app.transcript import load_sample, parse_pdf, regroup, summarize
 
 router = APIRouter(prefix="/api/transcript", tags=["transcript"])
 
@@ -41,6 +42,16 @@ def parse(
         raise HTTPException(status_code=422, detail="성적표에서 과목을 찾지 못했어요. 성적표 PDF가 맞는지 확인해 주세요.")
     # warnings: 성적표의 학기별·총 취득학점과 읽은 과목이 맞지 않을 때의 안내 (비어 있으면 검산 통과)
     return _save(user, {**summarize(courses, admission_year, major), "warnings": warnings})
+
+
+@router.post("/regroup")
+def regroup_courses(req: RegroupTranscriptRequest, user: Optional[dict] = Depends(optional_user)):
+    """성적표를 올린 뒤 입학년도·학과를 바꾸면, 이미 읽은 과목을 그 해 요람의 이수구분으로 다시 나눈다.
+    PDF는 다시 받지 않는다. 로그인 상태면 계정에 저장된 이수 내역도 바꾼다."""
+    if not catalog.is_supported(req.admission_year, req.major):
+        raise HTTPException(status_code=404, detail="아직 준비 중인 입학년도·학과예요.")
+    courses = [c.model_dump() for c in req.courses]
+    return _save(user, regroup(courses, req.excluded, req.admission_year, req.major, req.recognized_count))
 
 
 @router.delete("")

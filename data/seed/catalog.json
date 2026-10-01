@@ -176,70 +176,80 @@
    "name": "컴퓨팅적사고",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/AI/데이터"
   },
   {
    "course_id": "BKSA67912",
    "name": "데이터리터러시",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/AI/데이터"
   },
   {
    "course_id": "BKSA67913",
    "name": "AI리터러시",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/AI/데이터"
   },
   {
    "course_id": "BKSA67914",
    "name": "빅데이터의기초",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/AI/데이터"
   },
   {
    "course_id": "BKSA67915",
    "name": "프로그래밍의기초",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/AI/데이터"
   },
   {
    "course_id": "BKSA15891",
    "name": "대학기초수학",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/과학기초"
   },
   {
    "course_id": "BKSA58133",
    "name": "대학기초물리학",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/과학기초"
   },
   {
    "course_id": "BKSA58224",
    "name": "대학기초화학",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/과학기초"
   },
   {
    "course_id": "BKSA59512",
    "name": "대학기초생물학",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/과학기초"
   },
   {
    "course_id": "BKSA81308",
    "name": "기초통계학",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/과학기초"
   },
   {
    "course_id": "TMPBF5D30",
@@ -247,7 +257,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMPE69B5E",
@@ -255,7 +266,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP8A8C07",
@@ -263,7 +275,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP655AB7",
@@ -271,7 +284,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP72AEB8",
@@ -279,7 +293,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP391A44",
@@ -287,7 +302,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMPBC4863",
@@ -295,7 +311,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP0F123B",
@@ -303,7 +320,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP8414C6",
@@ -311,7 +329,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMPC3A128",
@@ -319,7 +338,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP3D3B5A",
@@ -327,7 +347,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMPB2FC54",
@@ -335,7 +356,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMPD9891B",
@@ -343,7 +365,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP52051D",
@@ -351,7 +374,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP8BEB33",
@@ -359,7 +383,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMPEDA41D",
@@ -367,7 +392,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "TMP5CB12A",
@@ -375,63 +401,72 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "심화교양/글로벌언어"
   },
   {
    "course_id": "BKSA64611",
    "name": "창의글쓰기",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/글쓰기"
   },
   {
    "course_id": "BKSA64612",
    "name": "실용글쓰기",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/글쓰기"
   },
   {
    "course_id": "BKSA64613",
    "name": "성찰글쓰기",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/글쓰기"
   },
   {
    "course_id": "BKSA64623",
    "name": "미디어글쓰기",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/글쓰기"
   },
   {
    "course_id": "BKSA39798",
    "name": "비판적사고와토론",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/발표와토론"
   },
   {
    "course_id": "BKSA64608",
    "name": "공감적소통과발표",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/발표와토론"
   },
   {
    "course_id": "BKSA64609",
    "name": "열린사고와실용적말하기",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/발표와토론"
   },
   {
    "course_id": "BKSA64610",
    "name": "협력적사고와토의",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/발표와토론"
   },
   {
    "course_id": "TMP303774",
@@ -439,7 +474,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP638C2B",
@@ -447,7 +483,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMPE9168E",
@@ -455,7 +492,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMPEF1B92",
@@ -463,7 +501,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP722950",
@@ -471,7 +510,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP07BF59",
@@ -479,7 +519,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP0DA2A0",
@@ -487,7 +528,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMPCF7F0A",
@@ -495,7 +537,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP78B6C9",
@@ -503,7 +546,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMPDBB2E8",
@@ -511,7 +555,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP2D169E",
@@ -519,7 +564,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP9165E4",
@@ -527,7 +573,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMPD11889",
@@ -535,7 +582,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMPE384BF",
@@ -543,7 +591,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMPE702B2",
@@ -551,7 +600,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP6CB1CE",
@@ -559,7 +609,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP9A95AD",
@@ -567,7 +618,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP0CEEB0",
@@ -575,7 +627,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMPE71DDD",
@@ -583,7 +636,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMP50A277",
@@ -591,7 +645,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실기"
   },
   {
    "course_id": "TMPF393AC",
@@ -599,7 +654,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMP392ED7",
@@ -607,14 +663,16 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "BKSA59472",
    "name": "취업전략수립및역량개발1",
    "credits": 2,
    "category": "교필",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMP468156",
@@ -622,7 +680,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMP929646",
@@ -630,7 +689,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMP362066",
@@ -638,7 +698,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMP858876",
@@ -646,7 +707,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMPEBE78F",
@@ -654,7 +716,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMP891BF2",
@@ -662,7 +725,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMPCB7360",
@@ -670,7 +734,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMP5F82C3",
@@ -678,7 +743,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "TMP9D5273",
@@ -686,63 +752,72 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/실무"
   },
   {
    "course_id": "BKSA51432",
    "name": "러시아어기초",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/외국어기초"
   },
   {
    "course_id": "BKSA53699",
    "name": "KUGEP1",
    "credits": 2,
    "category": "교필",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/외국어기초"
   },
   {
    "course_id": "BKSA53700",
    "name": "KUGEP2",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/외국어기초"
   },
   {
    "course_id": "BKSA58109",
    "name": "중국어기초",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/외국어기초"
   },
   {
    "course_id": "BKSA58149",
    "name": "일본어기초",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/외국어기초"
   },
   {
    "course_id": "BKSA58110",
    "name": "문학의고전",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/인문기초"
   },
   {
    "course_id": "BKSA58112",
    "name": "역사의고전",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/인문기초"
   },
   {
    "course_id": "BKSA58113",
    "name": "철학의고전",
    "credits": 2,
    "category": "교선",
-   "dept": "gen"
+   "dept": "gen",
+   "area": "기초교양/인문기초"
   },
   {
    "course_id": "TMPE612F2",
@@ -750,7 +825,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMP01A555",
@@ -758,7 +834,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMP63F924",
@@ -766,7 +843,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMPABD2FF",
@@ -774,7 +852,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMPEFE304",
@@ -782,7 +861,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMP8D985E",
@@ -790,7 +870,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMPB453CA",
@@ -798,7 +879,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMPE8699B",
@@ -806,7 +888,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMP27EEC2",
@@ -814,7 +897,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMPA196E3",
@@ -822,7 +906,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMPED373B",
@@ -830,7 +915,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMP7682CC",
@@ -838,7 +924,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   },
   {
    "course_id": "TMP5D3804",
@@ -846,7 +933,8 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen",
-   "temp_id": true
+   "temp_id": true,
+   "area": "KU소양/인성"
   }
  ],
  "sections": [

@@ -48,6 +48,46 @@ export interface TranscriptCourse {
   category: Category;
   credits: number;
   grade?: string | null;
+  /** 성적표에 찍힌 이수구분. category 는 입학년도 요람 기준 */
+  transcript_category?: string | null;
+  /** 성적표에 찍힌 교양 영역 (기초·심화·소양) */
+  ge_area?: string | null;
+}
+
+/** 교양 세부 영역 하나 (기초교양의 글쓰기, KU소양의 인성 등). satisfied: null 은 영역을 모르는 과목이 있어 확인 필요 */
+export interface GeChild {
+  area: string;
+  min_credits: number;
+  /** 기초교양 세부 영역은 최소 과목 수로 본다 */
+  min_courses?: number;
+  done_credits: number;
+  done_courses: number;
+  courses: string[];
+  must_include: { course_id: string; name: string; done: boolean }[];
+  satisfied: boolean | null;
+}
+
+/** 학사요람 교양 영역 (기초교양·심화교양·KU소양) */
+export interface GeArea {
+  area: string;
+  ge_area: string;
+  min_credits: number;
+  done_credits: number;
+  /** 이 영역 과목인데 세부 영역을 모르는 과목 */
+  unclassified: string[];
+  children?: GeChild[];
+  /** 심화교양: 6개 영역 중 min_areas 개 이상 */
+  areas?: { area: string; done_credits: number; courses: string[] }[];
+  min_areas?: number;
+  done_areas?: number;
+  satisfied: boolean | null;
+}
+
+export interface GeStatus {
+  areas: GeArea[];
+  /** 교양 영역(기초·심화·소양)을 모르는 교양 과목 */
+  unknown: string[];
+  satisfied: boolean | null;
 }
 
 export interface TranscriptResult {
@@ -64,6 +104,10 @@ export interface TranscriptResult {
   /** 서버가 계산한 남은 졸업 학점과 그중 자유 학점 (성적표를 올릴 때의 입학년도·전공 기준) */
   remaining_total?: number;
   remaining_free?: number;
+  /** 이수에서 뺀 과목 (F·N, 취득학점포기, 수강 중). 입학년도를 바꿔 다시 나눌 때 그대로 돌려보낸다 */
+  excluded?: Record<string, unknown>[];
+  /** 교양 영역별 현황 (성적표를 올릴 때의 입학년도 요람 기준) */
+  ge?: GeStatus | null;
 }
 
 export interface MeResponse {
