@@ -19,6 +19,9 @@ function geStatusTag(a: GeArea) {
   return <span className="grad-left">{left > 0 ? `${left} 남음` : '세부 영역 부족'}</span>;
 }
 
+/** 팀 결정(10/2): 졸업 요건 칸에서 교양 영역 묶음은 숨긴다. 서버 계산(transcript.ge)은 그대로라 true로 바꾸면 다시 보인다 */
+const SHOW_GE_AREAS: boolean = false;
+
 /** 학사요람 교양 영역 (기초교양·심화교양·KU소양). 기초교양 세부 영역은 최소 과목 수, KU소양은 최소 학점, 심화교양은 영역 수로 본다 */
 function GeBlock({ ge }: { ge: GeStatus }) {
   return (
@@ -288,7 +291,7 @@ export function GradPanel({ className }: { className: string }) {
       </div>
 
       {/* 교양 영역 현황: 지금 고른 입학년도로 계산된 성적표일 때만 */}
-      {loaded && sameProfile && transcript.ge && (
+      {SHOW_GE_AREAS && loaded && sameProfile && transcript.ge && (
         <>
           <div aria-hidden="true" className="divider" />
           <GeBlock ge={transcript.ge} />
