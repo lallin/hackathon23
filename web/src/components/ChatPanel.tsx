@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import type { CompareResult, OnDemandResponse, ReviewResult } from '../api/types';
-import { BASE_ITEMS, CHAT_HINT, levelFromNum, LEVEL_LABEL } from '../lib/constants';
+import { BASE_ITEMS, levelFromNum, LEVEL_LABEL } from '../lib/constants';
 import { useApp } from '../state/store';
 import { Send } from './icons';
 
@@ -197,9 +197,6 @@ export function ChatPanel({ className }: { className: string }) {
           보내기
         </button>
       </form>
-      <p className="sub" style={{ margin: '-4px 0 0' }}>
-        {CHAT_HINT}
-      </p>
     </section>
   );
 }

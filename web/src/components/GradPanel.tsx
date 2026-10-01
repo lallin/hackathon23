@@ -25,7 +25,12 @@ export function GradPanel({ className }: { className: string }) {
     const done = loaded ? (transcript.summary.find((x) => x.category === cat)?.done ?? 0) : 0;
     return { cat, need, done, noMin };
   });
-  const earned = rows.reduce((n, r) => n + r.done, 0);
+  // 기타(일반선택·일반교양): 네 영역에 들지 않는 과목. 막대 없이 이수 학점만 보여주고, 졸업 총 학점에는 들어간다
+  const etcDone = loaded
+    ? (transcript.completed_credits?.['기타'] ??
+      transcript.courses.filter((c) => !CATEGORIES.includes(c.category)).reduce((n, c) => n + c.credits, 0))
+    : 0;
+  const earned = rows.reduce((n, r) => n + r.done, 0) + etcDone;
   // 졸업 총 학점: 서버가 주면 그 값, 없으면(모의 서버) 영역 최소 학점의 합
   const totalNeed = loaded ? (req?.total_required ?? rows.reduce((n, r) => n + r.need, 0)) : 0;
   const remainingMin = rows.reduce((n, r) => n + Math.max(0, r.need - r.done), 0);
@@ -34,8 +39,6 @@ export function GradPanel({ className }: { className: string }) {
   const sameProfile = transcript?.admission_year === s.year && transcript?.major === s.major;
   const serverTotal = loaded && sameProfile ? transcript.remaining_total : undefined;
   const remaining = serverTotal != null ? Math.max(serverTotal, remainingMin) : Math.max(totalNeed - earned, remainingMin);
-  // 기타(일반선택·일반교양): 네 영역에 들지 않는 과목. 졸업 요건 막대 없이 이수 학점만 보여준다
-  const etcDone = loaded ? transcript.courses.filter((c) => !CATEGORIES.includes(c.category)).reduce((n, c) => n + c.credits, 0) : 0;
 
   // 이번 조합을 들은 뒤 예상치 (graduation_after · graduation_total_after)
   const plan = loaded ? current : null;
@@ -57,7 +60,7 @@ export function GradPanel({ className }: { className: string }) {
   const reqLeft = (req?.required_courses ?? []).filter((c) => !completed.has(c.course_id)).sort((a, b) => Number(b.offered !== false) - Number(a.offered !== false));
 
   return (
-    <section className={`card ${className}`} aria-labelledby="h-grad">
+    <section className={`card ${className}`} aria-labelledby="h-grad" style={{ overflow: 'hidden' }}>
       <h2 id="h-grad">졸업 요건</h2>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 5fr) minmax(0, 8fr)', gap: 10 }}>
@@ -226,47 +229,50 @@ export function GradPanel({ className }: { className: string }) {
       {req && <div aria-hidden="true" className="divider" />}
 
       {req && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, minHeight: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 8 }}>
+        // 남은 높이를 다 쓰고, 과목이 넘치면 목록만 스크롤 (제목 줄은 고정)
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 6, minHeight: 0 }}>
+          <div style={{ flex: 'none', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 8 }}>
             <h3 style={{ margin: 0, fontSize: 13, fontWeight: 700 }}>졸업 필수 과목</h3>
             <span className="sub">{transcript ? `배치 ${reqLeft.filter((c) => placed.has(c.course_id)).length}` : '성적표를 올리면 남은 필수 과목이 나와요'}</span>
           </div>
-          {transcript &&
-            reqLeft.map((c) => {
-              const on = placed.has(c.course_id);
-              const off = c.offered === false;
-              const cc = c.category ? CATEGORY_COLOR[c.category] : null;
-              return (
-                <div key={c.course_id} className="req-row" style={off ? { background: 'var(--panel)' } : undefined}>
-                  <div style={{ minWidth: 0 }}>
-                    <div style={{ fontSize: 13, fontWeight: 500, color: off ? 'var(--muted)' : undefined }}>{c.name}</div>
-                    <div className="sub" style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                      {/* 이수구분은 졸업 요건 막대와 같은 색의 둥근 칩으로 */}
-                      {c.category && cc && (
-                        <span className="tag" style={{ background: cc.main, color: '#fff' }}>
-                          {c.category}
-                        </span>
-                      )}
-                      {c.credits != null && <span>{c.credits}학점</span>}
-                      {c.name === c.course_id ? null : <span className="faint">{c.course_id}</span>}
+          <div className="scroll req-list">
+            {transcript &&
+              reqLeft.map((c) => {
+                const on = placed.has(c.course_id);
+                const off = c.offered === false;
+                const cc = c.category ? CATEGORY_COLOR[c.category] : null;
+                return (
+                  <div key={c.course_id} className="req-row" style={off ? { background: 'var(--panel)' } : undefined}>
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontSize: 13, fontWeight: 500, color: off ? 'var(--muted)' : undefined }}>{c.name}</div>
+                      <div className="sub" style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                        {/* 이수구분은 졸업 요건 막대와 같은 색의 둥근 칩으로 */}
+                        {c.category && cc && (
+                          <span className="tag" style={{ background: cc.main, color: '#fff' }}>
+                            {c.category}
+                          </span>
+                        )}
+                        {c.credits != null && <span>{c.credits}학점</span>}
+                        {c.name === c.course_id ? null : <span className="faint">{c.course_id}</span>}
+                      </div>
                     </div>
+                    {off ? (
+                      <span className="tag tag-gray" style={{ padding: '4px 10px' }} title="이번 학기에 개설되지 않아 시간표에 넣을 수 없어요">
+                        이번 학기 미개설
+                      </span>
+                    ) : (
+                      <span
+                        className="tag"
+                        style={{ padding: '4px 10px', border: `1px solid ${on ? 'var(--green)' : '#9CCBB3'}`, background: on ? 'var(--green)' : '#fff', color: on ? '#fff' : '#2E7D57' }}
+                      >
+                        {on ? '배치됨' : '미배치'}
+                      </span>
+                    )}
                   </div>
-                  {off ? (
-                    <span className="tag tag-gray" style={{ padding: '4px 10px' }} title="이번 학기에 개설되지 않아 시간표에 넣을 수 없어요">
-                      이번 학기 미개설
-                    </span>
-                  ) : (
-                    <span
-                      className="tag"
-                      style={{ padding: '4px 10px', border: `1px solid ${on ? 'var(--green)' : '#9CCBB3'}`, background: on ? 'var(--green)' : '#fff', color: on ? '#fff' : '#2E7D57' }}
-                    >
-                      {on ? '배치됨' : '미배치'}
-                    </span>
-                  )}
-                </div>
-              );
-            })}
-          {transcript && reqLeft.length === 0 && <div className="notice notice-ok">남은 필수 과목이 없어요.</div>}
+                );
+              })}
+            {transcript && reqLeft.length === 0 && <div className="notice notice-ok">남은 필수 과목이 없어요.</div>}
+          </div>
         </div>
       )}
     </section>

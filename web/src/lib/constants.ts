@@ -76,7 +76,6 @@ export const toMin = (hhmm: string): number => {
 export const DEMO_EMAIL = 'demo@etabuilder.kr';
 export const DEMO_PASSWORD = 'demo1234';
 
-export const CHAT_HINT = '수강평은 한 번에 한 과목씩 물어볼 수 있어요';
 export const CHAT_FAIL = '지금 AI 응답이 늦어요. 잠시 후 다시 말씀해 주세요.';
 /** 강의 시간이 없는 분반(e-러닝). 서버의 elearning 값이 없으면 times로 판단한다 */
 export const isOnline = (x: { times: unknown[]; elearning?: boolean }) => !!x.elearning || x.times.length === 0;
