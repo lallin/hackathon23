@@ -30,7 +30,13 @@ SYLLABUS_FILES = sorted((DATA / "raw").glob("syllabus_*.json"))
 
 GE_CATEGORIES = {"소양", "기초", "심화", "인성", "교양"}
 # 학사요람 교양 기준에 없는 외국인·평생학습자 전용 과목. 강의계획서에 있어도 넣지 않는다.
-EXCLUDED_COURSES = {"글쓰기2": "외국인 전용", "AI이해와문제해결": "외국인 전용"}
+EXCLUDED_COURSES = {
+    "글쓰기2": "외국인 전용", "AI이해와문제해결": "외국인 전용",
+    "실용한국어2": "외국인 전용", "생활한국어2": "외국인 전용", "한국어회화2": "외국인 전용",
+    "한국어작문2": "외국인 전용", "한국어고급표현2": "외국인 전용", "TOPIK고급": "외국인 전용",
+}
+# 학사요람 데이터에 없는 교양(심화교양·KU소양 등)의 학수번호. 과목명: 학수번호. 비어 있으면 그 과목은 넣지 않는다.
+COURSE_IDS_FILE = DATA / "raw" / "ge_course_ids.json"
 # 강의계획서의 수강 대상 "9학년"은 전학년 수강 가능을 뜻한다.
 TARGET_ALIASES = {"9학년": "전학년"}
 TIME_RE = re.compile(r"([월화수목금토일])\s*(\d{2})(\d{2})-(\d{2})(\d{2})")
@@ -59,6 +65,10 @@ def ge_course_ids(req: dict) -> dict:
     for r in req["requirements"]:
         for c in r["required_courses"]:
             ids.setdefault(c["name"], c["course_id"])
+    if COURSE_IDS_FILE.exists():
+        for name, cid in json.load(open(COURSE_IDS_FILE, encoding="utf-8")).items():
+            if cid and not name.startswith("_"):
+                ids.setdefault(name, cid)
     return ids
 
 
