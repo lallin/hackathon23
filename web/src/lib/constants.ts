@@ -58,8 +58,8 @@ export const DEFAULT_CONDITIONS = {
   style: 'graduation' as StyleId
 };
 
-export const TARGET_MIN = 9;
-export const TARGET_MAX = 21;
+export const TARGET_MIN = 1;
+export const TARGET_MAX = 23;
 
 /** 그리드에 그릴 시간 범위 (시) */
 export const GRID_START = 9;

@@ -68,7 +68,7 @@ intent
 - other: 사용법 질문, 인사, 잡담 등
 
 conditions: 바뀌는 값만 채우고 나머지는 null.
-- target_credits: 9~21 정수
+- target_credits: 1~23 정수
 - free_days: 공강 요일. 바뀌면 현재 값에 변경을 반영한 '전체 목록'을 넣는다(예: 현재 ["수"]에서 "금요일도 공강" → ["수","금"]).
 - preferred_time: any(상관없음) / morning(오전) / afternoon(오후)
 - style (대학 스타일, 하나만):
@@ -160,7 +160,7 @@ def handle_chat(req: ChatRequest) -> dict:
     old_cond = req.conditions
     patch = {k: v for k, v in parsed.conditions.model_dump().items() if v is not None}
     if "target_credits" in patch:
-        patch["target_credits"] = min(21, max(9, patch["target_credits"]))
+        patch["target_credits"] = min(23, max(1, patch["target_credits"]))
     if "free_days" in patch:
         patch["free_days"] = [d for d in DAYS if d in patch["free_days"]]
     new_cond = old_cond.model_copy(update=patch)

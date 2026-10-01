@@ -21,7 +21,7 @@ class ChecklistItem(BaseModel):
 
 
 class Conditions(BaseModel):
-    target_credits: int = Field(18, ge=9, le=21)
+    target_credits: int = Field(18, ge=1, le=23)
     free_days: List[Day] = Field(default_factory=list)
     preferred_time: PreferredTime = "any"
     style: StyleId = "graduation"
