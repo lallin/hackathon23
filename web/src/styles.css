@@ -237,6 +237,12 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 
 .bar { height: 7px; border-radius: 99px; background: #e8ebf3; overflow: hidden; }
 .bar > div { height: 100%; border-radius: 99px; transition: width 0.4s; }
+/* 이수(진한 색) 뒤에 이번 학기 예상치(옅은 빗금)를 이어 붙인다 */
+.bar.stack { display: flex; }
+.bar.stack > div { border-radius: 0; flex: none; }
+.sem { opacity: 0.45; background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0 3px, transparent 3px 6px); }
+.legend { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+@media (prefers-reduced-motion: reduce) { .bar > div { transition: none; } }
 
 .req-row {
   flex: none;
