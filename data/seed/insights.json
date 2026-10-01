@@ -1508,6 +1508,732 @@
    }
   },
   {
+   "lecture_id": "BKSA64623-김병건",
+   "course_id": "BKSA64623",
+   "course_name": "미디어글쓰기",
+   "professor": "김병건",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.02/5 (강의평 104개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 없음, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 104개 중 과제: 보통 56% · 많음 41% · 없음 3%",
+    "team_project": "강의평 104개 중 팀플: 없음 43% · 많음 31% · 보통 26%",
+    "exam": "시험 없음 (중간 기타, 기말 기타)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 104개] 별점 4.02/5 / 과제 보통 56% · 많음 41% · 없음 3% / 팀플 없음 43% · 많음 31% · 보통 26% / 학점 보통 43% · 너그러움 38% · 깐깐함 19% / 시험 없음 / 출결 전자출결"
+   ],
+   "review_count": 104,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.02,
+    "rating_distribution": {
+     "5": 52,
+     "4": 26,
+     "3": 6,
+     "2": 5,
+     "1": 12
+    },
+    "assignment": {
+     "none": 3,
+     "mid": 56,
+     "high": 41,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 43,
+     "mid": 26,
+     "high": 31,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 38,
+     "mid": 43,
+     "strict": 19,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "기타"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-권도경",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "권도경",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 3.15/5 (강의평 26개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 없음, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 26개 중 과제: 보통 50% · 많음 50% · 없음 0%",
+    "team_project": "강의평 26개 중 팀플: 없음 96% · 보통 4% · 많음 0%",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 26개] 별점 3.15/5 / 과제 보통 50% · 많음 50% · 없음 0% / 팀플 없음 96% · 보통 4% · 많음 0% / 학점 보통 77% · 너그러움 15% · 깐깐함 8% / 시험 없음 / 출결 직접호명"
+   ],
+   "review_count": 26,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.15,
+    "rating_distribution": {
+     "5": 23,
+     "4": 15,
+     "3": 23,
+     "2": 31,
+     "1": 8
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 50,
+     "high": 50,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 96,
+     "mid": 4,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 15,
+     "mid": 77,
+     "strict": 8,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-김정호",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "김정호",
+   "levels": {
+    "assignment": 3,
+    "team_project": 3,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 3.85/5 (강의평 106개)",
+    "과제 많음, 팀플 많음",
+    "학점 보통, 시험 한 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 106개 중 과제: 많음 55% · 보통 45% · 없음 0%",
+    "team_project": "강의평 106개 중 팀플: 많음 73% · 보통 25% · 없음 2%",
+    "exam": "시험 한 번 (중간 기타, 기말 논술형)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 106개] 별점 3.85/5 / 과제 많음 55% · 보통 45% · 없음 0% / 팀플 많음 73% · 보통 25% · 없음 2% / 학점 보통 52% · 깐깐함 28% · 너그러움 20% / 시험 한 번 / 출결 전자출결"
+   ],
+   "review_count": 106,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.85,
+    "rating_distribution": {
+     "5": 43,
+     "4": 26,
+     "3": 14,
+     "2": 4,
+     "1": 12
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 45,
+     "high": 55,
+     "top": "high"
+    },
+    "team_project": {
+     "none": 2,
+     "mid": 25,
+     "high": 73,
+     "top": "high"
+    },
+    "grading": {
+     "generous": 20,
+     "mid": 52,
+     "strict": 28,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "논술형"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-이효숙",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "이효숙",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.58/5 (강의평 159개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 159개 중 과제: 보통 67% · 많음 28% · 없음 5%",
+    "team_project": "강의평 159개 중 팀플: 없음 82% · 보통 18% · 많음 1%",
+    "exam": "시험 한 번 (기말 주관식·객관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 159개] 별점 4.58/5 / 과제 보통 67% · 많음 28% · 없음 5% / 팀플 없음 82% · 보통 18% · 많음 1% / 학점 보통 60% · 너그러움 36% · 깐깐함 4% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 159,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.58,
+    "rating_distribution": {
+     "5": 73,
+     "4": 18,
+     "3": 6,
+     "2": 1,
+     "1": 3
+    },
+    "assignment": {
+     "none": 5,
+     "mid": 67,
+     "high": 28,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 82,
+     "mid": 18,
+     "high": 1,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 36,
+     "mid": 60,
+     "strict": 4,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": [
+      "주관식",
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-안미영",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "안미영",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.78/5 (강의평 55개)",
+    "과제 보통, 팀플 보통",
+    "학점 너그러움, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 55개 중 과제: 보통 67% · 없음 20% · 많음 13%",
+    "team_project": "강의평 55개 중 팀플: 보통 80% · 많음 13% · 없음 7%",
+    "exam": "시험 한 번 (중간 기타, 기말 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 55개] 별점 4.78/5 / 과제 보통 67% · 없음 20% · 많음 13% / 팀플 보통 80% · 많음 13% · 없음 7% / 학점 너그러움 58% · 보통 40% · 깐깐함 2% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 55,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.78,
+    "rating_distribution": {
+     "5": 78,
+     "4": 22,
+     "3": 0,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 20,
+     "mid": 67,
+     "high": 13,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 7,
+     "mid": 80,
+     "high": 13,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 58,
+     "mid": 40,
+     "strict": 2,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "객관식",
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64613-조미숙",
+   "course_id": "BKSA64613",
+   "course_name": "성찰글쓰기",
+   "professor": "조미숙",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 3.19/5 (강의평 26개)",
+    "과제 보통, 팀플 보통",
+    "학점 보통, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 26개 중 과제: 보통 54% · 많음 42% · 없음 4%",
+    "team_project": "강의평 26개 중 팀플: 보통 50% · 많음 46% · 없음 4%",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 26개] 별점 3.19/5 / 과제 보통 54% · 많음 42% · 없음 4% / 팀플 보통 50% · 많음 46% · 없음 4% / 학점 보통 58% · 너그러움 23% · 깐깐함 19% / 출결 전자출결"
+   ],
+   "review_count": 26,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.19,
+    "rating_distribution": {
+     "5": 15,
+     "4": 35,
+     "3": 23,
+     "2": 8,
+     "1": 19
+    },
+    "assignment": {
+     "none": 4,
+     "mid": 54,
+     "high": 42,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 4,
+     "mid": 50,
+     "high": 46,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 23,
+     "mid": 58,
+     "strict": 19,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64612-김병건",
+   "course_id": "BKSA64612",
+   "course_name": "실용글쓰기",
+   "professor": "김병건",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 3.89/5 (강의평 19개)",
+    "과제 보통, 팀플 보통",
+    "학점 보통, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 19개 중 과제: 보통 74% · 많음 16% · 없음 11%",
+    "team_project": "강의평 19개 중 팀플: 보통 53% · 없음 37% · 많음 11%",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 19개] 별점 3.89/5 / 과제 보통 74% · 많음 16% · 없음 11% / 팀플 보통 53% · 없음 37% · 많음 11% / 학점 보통 47% · 깐깐함 37% · 너그러움 16% / 출결 전자출결"
+   ],
+   "review_count": 19,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.89,
+    "rating_distribution": {
+     "5": 47,
+     "4": 26,
+     "3": 11,
+     "2": 0,
+     "1": 16
+    },
+    "assignment": {
+     "none": 11,
+     "mid": 74,
+     "high": 16,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 37,
+     "mid": 53,
+     "high": 11,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 16,
+     "mid": 47,
+     "strict": 37,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64612-엄태경",
+   "course_id": "BKSA64612",
+   "course_name": "실용글쓰기",
+   "professor": "엄태경",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.59/5 (강의평 155개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 155개 중 과제: 보통 73% · 많음 23% · 없음 4%",
+    "team_project": "강의평 155개 중 팀플: 없음 55% · 보통 43% · 많음 3%",
+    "exam": "시험 한 번 (중간 논술형·기타, 기말 주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 155개] 별점 4.59/5 / 과제 보통 73% · 많음 23% · 없음 4% / 팀플 없음 55% · 보통 43% · 많음 3% / 학점 보통 66% · 너그러움 20% · 깐깐함 14% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 155,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.59,
+    "rating_distribution": {
+     "5": 69,
+     "4": 25,
+     "3": 3,
+     "2": 2,
+     "1": 1
+    },
+    "assignment": {
+     "none": 4,
+     "mid": 73,
+     "high": 23,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 55,
+     "mid": 43,
+     "high": 3,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 20,
+     "mid": 66,
+     "strict": 14,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": [
+      "논술형",
+      "기타"
+     ],
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64611-권도경",
+   "course_id": "BKSA64611",
+   "course_name": "창의글쓰기",
+   "professor": "권도경",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 3.86/5 (강의평 7개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 없음, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 7개 중 과제: 대부분 보통",
+    "team_project": "강의평 7개 중 팀플: 대부분 없음",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 7개] 별점 3.86/5 / 과제 대부분 보통 / 팀플 대부분 없음 / 학점 대부분 보통 / 시험 없음 / 출결 직접호명"
+   ],
+   "review_count": 7,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.86,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64611-이광욱",
+   "course_id": "BKSA64611",
+   "course_name": "창의글쓰기",
+   "professor": "이광욱",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.49/5 (강의평 55개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 55개 중 과제: 보통 60% · 많음 38% · 없음 2%",
+    "team_project": "강의평 55개 중 팀플: 없음 64% · 보통 35% · 많음 2%",
+    "exam": "시험 한 번 (기말 주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 55개] 별점 4.49/5 / 과제 보통 60% · 많음 38% · 없음 2% / 팀플 없음 64% · 보통 35% · 많음 2% / 학점 보통 58% · 너그러움 35% · 깐깐함 7% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 55,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.49,
+    "rating_distribution": {
+     "5": 67,
+     "4": 16,
+     "3": 15,
+     "2": 2,
+     "1": 0
+    },
+    "assignment": {
+     "none": 2,
+     "mid": 60,
+     "high": 38,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 64,
+     "mid": 35,
+     "high": 2,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 35,
+     "mid": 58,
+     "strict": 7,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": [
+      "주관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "BKSA64611-조미숙",
+   "course_id": "BKSA64611",
+   "course_name": "창의글쓰기",
+   "professor": "조미숙",
+   "levels": {
+    "assignment": 3,
+    "team_project": 3
+   },
+   "summary": [
+    "별점 3.53/5 (강의평 105개)",
+    "과제 많음, 팀플 많음",
+    "학점 보통"
+   ],
+   "evidence": {
+    "assignment": "강의평 105개 중 과제: 많음 49% · 보통 44% · 없음 8%",
+    "team_project": "강의평 105개 중 팀플: 많음 65% · 보통 28% · 없음 8%"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 105개] 별점 3.53/5 / 과제 많음 49% · 보통 44% · 없음 8% / 팀플 많음 65% · 보통 28% · 없음 8% / 학점 보통 60% · 너그러움 24% · 깐깐함 16%"
+   ],
+   "review_count": 105,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.53,
+    "rating_distribution": {
+     "5": 31,
+     "4": 28,
+     "3": 17,
+     "2": 10,
+     "1": 13
+    },
+    "assignment": {
+     "none": 8,
+     "mid": 44,
+     "high": 49,
+     "top": "high"
+    },
+    "team_project": {
+     "none": 8,
+     "mid": 28,
+     "high": 65,
+     "top": "high"
+    },
+    "grading": {
+     "generous": 24,
+     "mid": 60,
+     "strict": 16,
+     "top": "mid"
+    },
+    "attendance": null,
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": [
+      "객관식"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
    "lecture_id": "BKSA51432-심성보",
    "course_id": "BKSA51432",
    "course_name": "러시아어기초",
