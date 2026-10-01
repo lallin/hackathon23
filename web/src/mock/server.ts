@@ -172,6 +172,19 @@ export const mockApi: Api = {
     }
     return t;
   },
+  async regroupTranscript(prev, y, m) {
+    await wait(300);
+    if (!requirementsFor(y, m)) throw new ApiError('아직 준비 중인 학과예요', 404);
+    // 모의 서버는 입학년도별 이수구분이 없어 영역은 그대로 두고 기준만 바꾼다
+    const t = toTranscript(prev.courses, y, m);
+    const email = currentEmail();
+    if (email) {
+      users()[email].transcript = t;
+      users()[email].profile = { admission_year: y, major: m };
+      save();
+    }
+    return t;
+  },
   async checklistStyle(req) {
     await wait(200);
     return { checklist: mergeStyle(req.previous_style, req.style, req.checklist) };

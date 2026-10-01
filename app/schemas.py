@@ -87,6 +87,25 @@ class SampleTranscriptRequest(BaseModel):
     major: Optional[str] = None
 
 
+class RegroupCourse(BaseModel):
+    course_id: Optional[str] = None
+    name: str
+    category: Literal["전필", "전선", "교필", "교선", "기타"]
+    credits: float
+    grade: Optional[str] = None
+    # 성적표에 찍힌 이수구분 (/api/transcript/parse 응답의 courses[].transcript_category)
+    transcript_category: Optional[str] = None
+
+
+class RegroupTranscriptRequest(BaseModel):
+    """이미 읽은 성적표 과목(/api/transcript/parse 응답의 courses)을 다른 입학년도·학과 요람으로 다시 나눈다."""
+    admission_year: int = Field(..., examples=[2025])
+    major: str = Field(..., examples=["cse"])
+    courses: List[RegroupCourse]
+    excluded: List[dict] = []
+    recognized_count: Optional[int] = None
+
+
 class SignupRequest(BaseModel):
     email: str
     password: str = Field(..., min_length=4)

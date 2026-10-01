@@ -385,6 +385,21 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setProfile(year, major) {
         set({ year, major, uploadError: null });
         loadRequirements(year, major);
+        // 성적표를 올린 뒤 입학년도·전공을 바꾸면, 이미 읽은 과목을 그 해 요람의 이수구분으로 다시 나누고 시간표도 다시 만든다
+        const api = apiRef.current;
+        const t = ref.current.transcript;
+        if (!api || !t || (t.admission_year === year && t.major === major) || !isSupported(ref.current.meta, year, major)) return;
+        api
+          .regroupTranscript(t, year, major)
+          .then((next) => {
+            if (ref.current.year !== year || ref.current.major !== major) return;
+            autoGen.current = true;
+            set({ transcript: next });
+          })
+          .catch((e) => {
+            if (ref.current.year === year && ref.current.major === major)
+              set({ uploadError: errText(e, '입학년도에 맞춰 다시 계산하지 못했어요. 성적표를 다시 올려 주세요.') });
+          });
       },
       async upload(file) {
         const api = apiRef.current;

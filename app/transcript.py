@@ -272,12 +272,36 @@ def _excluded_reason(course: dict) -> Optional[str]:
     return None
 
 
+MAJOR_CATEGORIES = ("전필", "전선")
+
+
+def _year_course(course: dict, requirement: Optional[dict]) -> Tuple[Optional[str], str]:
+    """이수한 과목의 (학수번호, 이수구분)을 입학년도 요람에 맞춘다. 성적표에 찍힌 이수구분은 전공·교양·기타 구분에만 쓴다.
+    전공: 그 해 요람의 전필/전선. 요람에 없는 전공 과목(폐지·개편된 과목 등)은 전선으로 센다.
+    교양: 그 해 요람의 필수 교양이면 교필, 아니면 교선. 기타(일선·일교 등)는 그대로 둔다.
+    학수번호가 요람과 달라도 과목명이 같으면 같은 과목으로 본다."""
+    cid = course.get("course_id") or None
+    category = course.get("transcript_category") or course["category"]
+    if category == OTHER or not requirement:
+        return cid, category
+    listed = requirement.get("major_courses", []) + requirement.get("required_courses", [])
+    name = normalize_name(course.get("name") or "")
+    match = next((c for c in listed if c["course_id"] == cid), None) or \
+        next((c for c in listed if name and normalize_name(c["name"]) == name), None)
+    if category in MAJOR_CATEGORIES:
+        if match and match["category"] in MAJOR_CATEGORIES:
+            return match["course_id"], match["category"]
+        return cid, "전선"
+    if match and match["category"] == "교필":
+        return match["course_id"], "교필"
+    return cid, "교선"
+
+
 def summarize(courses: List[dict], admission_year: Optional[int], major: Optional[str]) -> dict:
     """추출한 과목 → 영역별 이수 학점.
     등급 N·F 등과 삭제구분 '취득학점포기'는 빼고, 재수강은 마지막 기록만 센다.
-    이수구분이 기타(일선·일교 등)인 과목은 과목명·학점만 남기고 졸업 총 학점에만 더한다."""
-    requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
-    ge_required = set(requirement["required_course_ids"]) if requirement else set()
+    이수구분이 기타(일선·일교 등)인 과목은 과목명·학점만 남기고 졸업 총 학점에만 더한다.
+    나머지 과목의 이수구분은 입학년도 요람으로 정한다(regroup)."""
     passed, excluded = {}, []
     for n, course in enumerate(courses):
         reason = _excluded_reason(course)
@@ -290,26 +314,44 @@ def summarize(courses: List[dict], admission_year: Optional[int], major: Optiona
             passed[OTHER + ":" + key] = {"name": course["name"], "credits": course["credits"], "category": OTHER}
             continue
         cid = _catalog_id(course)
-        category = course["category"]
-        # 교양 과목은 졸업 요건의 필수 학수번호에 있으면 교필, 없으면 교선 (학사요람 규칙)
-        if requirement and category in ("교필", "교선"):
-            category = "교필" if cid in ge_required else "교선"
         key = cid or normalize_name(course["name"])
-        passed[key] = {**course, "course_id": cid, "category": category, "in_catalog": cid in catalog.courses}
+        # 성적표에 찍힌 이수구분은 transcript_category로 남겨, 입학년도를 바꿔 다시 나눌 때 쓴다
+        passed[key] = {**course, "course_id": cid, "transcript_category": course["category"]}
         passed[key].pop("deletion", None)
+    return regroup(list(passed.values()), excluded, admission_year, major, recognized_count=len(courses))
+
+
+def regroup(courses: List[dict], excluded: List[dict], admission_year: Optional[int], major: Optional[str],
+            recognized_count: Optional[int] = None) -> dict:
+    """이수한 과목을 입학년도 요람의 이수구분으로 나누고 영역별 학점을 센다.
+    성적표를 올린 뒤 입학년도를 바꾸면 PDF를 다시 읽지 않고 이것만 다시 부른다."""
+    requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
+    grouped = {}
+    for n, course in enumerate(courses):
+        cid, category = _year_course(course, requirement)
+        if category == OTHER:
+            grouped[f"{OTHER}:{n}"] = {"name": course["name"], "credits": course["credits"], "category": OTHER}
+            continue
+        grouped[cid or normalize_name(course["name"]) or str(n)] = {
+            **course, "course_id": cid, "category": category,
+            "transcript_category": course.get("transcript_category") or course["category"],
+            "in_catalog": cid in catalog.courses,
+        }
 
     # 네 영역 + 기타. 기타는 영역 최소 요건에는 안 들어가고 졸업 총 학점에만 더해진다
     completed_credits = {c: 0.0 for c in CATEGORIES + [OTHER]}
-    for course in passed.values():
+    for course in grouped.values():
         if course["category"] in completed_credits:
             completed_credits[course["category"]] += float(course["credits"])
-    completed_ids = [c["course_id"] for c in passed.values() if c.get("course_id")]
+    completed_ids = [c["course_id"] for c in grouped.values() if c.get("course_id")]
+    if recognized_count is None:
+        recognized_count = len(courses) + len(excluded)
     return {
         "admission_year": admission_year,
         "major": major,
-        "recognized_count": len(courses),
-        "message": f"인식된 과목 {len(courses)}개",
-        "courses": list(passed.values()),
+        "recognized_count": recognized_count,
+        "message": f"인식된 과목 {recognized_count}개",
+        "courses": list(grouped.values()),
         "excluded": excluded,
         "completed_course_ids": completed_ids,
         "completed_credits": completed_credits,

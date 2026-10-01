@@ -48,6 +48,8 @@ export interface TranscriptCourse {
   category: Category;
   credits: number;
   grade?: string | null;
+  /** 성적표에 찍힌 이수구분. category 는 입학년도 요람 기준 */
+  transcript_category?: string | null;
 }
 
 export interface TranscriptResult {
@@ -64,6 +66,8 @@ export interface TranscriptResult {
   /** 서버가 계산한 남은 졸업 학점과 그중 자유 학점 (성적표를 올릴 때의 입학년도·전공 기준) */
   remaining_total?: number;
   remaining_free?: number;
+  /** 이수에서 뺀 과목 (F·N, 취득학점포기, 수강 중). 입학년도를 바꿔 다시 나눌 때 그대로 돌려보낸다 */
+  excluded?: Record<string, unknown>[];
 }
 
 export interface MeResponse {
