@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -25,4 +27,7 @@ app.mount("/assets", StaticFiles(directory=ASSETS_DIR), name="assets")
 
 @app.get("/")
 def health_check():
-    return {"status": "ok", "semester": catalog.semester, "db": db.enabled(), "data_sources": catalog.sources}
+    # Render가 넣어 주는 배포 커밋. 어떤 버전이 떠 있는지 확인할 때 쓴다.
+    version = (os.getenv("RENDER_GIT_COMMIT") or "local")[:7]
+    return {"status": "ok", "version": version, "semester": catalog.semester, "db": db.enabled(),
+            "data_sources": catalog.sources}

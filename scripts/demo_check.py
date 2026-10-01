@@ -56,7 +56,7 @@ ctx = {}
 def wake():
     health = call("GET", "/", timeout=120)
     ctx["health"] = health
-    return f"db={health.get('db')} data={health.get('data_sources')}"
+    return f"버전 {health.get('version', '?')} db={health.get('db')} data={health.get('data_sources')}"
 
 
 def login():
