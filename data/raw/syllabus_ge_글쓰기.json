@@ -1,0 +1,527 @@
+[
+  {
+    "course_name": "창의글쓰기",
+    "course_code": "7322",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(글로컬이음관 407)",
+    "professor": "조미숙",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "창의글쓰기",
+    "course_code": "7323",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(글로컬이음관 601)",
+    "professor": "조미숙",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "창의글쓰기",
+    "course_code": "7324",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수0900-1100(글로컬이음관 602)",
+    "professor": "이광욱",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 40,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "창의글쓰기",
+    "course_code": "7325",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(글로컬이음관 602)",
+    "professor": "권도경",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm_alternative_assignment": 35,
+      "final_alternative_assignment": 35,
+      "common_correction_assignment": 15
+    }
+  },
+  {
+    "course_name": "창의글쓰기",
+    "course_code": "7326",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1200-1400(글로컬이음관 602)",
+    "professor": "권도경",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm_alternative_assignment": 35,
+      "final_alternative_assignment": 35,
+      "common_correction_assignment": 15
+    }
+  },
+  {
+    "course_name": "실용글쓰기",
+    "course_code": "7327",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1000-1200(글로컬이음관 601)",
+    "professor": "엄태경",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "실용글쓰기",
+    "course_code": "7328",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1200-1400(글로컬이음관 601)",
+    "professor": "엄태경",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "실용글쓰기",
+    "course_code": "7329",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1400-1600(글로컬이음관 601)",
+    "professor": "엄태경",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "실용글쓰기",
+    "course_code": "7330",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1200-1400(글로컬이음관 601)",
+    "professor": "김병건",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "실용글쓰기",
+    "course_code": "7331",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1400-1600(글로컬이음관 601)",
+    "professor": "김병건",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7332",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1000-1200(글로컬이음관 601)",
+    "professor": "조미숙",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7333",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1500-1700(글로컬이음관 602)",
+    "professor": "안미영",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7334",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(글로컬이음관 601)",
+    "professor": "이효숙",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "practice_sheet": 10
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7335",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1500-1700(글로컬이음관 407)",
+    "professor": "이효숙",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "practice_sheet": 10
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7336",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1000-1200(글로컬이음관 601)",
+    "professor": "김정호",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7337",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1300-1500(글로컬이음관 601)",
+    "professor": "김정호",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7338",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1500-1700(글로컬이음관 601)",
+    "professor": "김정호",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7339",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(글로컬이음관 602)",
+    "professor": "권도경",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7340",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "금1400-1600(글로컬이음관 602)",
+    "professor": "권도경",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "성찰글쓰기",
+    "course_code": "7342",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "금1200-1400(글로컬이음관 602)",
+    "professor": "권도경",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 30,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "미디어글쓰기",
+    "course_code": "7353",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1600-1800(글로컬이음관 601)",
+    "professor": "김병건",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 20,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "미디어글쓰기",
+    "course_code": "7354",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목0900-1100(글로컬이음관 602)",
+    "professor": "엄현섭",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 20,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 20,
+      "final": 40,
+      "assignment": 25
+    }
+  },
+  {
+    "course_name": "미디어글쓰기",
+    "course_code": "7355",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1100-1300(글로컬이음관 602)",
+    "professor": "엄현섭",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 20,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 20,
+      "final": 40,
+      "assignment": 25
+    }
+  },
+  {
+    "course_name": "미디어글쓰기",
+    "course_code": "7356",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1300-1500(글로컬이음관 602)",
+    "professor": "엄현섭",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 20,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 20,
+      "final": 40,
+      "assignment": 25
+    }
+  },
+  {
+    "course_name": "글쓰기2",
+    "course_code": "8257",
+    "category": "3시간",
+    "credits": 3,
+    "target": "1학년",
+    "schedule": "월1300-1600(자연과학관 116)",
+    "professor": "박혜진",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "글쓰기2",
+    "course_code": "8258",
+    "category": "3시간",
+    "credits": 3,
+    "target": "1학년",
+    "schedule": "월1300-1600(글로컬이음관 503)",
+    "professor": "이소영",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 10,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  }
+]

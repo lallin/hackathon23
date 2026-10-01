@@ -29,6 +29,8 @@ RAW_FILES = sorted((DATA / "raw").glob("catalog_*.csv"))
 SYLLABUS_FILES = sorted((DATA / "raw").glob("syllabus_*.json"))
 
 GE_CATEGORIES = {"소양", "기초", "심화", "인성", "교양"}
+# 학사요람 교양 기준에 없는 외국인·평생학습자 전용 과목. 강의계획서에 있어도 넣지 않는다.
+EXCLUDED_COURSES = {"글쓰기2": "외국인 전용"}
 # 강의계획서의 수강 대상 "9학년"은 전학년 수강 가능을 뜻한다.
 TARGET_ALIASES = {"9학년": "전학년"}
 TIME_RE = re.compile(r"([월화수목금토일])\s*(\d{2})(\d{2})-(\d{2})(\d{2})")
@@ -43,14 +45,21 @@ def num(text):
     return int(value) if value.is_integer() else value
 
 
-def ge_course_ids() -> dict:
-    """build_requirements.py의 BASIC_2023 표(학수번호, 과목명, 학점, 영역)에서 과목명 → 학수번호.
-    import하면 requirements.json을 다시 쓰므로 소스에서 표만 읽는다."""
+def ge_course_ids(req: dict) -> dict:
+    """교양 과목명 → 학수번호. build_requirements.py의 교양 과목표(학수번호, 과목명, 학점, 영역)와
+    requirements.json의 필수 과목에서 찾는다. build_requirements.py는 import하면 requirements.json을
+    다시 쓰므로 소스의 표만 읽는다."""
+    ids = {}
     tree = ast.parse((DATA / "build_requirements.py").read_text(encoding="utf-8"))
-    for node in tree.body:
-        if isinstance(node, ast.Assign) and getattr(node.targets[0], "id", None) == "BASIC_2023":
-            return {name: cid for cid, name, _, _ in ast.literal_eval(node.value)}
-    return {}
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Tuple) and len(node.elts) == 4 and all(isinstance(e, ast.Constant) for e in node.elts):
+            cid, name = node.elts[0].value, node.elts[1].value
+            if isinstance(cid, str) and re.fullmatch(r"[A-Z]{4}\d{5}", cid):
+                ids.setdefault(name, cid)
+    for r in req["requirements"]:
+        for c in r["required_courses"]:
+            ids.setdefault(c["name"], c["course_id"])
+    return ids
 
 
 def main():
@@ -83,12 +92,12 @@ def main():
                                  "professor": row["professor"].strip(), "times": times,
                                  "capacity": int(row["capacity"]), "lecture_type": row["lecture_type"].strip()})
 
-    ge_ids = ge_course_ids()
+    ge_ids = ge_course_ids(req)
     major_courses = {}  # (학과, 과목명) -> 최근 교육과정의 과목 정보
     for r in sorted(req["requirements"], key=lambda r: r["admission_year"]):
         for c in r.get("major_courses", []):
             major_courses[(r["major"], c["name"])] = c
-    needs_check = []
+    needs_check, excluded = [], []
     for path in SYLLABUS_FILES:
         major = path.stem.split("_")[1]
         data = json.load(open(path, encoding="utf-8"))
@@ -97,6 +106,9 @@ def main():
         for row in rows:
             name = row["course_name"].strip()
             label = f"{name} {row['course_code']}({row['professor']})"
+            if name in EXCLUDED_COURSES:
+                excluded.append(f"{label}: {EXCLUDED_COURSES[name]}")
+                continue
             if major == "ge":
                 cid = row.get("course_id") or ge_ids.get(name)
                 category, dept = ("교필" if cid in ge_required else "교선"), "gen"
@@ -150,6 +162,8 @@ def main():
     print(f"실제 과목 {len(courses)}개 · 분반 {len(sections)}개, 샘플 과목 {len(sample_courses)}개 · 분반 {len(sample_sections)}개")
     for s in skipped:
         print(f"  뺀 분반: {s}")
+    for s in excluded:
+        print(f"  제외 과목: {s}")
     for s in needs_check:
         print(f"  원본 확인 필요: {s}")
 

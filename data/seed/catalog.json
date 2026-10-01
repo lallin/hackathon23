@@ -172,6 +172,34 @@
    "dept": "cse"
   },
   {
+   "course_id": "BKSA64611",
+   "name": "창의글쓰기",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
+   "course_id": "BKSA64612",
+   "name": "실용글쓰기",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
+   "course_id": "BKSA64613",
+   "name": "성찰글쓰기",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
+   "course_id": "BKSA64623",
+   "name": "미디어글쓰기",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
    "course_id": "BKSA39798",
    "name": "비판적사고와토론",
    "credits": 2,
@@ -1849,6 +1877,660 @@
      "others": []
     }
    }
+  },
+  {
+   "section_id": "BKSA64611-7322",
+   "course_id": "BKSA64611",
+   "professor": "조미숙",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64611-7323",
+   "course_id": "BKSA64611",
+   "professor": "조미숙",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64611-7324",
+   "course_id": "BKSA64611",
+   "professor": "이광욱",
+   "times": [
+    {
+     "day": "수",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 40,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64611-7325",
+   "course_id": "BKSA64611",
+   "professor": "권도경",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm_alternative_assignment": 35,
+     "final_alternative_assignment": 35,
+     "common_correction_assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64611-7326",
+   "course_id": "BKSA64611",
+   "professor": "권도경",
+   "times": [
+    {
+     "day": "화",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm_alternative_assignment": 35,
+     "final_alternative_assignment": 35,
+     "common_correction_assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64612-7327",
+   "course_id": "BKSA64612",
+   "professor": "엄태경",
+   "times": [
+    {
+     "day": "목",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64612-7328",
+   "course_id": "BKSA64612",
+   "professor": "엄태경",
+   "times": [
+    {
+     "day": "목",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64612-7329",
+   "course_id": "BKSA64612",
+   "professor": "엄태경",
+   "times": [
+    {
+     "day": "목",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64612-7330",
+   "course_id": "BKSA64612",
+   "professor": "김병건",
+   "times": [
+    {
+     "day": "수",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64612-7331",
+   "course_id": "BKSA64612",
+   "professor": "김병건",
+   "times": [
+    {
+     "day": "수",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7332",
+   "course_id": "BKSA64613",
+   "professor": "조미숙",
+   "times": [
+    {
+     "day": "수",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7333",
+   "course_id": "BKSA64613",
+   "professor": "안미영",
+   "times": [
+    {
+     "day": "월",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7334",
+   "course_id": "BKSA64613",
+   "professor": "이효숙",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 20,
+     "practice_sheet": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7335",
+   "course_id": "BKSA64613",
+   "professor": "이효숙",
+   "times": [
+    {
+     "day": "화",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 20,
+     "practice_sheet": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7336",
+   "course_id": "BKSA64613",
+   "professor": "김정호",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7337",
+   "course_id": "BKSA64613",
+   "professor": "김정호",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7338",
+   "course_id": "BKSA64613",
+   "professor": "김정호",
+   "times": [
+    {
+     "day": "월",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7339",
+   "course_id": "BKSA64613",
+   "professor": "권도경",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7340",
+   "course_id": "BKSA64613",
+   "professor": "권도경",
+   "times": [
+    {
+     "day": "금",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64613-7342",
+   "course_id": "BKSA64613",
+   "professor": "권도경",
+   "times": [
+    {
+     "day": "금",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 30,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64623-7353",
+   "course_id": "BKSA64623",
+   "professor": "김병건",
+   "times": [
+    {
+     "day": "수",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "discussion": 20,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64623-7354",
+   "course_id": "BKSA64623",
+   "professor": "엄현섭",
+   "times": [
+    {
+     "day": "목",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "discussion": 20,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 20,
+     "final": 40,
+     "assignment": 25
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64623-7355",
+   "course_id": "BKSA64623",
+   "professor": "엄현섭",
+   "times": [
+    {
+     "day": "목",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "discussion": 20,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 20,
+     "final": 40,
+     "assignment": 25
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "BKSA64623-7356",
+   "course_id": "BKSA64623",
+   "professor": "엄현섭",
+   "times": [
+    {
+     "day": "목",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "1학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "discussion": 20,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 20,
+     "final": 40,
+     "assignment": 25
+    }
+   },
+   "new_course": true
   },
   {
    "section_id": "BKSA39798-7046",
