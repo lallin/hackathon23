@@ -76,7 +76,9 @@ def extract_insights_from_texts(course_name: str, professor: str, reviews: List[
     prompt = (f"과목: {course_name}\n교수: {professor}\n\n수강평:\n{joined}\n\n"
               f"{LEVEL_GUIDE}\n\nsummary는 수강평을 요약한 짧은 한국어 문장 3개. "
               "evidence는 레벨을 판정한 근거가 된 수강평 문장을 항목별로 하나씩 그대로 옮긴다.")
-    result = ask_json(InsightResult, prompt, system="너는 대학 강의평을 분석해 구조화하는 도우미다.")
+    # 온디맨드는 수집(최대 15초) 뒤에 이어지고 FE는 60초 기다린다
+    result = ask_json(InsightResult, prompt, system="너는 대학 강의평을 분석해 구조화하는 도우미다.",
+                      timeout=15, retries=1)
     return _to_lecture(result, course_id, professor, course_name, reviews, source)
 
 
@@ -92,63 +94,76 @@ def extract_insights_from_images(images: Sequence[Tuple[bytes, str]], course_nam
 
 
 # ---- 자유 항목 판정 ----
-class Judgment(BaseModel):
+JUDGE_CHUNK = 10  # 한 번에 판정할 강의 수. 응답이 짧을수록 빠르다
+JUDGE_WORKERS = 6
+
+
+class LectureJudgment(BaseModel):
     lecture_id: str
-    key: str
-    value: Literal["low", "mid", "high", "match", "opposite", "unknown"]
+    values: List[Literal["low", "mid", "high", "match", "opposite", "unknown"]]
 
 
 class JudgmentResult(BaseModel):
-    judgments: List[Judgment]
+    lectures: List[LectureJudgment]
+
+
+def _judge_chunk(items: List[ChecklistItem], lecture_ids: List[str]) -> Dict[tuple, object]:
+    item_lines = "\n".join(
+        f'{n}. {i.label} - ' + ("레벨형: low/mid/high/unknown (그 성향의 정도)" if i.type == "level"
+                               else "적용형: match(맞음)/opposite(반대)/unknown")
+        for n, i in enumerate(items, 1)
+    )
+    lecture_lines = "\n".join(
+        f"[{lid}] " + " / ".join(r[:200] for r in catalog.insights[lid]["reviews"][:8]) for lid in lecture_ids
+    )
+    prompt = (f"판정할 항목:\n{item_lines}\n\n강의별 수강평:\n{lecture_lines}\n\n"
+              f"강의마다 values에 위 항목 {len(items)}개의 판정을 순서대로 넣는다. "
+              "그 항목을 직접 말한 문장만 근거로 삼는다(예: 시험 난이도는 시험 횟수로 추측하지 않는다). "
+              "근거가 없으면 unknown.")
+    # 생성 요청 안에서 불린다(FE는 60초 기다린다). 단순 분류라 추론 없이 빠르게.
+    result = ask_json(JudgmentResult, prompt, system="너는 수강평을 읽고 강의가 조건에 맞는지 판정하는 도우미다.",
+                      timeout=25, retries=1, effort="none")
+    out: Dict[tuple, object] = {}
+    for lj in result.lectures:
+        if lj.lecture_id not in lecture_ids or len(lj.values) != len(items):
+            continue
+        for item, value in zip(items, lj.values):
+            if item.type == "level":
+                out[(lj.lecture_id, item.key)] = LEVEL_NUM.get(value)
+            else:
+                out[(lj.lecture_id, item.key)] = value if value in ("match", "opposite") else None
+    for lid in lecture_ids:  # 응답에서 빠진 쌍은 정보 없음
+        for item in items:
+            out.setdefault((lid, item.key), None)
+    return out
 
 
 def judge_custom_items(items: List[ChecklistItem], lecture_ids: List[str]) -> List[str]:
-    """자유 항목을 강의별로 판정해 catalog.judgments에 캐시한다. 실패한 항목 key 목록을 돌려준다."""
-    custom_items = [i for i in items if is_custom(i.key)]
+    """자유 항목을 강의별로 판정해 catalog.judgments에 캐시한다.
+    강의를 나눠 동시에 판정하고, 모든 묶음이 실패한 경우에만 그 항목 key를 실패로 돌려준다."""
     todo_items, todo_lectures = [], set()
-    for item in custom_items:
+    for item in (i for i in items if is_custom(i.key)):
         missing = [lid for lid in lecture_ids if (lid, item.key) not in catalog.judgments]
-        for lid in missing:
-            if not catalog.insights.get(lid, {}).get("reviews"):
-                catalog.judgments[(lid, item.key)] = None  # 수강평이 없으면 정보 없음
-            else:
-                todo_lectures.add(lid)
-        if any(catalog.insights.get(lid, {}).get("reviews") for lid in missing):
+        with_reviews = [lid for lid in missing if catalog.insights.get(lid, {}).get("reviews")]
+        for lid in set(missing) - set(with_reviews):
+            catalog.judgments[(lid, item.key)] = None  # 수강평이 없으면 정보 없음
+        if with_reviews:
             todo_items.append(item)
+            todo_lectures.update(with_reviews)
     if not todo_items:
         return []
 
-    item_lines = "\n".join(
-        f'- key="{i.key}" 이름="{i.label}" 종류={"레벨형(low/mid/high 중 하나, 해당 정도)" if i.type == "level" else "적용형(match=맞음, opposite=반대)"}'
-        for i in todo_items
-    )
-    lecture_lines = []
-    for lid in sorted(todo_lectures):
-        reviews = " / ".join(r[:200] for r in catalog.insights[lid]["reviews"][:8])
-        lecture_lines.append(f'[{lid}] {reviews}')
-    prompt = (
-        f"판정할 항목:\n{item_lines}\n\n강의별 수강평:\n" + "\n".join(lecture_lines) +
-        "\n\n모든 (강의, 항목) 쌍에 대해 value를 하나씩 정한다. 수강평에서 판단할 근거가 없으면 unknown. "
-        "레벨형 항목에는 low/mid/high/unknown만, 적용형 항목에는 match/opposite/unknown만 쓴다."
-    )
-    try:
-        result = ask_json(JudgmentResult, prompt, system="너는 수강평을 읽고 강의가 조건에 맞는지 판정하는 도우미다.")
-    except LLMError:
-        return [i.key for i in todo_items]
-
-    types = {i.key: i.type for i in todo_items}
-    for j in result.judgments:
-        if j.key not in types or j.lecture_id not in todo_lectures:
-            continue
-        if types[j.key] == "level":
-            value = LEVEL_NUM.get(j.value)
-        else:
-            value = j.value if j.value in ("match", "opposite") else None
-        catalog.judgments[(j.lecture_id, j.key)] = value
-    for item in todo_items:  # 응답에서 빠진 쌍은 정보 없음
-        for lid in todo_lectures:
-            catalog.judgments.setdefault((lid, item.key), None)
-    return []
+    ordered = sorted(todo_lectures)
+    chunks = [ordered[i:i + JUDGE_CHUNK] for i in range(0, len(ordered), JUDGE_CHUNK)]
+    succeeded = 0
+    with ThreadPoolExecutor(max_workers=min(JUDGE_WORKERS, len(chunks))) as pool:
+        for future in [pool.submit(_judge_chunk, todo_items, chunk) for chunk in chunks]:
+            try:
+                catalog.judgments.update(future.result())
+                succeeded += 1
+            except LLMError:
+                pass  # 실패한 묶음은 캐시하지 않아 다음 생성 때 다시 판정한다
+    return [] if succeeded else [i.key for i in todo_items]
 
 
 # ---- 온디맨드 ----

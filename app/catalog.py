@@ -75,6 +75,13 @@ class Catalog:
         for s in cat["sections"]:
             self.sections_by_course[s["course_id"]].append(s)
 
+        # 졸업 요건 데이터에 적힌 과목 정보. 이번 학기에 열리지 않아 카탈로그에 없는 과목의 이름·이수구분에 쓴다.
+        self.known_courses: Dict[str, dict] = {}
+        for r in req["requirements"]:
+            for c in r.get("required_courses", []) + r.get("major_courses", []):
+                if c.get("course_id"):
+                    self.known_courses.setdefault(c["course_id"], c)
+
         self.insights: Dict[str, dict] = {l["lecture_id"]: l for l in ins["lectures"]}
         for lecture in self._load_collected():
             self.insights[lecture["lecture_id"]] = lecture
@@ -89,9 +96,21 @@ class Catalog:
     def is_supported(self, admission_year: int, major_id: str) -> bool:
         return (admission_year, major_id) in self.requirements
 
+    def course_info(self, course_id: str) -> Optional[dict]:
+        """이번 학기 카탈로그에 있으면 그 과목, 없으면 졸업 요건 데이터에 적힌 정보."""
+        return self.courses.get(course_id) or self.known_courses.get(course_id)
+
     def course_name(self, course_id: str) -> str:
-        course = self.courses.get(course_id)
-        return course["name"] if course else course_id
+        info = self.course_info(course_id)
+        return info["name"] if info else course_id
+
+    def is_offered(self, course_id: str) -> bool:
+        """이번 학기에 열리는지. 학수번호가 달라도 같은 이름의 과목이 열리면 열린 것으로 본다."""
+        if self.sections_by_course.get(course_id):
+            return True
+        name = normalize_name(self.course_name(course_id))
+        return any(normalize_name(c["name"]) == name and self.sections_by_course.get(cid)
+                   for cid, c in self.courses.items())
 
     def find_course_by_name(self, name: str) -> Optional[dict]:
         key = normalize_name(name)

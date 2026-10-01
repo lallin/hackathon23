@@ -17,6 +17,6 @@ def chat(req: ChatRequest):
 def ask(req: AskRequest):
     """기존 Streamlit용 단순 채팅."""
     try:
-        return {"response": ask_text(req.user_message)}
+        return {"response": ask_text(req.user_message, timeout=30, retries=1)}
     except LLMError as e:
         raise HTTPException(status_code=503, detail=str(e))

@@ -61,9 +61,9 @@ def requirements(admission_year: int, major: str):
         "no_min_categories": [c for c in CATEGORIES if c not in mins],
         "required_courses": [
             {"course_id": cid, "name": catalog.course_name(cid),
-             "category": catalog.courses[cid]["category"] if cid in catalog.courses else None,
-             "credits": catalog.courses[cid]["credits"] if cid in catalog.courses else None,
-             "offered": bool(catalog.sections_by_course.get(cid))}
+             "category": (catalog.course_info(cid) or {}).get("category"),
+             "credits": (catalog.course_info(cid) or {}).get("credits"),
+             "offered": catalog.is_offered(cid)}
             for cid in requirement["required_course_ids"]
         ],
     }

@@ -3,7 +3,7 @@ from typing import Optional
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 
 from ai_service import LLMError
-from app.auth import optional_user, store
+from app.auth import current_user, optional_user, store
 from app.schemas import SampleTranscriptRequest
 from app.transcript import load_sample, parse_pdf, summarize
 
@@ -40,6 +40,13 @@ def parse(
     if not courses:
         raise HTTPException(status_code=422, detail="성적표에서 과목을 찾지 못했어요. 성적표 PDF가 맞는지 확인해 주세요.")
     return _save(user, summarize(courses, admission_year, major))
+
+
+@router.delete("")
+def clear(user: dict = Depends(current_user)):
+    """계정에 저장된 이수 내역을 지운다. 시연 전에 데모 계정을 처음 상태로 돌릴 때 쓴다."""
+    store.save_transcript(user["email"], None)
+    return {"saved": False}
 
 
 @router.post("/sample")
