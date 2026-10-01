@@ -3,12 +3,22 @@ import { LogOut } from './icons';
 
 export function Logo({ size = 36 }: { size?: number }) {
   return (
+    // 메이쿠 로고: 초록 바탕에 KU
     <svg width={size} height={size} viewBox="0 0 36 36" fill="none" aria-hidden="true">
       <rect width="36" height="36" rx="10" fill="#006B38" />
-      <rect x="8" y="8" width="9" height="12" rx="2" fill="#fff" />
-      <rect x="19" y="8" width="9" height="7" rx="2" fill="#BFE0CD" />
-      <rect x="19" y="17" width="9" height="11" rx="2" fill="#fff" />
-      <rect x="8" y="22" width="9" height="6" rx="2" fill="#BFE0CD" />
+      <text
+        x="18"
+        y="18.5"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fill="#fff"
+        fontFamily="'Noto Sans KR', system-ui, sans-serif"
+        fontSize="17"
+        fontWeight="700"
+        letterSpacing="-0.5"
+      >
+        KU
+      </text>
     </svg>
   );
 }
@@ -21,7 +31,7 @@ export function Header() {
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
         <Logo />
         <div style={{ minWidth: 0 }}>
-          <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2 }}>에타빌더</div>
+          <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2 }}>메이쿠</div>
           <div className="hide-m sub">졸업 요건 기반 수강신청 시간표 빌더</div>
         </div>
       </div>

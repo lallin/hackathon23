@@ -41,7 +41,7 @@ export function AuthScreen() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <Logo size={44} />
           <div>
-            <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em' }}>에타빌더</div>
+            <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em' }}>메이쿠</div>
             <div className="sub">졸업 요건 기반 수강신청 시간표 빌더 · {s.meta?.semester ?? '2026학년도 2학기'}</div>
           </div>
         </div>
