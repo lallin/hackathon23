@@ -1,0 +1,486 @@
+[
+  {
+    "course_name": "건학정신과대학생활",
+    "course_code": "7004",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1300-1500(글로컬이음관 302)",
+    "professor": "심성보",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "건학정신과대학생활",
+    "course_code": "7005",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1600-1800(글로컬이음관 302)",
+    "professor": "심성보",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "건학정신과대학생활",
+    "course_code": "7006",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1000-1200(글로컬이음관 303)",
+    "professor": "심성보",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "건학정신과대학생활",
+    "course_code": "7007",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1300-1500(글로컬이음관 303)",
+    "professor": "심성보",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "건학정신과대학생활",
+    "course_code": "7008",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1000-1200(글로컬이음관 303)",
+    "professor": "심성보",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "건학정신과대학생활",
+    "course_code": "7009",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1400-1600(글로컬이음관 303)",
+    "professor": "심성보",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "중원역사문화론(충주의삶과문화)",
+    "course_code": "7148",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1300-1500(글로컬이음관 101)",
+    "professor": "홍성화",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 28,
+      "midterm": 28,
+      "final": 28,
+      "learning_quiz": 16
+    }
+  },
+  {
+    "course_name": "나우리택견인성",
+    "course_code": "7228",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1600-1800(건국체육관 113)",
+    "professor": "신종근",
+    "teaching_method": {
+      "lecture": 20,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "나우리택견인성",
+    "course_code": "7229",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1600-1800(건국체육관 113)",
+    "professor": "신종근",
+    "teaching_method": {
+      "lecture": 20,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "나우리택견인성",
+    "course_code": "7230",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1600-1800(건국체육관 113)",
+    "professor": "신종근",
+    "teaching_method": {
+      "lecture": 20,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "디지털시대의세계시민-되기",
+    "course_code": "7288",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1700-1800(인문사회관 101)",
+    "professor": "이미정",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 50
+    },
+    "evaluation_method": {
+      "attendance": 40,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "글로컬사회봉사",
+    "course_code": "7344",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1100-1300(글로컬이음관 102)",
+    "professor": "박혜진",
+    "teaching_method": {
+      "lecture": 20,
+      "field_learning": 80
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "social_service": 90
+    }
+  },
+  {
+    "course_name": "글로컬사회봉사",
+    "course_code": "7345",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1300-1500(글로컬이음관 102)",
+    "professor": "박혜진",
+    "teaching_method": {
+      "lecture": 20,
+      "field_learning": 80
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "social_service": 90
+    }
+  },
+  {
+    "course_name": "글로컬사회봉사",
+    "course_code": "7346",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1100-1300(글로컬이음관 103)",
+    "professor": "이수정",
+    "teaching_method": {
+      "lecture": 20,
+      "field_learning": 80
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "social_service": 90
+    }
+  },
+  {
+    "course_name": "글로컬사회봉사",
+    "course_code": "7347",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1300-1500(글로컬이음관 103)",
+    "professor": "이수정",
+    "teaching_method": {
+      "lecture": 20,
+      "field_learning": 80
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "social_service": 90
+    }
+  },
+  {
+    "course_name": "관계를이어주는우리시대의대화법",
+    "course_code": "7352",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1000-1200(글로컬이음관 101)",
+    "professor": "고경민",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "좋은삶이란무엇인가",
+    "course_code": "7376",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1600-1800(글로컬이음관 404)",
+    "professor": "이동욱",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 15,
+      "practice": 15
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "reflection_report_1": 20,
+      "reflection_report_2": 20,
+      "reflection_report_3": 20,
+      "discussion": 20
+    }
+  },
+  {
+    "course_name": "슬로리딩과자기돌봄",
+    "course_code": "7386",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1000-1200(글로컬이음관 502)",
+    "professor": "안미영",
+    "teaching_method": {
+      "lecture": 10,
+      "discussion": 20,
+      "practice": 70
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "마음의성장과행복",
+    "course_code": "7409",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1500-1700(글로컬이음관 602)",
+    "professor": "이수정",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 25,
+      "practice": 25
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "언어로체험하는세계문화",
+    "course_code": "7413",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1400-1600(자연과학관 516)",
+    "professor": "박형준",
+    "teaching_method": {
+      "lecture": 40,
+      "discussion": 40,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 10,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "충주의시간",
+    "course_code": "7414",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1300-1500(글로컬이음관 405)",
+    "professor": "이미정",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 30,
+      "practice": 30,
+      "field_learning": 10
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "좋은삶이란무엇인가",
+    "course_code": "8265",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1000-1200(글로컬이음관 103)",
+    "professor": "이동욱",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 15,
+      "practice": 15
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "reflection_report_1": 20,
+      "reflection_report_2": 20,
+      "reflection_report_3": 20,
+      "discussion": 20
+    }
+  },
+  {
+    "course_name": "와인과음악:감각과문화의인문학",
+    "course_code": "8270",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "",
+    "professor": "문선아",
+    "teaching_method": {
+      "e_learning": 100
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 35,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "이야기로배우는인성과삶",
+    "course_code": "8275",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1000-1200(인문사회관 306)",
+    "professor": "조미숙",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 30,
+      "practice": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "유학생의대학생활적응",
+    "course_code": "8281",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "",
+    "professor": "이수정",
+    "teaching_method": {
+      "e_learning": 100
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  }
+]

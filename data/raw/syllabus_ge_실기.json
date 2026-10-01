@@ -1,0 +1,750 @@
+[
+  {
+    "course_name": "운동과다이어트",
+    "course_code": "7080",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1300-1500(자연과학관 512-1)",
+    "professor": "박희영",
+    "teaching_method": {
+      "lecture": 40,
+      "discussion": 20,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 5,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "운동과다이어트",
+    "course_code": "7081",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1100-1300(글로컬이음관 303)",
+    "professor": "양서은",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 25,
+      "practice": 25
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 30,
+      "assignment": 15,
+      "attitude_and_participation": 10
+    }
+  },
+  {
+    "course_name": "운동과다이어트",
+    "course_code": "7082",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1500-1700(생명과학관 416)",
+    "professor": "전유나",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 5,
+      "class_participation": 5
+    }
+  },
+  {
+    "course_name": "헬스앤휘트니스",
+    "course_code": "7084",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월0900-1100(글로컬이음관 303)",
+    "professor": "양서은",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 25,
+      "practice": 25
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 30,
+      "assignment": 20,
+      "attitude_and_participation": 10
+    }
+  },
+  {
+    "course_name": "헬스앤휘트니스",
+    "course_code": "7085",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1300-1500(건국체육관 002)",
+    "professor": "김성언",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "요가",
+    "course_code": "7120",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1000-1200(건국체육관 113)",
+    "professor": "손보람",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 25,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 5
+    }
+  },
+  {
+    "course_name": "축구(초급)",
+    "course_code": "7121",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화0900-1100(글로컬스타디움)",
+    "professor": "김재훈",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "축구(중급)",
+    "course_code": "7122",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1100-1300(글로컬스타디움)",
+    "professor": "김재훈",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "미술실기의기초",
+    "course_code": "7123",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1000-1200(국제교육관 408)",
+    "professor": "민동기",
+    "teaching_method": {
+      "lecture": 10,
+      "discussion": 10,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "assignment": 60,
+      "other_1": 20
+    }
+  },
+  {
+    "course_name": "미술실기의기초",
+    "course_code": "7124",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1600-1800(국제교육관 408)",
+    "professor": "김영훈",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 20,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 30,
+      "final": 30,
+      "presentation_and_attitude": 10
+    }
+  },
+  {
+    "course_name": "라틴댄스",
+    "course_code": "7128",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1200-1400(건국체육관 113)",
+    "professor": "손보람",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 25,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 5
+    }
+  },
+  {
+    "course_name": "라켓스포츠1(배드민턴)",
+    "course_code": "7204",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1100-1300(건국체육관 100)",
+    "professor": "조영숙",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10,
+      "other_1": 10
+    }
+  },
+  {
+    "course_name": "라켓스포츠2(스쿼시/테니스)",
+    "course_code": "7205",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1200-1400(테니스장 001)",
+    "professor": "최재우",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 35,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "라켓스포츠2(스쿼시/테니스)",
+    "course_code": "7206",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1400-1600(테니스장 001)",
+    "professor": "최재우",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 35,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "라켓스포츠2(스쿼시/테니스)",
+    "course_code": "7207",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1600-1800(테니스장 001)",
+    "professor": "최재우",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 35,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "구기스포츠1(농구)",
+    "course_code": "7208",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1300-1500(건국체육관 100)",
+    "professor": "박종석",
+    "teaching_method": {
+      "lecture": 30,
+      "practice": 70
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 30,
+      "final": 40
+    }
+  },
+  {
+    "course_name": "기초크로키실기",
+    "course_code": "7210",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1400-1600(국제교육관 408)",
+    "professor": "성영미",
+    "teaching_method": {
+      "lecture": 10,
+      "discussion": 10,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "기초크로키실기",
+    "course_code": "7211",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1600-1800(국제교육관 408)",
+    "professor": "성영미",
+    "teaching_method": {
+      "lecture": 10,
+      "discussion": 10,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "기초크로키실기",
+    "course_code": "7212",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1000-1200(국제교육관 408)",
+    "professor": "오재규",
+    "teaching_method": {
+      "lecture": 20,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "일상스케치를활용한상상구현",
+    "course_code": "7213",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1000-1200(자연과학관 512-1)",
+    "professor": "김다희",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 10,
+      "practice": 60,
+      "field_learning": 10
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 20,
+      "presentation_and_attitude": 20
+    }
+  },
+  {
+    "course_name": "일상스케치를활용한상상구현",
+    "course_code": "7214",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1400-1600(자연과학관 512-1)",
+    "professor": "김다희",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 10,
+      "practice": 60,
+      "field_learning": 10
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 20,
+      "presentation_and_attitude": 20
+    }
+  },
+  {
+    "course_name": "취미로배우는모형제작",
+    "course_code": "7215",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1400-1600(글로컬이음관 302)",
+    "professor": "김성현",
+    "teaching_method": {
+      "lecture": 30,
+      "practice": 70
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 5,
+      "final": 60,
+      "assignment": 5
+    }
+  },
+  {
+    "course_name": "취미로배우는모형제작",
+    "course_code": "7216",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1600-1800(글로컬이음관 302)",
+    "professor": "김성현",
+    "teaching_method": {
+      "lecture": 30,
+      "practice": 70
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 5,
+      "final": 60,
+      "assignment": 5
+    }
+  },
+  {
+    "course_name": "감성합창",
+    "course_code": "7247",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1300-1500(글로컬이음관 101)",
+    "professor": "이성원",
+    "teaching_method": {
+      "lecture": 10,
+      "practice": 90
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 20,
+      "final": 40,
+      "class_attitude": 10
+    }
+  },
+  {
+    "course_name": "감성합창",
+    "course_code": "7248",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1500-1700(글로컬이음관 101)",
+    "professor": "이성원",
+    "teaching_method": {
+      "lecture": 10,
+      "practice": 90
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 20,
+      "final": 40,
+      "class_attitude": 10
+    }
+  },
+  {
+    "course_name": "구기스포츠2(배구)",
+    "course_code": "7249",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1300-1500(건국체육관 100)",
+    "professor": "성동준",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 50,
+      "midterm": 15,
+      "final": 35
+    }
+  },
+  {
+    "course_name": "설상스포츠",
+    "course_code": "7253",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금0900-1100(건국체육관 002)",
+    "professor": "이창진",
+    "teaching_method": {
+      "lecture": 20,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 5,
+      "final": 70,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "설상스포츠",
+    "course_code": "7254",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금0900-1100(생명과학관 416)",
+    "professor": "김현우",
+    "teaching_method": {
+      "lecture": 20,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 5,
+      "final": 65,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "설상스포츠",
+    "course_code": "7255",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1100-1300(생명과학관 416)",
+    "professor": "김현우",
+    "teaching_method": {
+      "lecture": 20,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 5,
+      "final": 65,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "스토리텔링창작",
+    "course_code": "7256",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1500-1700(글로컬이음관 406)",
+    "professor": "김명옥",
+    "teaching_method": {
+      "lecture": 30,
+      "discussion": 20,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 20,
+      "assignment": 30
+    }
+  },
+  {
+    "course_name": "호신술과자기방어",
+    "course_code": "7257",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1000-1200(글로컬이음관 406)",
+    "professor": "양영모",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 10,
+      "practice": 70
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "호신술과자기방어",
+    "course_code": "7258",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1200-1400(글로컬이음관 406)",
+    "professor": "양영모",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 10,
+      "practice": 70
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "영화음악의이해",
+    "course_code": "7289",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1500-1700(글로컬이음관 101)",
+    "professor": "문선아",
+    "teaching_method": {
+      "lecture": 80,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 35,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "영화음악의이해",
+    "course_code": "7290",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "금1100-1300(실시간온라인)",
+    "professor": "문선아",
+    "teaching_method": {
+      "lecture": 80,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 35,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "레저스포츠(골프)",
+    "course_code": "7381",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화0900-1100(골프연습장 110)",
+    "professor": "장지혜",
+    "teaching_method": {
+      "lecture": 10,
+      "practice": 90
+    },
+    "evaluation_method": {
+      "attendance": 40,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "레저스포츠(골프)",
+    "course_code": "7382",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수0900-1100(골프연습장 110)",
+    "professor": "박찬희",
+    "teaching_method": {
+      "lecture": 10,
+      "practice": 90
+    },
+    "evaluation_method": {
+      "attendance": 30,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "레저스포츠(골프)",
+    "course_code": "7383",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1100-1300(골프연습장 110)",
+    "professor": "장지혜",
+    "teaching_method": {
+      "lecture": 10,
+      "practice": 90
+    },
+    "evaluation_method": {
+      "attendance": 40,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "레저스포츠(골프)",
+    "course_code": "7384",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1300-1500(골프연습장 110)",
+    "professor": "장지혜",
+    "teaching_method": {
+      "lecture": 10,
+      "practice": 90
+    },
+    "evaluation_method": {
+      "attendance": 40,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "구기스포츠2(배구)",
+    "course_code": "8263",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1500-1700(건국체육관 100)",
+    "professor": "성동준",
+    "teaching_method": {
+      "practice": 100
+    },
+    "evaluation_method": {
+      "attendance": 50,
+      "midterm": 15,
+      "final": 35
+    }
+  }
+]

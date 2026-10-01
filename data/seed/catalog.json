@@ -242,6 +242,142 @@
    "dept": "gen"
   },
   {
+   "course_id": "TMPBF5D30",
+   "name": "스크린영어",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPE69B5E",
+   "name": "영어회화2",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP8A8C07",
+   "name": "영어회화1",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP655AB7",
+   "name": "언어의세계",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP72AEB8",
+   "name": "영어프레젠테이션",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP391A44",
+   "name": "토익1",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPBC4863",
+   "name": "토익2",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP0F123B",
+   "name": "기초영어문장학습",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP8414C6",
+   "name": "시사영어읽기",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPC3A128",
+   "name": "한중소통연습",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP3D3B5A",
+   "name": "글쓰기심화",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPB2FC54",
+   "name": "미디어중국어",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPD9891B",
+   "name": "입트이는영어동사",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP52051D",
+   "name": "중국어심화",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP8BEB33",
+   "name": "쉽게배우는러시아어",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPEDA41D",
+   "name": "HASS실용영어",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP5CB12A",
+   "name": "STEM실용영어",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
    "course_id": "BKSA64611",
    "name": "창의글쓰기",
    "credits": 2,
@@ -298,11 +434,259 @@
    "dept": "gen"
   },
   {
+   "course_id": "TMP303774",
+   "name": "운동과다이어트",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP638C2B",
+   "name": "헬스앤휘트니스",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPE9168E",
+   "name": "요가",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPEF1B92",
+   "name": "축구(초급)",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP722950",
+   "name": "축구(중급)",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP07BF59",
+   "name": "미술실기의기초",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP0DA2A0",
+   "name": "라틴댄스",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPCF7F0A",
+   "name": "라켓스포츠1(배드민턴)",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP78B6C9",
+   "name": "라켓스포츠2(스쿼시/테니스)",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPDBB2E8",
+   "name": "구기스포츠1(농구)",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP2D169E",
+   "name": "기초크로키실기",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP9165E4",
+   "name": "일상스케치를활용한상상구현",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPD11889",
+   "name": "취미로배우는모형제작",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPE384BF",
+   "name": "감성합창",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPE702B2",
+   "name": "구기스포츠2(배구)",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP6CB1CE",
+   "name": "설상스포츠",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP9A95AD",
+   "name": "스토리텔링창작",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP0CEEB0",
+   "name": "호신술과자기방어",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPE71DDD",
+   "name": "영화음악의이해",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP50A277",
+   "name": "레저스포츠(골프)",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPF393AC",
+   "name": "대학생창업실습",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP392ED7",
+   "name": "MOS",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
    "course_id": "BKSA59472",
    "name": "취업전략수립및역량개발1",
    "credits": 2,
    "category": "교필",
    "dept": "gen"
+  },
+  {
+   "course_id": "TMP468156",
+   "name": "취업전략수립및역량개발2",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP929646",
+   "name": "취업전략수립및역량개발3",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP362066",
+   "name": "창업속의법률디자인",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP858876",
+   "name": "MOS활용",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPEBE78F",
+   "name": "지적재산권사례탐구",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP891BF2",
+   "name": "창업에필요한특허·디자인·상표",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPCB7360",
+   "name": "여성리더십과경력개발",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP5F82C3",
+   "name": "취업면접과전략",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP9D5273",
+   "name": "금융시장과금융투자의이해",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
   },
   {
    "course_id": "BKSA51432",
@@ -359,6 +743,110 @@
    "credits": 2,
    "category": "교선",
    "dept": "gen"
+  },
+  {
+   "course_id": "TMPE612F2",
+   "name": "건학정신과대학생활",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP01A555",
+   "name": "중원역사문화론(충주의삶과문화)",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP63F924",
+   "name": "나우리택견인성",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPABD2FF",
+   "name": "디지털시대의세계시민-되기",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPEFE304",
+   "name": "글로컬사회봉사",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP8D985E",
+   "name": "관계를이어주는우리시대의대화법",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPB453CA",
+   "name": "좋은삶이란무엇인가",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPE8699B",
+   "name": "슬로리딩과자기돌봄",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP27EEC2",
+   "name": "마음의성장과행복",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPA196E3",
+   "name": "언어로체험하는세계문화",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMPED373B",
+   "name": "충주의시간",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP7682CC",
+   "name": "와인과음악:감각과문화의인문학",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
+  },
+  {
+   "course_id": "TMP5D3804",
+   "name": "이야기로배우는인성과삶",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen",
+   "temp_id": true
   },
   {
    "course_id": "BIZ1010",
@@ -2768,6 +3256,568 @@
    }
   },
   {
+   "section_id": "TMPBF5D30-7019",
+   "course_id": "TMPBF5D30",
+   "professor": "윤소영",
+   "times": [
+    {
+     "day": "월",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "practice": 40
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 10,
+     "sentence_organization": 5
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPBF5D30-7020",
+   "course_id": "TMPBF5D30",
+   "professor": "강석한",
+   "times": [
+    {
+     "day": "수",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 40
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE69B5E-7027",
+   "course_id": "TMPE69B5E",
+   "professor": "노버트모반",
+   "times": [
+    {
+     "day": "목",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 25,
+     "practice": 25
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE69B5E-7028",
+   "course_id": "TMPE69B5E",
+   "professor": "모랄레스저스틴",
+   "times": [
+    {
+     "day": "목",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 50
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP8A8C07-7031",
+   "course_id": "TMP8A8C07",
+   "professor": "노버트모반",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP8A8C07-7032",
+   "course_id": "TMP8A8C07",
+   "professor": "노버트모반",
+   "times": [
+    {
+     "day": "수",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP8A8C07-7033",
+   "course_id": "TMP8A8C07",
+   "professor": "노버트모반",
+   "times": [
+    {
+     "day": "수",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP8A8C07-7034",
+   "course_id": "TMP8A8C07",
+   "professor": "모랄레스저스틴",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 25,
+     "practice": 25
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP8A8C07-7035",
+   "course_id": "TMP8A8C07",
+   "professor": "모랄레스저스틴",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 25,
+     "practice": 25
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP8A8C07-7036",
+   "course_id": "TMP8A8C07",
+   "professor": "모랄레스저스틴",
+   "times": [
+    {
+     "day": "수",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 25,
+     "practice": 25
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP72AEB8-7070",
+   "course_id": "TMP72AEB8",
+   "professor": "모랄레스저스틴",
+   "times": [
+    {
+     "day": "수",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 25,
+     "practice": 25
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP0F123B-7087",
+   "course_id": "TMP0F123B",
+   "professor": "박선화",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 70,
+     "discussion": 30
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP8414C6-7184",
+   "course_id": "TMP8414C6",
+   "professor": "박선화",
+   "times": [
+    {
+     "day": "목",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPC3A128-7185",
+   "course_id": "TMPC3A128",
+   "professor": "정인숙",
+   "times": [
+    {
+     "day": "월",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "discussion": 40,
+     "practice": 30
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 25,
+     "final": 30,
+     "assignment": 10,
+     "midterm_oral": 10,
+     "final_oral": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP3D3B5A-7187",
+   "course_id": "TMP3D3B5A",
+   "professor": "이효숙",
+   "times": [
+    {
+     "day": "월",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 20,
+     "practice": 60
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 20,
+     "assignment": 40
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPB2FC54-7222",
+   "course_id": "TMPB2FC54",
+   "professor": "이앤슈아이",
+   "times": [
+    {
+     "day": "목",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "practice": 40
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 10,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP52051D-7297",
+   "course_id": "TMP52051D",
+   "professor": "이앤슈아이",
+   "times": [
+    {
+     "day": "목",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "practice": 40
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 10,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP8BEB33-7370",
+   "course_id": "TMP8BEB33",
+   "professor": "고영랑",
+   "times": [
+    {
+     "day": "목",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 80,
+     "discussion": 20
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPEDA41D-7419",
+   "course_id": "TMPEDA41D",
+   "professor": "모랄레스저스틴",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 40
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP5CB12A-7420",
+   "course_id": "TMP5CB12A",
+   "professor": "노버트모반",
+   "times": [
+    {
+     "day": "화",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "practice": 30,
+     "e_learning": 10,
+     "flipped_learning": 10
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP5CB12A-7421",
+   "course_id": "TMP5CB12A",
+   "professor": "노버트모반",
+   "times": [
+    {
+     "day": "수",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "practice": 30,
+     "e_learning": 10,
+     "flipped_learning": 10
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
    "section_id": "BKSA64611-7322",
    "course_id": "BKSA64611",
    "professor": "조미숙",
@@ -4184,6 +5234,1054 @@
    "new_course": true
   },
   {
+   "section_id": "TMP303774-7080",
+   "course_id": "TMP303774",
+   "professor": "박희영",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 40,
+     "discussion": 20,
+     "practice": 40
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 5,
+     "class_participation": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP303774-7081",
+   "course_id": "TMP303774",
+   "professor": "양서은",
+   "times": [
+    {
+     "day": "월",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 25,
+     "practice": 25
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 25,
+     "final": 30,
+     "assignment": 15,
+     "attitude_and_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP303774-7082",
+   "course_id": "TMP303774",
+   "professor": "전유나",
+   "times": [
+    {
+     "day": "목",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 5,
+     "class_participation": 5
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP638C2B-7084",
+   "course_id": "TMP638C2B",
+   "professor": "양서은",
+   "times": [
+    {
+     "day": "월",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 25,
+     "practice": 25
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 20,
+     "attitude_and_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP638C2B-7085",
+   "course_id": "TMP638C2B",
+   "professor": "김성언",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE9168E-7120",
+   "course_id": "TMPE9168E",
+   "professor": "손보람",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 25,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 5
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPEF1B92-7121",
+   "course_id": "TMPEF1B92",
+   "professor": "김재훈",
+   "times": [
+    {
+     "day": "화",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP722950-7122",
+   "course_id": "TMP722950",
+   "professor": "김재훈",
+   "times": [
+    {
+     "day": "화",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP07BF59-7123",
+   "course_id": "TMP07BF59",
+   "professor": "민동기",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "discussion": 10,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "assignment": 60,
+     "other_1": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP07BF59-7124",
+   "course_id": "TMP07BF59",
+   "professor": "김영훈",
+   "times": [
+    {
+     "day": "목",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "discussion": 20,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 30,
+     "final": 30,
+     "presentation_and_attitude": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP0DA2A0-7128",
+   "course_id": "TMP0DA2A0",
+   "professor": "손보람",
+   "times": [
+    {
+     "day": "화",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 25,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 5
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPCF7F0A-7204",
+   "course_id": "TMPCF7F0A",
+   "professor": "조영숙",
+   "times": [
+    {
+     "day": "목",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 10,
+     "other_1": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP78B6C9-7205",
+   "course_id": "TMP78B6C9",
+   "professor": "최재우",
+   "times": [
+    {
+     "day": "수",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 25,
+     "final": 35,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP78B6C9-7206",
+   "course_id": "TMP78B6C9",
+   "professor": "최재우",
+   "times": [
+    {
+     "day": "수",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 25,
+     "final": 35,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP78B6C9-7207",
+   "course_id": "TMP78B6C9",
+   "professor": "최재우",
+   "times": [
+    {
+     "day": "수",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 25,
+     "final": 35,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPDBB2E8-7208",
+   "course_id": "TMPDBB2E8",
+   "professor": "박종석",
+   "times": [
+    {
+     "day": "수",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "practice": 70
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 30,
+     "final": 40
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP2D169E-7210",
+   "course_id": "TMP2D169E",
+   "professor": "성영미",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "discussion": 10,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 20,
+     "final": 20,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP2D169E-7211",
+   "course_id": "TMP2D169E",
+   "professor": "성영미",
+   "times": [
+    {
+     "day": "화",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "discussion": 10,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 20,
+     "final": 20,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP2D169E-7212",
+   "course_id": "TMP2D169E",
+   "professor": "오재규",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP9165E4-7213",
+   "course_id": "TMP9165E4",
+   "professor": "김다희",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 10,
+     "practice": 60,
+     "field_learning": 10
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 20,
+     "assignment": 20,
+     "presentation_and_attitude": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP9165E4-7214",
+   "course_id": "TMP9165E4",
+   "professor": "김다희",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 10,
+     "practice": 60,
+     "field_learning": 10
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 20,
+     "assignment": 20,
+     "presentation_and_attitude": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPD11889-7215",
+   "course_id": "TMPD11889",
+   "professor": "김성현",
+   "times": [
+    {
+     "day": "목",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "practice": 70
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 5,
+     "final": 60,
+     "assignment": 5
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPD11889-7216",
+   "course_id": "TMPD11889",
+   "professor": "김성현",
+   "times": [
+    {
+     "day": "목",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "practice": 70
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 5,
+     "final": 60,
+     "assignment": 5
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE384BF-7247",
+   "course_id": "TMPE384BF",
+   "professor": "이성원",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "practice": 90
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 20,
+     "final": 40,
+     "class_attitude": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE384BF-7248",
+   "course_id": "TMPE384BF",
+   "professor": "이성원",
+   "times": [
+    {
+     "day": "월",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "practice": 90
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 20,
+     "final": 40,
+     "class_attitude": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE702B2-7249",
+   "course_id": "TMPE702B2",
+   "professor": "성동준",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 50,
+     "midterm": 15,
+     "final": 35
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP6CB1CE-7253",
+   "course_id": "TMP6CB1CE",
+   "professor": "이창진",
+   "times": [
+    {
+     "day": "금",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 5,
+     "final": 70,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP6CB1CE-7254",
+   "course_id": "TMP6CB1CE",
+   "professor": "김현우",
+   "times": [
+    {
+     "day": "금",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 5,
+     "final": 65,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP6CB1CE-7255",
+   "course_id": "TMP6CB1CE",
+   "professor": "김현우",
+   "times": [
+    {
+     "day": "금",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 5,
+     "final": 65,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP9A95AD-7256",
+   "course_id": "TMP9A95AD",
+   "professor": "김명옥",
+   "times": [
+    {
+     "day": "월",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "discussion": 20,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 30,
+     "final": 20,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP0CEEB0-7257",
+   "course_id": "TMP0CEEB0",
+   "professor": "양영모",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 10,
+     "practice": 70
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP0CEEB0-7258",
+   "course_id": "TMP0CEEB0",
+   "professor": "양영모",
+   "times": [
+    {
+     "day": "월",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "discussion": 10,
+     "practice": 70
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE71DDD-7289",
+   "course_id": "TMPE71DDD",
+   "professor": "문선아",
+   "times": [
+    {
+     "day": "화",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 80,
+     "field_learning": 20
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 25,
+     "final": 35,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE71DDD-7290",
+   "course_id": "TMPE71DDD",
+   "professor": "문선아",
+   "times": [
+    {
+     "day": "금",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 80,
+     "field_learning": 20
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 25,
+     "final": 35,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP50A277-7381",
+   "course_id": "TMP50A277",
+   "professor": "장지혜",
+   "times": [
+    {
+     "day": "화",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "practice": 90
+    },
+    "evaluation_method": {
+     "attendance": 40,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP50A277-7382",
+   "course_id": "TMP50A277",
+   "professor": "박찬희",
+   "times": [
+    {
+     "day": "수",
+     "start": "09:00",
+     "end": "11:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "practice": 90
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP50A277-7383",
+   "course_id": "TMP50A277",
+   "professor": "장지혜",
+   "times": [
+    {
+     "day": "화",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "practice": 90
+    },
+    "evaluation_method": {
+     "attendance": 40,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP50A277-7384",
+   "course_id": "TMP50A277",
+   "professor": "장지혜",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "practice": 90
+    },
+    "evaluation_method": {
+     "attendance": 40,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE702B2-8263",
+   "course_id": "TMPE702B2",
+   "professor": "성동준",
+   "times": [
+    {
+     "day": "화",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "practice": 100
+    },
+    "evaluation_method": {
+     "attendance": 50,
+     "midterm": 15,
+     "final": 35
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPF393AC-7141",
+   "course_id": "TMPF393AC",
+   "professor": "이양희",
+   "times": [
+    {
+     "day": "목",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "discussion": 30,
+     "practice": 40
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 30,
+     "assignment_2": 30,
+     "other_1": 10
+    }
+   },
+   "new_course": true
+  },
+  {
    "section_id": "BKSA59472-7231",
    "course_id": "BKSA59472",
    "professor": "강주성",
@@ -4491,6 +6589,267 @@
      "attendance": 30,
      "assignment": 50,
      "counseling": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP468156-7243",
+   "course_id": "TMP468156",
+   "professor": "이양희",
+   "times": [
+    {
+     "day": "금",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 80,
+     "discussion": 20
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 30,
+     "final": 30,
+     "counseling_assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP929646-7244",
+   "course_id": "TMP929646",
+   "professor": "이양희",
+   "times": [
+    {
+     "day": "금",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 10,
+     "practice": 40
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "assignment": 60,
+     "counseling_assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP362066-7246",
+   "course_id": "TMP362066",
+   "professor": "이진홍",
+   "times": [
+    {
+     "day": "월",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP858876-7282",
+   "course_id": "TMP858876",
+   "professor": "권영애",
+   "times": [
+    {
+     "day": "목",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPEBE78F-7285",
+   "course_id": "TMPEBE78F",
+   "professor": "노현숙",
+   "times": [
+    {
+     "day": "월",
+     "start": "12:00",
+     "end": "14:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 85,
+     "discussion": 15
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 40,
+     "final": 45
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP891BF2-7293",
+   "course_id": "TMP891BF2",
+   "professor": "이진홍",
+   "times": [
+    {
+     "day": "월",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 80,
+     "practice": 20
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPCB7360-7348",
+   "course_id": "TMPCB7360",
+   "professor": "이재숙",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 50
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP5F82C3-7349",
+   "course_id": "TMP5F82C3",
+   "professor": "김신희",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 10,
+     "practice": 40
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP5F82C3-7350",
+   "course_id": "TMP5F82C3",
+   "professor": "김신희",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 10,
+     "practice": 40
+    },
+    "evaluation_method": {
+     "attendance": 15,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 15
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP9D5273-7417",
+   "course_id": "TMP9D5273",
+   "professor": "서대교",
+   "times": [
+    {
+     "day": "목",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 80,
+     "discussion": 20
+    },
+    "evaluation_method": {
+     "attendance": 40,
+     "midterm": 30,
+     "final": 30
     }
    },
    "new_course": true
@@ -6118,6 +8477,615 @@
      "midterm": 30,
      "final": 40,
      "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE612F2-7004",
+   "course_id": "TMPE612F2",
+   "professor": "심성보",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 70,
+     "discussion": 30
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE612F2-7005",
+   "course_id": "TMPE612F2",
+   "professor": "심성보",
+   "times": [
+    {
+     "day": "월",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 70,
+     "discussion": 30
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE612F2-7006",
+   "course_id": "TMPE612F2",
+   "professor": "심성보",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 70,
+     "discussion": 30
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE612F2-7007",
+   "course_id": "TMPE612F2",
+   "professor": "심성보",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 70,
+     "discussion": 30
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE612F2-7008",
+   "course_id": "TMPE612F2",
+   "professor": "심성보",
+   "times": [
+    {
+     "day": "금",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 70,
+     "discussion": 30
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE612F2-7009",
+   "course_id": "TMPE612F2",
+   "professor": "심성보",
+   "times": [
+    {
+     "day": "금",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 70,
+     "discussion": 30
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "midterm": 30,
+     "final": 30,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP01A555-7148",
+   "course_id": "TMP01A555",
+   "professor": "홍성화",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 60,
+     "discussion": 20,
+     "field_learning": 20
+    },
+    "evaluation_method": {
+     "attendance": 28,
+     "midterm": 28,
+     "final": 28,
+     "learning_quiz": 16
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP63F924-7228",
+   "course_id": "TMP63F924",
+   "professor": "신종근",
+   "times": [
+    {
+     "day": "월",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP63F924-7229",
+   "course_id": "TMP63F924",
+   "professor": "신종근",
+   "times": [
+    {
+     "day": "화",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP63F924-7230",
+   "course_id": "TMP63F924",
+   "professor": "신종근",
+   "times": [
+    {
+     "day": "수",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "practice": 80
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 30,
+     "final": 40,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPABD2FF-7288",
+   "course_id": "TMPABD2FF",
+   "professor": "이미정",
+   "times": [
+    {
+     "day": "목",
+     "start": "17:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 50
+    },
+    "evaluation_method": {
+     "attendance": 40,
+     "midterm": 20,
+     "final": 20,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPEFE304-7344",
+   "course_id": "TMPEFE304",
+   "professor": "박혜진",
+   "times": [
+    {
+     "day": "금",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "field_learning": 80
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "social_service": 90
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPEFE304-7345",
+   "course_id": "TMPEFE304",
+   "professor": "박혜진",
+   "times": [
+    {
+     "day": "금",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "field_learning": 80
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "social_service": 90
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPEFE304-7346",
+   "course_id": "TMPEFE304",
+   "professor": "이수정",
+   "times": [
+    {
+     "day": "금",
+     "start": "11:00",
+     "end": "13:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "field_learning": 80
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "social_service": 90
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPEFE304-7347",
+   "course_id": "TMPEFE304",
+   "professor": "이수정",
+   "times": [
+    {
+     "day": "금",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 20,
+     "field_learning": 80
+    },
+    "evaluation_method": {
+     "attendance": 10,
+     "social_service": 90
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP8D985E-7352",
+   "course_id": "TMP8D985E",
+   "professor": "고경민",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "practice": 50
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 30
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPB453CA-7376",
+   "course_id": "TMPB453CA",
+   "professor": "이동욱",
+   "times": [
+    {
+     "day": "수",
+     "start": "16:00",
+     "end": "18:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 70,
+     "discussion": 15,
+     "practice": 15
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "reflection_report_1": 20,
+     "reflection_report_2": 20,
+     "reflection_report_3": 20,
+     "discussion": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPE8699B-7386",
+   "course_id": "TMPE8699B",
+   "professor": "안미영",
+   "times": [
+    {
+     "day": "목",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 10,
+     "discussion": 20,
+     "practice": 70
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 20,
+     "final": 20,
+     "assignment": 20,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP27EEC2-7409",
+   "course_id": "TMP27EEC2",
+   "professor": "이수정",
+   "times": [
+    {
+     "day": "수",
+     "start": "15:00",
+     "end": "17:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 25,
+     "practice": 25
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 35,
+     "final": 35,
+     "assignment": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPA196E3-7413",
+   "course_id": "TMPA196E3",
+   "professor": "박형준",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:00",
+     "end": "16:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 40,
+     "discussion": 40,
+     "field_learning": 20
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 10,
+     "class_participation": 10
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPED373B-7414",
+   "course_id": "TMPED373B",
+   "professor": "이미정",
+   "times": [
+    {
+     "day": "목",
+     "start": "13:00",
+     "end": "15:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 30,
+     "discussion": 30,
+     "practice": 30,
+     "field_learning": 10
+    },
+    "evaluation_method": {
+     "attendance": 30,
+     "midterm": 25,
+     "final": 25,
+     "assignment": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMPB453CA-8265",
+   "course_id": "TMPB453CA",
+   "professor": "이동욱",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 70,
+     "discussion": 15,
+     "practice": 15
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "reflection_report_1": 20,
+     "reflection_report_2": 20,
+     "reflection_report_3": 20,
+     "discussion": 20
+    }
+   },
+   "new_course": true
+  },
+  {
+   "section_id": "TMP5D3804-8275",
+   "course_id": "TMP5D3804",
+   "professor": "조미숙",
+   "times": [
+    {
+     "day": "목",
+     "start": "10:00",
+     "end": "12:00"
+    }
+   ],
+   "target": "전학년",
+   "syllabus": {
+    "teaching_method": {
+     "lecture": 50,
+     "discussion": 30,
+     "practice": 20
+    },
+    "evaluation_method": {
+     "attendance": 20,
+     "midterm": 20,
+     "final": 30,
+     "assignment": 30
     }
    },
    "new_course": true

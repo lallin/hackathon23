@@ -3,7 +3,8 @@
 강의계획서 JSON은 [{course_name, course_code(과목번호), credits, schedule, professor, teaching_method,
 evaluation_method, ...}] 목록이거나 {"courses": [...]}다. 파일 이름의 학과가 ge면 교양, 아니면 그 학과 전공이다.
 - 학수번호·이수구분: 전공은 requirements.json의 major_courses(가장 최근 교육과정)에서, 교양은
-  build_requirements.py의 교양 과목표에서 과목명으로 찾는다.
+  build_requirements.py의 교양 과목표와 raw/ge_course_ids.json에서 과목명으로 찾는다.
+  교양인데 학수번호를 모르면 과목명으로 만든 임시 키(TMP + 6자리)를 쓰고 temp_id: true를 붙인다.
 - 수업방식·평가방법은 분반의 syllabus 필드에 그대로 넣는다(상세 창에서 쓴다).
 CSV는 학교 개설강좌 조회 화면의 열을 그대로 옮긴 것이다(지금은 쓰지 않음, 2025-1 표는 raw/archive/).
 강의계획서만 있고 강의평이 없는 강의는 신규 개설로 보고 new_course: true를 붙인다. 서버는 강의평이 없는 강의를
@@ -17,6 +18,7 @@ CSV는 학교 개설강좌 조회 화면의 열을 그대로 옮긴 것이다(�
 실행: python data/build_catalog.py [--drop-sample]
 """
 import ast
+import hashlib
 import csv
 import json
 import re
@@ -34,6 +36,7 @@ EXCLUDED_COURSES = {
     "글쓰기2": "외국인 전용", "AI이해와문제해결": "외국인 전용",
     "실용한국어2": "외국인 전용", "생활한국어2": "외국인 전용", "한국어회화2": "외국인 전용",
     "한국어작문2": "외국인 전용", "한국어고급표현2": "외국인 전용", "TOPIK고급": "외국인 전용",
+    "유학생의대학생활적응": "외국인 전용",
 }
 # 학사요람 데이터에 없는 교양(심화교양·KU소양 등)의 학수번호. 과목명: 학수번호. 비어 있으면 그 과목은 넣지 않는다.
 COURSE_IDS_FILE = DATA / "raw" / "ge_course_ids.json"
@@ -49,6 +52,12 @@ def parse_times(text: str) -> list:
 def num(text):
     value = float(text)
     return int(value) if value.is_integer() else value
+
+
+def temp_course_id(name: str) -> str:
+    """학수번호를 모르는 교양 과목의 임시 키. 과목명에서 항상 같은 값이 나온다.
+    lecture_id(학수번호-교수)를 첫 '-'로 나누고 URL 경로에도 쓰므로 과목명을 그대로 쓰지 않는다."""
+    return "TMP" + hashlib.md5(name.encode("utf-8")).hexdigest()[:6].upper()
 
 
 def ge_course_ids(req: dict) -> dict:
@@ -119,8 +128,11 @@ def main():
             if name in EXCLUDED_COURSES:
                 excluded.append(f"{label}: {EXCLUDED_COURSES[name]}")
                 continue
+            temp_id = False
             if major == "ge":
                 cid = row.get("course_id") or ge_ids.get(name)
+                if not cid:  # 학수번호를 모르면 과목명으로 만든 임시 키로 넣는다(성적표·이수 과목은 과목명으로도 매칭된다)
+                    cid, temp_id = temp_course_id(name), True
                 category, dept = ("교필" if cid in ge_required else "교선"), "gen"
             else:
                 info = major_courses.get((major, name), {})
@@ -129,7 +141,7 @@ def main():
                 skipped.append(f"{label}: 학수번호나 이수구분을 못 찾음 ({path.name})")
                 continue
             courses.setdefault(cid, {"course_id": cid, "name": name, "credits": num(row["credits"]),
-                                     "category": category, "dept": dept})
+                                     "category": category, "dept": dept, **({"temp_id": True} if temp_id else {})})
             for note in row.get("needs_check", []):
                 needs_check.append(f"{label}: {note}")
             times = parse_times(row.get("schedule") or "")
