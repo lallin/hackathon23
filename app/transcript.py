@@ -10,7 +10,12 @@ from pydantic import BaseModel
 from ai_service import ask_json
 from app.catalog import CATEGORIES, SEED_DIR, catalog, min_credits, normalize_name, total_credits
 
-EXCLUDED_GRADES = {"F", "NP", "FA", "U", "W"}
+# 이수하지 않은 것으로 보는 등급. N(미인정)·F(낙제)와 NP·FA·U·W
+EXCLUDED_GRADES = {"F", "N", "NP", "FA", "U", "W"}
+# 삭제구분에 이 말이 있으면 성적표에 남아 있어도 이수 과목에서 뺀다
+DELETION_MARKS = ("취득학점포기",)
+# 일반선택·일반교양처럼 네 영역에 들지 않는 과목. 졸업 총 학점에만 더하고 과목명·학점만 남긴다
+OTHER = "기타"
 
 
 class TranscriptCourse(BaseModel):
@@ -19,22 +24,27 @@ class TranscriptCourse(BaseModel):
     category: Literal["전필", "전선", "교필", "교선", "기타"]
     credits: float
     grade: str
+    deletion: Optional[str] = None
 
 
 class TranscriptResult(BaseModel):
     courses: List[TranscriptCourse]
 
 
-PROMPT = """첨부한 대학 성적표에서 수강한 과목을 모두 표로 뽑아라.
-- course_id: 학수번호(과목코드). 없으면 null
+PROMPT = """첨부한 대학 성적표에서 수강한 과목을 한 행도 빠짐없이 표로 뽑아라.
+성적표 표의 열은 보통 년도·학기·이수구분·학수번호·교과목명·학점·등급·삭제구분 순서다.
+한글이 글자 데이터로 들어 있지 않은 PDF가 있으니 페이지 그림을 보고 읽는다.
+- course_id: 학수번호(과목코드, 예: NDGE05021). 없으면 null
 - name: 교과목명
 - category: 이수구분을 전필/전선/교필/교선/기타 중 하나로 정규화한다.
   전공필수·전공기초·전필→전필, 전공선택·전선→전선, 교양필수·필수교양·교필→교필,
-  교양선택·핵심교양·일반교양·교선과 교양 영역 표기(기초·심화·소양·인성)→교선,
-  일반선택·일선·자유선택·자선·다전공(다필·다선)·교직·그 밖→기타
+  교양선택·핵심교양·교선과 교양 영역 표기(기초·심화·소양·인성)→교선,
+  일선(일반선택)·일교(일반교양)·자유선택·자선·다전공(다필·다선)·교직·그 밖→기타
 - credits: 학점(숫자)
-- grade: 성적 그대로(A+, B0, P, F, NP 등)
-학번, 이름, 생년월일 같은 개인정보는 절대 뽑지 않는다. 학기별 소계·합계 행은 제외한다."""
+- grade: 등급 그대로(A+, B0, P, N, F, NP 등)
+- deletion: 삭제구분 칸의 내용 그대로(예: 취득학점포기). 비어 있으면 null
+같은 과목이 여러 번 있으면(재수강) 모두 뽑는다.
+학번, 이름, 생년월일 같은 개인정보는 절대 뽑지 않는다. 학기별 소계·합계·평점 행은 제외한다."""
 
 
 def parse_pdf(data: bytes, filename: str = "transcript.pdf") -> List[dict]:
@@ -85,15 +95,31 @@ def requirement_status(admission_year: Optional[int], major: Optional[str], comp
     }
 
 
+def _excluded_reason(course: dict) -> Optional[str]:
+    grade = str(course.get("grade") or "").strip().upper()
+    if grade in EXCLUDED_GRADES:
+        return f"등급 {grade}"
+    deletion = str(course.get("deletion") or "")
+    if any(mark in deletion for mark in DELETION_MARKS):
+        return deletion.strip()
+    return None
+
+
 def summarize(courses: List[dict], admission_year: Optional[int], major: Optional[str]) -> dict:
-    """추출한 과목 → 영역별 이수 학점. F·NP는 빼고, 재수강은 마지막 기록만 센다."""
+    """추출한 과목 → 영역별 이수 학점.
+    등급 N·F 등과 삭제구분 '취득학점포기'는 빼고, 재수강은 마지막 기록만 센다.
+    이수구분이 기타(일선·일교 등)인 과목은 과목명·학점만 남기고 졸업 총 학점에만 더한다."""
     requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
     ge_required = set(requirement["required_course_ids"]) if requirement else set()
     passed, excluded = {}, []
     for course in courses:
-        grade = str(course.get("grade", "")).strip().upper()
-        if grade in EXCLUDED_GRADES:
-            excluded.append(course)
+        reason = _excluded_reason(course)
+        if reason:
+            excluded.append({**course, "reason": reason})
+            continue
+        if course.get("category") == OTHER:
+            passed[OTHER + ":" + normalize_name(course["name"])] = {
+                "name": course["name"], "credits": course["credits"], "category": OTHER}
             continue
         cid = _catalog_id(course)
         category = course["category"]
@@ -102,12 +128,14 @@ def summarize(courses: List[dict], admission_year: Optional[int], major: Optiona
             category = "교필" if cid in ge_required else "교선"
         key = cid or normalize_name(course["name"])
         passed[key] = {**course, "course_id": cid, "category": category, "in_catalog": cid in catalog.courses}
+        passed[key].pop("deletion", None)
 
-    completed_credits = {c: 0.0 for c in CATEGORIES}
+    # 네 영역 + 기타. 기타는 영역 최소 요건에는 안 들어가고 졸업 총 학점에만 더해진다
+    completed_credits = {c: 0.0 for c in CATEGORIES + [OTHER]}
     for course in passed.values():
         if course["category"] in completed_credits:
             completed_credits[course["category"]] += float(course["credits"])
-    completed_ids = [c["course_id"] for c in passed.values() if c["course_id"]]
+    completed_ids = [c["course_id"] for c in passed.values() if c.get("course_id")]
     return {
         "admission_year": admission_year,
         "major": major,
