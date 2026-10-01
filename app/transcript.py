@@ -1,0 +1,106 @@
+"""성적표 PDF → 이수 현황.
+
+PDF는 메모리에서 한 번 읽고 버린다. 학번·이름은 추출하지 않고 과목 목록만 남긴다.
+"""
+import json
+from typing import List, Literal, Optional
+
+from pydantic import BaseModel
+
+from ai_service import ask_json
+from app.catalog import CATEGORIES, SEED_DIR, catalog, normalize_name
+
+EXCLUDED_GRADES = {"F", "NP", "FA", "U", "W"}
+
+
+class TranscriptCourse(BaseModel):
+    course_id: Optional[str]
+    name: str
+    category: Literal["전필", "전선", "교필", "교선", "기타"]
+    credits: float
+    grade: str
+
+
+class TranscriptResult(BaseModel):
+    courses: List[TranscriptCourse]
+
+
+PROMPT = """첨부한 대학 성적표에서 수강한 과목을 모두 표로 뽑아라.
+- course_id: 학수번호(과목코드). 없으면 null
+- name: 교과목명
+- category: 이수구분을 전필/전선/교필/교선 중 하나로 정규화한다.
+  (전공필수·전공기초→전필, 전공선택→전선, 교양필수·필수교양→교필, 교양선택·핵심교양·일반교양→교선, 그 밖은 기타)
+- credits: 학점(숫자)
+- grade: 성적 그대로(A+, B0, P, F, NP 등)
+학번, 이름, 생년월일 같은 개인정보는 절대 뽑지 않는다. 학기별 소계·합계 행은 제외한다."""
+
+
+def parse_pdf(data: bytes, filename: str = "transcript.pdf") -> List[dict]:
+    result = ask_json(TranscriptResult, PROMPT, system="너는 성적표를 정확하게 표로 옮기는 도우미다.",
+                      pdf=(data, filename or "transcript.pdf"))
+    return [c.model_dump() for c in result.courses]
+
+
+def load_sample() -> dict:
+    with open(SEED_DIR / "sample_transcript.json", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _catalog_id(course: dict) -> Optional[str]:
+    cid = (course.get("course_id") or "").strip()
+    if cid in catalog.courses:
+        return cid
+    key = normalize_name(course["name"])
+    for c in catalog.courses.values():
+        if normalize_name(c["name"]) == key:
+            return c["course_id"]
+    return cid or None
+
+
+def requirement_status(admission_year: Optional[int], major: Optional[str], completed_ids: List[str],
+                       completed_credits: dict) -> Optional[dict]:
+    requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
+    if not requirement:
+        return None
+    required = requirement["credits"]
+    done = set(completed_ids)
+    return {
+        "credits": required,
+        "remaining": {c: max(0.0, required.get(c, 0) - completed_credits.get(c, 0)) for c in CATEGORIES},
+        "total_required": sum(required.values()),
+        "required_remaining": [
+            {"course_id": cid, "name": catalog.course_name(cid), "offered": bool(catalog.sections_by_course.get(cid))}
+            for cid in requirement["required_course_ids"] if cid not in done
+        ],
+    }
+
+
+def summarize(courses: List[dict], admission_year: Optional[int], major: Optional[str]) -> dict:
+    """추출한 과목 → 영역별 이수 학점. F·NP는 빼고, 재수강은 마지막 기록만 센다."""
+    passed, excluded = {}, []
+    for course in courses:
+        grade = str(course.get("grade", "")).strip().upper()
+        if grade in EXCLUDED_GRADES:
+            excluded.append(course)
+            continue
+        cid = _catalog_id(course)
+        key = cid or normalize_name(course["name"])
+        passed[key] = {**course, "course_id": cid, "in_catalog": cid in catalog.courses}
+
+    completed_credits = {c: 0.0 for c in CATEGORIES}
+    for course in passed.values():
+        if course["category"] in completed_credits:
+            completed_credits[course["category"]] += float(course["credits"])
+    completed_ids = [c["course_id"] for c in passed.values() if c["course_id"]]
+    return {
+        "admission_year": admission_year,
+        "major": major,
+        "recognized_count": len(courses),
+        "message": f"인식된 과목 {len(courses)}개",
+        "courses": list(passed.values()),
+        "excluded": excluded,
+        "completed_course_ids": completed_ids,
+        "completed_credits": completed_credits,
+        "total_credits": sum(completed_credits.values()),
+        "requirements": requirement_status(admission_year, major, completed_ids, completed_credits),
+    }

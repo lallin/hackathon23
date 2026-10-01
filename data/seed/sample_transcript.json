@@ -1,0 +1,211 @@
+{
+ "sample": true,
+ "note": "샘플 성적표 추출 결과 (2024학번 컴퓨터공학과 3학년 1학기까지 이수, 가상).",
+ "admission_year": 2024,
+ "major": "cse",
+ "courses": [
+  {
+   "course_id": "CSE1010",
+   "name": "컴퓨터프로그래밍",
+   "category": "전필",
+   "credits": 3,
+   "grade": "A+"
+  },
+  {
+   "course_id": "CSE1020",
+   "name": "이산수학",
+   "category": "전필",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "CSE2010",
+   "name": "자료구조",
+   "category": "전필",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "CSE2020",
+   "name": "컴퓨터구조",
+   "category": "전필",
+   "credits": 3,
+   "grade": "B0"
+  },
+  {
+   "course_id": "CSE2030",
+   "name": "객체지향프로그래밍",
+   "category": "전필",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "CSE3010",
+   "name": "알고리즘",
+   "category": "전필",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "CSE2110",
+   "name": "선형대수",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B0"
+  },
+  {
+   "course_id": "CSE2120",
+   "name": "확률과통계",
+   "category": "전선",
+   "credits": 3,
+   "grade": "F"
+  },
+  {
+   "course_id": "CSE2120",
+   "name": "확률과통계",
+   "category": "전선",
+   "credits": 3,
+   "grade": "C+"
+  },
+  {
+   "course_id": "CSE2130",
+   "name": "C++프로그래밍",
+   "category": "전선",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "CSE2140",
+   "name": "웹기초",
+   "category": "전선",
+   "credits": 3,
+   "grade": "A+"
+  },
+  {
+   "course_id": "CSE3110",
+   "name": "모바일프로그래밍",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "CSE3120",
+   "name": "데이터분석",
+   "category": "전선",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "CSE3130",
+   "name": "리눅스시스템",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B0"
+  },
+  {
+   "course_id": "CSE3140",
+   "name": "컴퓨터그래픽스",
+   "category": "전선",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "CSE3150",
+   "name": "오픈소스소프트웨어",
+   "category": "전선",
+   "credits": 3,
+   "grade": "P"
+  },
+  {
+   "course_id": "CSE3160",
+   "name": "수치해석",
+   "category": "전선",
+   "credits": 3,
+   "grade": "C+"
+  },
+  {
+   "course_id": "GEN1010",
+   "name": "글쓰기와 소통",
+   "category": "교필",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "GEN1020",
+   "name": "대학영어",
+   "category": "교필",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "GEN1030",
+   "name": "컴퓨팅사고",
+   "category": "교필",
+   "credits": 3,
+   "grade": "A+"
+  },
+  {
+   "course_id": "GEN4010",
+   "name": "철학입문",
+   "category": "교선",
+   "credits": 3,
+   "grade": "B0"
+  },
+  {
+   "course_id": "GEN4020",
+   "name": "글로벌문화",
+   "category": "교선",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "GEN4030",
+   "name": "음악감상",
+   "category": "교선",
+   "credits": 2,
+   "grade": "P"
+  },
+  {
+   "course_id": "GEN4040",
+   "name": "환경과 인간",
+   "category": "교선",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "GEN4050",
+   "name": "교양테니스",
+   "category": "교선",
+   "credits": 1,
+   "grade": "NP"
+  },
+  {
+   "course_id": "GEN4060",
+   "name": "한국사의 이해",
+   "category": "교선",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "GEN4070",
+   "name": "데이터리터러시",
+   "category": "교선",
+   "credits": 3,
+   "grade": "B+"
+  },
+  {
+   "course_id": "GEN4080",
+   "name": "생활법률",
+   "category": "교선",
+   "credits": 3,
+   "grade": "A0"
+  },
+  {
+   "course_id": "GEN4090",
+   "name": "교양요가",
+   "category": "교선",
+   "credits": 1,
+   "grade": "P"
+  }
+ ]
+}

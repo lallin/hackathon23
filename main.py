@@ -1,10 +1,11 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from fastapi.staticfiles import StaticFiles
 
-from ai_service import ask_gemini
+from app.catalog import ASSETS_DIR, catalog
+from app.routers import auth, chat, checklist, lectures, meta, reviews, timetable, transcript
 
-app = FastAPI(title="AI Backend Engine Boilerplate")
+app = FastAPI(title="에타빌더 API", version="0.3")
 
 app.add_middleware(
     CORSMiddleware,
@@ -14,20 +15,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+for module in (auth, meta, transcript, timetable, chat, checklist, lectures, reviews):
+    app.include_router(module.router)
 
-class ChatRequest(BaseModel):
-    user_message: str
+ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+app.mount("/assets", StaticFiles(directory=ASSETS_DIR), name="assets")
 
 
 @app.get("/")
 def health_check():
-    return {"status": "ok"}
-
-
-@app.post("/api/chat")
-def chat(request: ChatRequest):
-    try:
-        answer = ask_gemini(request.user_message)
-        return {"response": answer}
-    except RuntimeError as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    return {"status": "ok", "semester": catalog.semester}

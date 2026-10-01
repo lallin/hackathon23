@@ -1,0 +1,1355 @@
+{
+ "sample": true,
+ "note": "개발용 샘플 값(학과·과목·교수 모두 가상). BE-데이터가 2026-2 실제 개설 강좌로 같은 형식에 맞춰 교체한다.",
+ "semester": "2026-2",
+ "courses": [
+  {
+   "course_id": "CSE1010",
+   "name": "컴퓨터프로그래밍",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE1020",
+   "name": "이산수학",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE2010",
+   "name": "자료구조",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE2020",
+   "name": "컴퓨터구조",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE2030",
+   "name": "객체지향프로그래밍",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE2040",
+   "name": "시스템프로그래밍",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE3010",
+   "name": "알고리즘",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE3020",
+   "name": "데이터베이스",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE3030",
+   "name": "운영체제",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE3040",
+   "name": "컴퓨터네트워크",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE4010",
+   "name": "캡스톤디자인",
+   "credits": 3,
+   "category": "전필",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE3050",
+   "name": "소프트웨어공학",
+   "credits": 3,
+   "category": "전선",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE3060",
+   "name": "인공지능",
+   "credits": 3,
+   "category": "전선",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE3070",
+   "name": "웹프로그래밍",
+   "credits": 3,
+   "category": "전선",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE4020",
+   "name": "머신러닝",
+   "credits": 3,
+   "category": "전선",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE4030",
+   "name": "컴파일러",
+   "credits": 3,
+   "category": "전선",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE4040",
+   "name": "정보보안",
+   "credits": 3,
+   "category": "전선",
+   "dept": "cse"
+  },
+  {
+   "course_id": "CSE4050",
+   "name": "클라우드컴퓨팅",
+   "credits": 3,
+   "category": "전선",
+   "dept": "cse"
+  },
+  {
+   "course_id": "BIZ1010",
+   "name": "경영학원론",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ1020",
+   "name": "회계원리",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ2010",
+   "name": "마케팅원론",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ2020",
+   "name": "재무관리",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ2030",
+   "name": "조직행동론",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ2040",
+   "name": "경영통계",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ2050",
+   "name": "생산운영관리",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ3010",
+   "name": "경영전략",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ3020",
+   "name": "경영정보시스템",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ4010",
+   "name": "경영캡스톤",
+   "credits": 3,
+   "category": "전필",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ3030",
+   "name": "소비자행동론",
+   "credits": 3,
+   "category": "전선",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ3040",
+   "name": "투자론",
+   "credits": 3,
+   "category": "전선",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ3050",
+   "name": "인적자원관리",
+   "credits": 3,
+   "category": "전선",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ4020",
+   "name": "국제경영",
+   "credits": 3,
+   "category": "전선",
+   "dept": "biz"
+  },
+  {
+   "course_id": "BIZ4030",
+   "name": "디지털마케팅",
+   "credits": 3,
+   "category": "전선",
+   "dept": "biz"
+  },
+  {
+   "course_id": "GEN1010",
+   "name": "글쓰기와 소통",
+   "credits": 3,
+   "category": "교필",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN1020",
+   "name": "대학영어",
+   "credits": 3,
+   "category": "교필",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN1030",
+   "name": "컴퓨팅사고",
+   "credits": 3,
+   "category": "교필",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN2010",
+   "name": "진로설계",
+   "credits": 3,
+   "category": "교필",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN3010",
+   "name": "심리학의 이해",
+   "credits": 3,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN3020",
+   "name": "영화로 보는 세계사",
+   "credits": 3,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN3030",
+   "name": "생활 속의 경제",
+   "credits": 3,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN3040",
+   "name": "현대사회와 윤리",
+   "credits": 3,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN3050",
+   "name": "창업과 아이디어",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN3060",
+   "name": "교양체육(배드민턴)",
+   "credits": 1,
+   "category": "교선",
+   "dept": "gen"
+  },
+  {
+   "course_id": "GEN3070",
+   "name": "미술의 이해",
+   "credits": 2,
+   "category": "교선",
+   "dept": "gen"
+  }
+ ],
+ "sections": [
+  {
+   "section_id": "CSE1010-01",
+   "course_id": "CSE1010",
+   "professor": "김서연",
+   "times": [
+    {
+     "day": "월",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "수",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE1010-02",
+   "course_id": "CSE1010",
+   "professor": "이준호",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "목",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE1020-01",
+   "course_id": "CSE1020",
+   "professor": "최민지",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "목",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE2010-01",
+   "course_id": "CSE2010",
+   "professor": "정하늘",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "수",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE2010-02",
+   "course_id": "CSE2010",
+   "professor": "한지우",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "목",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE2020-01",
+   "course_id": "CSE2020",
+   "professor": "윤태경",
+   "times": [
+    {
+     "day": "화",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "목",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE2030-01",
+   "course_id": "CSE2030",
+   "professor": "강민서",
+   "times": [
+    {
+     "day": "월",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "수",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE2040-01",
+   "course_id": "CSE2040",
+   "professor": "조은비",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "수",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE2040-02",
+   "course_id": "CSE2040",
+   "professor": "신동혁",
+   "times": [
+    {
+     "day": "화",
+     "start": "16:00",
+     "end": "17:30"
+    },
+    {
+     "day": "목",
+     "start": "16:00",
+     "end": "17:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3010-01",
+   "course_id": "CSE3010",
+   "professor": "임가영",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "목",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3010-02",
+   "course_id": "CSE3010",
+   "professor": "정하늘",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "수",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3020-01",
+   "course_id": "CSE3020",
+   "professor": "서지훈",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "목",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3020-02",
+   "course_id": "CSE3020",
+   "professor": "권나래",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "수",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3030-01",
+   "course_id": "CSE3030",
+   "professor": "박도윤",
+   "times": [
+    {
+     "day": "월",
+     "start": "15:00",
+     "end": "17:00"
+    },
+    {
+     "day": "수",
+     "start": "15:00",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3030-02",
+   "course_id": "CSE3030",
+   "professor": "장윤호",
+   "times": [
+    {
+     "day": "화",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "목",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3040-01",
+   "course_id": "CSE3040",
+   "professor": "홍예린",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "목",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3040-02",
+   "course_id": "CSE3040",
+   "professor": "남궁현",
+   "times": [
+    {
+     "day": "금",
+     "start": "09:00",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3040-03",
+   "course_id": "CSE3040",
+   "professor": "유하은",
+   "times": [
+    {
+     "day": "월",
+     "start": "16:00",
+     "end": "17:30"
+    },
+    {
+     "day": "수",
+     "start": "16:00",
+     "end": "17:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE4010-01",
+   "course_id": "CSE4010",
+   "professor": "안재민",
+   "times": [
+    {
+     "day": "금",
+     "start": "13:00",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE4010-02",
+   "course_id": "CSE4010",
+   "professor": "백서윤",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "목",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3050-01",
+   "course_id": "CSE3050",
+   "professor": "노지환",
+   "times": [
+    {
+     "day": "월",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "수",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3060-01",
+   "course_id": "CSE3060",
+   "professor": "하유진",
+   "times": [
+    {
+     "day": "월",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "수",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3060-02",
+   "course_id": "CSE3060",
+   "professor": "구본석",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "목",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE3070-01",
+   "course_id": "CSE3070",
+   "professor": "표은지",
+   "times": [
+    {
+     "day": "화",
+     "start": "16:00",
+     "end": "17:30"
+    },
+    {
+     "day": "목",
+     "start": "16:00",
+     "end": "17:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE4020-01",
+   "course_id": "CSE4020",
+   "professor": "하유진",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "목",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE4030-01",
+   "course_id": "CSE4030",
+   "professor": "류승우",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "수",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE4040-01",
+   "course_id": "CSE4040",
+   "professor": "진수빈",
+   "times": [
+    {
+     "day": "화",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "목",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "CSE4050-01",
+   "course_id": "CSE4050",
+   "professor": "탁민혁",
+   "times": [
+    {
+     "day": "금",
+     "start": "13:00",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ1010-01",
+   "course_id": "BIZ1010",
+   "professor": "김재훈",
+   "times": [
+    {
+     "day": "월",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "수",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ1010-02",
+   "course_id": "BIZ1010",
+   "professor": "이서현",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "목",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ1020-01",
+   "course_id": "BIZ1020",
+   "professor": "박세영",
+   "times": [
+    {
+     "day": "화",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "목",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ2010-01",
+   "course_id": "BIZ2010",
+   "professor": "최도윤",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "수",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ2010-02",
+   "course_id": "BIZ2010",
+   "professor": "정유나",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "목",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ2020-01",
+   "course_id": "BIZ2020",
+   "professor": "강태민",
+   "times": [
+    {
+     "day": "월",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "수",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ2030-01",
+   "course_id": "BIZ2030",
+   "professor": "조민아",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "수",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ2040-01",
+   "course_id": "BIZ2040",
+   "professor": "신혜원",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "목",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ2040-02",
+   "course_id": "BIZ2040",
+   "professor": "임준서",
+   "times": [
+    {
+     "day": "월",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "수",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ2050-01",
+   "course_id": "BIZ2050",
+   "professor": "서동건",
+   "times": [
+    {
+     "day": "화",
+     "start": "16:00",
+     "end": "17:30"
+    },
+    {
+     "day": "목",
+     "start": "16:00",
+     "end": "17:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ3010-01",
+   "course_id": "BIZ3010",
+   "professor": "권오성",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "목",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ3010-02",
+   "course_id": "BIZ3010",
+   "professor": "오지현",
+   "times": [
+    {
+     "day": "금",
+     "start": "09:00",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ3020-01",
+   "course_id": "BIZ3020",
+   "professor": "장민호",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "목",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ3020-02",
+   "course_id": "BIZ3020",
+   "professor": "구하나",
+   "times": [
+    {
+     "day": "월",
+     "start": "16:00",
+     "end": "17:30"
+    },
+    {
+     "day": "수",
+     "start": "16:00",
+     "end": "17:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ4010-01",
+   "course_id": "BIZ4010",
+   "professor": "노은정",
+   "times": [
+    {
+     "day": "금",
+     "start": "13:00",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ3030-01",
+   "course_id": "BIZ3030",
+   "professor": "남주원",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "수",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ3040-01",
+   "course_id": "BIZ3040",
+   "professor": "류지수",
+   "times": [
+    {
+     "day": "화",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "목",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ3050-01",
+   "course_id": "BIZ3050",
+   "professor": "백승민",
+   "times": [
+    {
+     "day": "월",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "수",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ4020-01",
+   "course_id": "BIZ4020",
+   "professor": "송하윤",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "목",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "BIZ4030-01",
+   "course_id": "BIZ4030",
+   "professor": "탁서영",
+   "times": [
+    {
+     "day": "화",
+     "start": "16:00",
+     "end": "17:30"
+    },
+    {
+     "day": "목",
+     "start": "16:00",
+     "end": "17:30"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN1010-01",
+   "course_id": "GEN1010",
+   "professor": "이수정",
+   "times": [
+    {
+     "day": "월",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "수",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN1010-02",
+   "course_id": "GEN1010",
+   "professor": "김도현",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "목",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN1020-01",
+   "course_id": "GEN1020",
+   "professor": "최윤아",
+   "times": [
+    {
+     "day": "화",
+     "start": "09:00",
+     "end": "10:30"
+    },
+    {
+     "day": "목",
+     "start": "09:00",
+     "end": "10:30"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN1020-02",
+   "course_id": "GEN1020",
+   "professor": "정민규",
+   "times": [
+    {
+     "day": "월",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "수",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN1030-01",
+   "course_id": "GEN1030",
+   "professor": "오다은",
+   "times": [
+    {
+     "day": "화",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "목",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN2010-01",
+   "course_id": "GEN2010",
+   "professor": "문서윤",
+   "times": [
+    {
+     "day": "월",
+     "start": "16:00",
+     "end": "17:30"
+    },
+    {
+     "day": "수",
+     "start": "16:00",
+     "end": "17:30"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN2010-02",
+   "course_id": "GEN2010",
+   "professor": "송태호",
+   "times": [
+    {
+     "day": "화",
+     "start": "16:00",
+     "end": "17:30"
+    },
+    {
+     "day": "목",
+     "start": "16:00",
+     "end": "17:30"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN2010-03",
+   "course_id": "GEN2010",
+   "professor": "이가은",
+   "times": [
+    {
+     "day": "금",
+     "start": "09:00",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN3010-01",
+   "course_id": "GEN3010",
+   "professor": "장하린",
+   "times": [
+    {
+     "day": "월",
+     "start": "10:30",
+     "end": "12:00"
+    },
+    {
+     "day": "수",
+     "start": "10:30",
+     "end": "12:00"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN3010-02",
+   "course_id": "GEN3010",
+   "professor": "배지호",
+   "times": [
+    {
+     "day": "화",
+     "start": "14:30",
+     "end": "16:00"
+    },
+    {
+     "day": "목",
+     "start": "14:30",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN3020-01",
+   "course_id": "GEN3020",
+   "professor": "고은서",
+   "times": [
+    {
+     "day": "화",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "목",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN3030-01",
+   "course_id": "GEN3030",
+   "professor": "김태윤",
+   "times": [
+    {
+     "day": "금",
+     "start": "13:00",
+     "end": "16:00"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN3040-01",
+   "course_id": "GEN3040",
+   "professor": "서민재",
+   "times": [
+    {
+     "day": "월",
+     "start": "13:00",
+     "end": "14:30"
+    },
+    {
+     "day": "수",
+     "start": "13:00",
+     "end": "14:30"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN3050-01",
+   "course_id": "GEN3050",
+   "professor": "엄태섭",
+   "times": [
+    {
+     "day": "화",
+     "start": "18:00",
+     "end": "20:00"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN3060-01",
+   "course_id": "GEN3060",
+   "professor": "차은호",
+   "times": [
+    {
+     "day": "수",
+     "start": "18:00",
+     "end": "20:00"
+    }
+   ]
+  },
+  {
+   "section_id": "GEN3070-01",
+   "course_id": "GEN3070",
+   "professor": "윤소라",
+   "times": [
+    {
+     "day": "목",
+     "start": "18:00",
+     "end": "20:00"
+    }
+   ]
+  }
+ ]
+}
