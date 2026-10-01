@@ -77,7 +77,41 @@ export function CheckPanel({ className }: { className: string }) {
                       {ev.satisfied === true && <span className="ok-text">충족</span>}
                       {ev.satisfied === false && <span className="bad-text">미충족</span>}
                       {ev.satisfied === null && !ev.text.startsWith('판단 불가') && <span className="gray-text">판단 불가</span>}
-                      <span className={ev.satisfied === null && ev.text.startsWith('판단 불가') ? 'gray-text' : undefined}>{ev.text}</span>
+                      {(() => {
+                        const lectureLevel = it.type === 'level' && 'low' in ev.dist && !it.key.startsWith('custom:');
+                        const isCount = it.type === 'count' && it.key.startsWith('count:');
+                        if (!lectureLevel && !isCount && it.key !== 'first_period') {
+                          return <span className={ev.satisfied === null && ev.text.startsWith('판단 불가') ? 'gray-text' : undefined}>{ev.text}</span>;
+                        }
+                        // 눌러서 시간표에 노란 테두리로 표시하는 값들
+                        const pick = (value: string, text: string, n?: number) => {
+                          const on = s.highlight?.key === it.key && s.highlight.value === value;
+                          return (
+                            <button
+                              key={value}
+                              type="button"
+                              className={`hl-pick${on ? ' on' : ''}`}
+                              aria-pressed={on}
+                              disabled={n === 0}
+                              title={on ? '시간표 표시 끄기' : '시간표에서 이 과목들 표시'}
+                              onClick={() => act.setHighlight({ key: it.key, value, label: n != null ? `${it.label} ${text}` : it.label })}
+                            >
+                              {text}
+                              {n != null && ` ${n}`}
+                            </button>
+                          );
+                        };
+                        if (isCount) return pick('count', ev.text);
+                        if (it.key === 'first_period') return pick('has', ev.text);
+                        const d = ev.dist as Record<string, number>;
+                        return (
+                          <span style={{ display: 'inline-flex', flexWrap: 'wrap', alignItems: 'center', gap: 4 }}>
+                            {pick('low', LEVEL_LABEL.low, d.low ?? 0)}
+                            {pick('mid', LEVEL_LABEL.mid, d.mid ?? 0)}
+                            {pick('high', LEVEL_LABEL.high, d.high ?? 0)}
+                          </span>
+                        );
+                      })()}
                     </>
                   )}
                 </div>

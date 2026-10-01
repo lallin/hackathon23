@@ -71,6 +71,8 @@ export interface State {
   chatBusy: boolean;
   /** 방금 바뀐 항목 (잠깐 강조) — 체크리스트 key 또는 'cond.free_days' 같은 조건 키 */
   flash: string[];
+  /** 체크리스트 평가에서 누른 값 (예: 과제량 적음) → 시간표에서 그 과목에 노란 테두리 */
+  highlight: { key: string; value: string; label: string } | null;
   detail: string | null;
   toast: { id: number; text: string } | null;
 }
@@ -106,6 +108,7 @@ const initial: State = {
   msgs: [{ id: 0, role: 'assistant', text: HELLO }],
   chatBusy: false,
   flash: [],
+  highlight: null,
   detail: null,
   toast: null
 };
@@ -200,6 +203,7 @@ interface Actions {
   compareChosen(lectureIds: string[]): Promise<void>;
   openDetail(lectureId: string | null): void;
   toast(text: string): void;
+  setHighlight(h: State['highlight']): void;
 }
 
 interface Ctx {
@@ -696,6 +700,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
       },
       openDetail(lectureId) {
         set({ detail: lectureId });
+      },
+      setHighlight(h) {
+        const cur = ref.current.highlight;
+        // 같은 값을 다시 누르면 끈다
+        set({ highlight: h && cur && cur.key === h.key && cur.value === h.value ? null : h });
       },
       toast
     }),

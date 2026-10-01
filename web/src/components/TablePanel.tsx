@@ -1,6 +1,7 @@
 import type { SectionInfo } from '../api/types';
 import { CATEGORY_COLOR, DAYS, GRID_END, GRID_START, isOnline, toMin } from '../lib/constants';
 import { useApp } from '../state/store';
+import { useHighlighted } from '../state/useHighlight';
 import { Alert, Ban, ChevronLeft, ChevronRight, Pin, Refresh, X } from './icons';
 
 
@@ -26,6 +27,7 @@ export function TablePanel({ className }: { className: string }) {
   const HOURS = Array.from({ length: gridEnd - GRID_START }, (_, i) => GRID_START + i);
   const free = s.draft.conditions.free_days;
   const online = sections.filter(isOnline);
+  const highlighted = useHighlighted();
   const canGenerate = s.reqStatus === 'ready' && !s.generating;
 
   return (
@@ -147,7 +149,7 @@ export function TablePanel({ className }: { className: string }) {
                           key={`${x.section_id}-${t.day}-${t.start}`}
                           role="button"
                           tabIndex={0}
-                          className={`blk${s.selected === x.section_id ? ' sel' : ''}${pinned ? ' pinned' : ''}${excluded ? ' excluded' : ''}`}
+                          className={`blk${s.selected === x.section_id ? ' sel' : ''}${pinned ? ' pinned' : ''}${excluded ? ' excluded' : ''}${highlighted.has(x.section_id) ? ' hl' : ''}`}
                           aria-label={`${x.course} ${x.professor}, ${t.day}요일 ${t.start}~${t.end}${pinned ? ', 고정됨' : ''}${excluded ? ', 제한됨' : ''}. 누르면 상세 정보`}
                           onClick={open}
                           onKeyDown={(e) => {
@@ -218,7 +220,7 @@ export function TablePanel({ className }: { className: string }) {
                 key={x.section_id}
                 role="button"
                 tabIndex={0}
-                className={`ttg-online${pinned ? ' pinned' : ''}${excluded ? ' excluded' : ''}`}
+                className={`ttg-online${pinned ? ' pinned' : ''}${excluded ? ' excluded' : ''}${highlighted.has(x.section_id) ? ' hl' : ''}`}
                 aria-label={`이러닝 ${x.course} ${x.professor}${pinned ? ', 고정됨' : ''}${excluded ? ', 제한됨' : ''}. 누르면 상세 정보`}
                 onClick={open}
                 onKeyDown={(e) => {

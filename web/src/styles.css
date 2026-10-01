@@ -396,6 +396,22 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .blk-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .blk.excluded .blk-act { opacity: 1; pointer-events: auto; }
 .blk.excluded:not(:hover) .blk-act .blk-btn:not(.ban) { visibility: hidden; }
+/* 체크리스트에서 고른 값에 맞는 과목: 시간표 조건이 바뀔 때와 같은 노란색 테두리 */
+.blk.hl, .ttg-online.hl { outline: 3px solid #f5c542; outline-offset: -3px; z-index: 2; }
+.hl-pick {
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 0 7px;
+  border-radius: 99px;
+  cursor: pointer;
+}
+.hl-pick:hover:not(:disabled) { border-color: #e0a100; background: #fff8e1; }
+.hl-pick.on { border-color: #e0a100; background: #f5c542; color: var(--ink); font-weight: 700; }
+.hl-pick:disabled { opacity: 0.5; cursor: default; }
 .blk .pin {
   position: absolute;
   top: 3px;
