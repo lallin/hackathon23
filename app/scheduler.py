@@ -8,7 +8,7 @@ import math
 from itertools import combinations
 from typing import Dict, List, Optional, Set
 
-from app.catalog import CATEGORIES, DAYS, catalog, lecture_id_of
+from app.catalog import CATEGORIES, DAYS, catalog, lecture_id_of, min_credits, total_credits
 from app.checklist import (BASE, LEVEL_NUM, STYLES, evaluate_item, is_custom, josa, lecture_value,
                            shape_counts, shape_level, to_minutes)
 from app.insights import judge_custom_items
@@ -65,12 +65,14 @@ class Context:
         requirement = catalog.requirements.get((req.admission_year, req.major))
         if not requirement:
             raise GenerateError("지원하지 않는 입학년도·학과예요. 지금은 컴퓨터공학과와 경영학과(2023~2026학번)만 쓸 수 있어요.")
-        self.required_credits = requirement["credits"]
+        self.required_credits = min_credits(requirement)  # 교선은 최소 학점이 없다
+        self.total_required = total_credits(requirement)
         self.done = set(req.completed_course_ids)
         self.required_remaining = [cid for cid in requirement["required_course_ids"] if cid not in self.done]
         done_credits = req.completed_credits or completed_credits_of(req.completed_course_ids)
         self.done_credits = {c: float(done_credits.get(c, 0)) for c in CATEGORIES}
         self.remaining = {c: max(0.0, self.required_credits.get(c, 0) - self.done_credits[c]) for c in CATEGORIES}
+        self.remaining_total = max(0.0, self.total_required - sum(self.done_credits.values()))
 
         self.items = [i for i in items if i.enabled]
         self.lecture_items = [i for i in self.items if (i.key in BASE and BASE[i.key]["kind"] == "lecture") or is_custom(i.key)]
@@ -109,6 +111,8 @@ class Context:
         required = self.required_credits.get(category, 0)
         if self.remaining.get(category, 0) > 0 and required:
             score += w_def * min(1.0, self.remaining[category] / required) * course["credits"] / 3 + 2
+        elif self.remaining_total > 0:
+            score += course["credits"] / 3  # 최소 학점은 찼어도 남은 졸업 학점은 채운다
         else:
             score -= 2
         lid = lecture_id_of(course["course_id"], section["professor"])
@@ -294,8 +298,10 @@ def build_combination(ctx: Context, rank: int, score: float, sections: List[dict
         "days_used": days_used(sections),
         "graduation_after": [
             {"category": c, "done": ctx.done_credits[c], "this_semester": this_semester[c],
-             "required": ctx.required_credits.get(c, 0)} for c in CATEGORIES
+             "required": ctx.required_credits.get(c)} for c in CATEGORIES  # 교선은 required가 null
         ],
+        "graduation_total_after": {"done": sum(ctx.done_credits.values()), "this_semester": sum(this_semester.values()),
+                                   "required": ctx.total_required},
         "required_courses": [
             {"course_id": cid, "name": catalog.course_name(cid),
              "category": catalog.courses[cid]["category"] if cid in catalog.courses else None,

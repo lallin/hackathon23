@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.catalog import CATEGORIES, DAYS, catalog
+from app.catalog import CATEGORIES, DAYS, catalog, min_credits, total_credits
 from app.checklist import BASE_ITEMS, LEVEL_KO, STYLES, style_items
 from app.schemas import Conditions
 
@@ -48,13 +48,17 @@ def requirements(admission_year: int, major: str):
         return {"supported": False, "admission_year": admission_year, "major": major, "message": message}
 
     major_info = catalog.major(major) or {}
+    mins = min_credits(requirement)
+    total = total_credits(requirement)
     return {
         "supported": True,
         "admission_year": admission_year,
         "major": major,
         "major_name": major_info.get("name", major),
-        "credits": requirement["credits"],
-        "total_required": sum(requirement["credits"].values()),
+        "credits": mins,
+        "total_required": total,
+        "free_credits": max(0, total - sum(mins.values())),
+        "no_min_categories": [c for c in CATEGORIES if c not in mins],
         "required_courses": [
             {"course_id": cid, "name": catalog.course_name(cid),
              "category": catalog.courses[cid]["category"] if cid in catalog.courses else None,

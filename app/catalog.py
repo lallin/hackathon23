@@ -10,6 +10,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Optional
 
+from app import db
+
 ROOT = Path(__file__).resolve().parent.parent
 SEED_DIR = ROOT / "data" / "seed"
 RUNTIME_DIR = ROOT / "data" / "runtime"
@@ -24,13 +26,31 @@ def lecture_id_of(course_id: str, professor: str) -> str:
     return f"{course_id}-{professor}"
 
 
+def min_credits(requirement: dict) -> Dict[str, float]:
+    """영역별 최소 이수 학점. 최소가 없는 영역(교선)은 빠진다."""
+    return {c: v for c, v in requirement["credits"].items() if v}
+
+
+def total_credits(requirement: dict) -> float:
+    """졸업 총 학점. 최소 학점 합보다 모자란 만큼은 네 영역 어디로든 채운다."""
+    return requirement.get("total_credits") or sum(min_credits(requirement).values())
+
+
 def normalize_name(text: str) -> str:
     return re.sub(r"[\s()\[\]·.,]", "", text or "").lower()
 
 
-def _load(name: str):
-    with open(SEED_DIR / name, encoding="utf-8") as f:
-        return json.load(f)
+def _load(key: str):
+    """DB seed_data에 같은 이름의 문서가 있으면 그것을, 없으면 data/seed/{key}.json을 읽는다."""
+    if db.enabled():
+        try:
+            rows = db.execute("select data from seed_data where name = %s", (key,))
+            if rows:
+                return rows[0][0], "db"
+        except Exception as e:
+            print(f"[catalog] DB에서 {key}를 읽지 못해 파일을 씁니다: {e}")
+    with open(SEED_DIR / f"{key}.json", encoding="utf-8") as f:
+        return json.load(f), "file"
 
 
 class Catalog:
@@ -39,9 +59,8 @@ class Catalog:
         self.reload()
 
     def reload(self) -> None:
-        req = _load("requirements.json")
-        cat = _load("catalog.json")
-        ins = _load("insights.json")
+        (req, req_src), (cat, cat_src), (ins, ins_src) = _load("requirements"), _load("catalog"), _load("insights")
+        self.sources = {"requirements": req_src, "catalog": cat_src, "insights": ins_src}
 
         self.semester: str = cat.get("semester", "2026-2")
         self.admission_years: List[int] = req["admission_years"]
@@ -57,10 +76,8 @@ class Catalog:
             self.sections_by_course[s["course_id"]].append(s)
 
         self.insights: Dict[str, dict] = {l["lecture_id"]: l for l in ins["lectures"]}
-        if COLLECTED_FILE.exists():
-            with open(COLLECTED_FILE, encoding="utf-8") as f:
-                for lecture in json.load(f):
-                    self.insights[lecture["lecture_id"]] = lecture
+        for lecture in self._load_collected():
+            self.insights[lecture["lecture_id"]] = lecture
 
         # (lecture_id, 체크리스트 key) -> 판정값. 자유 항목 판정 캐시.
         self.judgments: Dict[tuple, object] = {}
@@ -90,22 +107,40 @@ class Catalog:
         return None
 
     # ---- 저장 ----
+    def _load_collected(self) -> List[dict]:
+        if db.enabled():
+            try:
+                return [row[0] for row in db.execute("select data from collected_insights")]
+            except Exception as e:
+                print(f"[catalog] DB에서 수집한 강의 데이터를 읽지 못했습니다: {e}")
+        if COLLECTED_FILE.exists():
+            with open(COLLECTED_FILE, encoding="utf-8") as f:
+                return json.load(f)
+        return []
+
     def save_insight(self, lecture: dict) -> None:
-        """온디맨드로 가져온 강의 데이터를 저장해 다음 생성부터 쓰이게 한다."""
+        """온디맨드로 가져온 강의 데이터를 저장해 다음 생성부터 쓰이게 한다. DB가 있으면 DB에, 없으면 파일에."""
         with self._lock:
             self.insights[lecture["lecture_id"]] = lecture
-            collected = []
-            if COLLECTED_FILE.exists():
-                with open(COLLECTED_FILE, encoding="utf-8") as f:
-                    collected = json.load(f)
-            collected = [l for l in collected if l["lecture_id"] != lecture["lecture_id"]]
-            collected.append(lecture)
-            RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
-            with open(COLLECTED_FILE, "w", encoding="utf-8") as f:
-                json.dump(collected, f, ensure_ascii=False, indent=1)
+            saved = False
+            if db.enabled():
+                try:
+                    db.execute("insert into collected_insights (lecture_id, data) values (%s, %s) "
+                               "on conflict (lecture_id) do update set data = excluded.data, collected_at = now()",
+                               (lecture["lecture_id"], db.jsonb(lecture)))
+                    saved = True
+                except Exception as e:
+                    print(f"[catalog] 수집한 강의 데이터를 DB에 저장하지 못해 파일에 씁니다: {e}")
+            if not saved:
+                collected = [l for l in self._load_collected() if l["lecture_id"] != lecture["lecture_id"]]
+                collected.append(lecture)
+                RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
+                with open(COLLECTED_FILE, "w", encoding="utf-8") as f:
+                    json.dump(collected, f, ensure_ascii=False, indent=1)
             # 수강평이 바뀌었으니 이 강의의 자유 항목 판정은 다시 한다.
             for key in [k for k in self.judgments if k[0] == lecture["lecture_id"]]:
                 del self.judgments[key]
 
 
+db.init()
 catalog = Catalog()

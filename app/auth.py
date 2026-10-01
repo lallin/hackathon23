@@ -1,7 +1,6 @@
 """회원가입·로그인·토큰.
 
-사용자 저장소는 지금 서버 메모리다(재시작하면 지워지고 데모 계정만 다시 생긴다).
-Postgres로 바꿀 때는 UserStore와 같은 메서드를 가진 클래스로 store만 교체한다.
+DATABASE_URL이 있으면 Postgres(app_users)에, 없으면 서버 메모리에 저장한다.
 """
 import base64
 import hashlib
@@ -15,6 +14,8 @@ from typing import Dict, Optional
 
 from fastapi import Header, HTTPException
 
+from app import db
+
 SECRET_KEY = os.getenv("SECRET_KEY") or "etabuilder-dev-secret"
 TOKEN_TTL_SECONDS = 7 * 24 * 3600
 DEMO_EMAIL = "demo@etabuilder.kr"
@@ -26,6 +27,8 @@ def _hash_password(password: str, salt: str) -> str:
 
 
 class UserStore:
+    """서버 메모리 저장소. DB가 없을 때 쓴다(재시작하면 지워진다)."""
+
     def __init__(self):
         self._users: Dict[str, dict] = {}
         self._lock = threading.Lock()
@@ -56,8 +59,36 @@ class UserStore:
                 self._users[email]["transcript"] = transcript
 
 
-store = UserStore()
-store.create(DEMO_EMAIL, DEMO_PASSWORD, "데모 사용자")
+class PgUserStore(UserStore):
+    """Supabase Postgres의 app_users 테이블에 저장한다."""
+
+    def create(self, email: str, password: str, name: Optional[str]) -> dict:
+        salt = secrets.token_hex(8)
+        rows = db.execute(
+            "insert into app_users (email, name, salt, password_hash) values (%s, %s, %s, %s) "
+            "on conflict (email) do nothing returning email",
+            (email, name or email.split("@")[0], salt, _hash_password(password, salt)),
+        )
+        if not rows:
+            raise ValueError("이미 가입한 이메일이에요.")
+        return self.get(email)
+
+    def get(self, email: str) -> Optional[dict]:
+        rows = db.execute("select email, name, salt, password_hash, transcript, "
+                          "extract(epoch from created_at)::bigint from app_users where email = %s", (email,))
+        if not rows:
+            return None
+        email, name, salt, password_hash, transcript, created_at = rows[0]
+        return {"email": email, "name": name, "salt": salt, "password_hash": password_hash,
+                "transcript": transcript, "created_at": created_at}
+
+    def save_transcript(self, email: str, transcript: dict) -> None:
+        db.execute("update app_users set transcript = %s where email = %s", (db.jsonb(transcript), email))
+
+
+store = PgUserStore() if db.init() else UserStore()
+if not store.get(DEMO_EMAIL):
+    store.create(DEMO_EMAIL, DEMO_PASSWORD, "데모 사용자")
 
 
 def normalize_email(email: str) -> str:

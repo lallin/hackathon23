@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+from app import db
 from app.catalog import ASSETS_DIR, catalog
 from app.routers import auth, chat, checklist, lectures, meta, reviews, timetable, transcript
 
@@ -24,4 +25,4 @@ app.mount("/assets", StaticFiles(directory=ASSETS_DIR), name="assets")
 
 @app.get("/")
 def health_check():
-    return {"status": "ok", "semester": catalog.semester}
+    return {"status": "ok", "semester": catalog.semester, "db": db.enabled(), "data_sources": catalog.sources}

@@ -8,7 +8,7 @@ from typing import List, Literal, Optional
 from pydantic import BaseModel
 
 from ai_service import ask_json
-from app.catalog import CATEGORIES, SEED_DIR, catalog, normalize_name
+from app.catalog import CATEGORIES, SEED_DIR, catalog, min_credits, normalize_name, total_credits
 
 EXCLUDED_GRADES = {"F", "NP", "FA", "U", "W"}
 
@@ -62,12 +62,18 @@ def requirement_status(admission_year: Optional[int], major: Optional[str], comp
     requirement = catalog.requirements.get((admission_year, major)) if admission_year and major else None
     if not requirement:
         return None
-    required = requirement["credits"]
+    mins = min_credits(requirement)
+    total = total_credits(requirement)
     done = set(completed_ids)
+    remaining = {c: max(0.0, v - completed_credits.get(c, 0)) for c, v in mins.items()}
+    remaining_total = max(0.0, total - sum(completed_credits.values()))
     return {
-        "credits": required,
-        "remaining": {c: max(0.0, required.get(c, 0) - completed_credits.get(c, 0)) for c in CATEGORIES},
-        "total_required": sum(required.values()),
+        "credits": mins,
+        "total_required": total,
+        "remaining": remaining,
+        "remaining_total": remaining_total,
+        # 최소 학점을 다 채워도 남는 졸업 학점. 네 영역 어디로든 채울 수 있다.
+        "remaining_free": max(0.0, remaining_total - sum(remaining.values())),
         "required_remaining": [
             {"course_id": cid, "name": catalog.course_name(cid), "offered": bool(catalog.sections_by_course.get(cid))}
             for cid in requirement["required_course_ids"] if cid not in done
