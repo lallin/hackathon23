@@ -1,13 +1,16 @@
-"""AI 챗봇: 메시지를 해석해 시간표 조건·체크리스트에 반영한다.
+"""AI 챗봇: 메시지를 해석해 시간표 조건·체크리스트에 반영하고, 질문에는 데이터를 근거로 답한다.
 
-LLM은 의도와 변경 내용만 JSON으로 뽑는다. 실제 상태 합치기와 답장 문구는 서버가 만든다.
-그래야 답장과 화면이 어긋나지 않는다.
+1. LLM이 의도와 변경 내용을 JSON으로 뽑는다.
+2. 상태 합치기와 '무엇을 바꿨는지' 문장은 서버가 만든다. 그래야 답장과 화면이 어긋나지 않는다.
+3. 질문·대화가 섞여 있으면 서버가 관련 데이터를 모아 주고 LLM이 그 안에서 답장을 쓴다(app/answers.py).
+4. 과목 비교는 데이터에서 바로 계산한다.
 """
 from typing import List, Literal, Optional
 
 from pydantic import BaseModel
 
 from ai_service import LLMError, ask_json
+from app import answers
 from app.catalog import DAYS
 from app.checklist import BASE, BASE_ITEMS, LEVEL_KO, STYLES, apply_style, custom_key, display_name, josa, merge_item
 from app.schemas import ChatRequest, ChecklistItem, Conditions
@@ -37,12 +40,13 @@ class ReviewTarget(BaseModel):
 
 
 class ChatParse(BaseModel):
-    intent: Literal["set_preferences", "course_review", "other"]
+    intent: Literal["set_preferences", "course_review", "compare_courses", "ask_info", "other"]
     conditions: CondPatch
     checklist: List[ItemPatch]
     unsupported: List[str]
     review_targets: List[ReviewTarget]
-    answer: Optional[str]
+    mentioned_courses: List[ReviewTarget]
+    needs_answer: bool
 
 
 def _system_prompt() -> str:
@@ -52,8 +56,11 @@ def _system_prompt() -> str:
 
 intent
 - set_preferences: 시간표 조건이나 수업 성향(체크리스트)을 말함
-- course_review: 특정 과목(또는 과목+교수)의 수강평·평가를 물음
-- other: 사용법 질문, 잡담 등
+- course_review: 과목 하나의 교수별 수강평·평가를 보여 달라고 함("운영체제 수강평 알려줘", "OO 교수님 어때?")
+- compare_courses: 두 과목, 또는 같은 과목의 두 교수를 비교해 달라고 함("A랑 B 비교해줘", "A랑 B 중에 뭐가 나아?")
+- ask_info: 사실을 물음. 지금 시간표("내 시간표에서 과제 제일 많은 과목?", "왜 데이터베이스가 들어갔어?"),
+  졸업 요건("남은 학점 얼마야?"), 과목 정보("고급웹프로그래밍 몇 시야?", "시험 몇 번 봐?", "평가 비율은?")
+- other: 사용법 질문, 인사, 잡담 등
 
 conditions: 바뀌는 값만 채우고 나머지는 null.
 - target_credits: 9~21 정수
@@ -75,7 +82,10 @@ checklist: 수업 성향 항목의 추가·변경. 기본 항목 key:
 
 unsupported: 수강평·수강계획서·시간표 어디에서도 판단할 수 없는 조건(강의실이 가까운, 친구와 같은 수업 등)을 원문 표현으로.
 review_targets: course_review일 때 물어본 과목들(과목명, 교수명 없으면 null). 다른 intent에서도 메시지에 수강평 질문이 섞여 있으면 채운다.
-answer: intent가 other일 때만 짧은 한국어 답(2문장 이내). 시간표와 상관없는 질문은 짧게 답하고 시간표 이야기로 돌린다. 그 밖에는 null."""
+mentioned_courses: 메시지에서 말한 과목들(과목명, 교수명 없으면 null). compare_courses면 비교할 두 개를 순서대로.
+  "그 과목", "아까 그거"처럼 가리키면 최근 대화에서 찾아 과목명으로 채운다. 없으면 빈 목록.
+needs_answer: 메시지에 질문·대화가 있어 데이터를 보고 답장을 써야 하면 true(ask_info, other는 항상 true).
+  조건·체크리스트만 말하고 끝나면 false."""
 
 
 def _parse(req: ChatRequest) -> ChatParse:
@@ -204,13 +214,28 @@ def handle_chat(req: ChatRequest) -> dict:
         sentences.append(f"{josa(', '.join(_quote(u) for u in parsed.unsupported), '은/는')} 수강평·계획서·시간표로 판단할 수 없어 반영하지 못했어요.")
 
     intent = parsed.intent
+    if intent == "other" and changes:
+        intent = "set_preferences"
     if changes:
-        if intent != "set_preferences" and review_target is None:
-            intent = "set_preferences"
         sentences.append("[생성하기]를 누르면 시간표에 반영돼요.")
-    elif intent == "other":
-        sentences.insert(0, parsed.answer or "원하는 시간표 조건을 말해 주세요. 예: '금요일 공강, 팀플 적게'")
-    elif intent == "set_preferences" and not parsed.unsupported and not unchanged:
+
+    # 질문은 바뀐 상태 기준으로 답한다
+    state_req = req.model_copy(update={"conditions": new_cond, "checklist": checklist})
+    mentioned = [t.model_dump() for t in parsed.mentioned_courses]
+    compare_result = None
+    if intent == "compare_courses":
+        if len(mentioned) >= 2:
+            compare_result = answers.compare(mentioned, state_req)
+            notes.append(compare_result["message"])
+        else:
+            notes.append("비교할 두 과목을 함께 말해 주세요. 예: '데이터베이스랑 컴퓨터네트워크 비교해줘'")
+    elif intent in ("ask_info", "other") or (parsed.needs_answer and intent != "course_review"):
+        # 정해진 동작 밖의 질문·대화는 AI가 데이터를 보고 답장을 쓴다. 바뀐 조건 안내는 서버 문장이 앞에 붙는다.
+        try:
+            notes.append(answers.answer(state_req, mentioned, sentences))
+        except LLMError:
+            notes.append("지금은 답을 찾지 못했어요. 잠시 후 다시 물어봐 주세요.")
+    elif intent == "set_preferences" and not changes and not parsed.unsupported and not unchanged:
         sentences.append("바꿀 조건을 찾지 못했어요. '금요일 공강', '팀플 적게', '1교시 싫어'처럼 말해 주세요.")
 
     reply = " ".join(sentences + notes).strip()
@@ -222,4 +247,5 @@ def handle_chat(req: ChatRequest) -> dict:
         "changes": changes,
         "unsupported": parsed.unsupported,
         "review_target": review_target,
+        "compare": compare_result,
     }

@@ -18,6 +18,8 @@ DEFAULT_BASE = "https://hackathon23.onrender.com"
 DEMO = {"email": "demo@etabuilder.kr", "password": "demo1234"}
 CHAT_MESSAGE = "수요일 공강이고 팀플은 적게, 교수님 친절한 수업이면 좋겠어"
 REVIEW_MESSAGE = "시스템프로그래밍 수강평 알려줘"  # 2026-2에 열리고 교수 두 명의 강의평이 있는 과목
+COMPARE_MESSAGE = "데이터베이스랑 컴퓨터네트워크 비교해줘"
+INFO_MESSAGE = "남은 졸업 학점 얼마야? 내 시간표에서 과제 제일 많은 과목도 알려줘"
 
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
 BASE = (args[0] if args else DEFAULT_BASE).rstrip("/")
@@ -117,6 +119,24 @@ def on_demand():
     return f"{r['message']} ({', '.join(x['professor'] + ':' + x['status'] for x in r['results'])})"
 
 
+def chat_context():
+    t = ctx["transcript"]
+    return {"admission_year": 2024, "major": "cse", "completed_course_ids": t["completed_course_ids"],
+            "completed_credits": t["completed_credits"], "section_ids": [s["section_id"] for s in ctx["combo"]["sections"]]}
+
+
+def compare_chat():
+    r = call("POST", "/api/chat", {"message": COMPARE_MESSAGE, "context": chat_context()})
+    assert r.get("compare") and len(r["compare"]["courses"]) == 2, r["reply"]
+    return r["reply"]
+
+
+def info_chat():
+    r = call("POST", "/api/chat", {"message": INFO_MESSAGE, "context": chat_context()})
+    assert r["intent"] in ("ask_info", "other") and not r.get("error"), r["reply"]
+    return r["reply"]
+
+
 def reset():
     call("DELETE", "/api/transcript", token=ctx["token"])
     return "데모 계정 이수 내역을 지웠어요"
@@ -133,6 +153,8 @@ step("챗봇 조건으로 생성(자유 항목 판정 포함)", generate_with_ch
 step("강의 상세", lecture, 5)
 step("챗봇: 수강평 질문", review_chat, 20)
 step("교수별 수강평", on_demand, 40)
+step("챗봇: 과목 비교", compare_chat, 30)
+step("챗봇: 정보 질문(시간표·졸업 현황 근거)", info_chat, 30)
 if RESET:
     step("데모 계정 초기화", reset, 5)
 

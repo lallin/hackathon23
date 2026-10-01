@@ -19,7 +19,7 @@ def _asset_url(path):
     return path if path.startswith(("http://", "https://", "/assets/")) else "/assets/" + path.lstrip("/")
 
 
-def _syllabus_summary(syllabus: Optional[dict]) -> Optional[dict]:
+def syllabus_summary(syllabus: Optional[dict]) -> Optional[dict]:
     """수강계획서의 수업 방식·평가 비율을 화면에 바로 쓸 수 있는 문장으로 만든다."""
     if not syllabus:
         return None
@@ -46,7 +46,7 @@ def lecture_detail(lecture_id: str):
     if insight:
         professor = insight.get("professor", professor)
     evidence = (insight or {}).get("evidence", {})
-    syllabus = _syllabus_summary(catalog.syllabus_by_lecture.get(lecture_id))
+    syllabus = syllabus_summary(catalog.syllabus_by_lecture.get(lecture_id))
     sections = [s for s in catalog.sections_by_course.get(course_id, []) if s["professor"] == professor]
 
     levels = []

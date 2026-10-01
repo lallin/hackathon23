@@ -5,6 +5,7 @@ import type { Api, ApiMode } from '../api';
 import type {
   ChecklistItem,
   Combination,
+  CompareResult,
   Conditions,
   GenerateRequest,
   Infeasible,
@@ -30,8 +31,9 @@ export interface ChatMsg {
   id: number;
   role: 'user' | 'assistant';
   text: string;
-  kind?: 'error' | 'loading' | 'reviews';
+  kind?: 'error' | 'loading' | 'reviews' | 'compare';
   reviews?: OnDemandResponse;
+  compare?: CompareResult;
 }
 
 export interface State {
@@ -540,8 +542,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
         dispatch({ type: 'msg', msg: { id: nextId(), role: 'user', text } });
         set({ chatBusy: true });
         let res;
+        // 질문에 답할 때 서버가 근거로 쓰는 지금 상황: 보고 있는 시간표와 이수 현황
+        const context = {
+          admission_year: st.year,
+          major: st.major,
+          completed_course_ids: st.transcript?.completed_course_ids ?? [],
+          completed_credits: st.transcript?.completed_credits,
+          section_ids: st.combos[st.rank]?.sections.map((x) => x.section_id) ?? []
+        };
         try {
-          res = await api.chat({ message: text, conditions: st.draft.conditions, checklist: st.draft.checklist, history });
+          res = await api.chat({ message: text, conditions: st.draft.conditions, checklist: st.draft.checklist, history, context });
         } catch {
           // Gemini 호출 실패: 상태를 바꾸지 않는다
           dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', text: CHAT_FAIL, kind: 'error' } });
@@ -577,7 +587,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
           }
           flash(res.changes.map((c) => (c.startsWith('checklist.') ? c.slice(10) : c.replace('conditions.', 'cond.'))));
         }
-        dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', text: res.reply } });
+        if (res.compare && res.compare.courses.length) {
+          // 과목 비교는 두 열 카드로 보여준다 (카드 위에 답장 문장이 함께 나온다)
+          dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', kind: 'compare', text: res.reply, compare: res.compare } });
+        } else {
+          dispatch({ type: 'msg', msg: { id: nextId(), role: 'assistant', text: res.reply } });
+        }
         if (res.intent === 'course_review' && res.review_target) {
           const t = res.review_target;
           const loadingId = nextId();

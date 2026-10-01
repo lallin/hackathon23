@@ -176,15 +176,60 @@ export interface ChatHistoryItem {
   content: string;
 }
 
+/** 챗봇이 질문에 답할 때 근거로 쓰는 지금 상황 (지금 보고 있는 시간표, 이수 현황) */
+export interface ChatContext {
+  admission_year?: number;
+  major?: string;
+  completed_course_ids?: string[];
+  completed_credits?: Record<string, number>;
+  section_ids?: string[];
+}
+
 export interface ChatRequest {
   message: string;
   conditions: Conditions;
   checklist: ChecklistItem[];
   history: ChatHistoryItem[];
+  context?: ChatContext;
+}
+
+/** 과목 비교의 한 열 (과목 하나 또는 같은 과목의 교수 한 명) */
+export interface CompareLecture {
+  lecture_id: string;
+  professor: string;
+  sections: { section_id: string; times: string; target: string | null }[];
+  rating: number | null;
+  review_count: number;
+  levels: Record<string, { label: string; level: string; source: string }>;
+  grading: { 너그러움: number | null; 보통: number | null; 깐깐함: number | null } | null;
+  evaluation: string | null;
+  teaching: string | null;
+  summary: string[];
+  match?: { satisfied: number; total: number };
+  checklist_eval?: { key: string; label: string; result: 'match' | 'opposite' | 'partial' | 'unknown' }[];
+}
+
+export interface CompareColumn {
+  name: string;
+  course_id?: string;
+  found: boolean;
+  offered: boolean;
+  category?: string | null;
+  credits?: number | null;
+  lecture: CompareLecture | null;
+  other_professors?: string[];
+}
+
+export interface CompareResult {
+  message: string;
+  highlights: string[];
+  courses: CompareColumn[];
 }
 
 export interface ChatResponse {
-  intent: 'set_preferences' | 'course_review' | 'other';
+  intent: 'set_preferences' | 'course_review' | 'compare_courses' | 'ask_info' | 'other';
+  /** 과목 비교 결과 (intent가 compare_courses일 때) */
+  compare?: CompareResult | null;
   reply: string;
   conditions: Conditions;
   checklist: ChecklistItem[];

@@ -1,11 +1,70 @@
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import type { OnDemandResponse, ReviewResult } from '../api/types';
+import type { CompareResult, OnDemandResponse, ReviewResult } from '../api/types';
 import { BASE_ITEMS, CHAT_HINT, levelFromNum, LEVEL_LABEL } from '../lib/constants';
 import { useApp } from '../state/store';
 import { Send } from './icons';
 
-const SUGGESTS = ['수요일 공강이고 팀플은 적게, 교수님 친절한 수업이면 좋겠어', '취업 준비 우선으로 18학점', '운영체제 수강평 알려줘'];
+const SUGGESTS = [
+  '수요일 공강이고 팀플은 적게, 교수님 친절한 수업이면 좋겠어',
+  '시스템프로그래밍 수강평 알려줘',
+  '데이터베이스랑 컴퓨터네트워크 비교해줘',
+  '남은 졸업 학점 얼마야?'
+];
+
+const CMP_KEYS = ['assignment', 'team_project', 'exam', 'attendance'];
+
+function CmpRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="cmp-row">
+      <span className="faint">{label}</span>
+      <span>{value}</span>
+    </div>
+  );
+}
+
+/** 두 과목(또는 같은 과목의 두 교수)을 같은 줄 순서로 나란히 보여준다 */
+function CompareCards({ data, text, onOpen }: { data: CompareResult; text: string; onOpen: (id: string) => void }) {
+  return (
+    <div className="rv-wrap">
+      <div className="bubble bot">{text}</div>
+      <div className="cmp">
+        {data.courses.map((c, i) => {
+          const l = c.lecture;
+          const meta = [c.category, c.credits ? `${c.credits}학점` : null].filter(Boolean).join(' · ');
+          return (
+            <button key={`${c.name}-${i}`} className="rv cmp-col" onClick={() => l && c.offered && onOpen(l.lecture_id)} disabled={!l || !c.offered}>
+              <div className="cmp-head">
+                <b style={{ fontSize: 13 }}>{c.name}</b>
+                {l && <span>{l.professor} 교수님</span>}
+                {meta && <span className="faint">{meta}</span>}
+              </div>
+              {!c.found ? (
+                <span className="faint">과목을 찾지 못했어요</span>
+              ) : !c.offered || !l ? (
+                <span className="faint">이번 학기에 열리지 않아요</span>
+              ) : (
+                <>
+                  <CmpRow label="별점" value={l.rating != null ? `★ ${l.rating} (강의평 ${l.review_count}개)` : '강의평 없음'} />
+                  <CmpRow label="시간" value={l.sections.map((s) => s.times).join(' / ') || '–'} />
+                  {CMP_KEYS.map((k) => {
+                    const v = l.levels[k];
+                    const label = BASE_ITEMS.find((b) => b.key === k)?.label ?? k;
+                    return <CmpRow key={k} label={label} value={v ? `${v.level}${v.source === '수강계획서' ? ' (계획서)' : ''}` : '–'} />;
+                  })}
+                  <CmpRow label="학점 성향" value={l.grading ? `너그러움 ${l.grading.너그러움 ?? 0}% · 깐깐함 ${l.grading.깐깐함 ?? 0}%` : '–'} />
+                  <CmpRow label="평가 비율" value={l.evaluation || '–'} />
+                  {l.match && l.match.total > 0 && <CmpRow label="체크리스트" value={`${l.match.satisfied} / ${l.match.total} 맞음`} />}
+                  {c.other_professors && c.other_professors.length > 0 && <span className="faint">다른 교수: {c.other_professors.join(', ')}</span>}
+                </>
+              )}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 const STATUS: Record<ReviewResult['status'], string> = { cached: '저장된 수강평', collected: '방금 가져옴', not_collected: '가져오지 못함' };
 
@@ -107,6 +166,8 @@ export function ChatPanel({ className }: { className: string }) {
         {s.msgs.map((m) =>
           m.kind === 'reviews' && m.reviews ? (
             <ReviewCards key={m.id} data={m.reviews} onOpen={(id) => act.openDetail(id)} />
+          ) : m.kind === 'compare' && m.compare ? (
+            <CompareCards key={m.id} data={m.compare} text={m.text} onOpen={(id) => act.openDetail(id)} />
           ) : m.kind === 'loading' ? (
             <div key={m.id} className="bubble bot load" role="status">
               <span className="spinner" />

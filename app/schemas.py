@@ -30,11 +30,21 @@ class ChatMessage(BaseModel):
     content: str
 
 
+class ChatContext(BaseModel):
+    """챗봇이 질문에 답할 때 근거로 쓰는 사용자 상황. 없으면 과목 정보만으로 답한다."""
+    admission_year: Optional[int] = None
+    major: Optional[str] = None
+    completed_course_ids: List[str] = Field(default_factory=list)
+    completed_credits: Optional[Dict[str, float]] = None
+    section_ids: List[str] = Field(default_factory=list, description="지금 화면에 보이는 시간표 조합의 분반 id")
+
+
 class ChatRequest(BaseModel):
     message: str
     conditions: Conditions = Field(default_factory=Conditions)
     checklist: List[ChecklistItem] = Field(default_factory=list)
     history: List[ChatMessage] = Field(default_factory=list)
+    context: Optional[ChatContext] = None
 
 
 class AskRequest(BaseModel):
