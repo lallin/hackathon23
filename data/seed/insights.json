@@ -1,0 +1,1941 @@
+{
+ "sample": true,
+ "note": "개발용 샘플 값(수강평 모두 가상). BE-데이터가 배치 추출 결과로 같은 형식에 맞춰 교체한다. levels는 1(적음)~3(많음).",
+ "lectures": [
+  {
+   "lecture_id": "CSE1010-김서연",
+   "course_id": "CSE1010",
+   "professor": "김서연",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 팀플 없음",
+    "시험은 기말 1회",
+    "교수님이 친절함, 실습 비중이 높음"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "과제가 거의 없어요. 교수님이 질문에 친절하게 답해 주세요.",
+    "팀플은 없어요. 출석은 전자출결로 가끔 확인해요.",
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 시험은 기말 한 번뿐이에요. 발표가 한 번 있어요."
+   ],
+   "review_count": 24,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE1010-이준호",
+   "course_id": "CSE1010",
+   "professor": "이준호",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 3,
+    "presentation": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "퀴즈 포함 시험이 잦음",
+    "교수님이 엄격함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 매번 엄격하게 체크해요."
+   },
+   "reviews": [
+    "학점은 짜게 주세요. A 받기 힘들어요. 발표가 한 번 있어요.",
+    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 시험이 정말 어려워요.",
+    "출석을 매번 엄격하게 체크해요. 팀플은 없어요.",
+    "과제는 2~3주에 한 번 정도라 무난해요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "중간·기말에 퀴즈까지 자주 봐요."
+   ],
+   "review_count": 35,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE1020-최민지",
+   "course_id": "CSE1020",
+   "professor": "최민지",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "presentation": 1,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "시험은 기말 1회",
+    "시험은 무난함, 실습 비중이 높음"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "과제는 2~3주에 한 번 정도라 무난해요. 출석을 거의 안 불러요.",
+    "시험은 수업 내용만 보면 충분해요. 실습 비중이 높아서 직접 해 보는 게 많아요. 발표는 없어요.",
+    "시험은 기말 한 번뿐이에요. 팀플은 없어요."
+   ],
+   "review_count": 37,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE2010-정하늘",
+   "course_id": "CSE2010",
+   "professor": "정하늘",
+   "levels": {
+    "assignment": 3,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 팀 과제 1회",
+    "중간·기말 2회",
+    "교수님이 엄격함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "발표가 한 번 있어요. 출석을 거의 안 불러요. 매주 과제가 있어서 시간이 많이 들어요.",
+    "중간·기말 두 번 봐요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 작은 팀 과제가 한 번 있어요."
+   ],
+   "review_count": 15,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE2010-한지우",
+   "course_id": "CSE2010",
+   "professor": "한지우",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "중간·기말 2회",
+    "교수님이 친절함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "출석은 전자출결로 가끔 확인해요. 팀플은 없어요.",
+    "중간·기말 두 번 봐요. 시험은 수업 내용만 보면 충분해요. 교수님이 질문에 친절하게 답해 주세요.",
+    "학점은 짜게 주세요. A 받기 힘들어요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "발표가 한 번 있어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요."
+   ],
+   "review_count": 9,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE2020-윤태경",
+   "course_id": "CSE2020",
+   "professor": "윤태경",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 팀플 없음",
+    "중간·기말 2회",
+    "교수님이 엄격함, 시험은 무난함"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "중간·기말 두 번 봐요. 출석은 전자출결로 가끔 확인해요.",
+    "발표가 한 번 있어요. 과제가 거의 없어요.",
+    "팀플은 없어요. 시험은 수업 내용만 보면 충분해요.",
+    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 실습 비중이 높아서 직접 해 보는 게 많아요."
+   ],
+   "review_count": 18,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE2030-강민서",
+   "course_id": "CSE2030",
+   "professor": "강민서",
+   "levels": {
+    "assignment": 2,
+    "team_project": 3,
+    "exam": 1,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 학기 내내 팀 프로젝트",
+    "시험은 기말 1회",
+    "교수님이 친절함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 시험은 기말 한 번뿐이에요.",
+    "시험은 수업 내용만 보면 충분해요. 발표는 없어요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 과제는 2~3주에 한 번 정도라 무난해요. 출석은 전자출결로 가끔 확인해요.",
+    "교수님이 질문에 친절하게 답해 주세요. 학기 내내 팀 프로젝트를 해요."
+   ],
+   "review_count": 39,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE2040-조은비",
+   "course_id": "CSE2040",
+   "professor": "조은비",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 3,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "과제 부담이 적음, 팀플 없음",
+    "퀴즈 포함 시험이 잦음",
+    "교수님이 엄격함, 학점이 짬"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "시험이 정말 어려워요. 과제가 거의 없어요.",
+    "중간·기말에 퀴즈까지 자주 봐요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 발표가 한 번 있어요.",
+    "학점은 짜게 주세요. A 받기 힘들어요. 팀플은 없어요. 출석을 거의 안 불러요."
+   ],
+   "review_count": 24,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE2040-신동혁",
+   "course_id": "CSE2040",
+   "professor": "신동혁",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 1,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "시험은 기말 1회",
+    "교수님이 엄격함, 학점이 짬"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "학점은 짜게 주세요. A 받기 힘들어요. 발표가 한 번 있어요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요.",
+    "작은 팀 과제가 한 번 있어요. 출석을 거의 안 불러요.",
+    "시험은 기말 한 번뿐이에요. 과제는 2~3주에 한 번 정도라 무난해요."
+   ],
+   "review_count": 37,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3010-임가영",
+   "course_id": "CSE3010",
+   "professor": "임가영",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 3,
+    "presentation": 3,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "퀴즈 포함 시험이 잦음",
+    "교수님이 엄격함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표를 여러 번 해야 해요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "학점은 잘 주시는 편이에요. 과제는 2~3주에 한 번 정도라 무난해요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "작은 팀 과제가 한 번 있어요. 발표를 여러 번 해야 해요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요.",
+    "출석은 전자출결로 가끔 확인해요. 중간·기말에 퀴즈까지 자주 봐요."
+   ],
+   "review_count": 41,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3010-정하늘",
+   "course_id": "CSE3010",
+   "professor": "정하늘",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 팀플 없음",
+    "중간·기말 2회",
+    "시험은 무난함, 이론 위주"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "발표가 한 번 있어요. 출석은 전자출결로 가끔 확인해요.",
+    "과제가 거의 없어요. 이론 위주 강의예요.",
+    "중간·기말 두 번 봐요. 팀플은 없어요.",
+    "시험은 수업 내용만 보면 충분해요."
+   ],
+   "review_count": 18,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3020-서지훈",
+   "course_id": "CSE3020",
+   "professor": "서지훈",
+   "levels": {
+    "assignment": 1,
+    "team_project": 3,
+    "exam": 3,
+    "presentation": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "과제 부담이 적음, 학기 내내 팀 프로젝트",
+    "퀴즈 포함 시험이 잦음",
+    "학점을 잘 줌, 이론 위주"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 매번 엄격하게 체크해요."
+   },
+   "reviews": [
+    "학점은 잘 주시는 편이에요. 이론 위주 강의예요. 출석을 매번 엄격하게 체크해요.",
+    "중간·기말에 퀴즈까지 자주 봐요. 발표가 한 번 있어요.",
+    "학기 내내 팀 프로젝트를 해요. 과제가 거의 없어요."
+   ],
+   "review_count": 6,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3020-권나래",
+   "course_id": "CSE3020",
+   "professor": "권나래",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 3,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "교수님이 엄격함, 실습 비중이 높음"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표를 여러 번 해야 해요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "발표를 여러 번 해야 해요. 실습 비중이 높아서 직접 해 보는 게 많아요.",
+    "작은 팀 과제가 한 번 있어요. 과제는 2~3주에 한 번 정도라 무난해요. 중간·기말 두 번 봐요.",
+    "출석은 전자출결로 가끔 확인해요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요."
+   ],
+   "review_count": 35,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3030-박도윤",
+   "course_id": "CSE3030",
+   "professor": "박도윤",
+   "levels": {
+    "assignment": 3,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 팀플 없음",
+    "중간·기말 2회",
+    "교수님이 친절함, 실습 비중이 높음"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "교수님이 질문에 친절하게 답해 주세요. 발표는 없어요.",
+    "중간·기말 두 번 봐요. 출석은 전자출결로 가끔 확인해요.",
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 매주 과제가 있어서 시간이 많이 들어요.",
+    "팀플은 없어요."
+   ],
+   "review_count": 34,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3030-장윤호",
+   "course_id": "CSE3030",
+   "professor": "장윤호",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 3,
+    "presentation": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "퀴즈 포함 시험이 잦음",
+    "교수님이 엄격함, 시험이 어려움"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 매번 엄격하게 체크해요."
+   },
+   "reviews": [
+    "시험이 정말 어려워요. 중간·기말에 퀴즈까지 자주 봐요.",
+    "출석을 매번 엄격하게 체크해요. 과제는 2~3주에 한 번 정도라 무난해요. 작은 팀 과제가 한 번 있어요.",
+    "발표는 없어요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요."
+   ],
+   "review_count": 13,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3040-홍예린",
+   "course_id": "CSE3040",
+   "professor": "홍예린",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 1
+   },
+   "summary": [
+    "과제 부담이 적음, 팀플 없음",
+    "중간·기말 2회",
+    "녹화 강의 제공, 학점을 잘 줌"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "중간·기말 두 번 봐요. 출석을 거의 안 불러요.",
+    "팀플은 없어요. 학점은 잘 주시는 편이에요. 발표는 없어요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 과제가 거의 없어요."
+   ],
+   "review_count": 20,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3040-남궁현",
+   "course_id": "CSE3040",
+   "professor": "남궁현",
+   "levels": {
+    "assignment": 2,
+    "team_project": 3,
+    "exam": 2,
+    "presentation": 3,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 학기 내내 팀 프로젝트",
+    "중간·기말 2회",
+    "교수님이 친절함"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표를 여러 번 해야 해요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "중간·기말 두 번 봐요. 교수님이 질문에 친절하게 답해 주세요. 학기 내내 팀 프로젝트를 해요.",
+    "발표를 여러 번 해야 해요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "출석은 전자출결로 가끔 확인해요."
+   ],
+   "review_count": 8,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE4010-안재민",
+   "course_id": "CSE4010",
+   "professor": "안재민",
+   "levels": {
+    "assignment": 3,
+    "team_project": 2,
+    "exam": 3,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 팀 과제 1회",
+    "퀴즈 포함 시험이 잦음",
+    "학점을 잘 줌, 시험은 무난함"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "출석을 거의 안 불러요. 실습 비중이 높아서 직접 해 보는 게 많아요.",
+    "발표가 한 번 있어요. 학점은 잘 주시는 편이에요.",
+    "시험은 수업 내용만 보면 충분해요. 작은 팀 과제가 한 번 있어요.",
+    "매주 과제가 있어서 시간이 많이 들어요. 중간·기말에 퀴즈까지 자주 봐요."
+   ],
+   "review_count": 18,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE4010-백서윤",
+   "course_id": "CSE4010",
+   "professor": "백서윤",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "시험이 어려움"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "중간·기말 두 번 봐요. 과제는 2~3주에 한 번 정도라 무난해요. 발표는 없어요.",
+    "시험이 정말 어려워요. 출석을 거의 안 불러요. 작은 팀 과제가 한 번 있어요."
+   ],
+   "review_count": 21,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3050-노지환",
+   "course_id": "CSE3050",
+   "professor": "노지환",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 3,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 팀 과제 1회",
+    "퀴즈 포함 시험이 잦음",
+    "녹화 강의 제공, 학점이 짬"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "발표가 한 번 있어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 중간·기말에 퀴즈까지 자주 봐요.",
+    "출석은 전자출결로 가끔 확인해요. 과제가 거의 없어요. 학점은 짜게 주세요. A 받기 힘들어요.",
+    "작은 팀 과제가 한 번 있어요."
+   ],
+   "review_count": 37,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3060-하유진",
+   "course_id": "CSE3060",
+   "professor": "하유진",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "과제 부담이 적음, 팀 과제 1회",
+    "중간·기말 2회",
+    "녹화 강의 제공, 학점을 잘 줌"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "발표가 한 번 있어요. 작은 팀 과제가 한 번 있어요. 과제가 거의 없어요.",
+    "출석을 거의 안 불러요. 중간·기말 두 번 봐요.",
+    "학점은 잘 주시는 편이에요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 시험은 수업 내용만 보면 충분해요."
+   ],
+   "review_count": 38,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3060-구본석",
+   "course_id": "CSE3060",
+   "professor": "구본석",
+   "levels": {
+    "assignment": 1,
+    "team_project": 3,
+    "exam": 3,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 학기 내내 팀 프로젝트",
+    "퀴즈 포함 시험이 잦음",
+    "녹화 강의 제공, 이론 위주"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "발표가 한 번 있어요. 과제가 거의 없어요. 출석은 전자출결로 가끔 확인해요.",
+    "학기 내내 팀 프로젝트를 해요. 중간·기말에 퀴즈까지 자주 봐요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 이론 위주 강의예요."
+   ],
+   "review_count": 10,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE3070-표은지",
+   "course_id": "CSE3070",
+   "professor": "표은지",
+   "levels": {
+    "assignment": 3,
+    "team_project": 3,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 학기 내내 팀 프로젝트",
+    "중간·기말 2회",
+    "시험은 무난함, 실습 비중이 높음"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 매주 과제가 있어서 시간이 많이 들어요.",
+    "중간·기말 두 번 봐요. 발표가 한 번 있어요. 학기 내내 팀 프로젝트를 해요.",
+    "시험은 수업 내용만 보면 충분해요. 출석을 거의 안 불러요."
+   ],
+   "review_count": 8,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE4020-하유진",
+   "course_id": "CSE4020",
+   "professor": "하유진",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 3,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "퀴즈 포함 시험이 잦음",
+    "교수님이 친절함, 학점을 잘 줌"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "출석을 거의 안 불러요. 학점은 잘 주시는 편이에요.",
+    "중간·기말에 퀴즈까지 자주 봐요. 작은 팀 과제가 한 번 있어요.",
+    "시험이 정말 어려워요. 교수님이 질문에 친절하게 답해 주세요. 발표가 한 번 있어요.",
+    "과제는 2~3주에 한 번 정도라 무난해요."
+   ],
+   "review_count": 33,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE4030-류승우",
+   "course_id": "CSE4030",
+   "professor": "류승우",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "교수님이 친절함, 학점이 짬"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 과제는 2~3주에 한 번 정도라 무난해요. 시험이 정말 어려워요.",
+    "학점은 짜게 주세요. A 받기 힘들어요. 교수님이 질문에 친절하게 답해 주세요. 작은 팀 과제가 한 번 있어요.",
+    "중간·기말 두 번 봐요. 출석을 거의 안 불러요. 발표는 없어요."
+   ],
+   "review_count": 11,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "CSE4040-진수빈",
+   "course_id": "CSE4040",
+   "professor": "진수빈",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 3,
+    "attendance": 3
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표를 여러 번 해야 해요.",
+    "attendance": "출석을 매번 엄격하게 체크해요."
+   },
+   "reviews": [
+    "발표를 여러 번 해야 해요. 출석을 매번 엄격하게 체크해요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "중간·기말 두 번 봐요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 작은 팀 과제가 한 번 있어요."
+   ],
+   "review_count": 16,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ1010-김재훈",
+   "course_id": "BIZ1010",
+   "professor": "김재훈",
+   "levels": {
+    "assignment": 2,
+    "team_project": 3,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 학기 내내 팀 프로젝트",
+    "중간·기말 2회",
+    "녹화 강의 제공, 학점이 짬"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "출석을 거의 안 불러요. 발표가 한 번 있어요. 중간·기말 두 번 봐요.",
+    "학기 내내 팀 프로젝트를 해요. 과제는 2~3주에 한 번 정도라 무난해요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "학점은 짜게 주세요. A 받기 힘들어요."
+   ],
+   "review_count": 28,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ1010-이서현",
+   "course_id": "BIZ1010",
+   "professor": "이서현",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 3,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 팀 과제 1회",
+    "퀴즈 포함 시험이 잦음",
+    "녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "출석은 전자출결로 가끔 확인해요. 중간·기말에 퀴즈까지 자주 봐요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "작은 팀 과제가 한 번 있어요. 발표가 한 번 있어요. 과제가 거의 없어요."
+   ],
+   "review_count": 12,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ1020-박세영",
+   "course_id": "BIZ1020",
+   "professor": "박세영",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 팀플 없음",
+    "시험은 기말 1회",
+    "교수님이 친절함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "발표가 한 번 있어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 팀플은 없어요.",
+    "학점은 짜게 주세요. A 받기 힘들어요. 출석은 전자출결로 가끔 확인해요.",
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 교수님이 질문에 친절하게 답해 주세요.",
+    "과제가 거의 없어요. 시험은 기말 한 번뿐이에요."
+   ],
+   "review_count": 23,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ2010-최도윤",
+   "course_id": "BIZ2010",
+   "professor": "최도윤",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "교수님이 친절함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "교수님이 질문에 친절하게 답해 주세요. 실습 비중이 높아서 직접 해 보는 게 많아요.",
+    "작은 팀 과제가 한 번 있어요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "발표는 없어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "중간·기말 두 번 봐요. 출석은 전자출결로 가끔 확인해요.",
+    "학점은 잘 주시는 편이에요."
+   ],
+   "review_count": 26,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ2010-정유나",
+   "course_id": "BIZ2010",
+   "professor": "정유나",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "교수님이 엄격함, 시험은 무난함"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "시험은 수업 내용만 보면 충분해요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요.",
+    "발표가 한 번 있어요. 출석은 전자출결로 가끔 확인해요. 작은 팀 과제가 한 번 있어요.",
+    "과제는 2~3주에 한 번 정도라 무난해요. 중간·기말 두 번 봐요."
+   ],
+   "review_count": 12,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ2020-강태민",
+   "course_id": "BIZ2020",
+   "professor": "강태민",
+   "levels": {
+    "assignment": 3,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 팀 과제 1회",
+    "중간·기말 2회",
+    "교수님이 엄격함, 실습 비중이 높음"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 작은 팀 과제가 한 번 있어요.",
+    "중간·기말 두 번 봐요. 발표는 없어요. 실습 비중이 높아서 직접 해 보는 게 많아요.",
+    "매주 과제가 있어서 시간이 많이 들어요. 출석은 전자출결로 가끔 확인해요."
+   ],
+   "review_count": 23,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ2030-조민아",
+   "course_id": "BIZ2030",
+   "professor": "조민아",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "교수님이 친절함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "교수님이 질문에 친절하게 답해 주세요. 발표가 한 번 있어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "학점은 짜게 주세요. A 받기 힘들어요. 작은 팀 과제가 한 번 있어요. 중간·기말 두 번 봐요.",
+    "시험이 정말 어려워요. 과제는 2~3주에 한 번 정도라 무난해요. 출석은 전자출결로 가끔 확인해요."
+   ],
+   "review_count": 8,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ2040-신혜원",
+   "course_id": "BIZ2040",
+   "professor": "신혜원",
+   "levels": {
+    "assignment": 2,
+    "team_project": 3,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 학기 내내 팀 프로젝트",
+    "중간·기말 2회",
+    "교수님이 엄격함, 학점이 짬"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "시험이 정말 어려워요. 학기 내내 팀 프로젝트를 해요.",
+    "이론 위주 강의예요. 중간·기말 두 번 봐요. 학점은 짜게 주세요. A 받기 힘들어요.",
+    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 발표는 없어요. 출석을 거의 안 불러요.",
+    "과제는 2~3주에 한 번 정도라 무난해요."
+   ],
+   "review_count": 40,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ2040-임준서",
+   "course_id": "BIZ2040",
+   "professor": "임준서",
+   "levels": {
+    "assignment": 1,
+    "team_project": 3,
+    "exam": 1,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 학기 내내 팀 프로젝트",
+    "시험은 기말 1회",
+    "학점을 잘 줌, 시험이 어려움"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "학기 내내 팀 프로젝트를 해요. 과제가 거의 없어요.",
+    "학점은 잘 주시는 편이에요. 시험이 정말 어려워요. 발표는 없어요.",
+    "시험은 기말 한 번뿐이에요. 출석은 전자출결로 가끔 확인해요."
+   ],
+   "review_count": 15,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ2050-서동건",
+   "course_id": "BIZ2050",
+   "professor": "서동건",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "실습 비중이 높음"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 작은 팀 과제가 한 번 있어요. 출석을 거의 안 불러요.",
+    "발표가 한 번 있어요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "중간·기말 두 번 봐요."
+   ],
+   "review_count": 15,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ3010-권오성",
+   "course_id": "BIZ3010",
+   "professor": "권오성",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "교수님이 엄격함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "출석은 전자출결로 가끔 확인해요. 발표는 없어요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요.",
+    "과제는 2~3주에 한 번 정도라 무난해요. 작은 팀 과제가 한 번 있어요. 중간·기말 두 번 봐요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요."
+   ],
+   "review_count": 36,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ3010-오지현",
+   "course_id": "BIZ3010",
+   "professor": "오지현",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 3,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 팀플 없음",
+    "퀴즈 포함 시험이 잦음",
+    "녹화 강의 제공, 시험은 무난함"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 중간·기말에 퀴즈까지 자주 봐요.",
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 시험은 수업 내용만 보면 충분해요.",
+    "팀플은 없어요. 과제가 거의 없어요.",
+    "출석은 전자출결로 가끔 확인해요. 발표는 없어요."
+   ],
+   "review_count": 36,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ3020-장민호",
+   "course_id": "BIZ3020",
+   "professor": "장민호",
+   "levels": {
+    "assignment": 3,
+    "team_project": 1,
+    "exam": 1,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 팀플 없음",
+    "시험은 기말 1회",
+    "이론 위주"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "팀플은 없어요. 출석은 전자출결로 가끔 확인해요. 시험은 기말 한 번뿐이에요.",
+    "매주 과제가 있어서 시간이 많이 들어요. 이론 위주 강의예요.",
+    "발표가 한 번 있어요."
+   ],
+   "review_count": 27,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ3020-구하나",
+   "course_id": "BIZ3020",
+   "professor": "구하나",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "중간·기말 2회",
+    "교수님이 엄격함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "발표는 없어요. 중간·기말 두 번 봐요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "출석은 전자출결로 가끔 확인해요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 시험이 정말 어려워요.",
+    "팀플은 없어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "학점은 짜게 주세요. A 받기 힘들어요."
+   ],
+   "review_count": 24,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ4010-노은정",
+   "course_id": "BIZ4010",
+   "professor": "노은정",
+   "levels": {
+    "assignment": 3,
+    "team_project": 2,
+    "exam": 3,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 팀 과제 1회",
+    "퀴즈 포함 시험이 잦음",
+    "녹화 강의 제공, 시험은 무난함"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "작은 팀 과제가 한 번 있어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 매주 과제가 있어서 시간이 많이 들어요.",
+    "중간·기말에 퀴즈까지 자주 봐요. 발표가 한 번 있어요. 시험은 수업 내용만 보면 충분해요.",
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 출석을 거의 안 불러요."
+   ],
+   "review_count": 36,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ3030-남주원",
+   "course_id": "BIZ3030",
+   "professor": "남주원",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 팀 과제 1회",
+    "중간·기말 2회",
+    "교수님이 엄격함, 학점을 잘 줌"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "이론 위주 강의예요. 시험이 정말 어려워요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요.",
+    "중간·기말 두 번 봐요. 출석은 전자출결로 가끔 확인해요.",
+    "과제가 거의 없어요. 학점은 잘 주시는 편이에요.",
+    "작은 팀 과제가 한 번 있어요. 발표는 없어요."
+   ],
+   "review_count": 30,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ3040-류지수",
+   "course_id": "BIZ3040",
+   "professor": "류지수",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제 부담이 적음, 팀플 없음",
+    "중간·기말 2회",
+    "교수님이 친절함, 학점을 잘 줌"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "과제가 거의 없어요. 팀플은 없어요. 발표가 한 번 있어요.",
+    "출석은 전자출결로 가끔 확인해요. 학점은 잘 주시는 편이에요. 실습 비중이 높아서 직접 해 보는 게 많아요.",
+    "교수님이 질문에 친절하게 답해 주세요. 중간·기말 두 번 봐요."
+   ],
+   "review_count": 20,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ3050-백승민",
+   "course_id": "BIZ3050",
+   "professor": "백승민",
+   "levels": {
+    "assignment": 2,
+    "team_project": 3,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "과제량은 보통, 학기 내내 팀 프로젝트",
+    "중간·기말 2회",
+    "녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 매번 엄격하게 체크해요."
+   },
+   "reviews": [
+    "과제는 2~3주에 한 번 정도라 무난해요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 학기 내내 팀 프로젝트를 해요.",
+    "출석을 매번 엄격하게 체크해요. 발표는 없어요. 중간·기말 두 번 봐요."
+   ],
+   "review_count": 15,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "BIZ4020-송하윤",
+   "course_id": "BIZ4020",
+   "professor": "송하윤",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "중간·기말 2회",
+    "특별히 언급되는 특징은 적음"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 매번 엄격하게 체크해요."
+   },
+   "reviews": [
+    "팀플은 없어요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "중간·기말 두 번 봐요. 발표가 한 번 있어요.",
+    "출석을 매번 엄격하게 체크해요."
+   ],
+   "review_count": 37,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN1010-이수정",
+   "course_id": "GEN1010",
+   "professor": "이수정",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "중간·기말 2회",
+    "교수님이 친절함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 매번 엄격하게 체크해요."
+   },
+   "reviews": [
+    "발표가 한 번 있어요. 교수님이 질문에 친절하게 답해 주세요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "팀플은 없어요. 중간·기말 두 번 봐요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "출석을 매번 엄격하게 체크해요."
+   ],
+   "review_count": 15,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN1010-김도현",
+   "course_id": "GEN1010",
+   "professor": "김도현",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "중간·기말 2회",
+    "녹화 강의 제공, 시험은 무난함"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "과제는 2~3주에 한 번 정도라 무난해요. 작은 팀 과제가 한 번 있어요. 출석은 전자출결로 가끔 확인해요.",
+    "발표는 없어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 중간·기말 두 번 봐요.",
+    "시험은 수업 내용만 보면 충분해요."
+   ],
+   "review_count": 33,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN1020-최윤아",
+   "course_id": "GEN1020",
+   "professor": "최윤아",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 1,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "시험은 기말 1회",
+    "교수님이 친절함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "출석은 전자출결로 가끔 확인해요. 과제는 2~3주에 한 번 정도라 무난해요. 작은 팀 과제가 한 번 있어요.",
+    "교수님이 질문에 친절하게 답해 주세요. 발표가 한 번 있어요. 시험은 기말 한 번뿐이에요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요."
+   ],
+   "review_count": 16,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN1020-정민규",
+   "course_id": "GEN1020",
+   "professor": "정민규",
+   "levels": {
+    "assignment": 3,
+    "team_project": 1,
+    "exam": 1,
+    "presentation": 1,
+    "attendance": 1
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 팀플 없음",
+    "시험은 기말 1회",
+    "교수님이 엄격함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "학점은 잘 주시는 편이에요. 발표는 없어요.",
+    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 팀플은 없어요.",
+    "출석을 거의 안 불러요. 매주 과제가 있어서 시간이 많이 들어요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 시험은 기말 한 번뿐이에요."
+   ],
+   "review_count": 22,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN1030-오다은",
+   "course_id": "GEN1030",
+   "professor": "오다은",
+   "levels": {
+    "assignment": 3,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 팀플 없음",
+    "중간·기말 2회",
+    "학점이 짬, 시험이 어려움"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "학점은 짜게 주세요. A 받기 힘들어요. 매주 과제가 있어서 시간이 많이 들어요. 발표는 없어요.",
+    "시험이 정말 어려워요. 실습 비중이 높아서 직접 해 보는 게 많아요. 중간·기말 두 번 봐요.",
+    "출석은 전자출결로 가끔 확인해요. 팀플은 없어요."
+   ],
+   "review_count": 35,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN2010-문서윤",
+   "course_id": "GEN2010",
+   "professor": "문서윤",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "presentation": 1,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "시험은 기말 1회",
+    "녹화 강의 제공, 시험이 어려움"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "과제는 2~3주에 한 번 정도라 무난해요. 팀플은 없어요. 시험이 정말 어려워요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 출석을 거의 안 불러요. 시험은 기말 한 번뿐이에요.",
+    "실습 비중이 높아서 직접 해 보는 게 많아요. 발표는 없어요."
+   ],
+   "review_count": 38,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN2010-송태호",
+   "course_id": "GEN2010",
+   "professor": "송태호",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 3,
+    "presentation": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "퀴즈 포함 시험이 잦음",
+    "학점을 잘 줌"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 매번 엄격하게 체크해요."
+   },
+   "reviews": [
+    "팀플은 없어요. 과제는 2~3주에 한 번 정도라 무난해요. 학점은 잘 주시는 편이에요.",
+    "출석을 매번 엄격하게 체크해요. 발표는 없어요.",
+    "중간·기말에 퀴즈까지 자주 봐요."
+   ],
+   "review_count": 23,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN2010-이가은",
+   "course_id": "GEN2010",
+   "professor": "이가은",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 3,
+    "presentation": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "퀴즈 포함 시험이 잦음",
+    "교수님이 친절함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "팀플은 없어요. 출석은 전자출결로 가끔 확인해요. 중간·기말에 퀴즈까지 자주 봐요.",
+    "과제는 2~3주에 한 번 정도라 무난해요. 수업 녹화본을 올려 주셔서 복습하기 좋아요. 교수님이 질문에 친절하게 답해 주세요.",
+    "발표는 없어요."
+   ],
+   "review_count": 38,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN3010-장하린",
+   "course_id": "GEN3010",
+   "professor": "장하린",
+   "levels": {
+    "assignment": 2,
+    "team_project": 3,
+    "exam": 2,
+    "presentation": 2,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 학기 내내 팀 프로젝트",
+    "중간·기말 2회",
+    "녹화 강의 제공, 시험은 무난함"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "중간·기말 두 번 봐요. 시험은 수업 내용만 보면 충분해요.",
+    "과제는 2~3주에 한 번 정도라 무난해요. 발표가 한 번 있어요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "출석은 전자출결로 가끔 확인해요. 학기 내내 팀 프로젝트를 해요."
+   ],
+   "review_count": 21,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN3010-배지호",
+   "course_id": "GEN3010",
+   "professor": "배지호",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "presentation": 3,
+    "attendance": 2
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "중간·기말 2회",
+    "교수님이 엄격함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표를 여러 번 해야 해요.",
+    "attendance": "출석은 전자출결로 가끔 확인해요."
+   },
+   "reviews": [
+    "교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 수업 녹화본을 올려 주셔서 복습하기 좋아요.",
+    "과제는 2~3주에 한 번 정도라 무난해요. 팀플은 없어요. 발표를 여러 번 해야 해요.",
+    "시험은 수업 내용만 보면 충분해요. 중간·기말 두 번 봐요. 학점은 짜게 주세요. A 받기 힘들어요.",
+    "출석은 전자출결로 가끔 확인해요."
+   ],
+   "review_count": 40,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN3020-고은서",
+   "course_id": "GEN3020",
+   "professor": "고은서",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 3,
+    "presentation": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "과제량은 보통, 팀플 없음",
+    "퀴즈 포함 시험이 잦음",
+    "교수님이 엄격함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "팀플은 없어요.",
+    "exam": "중간·기말에 퀴즈까지 자주 봐요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 매번 엄격하게 체크해요."
+   },
+   "reviews": [
+    "팀플은 없어요. 출석을 매번 엄격하게 체크해요. 발표는 없어요.",
+    "학점은 짜게 주세요. A 받기 힘들어요. 이론 위주 강의예요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "중간·기말에 퀴즈까지 자주 봐요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요."
+   ],
+   "review_count": 41,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN3030-김태윤",
+   "course_id": "GEN3030",
+   "professor": "김태윤",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 1,
+    "presentation": 2,
+    "attendance": 1
+   },
+   "summary": [
+    "과제량은 보통, 팀 과제 1회",
+    "시험은 기말 1회",
+    "교수님이 엄격함, 녹화 강의 제공"
+   ],
+   "evidence": {
+    "assignment": "과제는 2~3주에 한 번 정도라 무난해요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표가 한 번 있어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "발표가 한 번 있어요. 출석을 거의 안 불러요. 시험은 수업 내용만 보면 충분해요.",
+    "작은 팀 과제가 한 번 있어요. 과제는 2~3주에 한 번 정도라 무난해요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 시험은 기말 한 번뿐이에요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요."
+   ],
+   "review_count": 17,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN3040-서민재",
+   "course_id": "GEN3040",
+   "professor": "서민재",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 1,
+    "presentation": 1,
+    "attendance": 1
+   },
+   "summary": [
+    "과제 부담이 적음, 팀 과제 1회",
+    "시험은 기말 1회",
+    "녹화 강의 제공, 학점을 잘 줌"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "시험은 기말 한 번뿐이에요.",
+    "presentation": "발표는 없어요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "과제가 거의 없어요. 시험은 기말 한 번뿐이에요. 시험은 수업 내용만 보면 충분해요.",
+    "작은 팀 과제가 한 번 있어요. 발표는 없어요. 학점은 잘 주시는 편이에요.",
+    "수업 녹화본을 올려 주셔서 복습하기 좋아요. 출석을 거의 안 불러요."
+   ],
+   "review_count": 30,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN3050-엄태섭",
+   "course_id": "GEN3050",
+   "professor": "엄태섭",
+   "levels": {
+    "assignment": 3,
+    "team_project": 2,
+    "exam": 2,
+    "presentation": 3,
+    "attendance": 1
+   },
+   "summary": [
+    "매주 과제가 있어 과제량이 많음, 팀 과제 1회",
+    "중간·기말 2회",
+    "학점이 짬"
+   ],
+   "evidence": {
+    "assignment": "매주 과제가 있어서 시간이 많이 들어요.",
+    "team_project": "작은 팀 과제가 한 번 있어요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표를 여러 번 해야 해요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "발표를 여러 번 해야 해요. 중간·기말 두 번 봐요.",
+    "매주 과제가 있어서 시간이 많이 들어요. 출석을 거의 안 불러요.",
+    "학점은 짜게 주세요. A 받기 힘들어요. 작은 팀 과제가 한 번 있어요."
+   ],
+   "review_count": 11,
+   "syllabus_image": null,
+   "source": "batch"
+  },
+  {
+   "lecture_id": "GEN3060-차은호",
+   "course_id": "GEN3060",
+   "professor": "차은호",
+   "levels": {
+    "assignment": 1,
+    "team_project": 3,
+    "exam": 2,
+    "presentation": 3,
+    "attendance": 1
+   },
+   "summary": [
+    "과제 부담이 적음, 학기 내내 팀 프로젝트",
+    "중간·기말 2회",
+    "교수님이 엄격함, 학점이 짬"
+   ],
+   "evidence": {
+    "assignment": "과제가 거의 없어요.",
+    "team_project": "학기 내내 팀 프로젝트를 해요.",
+    "exam": "중간·기말 두 번 봐요.",
+    "presentation": "발표를 여러 번 해야 해요.",
+    "attendance": "출석을 거의 안 불러요."
+   },
+   "reviews": [
+    "학기 내내 팀 프로젝트를 해요. 과제가 거의 없어요. 학점은 짜게 주세요. A 받기 힘들어요.",
+    "이론 위주 강의예요. 교수님이 엄격하신 편이라 질문하기 어려운 분위기예요. 발표를 여러 번 해야 해요.",
+    "출석을 거의 안 불러요. 중간·기말 두 번 봐요."
+   ],
+   "review_count": 8,
+   "syllabus_image": null,
+   "source": "batch"
+  }
+ ]
+}

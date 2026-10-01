@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+.env.local
+*.log
+
+# 루트 .gitignore 의 lib/ 규칙이 프론트 소스를 빼지 않도록
+!src/lib/

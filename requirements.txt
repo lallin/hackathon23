@@ -1,5 +1,7 @@
 fastapi
 uvicorn[standard]
-google-genai
+openai>=2.0
 python-dotenv
-pydantic
+pydantic>=2
+python-multipart
+psycopg[binary]

@@ -30,7 +30,7 @@ def ask_backend(message: str, retries: int = 3) -> str:
     detail = ""
     for attempt in range(retries):
         res = requests.post(
-            f"{BACKEND_URL}/api/chat",
+            f"{BACKEND_URL}/api/ask",
             json={"user_message": message},
             timeout=90,
         )
