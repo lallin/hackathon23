@@ -3109,6 +3109,1543 @@
    }
   },
   {
+   "lecture_id": "TMPDBB2E8-박종석",
+   "course_id": "TMPDBB2E8",
+   "course_name": "구기스포츠1(농구)",
+   "professor": "박종석",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.85/5 (강의평 26개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 한 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 26개 중 과제: 없음 65% · 보통 35% · 많음 0%",
+    "team_project": "강의평 26개 중 팀플: 없음 88% · 보통 12% · 많음 0%",
+    "exam": "시험 한 번",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 26개] 별점 4.85/5 / 과제 없음 65% · 보통 35% · 많음 0% / 팀플 없음 88% · 보통 12% · 많음 0% / 학점 너그러움 65% · 보통 27% · 깐깐함 8% / 시험 한 번 / 출결 전자출결"
+   ],
+   "review_count": 26,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.85,
+    "rating_distribution": {
+     "5": 85,
+     "4": 15,
+     "3": 0,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 65,
+     "mid": 35,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 88,
+     "mid": 12,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 65,
+     "mid": 27,
+     "strict": 8,
+     "top": "generous"
+    },
+    "attendance": "전자출결",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMPE702B2-성동준",
+   "course_id": "TMPE702B2",
+   "course_name": "구기스포츠2(배구)",
+   "professor": "성동준",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.93/5 (강의평 41개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 없음, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 41개 중 과제: 없음 93% · 보통 7% · 많음 0%",
+    "team_project": "강의평 41개 중 팀플: 없음 56% · 많음 24% · 보통 20%",
+    "exam": "시험 없음 (중간 기타)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 41개] 별점 4.93/5 / 과제 없음 93% · 보통 7% · 많음 0% / 팀플 없음 56% · 많음 24% · 보통 20% / 학점 너그러움 68% · 보통 29% · 깐깐함 2% / 시험 없음 / 출결 전자출결"
+   ],
+   "review_count": 41,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.93,
+    "rating_distribution": {
+     "5": 95,
+     "4": 2,
+     "3": 2,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 93,
+     "mid": 7,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 56,
+     "mid": 20,
+     "high": 24,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 68,
+     "mid": 29,
+     "strict": 2,
+     "top": "generous"
+    },
+    "attendance": "전자출결",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMPCF7F0A-조영숙",
+   "course_id": "TMPCF7F0A",
+   "course_name": "라켓스포츠1(배드민턴)",
+   "professor": "조영숙",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.52/5 (강의평 33개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 33개 중 과제: 보통 55% · 없음 45% · 많음 0%",
+    "team_project": "강의평 33개 중 팀플: 없음 61% · 보통 33% · 많음 6%",
+    "exam": "시험 두 번 (중간 기타)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 33개] 별점 4.52/5 / 과제 보통 55% · 없음 45% · 많음 0% / 팀플 없음 61% · 보통 33% · 많음 6% / 학점 보통 52% · 너그러움 48% · 깐깐함 0% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 33,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.52,
+    "rating_distribution": {
+     "5": 76,
+     "4": 9,
+     "3": 9,
+     "2": 3,
+     "1": 3
+    },
+    "assignment": {
+     "none": 45,
+     "mid": 55,
+     "high": 0,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 61,
+     "mid": 33,
+     "high": 6,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 48,
+     "mid": 52,
+     "strict": 0,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP78B6C9-최재우",
+   "course_id": "TMP78B6C9",
+   "course_name": "라켓스포츠2(스쿼시/테니스)",
+   "professor": "최재우",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.55/5 (강의평 11개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 11개 중 과제: 없음 55% · 보통 45% · 많음 0%",
+    "team_project": "강의평 11개 중 팀플: 없음 91% · 많음 9% · 보통 0%",
+    "exam": "시험 한 번",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 11개] 별점 4.55/5 / 과제 없음 55% · 보통 45% · 많음 0% / 팀플 없음 91% · 많음 9% · 보통 0% / 학점 너그러움 73% · 보통 27% · 깐깐함 0% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 11,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.55,
+    "rating_distribution": {
+     "5": 82,
+     "4": 9,
+     "3": 0,
+     "2": 0,
+     "1": 9
+    },
+    "assignment": {
+     "none": 55,
+     "mid": 45,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 91,
+     "mid": 0,
+     "high": 9,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 73,
+     "mid": 27,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP50A277-장지혜",
+   "course_id": "TMP50A277",
+   "course_name": "레저스포츠(골프)",
+   "professor": "장지혜",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.65/5 (강의평 20개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 20개 중 과제: 보통 60% · 없음 40% · 많음 0%",
+    "team_project": "강의평 20개 중 팀플: 없음 85% · 보통 15% · 많음 0%",
+    "exam": "시험 두 번 (중간 기타)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 20개] 별점 4.65/5 / 과제 보통 60% · 없음 40% · 많음 0% / 팀플 없음 85% · 보통 15% · 많음 0% / 학점 보통 55% · 너그러움 45% · 깐깐함 0% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 20,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.65,
+    "rating_distribution": {
+     "5": 80,
+     "4": 15,
+     "3": 0,
+     "2": 0,
+     "1": 5
+    },
+    "assignment": {
+     "none": 40,
+     "mid": 60,
+     "high": 0,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 85,
+     "mid": 15,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 45,
+     "mid": 55,
+     "strict": 0,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP6CB1CE-김현우",
+   "course_id": "TMP6CB1CE",
+   "course_name": "설상스포츠",
+   "professor": "김현우",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 5.0/5 (강의평 4개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 없음, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 4개 중 과제: 대부분 없음",
+    "team_project": "강의평 4개 중 팀플: 대부분 없음",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 4개] 별점 5.0/5 / 과제 대부분 없음 / 팀플 대부분 없음 / 학점 대부분 너그러움 / 시험 없음 / 출결 전자출결"
+   ],
+   "review_count": 4,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 5.0,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "generous"
+    },
+    "attendance": "전자출결",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP6CB1CE-이창진",
+   "course_id": "TMP6CB1CE",
+   "course_name": "설상스포츠",
+   "professor": "이창진",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.88/5 (강의평 8개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 없음, 한 번, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 8개 중 과제: 대부분 보통",
+    "team_project": "강의평 8개 중 팀플: 대부분 없음",
+    "exam": "시험 없음, 한 번",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 8개] 별점 4.88/5 / 과제 대부분 보통 / 팀플 대부분 없음 / 학점 대부분 너그러움 / 시험 없음, 한 번 / 출결 전자출결"
+   ],
+   "review_count": 8,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.88,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "generous"
+    },
+    "attendance": "전자출결",
+    "exam_count": "없음, 한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP0CEEB0-양영모",
+   "course_id": "TMP0CEEB0",
+   "course_name": "호신술과자기방어",
+   "professor": "양영모",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2
+   },
+   "summary": [
+    "별점 4.03/5 (강의평 73개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 두 번"
+   ],
+   "evidence": {
+    "assignment": "강의평 73개 중 과제: 없음 51% · 보통 48% · 많음 1%",
+    "team_project": "강의평 73개 중 팀플: 없음 95% · 보통 5% · 많음 0%",
+    "exam": "시험 두 번 (중간 기타, 기말 기타)"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 73개] 별점 4.03/5 / 과제 없음 51% · 보통 48% · 많음 1% / 팀플 없음 95% · 보통 5% · 많음 0% / 학점 너그러움 66% · 보통 26% · 깐깐함 8% / 시험 두 번"
+   ],
+   "review_count": 73,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.03,
+    "rating_distribution": {
+     "5": 49,
+     "4": 22,
+     "3": 14,
+     "2": 12,
+     "1": 3
+    },
+    "assignment": {
+     "none": 51,
+     "mid": 48,
+     "high": 1,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 95,
+     "mid": 5,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 66,
+     "mid": 26,
+     "strict": 8,
+     "top": "generous"
+    },
+    "attendance": null,
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "기타"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP0DA2A0-손보람",
+   "course_id": "TMP0DA2A0",
+   "course_name": "라틴댄스",
+   "professor": "손보람",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.86/5 (강의평 42개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 42개 중 과제: 없음 64% · 보통 33% · 많음 2%",
+    "team_project": "강의평 42개 중 팀플: 없음 55% · 보통 26% · 많음 19%",
+    "exam": "시험 두 번 (중간 기타)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 42개] 별점 4.86/5 / 과제 없음 64% · 보통 33% · 많음 2% / 팀플 없음 55% · 보통 26% · 많음 19% / 학점 너그러움 83% · 보통 17% · 깐깐함 0% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 42,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.86,
+    "rating_distribution": {
+     "5": 86,
+     "4": 14,
+     "3": 0,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 64,
+     "mid": 33,
+     "high": 2,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 55,
+     "mid": 26,
+     "high": 19,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 83,
+     "mid": 17,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMPE9168E-손보람",
+   "course_id": "TMPE9168E",
+   "course_name": "요가",
+   "professor": "손보람",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 2
+   },
+   "summary": [
+    "별점 4.86/5 (강의평 36개)",
+    "과제 없음, 팀플 보통",
+    "학점 너그러움, 시험 두 번"
+   ],
+   "evidence": {
+    "assignment": "강의평 36개 중 과제: 없음 61% · 보통 39% · 많음 0%",
+    "team_project": "강의평 36개 중 팀플: 보통 72% · 없음 22% · 많음 6%",
+    "exam": "시험 두 번 (중간 기타)"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 36개] 별점 4.86/5 / 과제 없음 61% · 보통 39% · 많음 0% / 팀플 보통 72% · 없음 22% · 많음 6% / 학점 너그러움 75% · 보통 25% · 깐깐함 0% / 시험 두 번"
+   ],
+   "review_count": 36,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.86,
+    "rating_distribution": {
+     "5": 89,
+     "4": 8,
+     "3": 3,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 61,
+     "mid": 39,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 22,
+     "mid": 72,
+     "high": 6,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 75,
+     "mid": 25,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": null,
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP638C2B-김성언",
+   "course_id": "TMP638C2B",
+   "course_name": "헬스앤휘트니스",
+   "professor": "김성언",
+   "levels": {},
+   "summary": [
+    "별점 5.0/5 (강의평 1개)"
+   ],
+   "evidence": {},
+   "reviews": [
+    "[에브리타임 강의평 통계, 1개] 별점 5.0/5"
+   ],
+   "review_count": 1,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 5.0,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": null
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": null
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": null
+    },
+    "attendance": null,
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP638C2B-양서은",
+   "course_id": "TMP638C2B",
+   "course_name": "헬스앤휘트니스",
+   "professor": "양서은",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2
+   },
+   "summary": [
+    "별점 4.33/5 (강의평 3개)",
+    "과제 없음, 팀플 보통",
+    "학점 너그러움"
+   ],
+   "evidence": {
+    "assignment": "강의평 3개 중 과제: 대부분 없음",
+    "team_project": "강의평 3개 중 팀플: 대부분 보통"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 3개] 별점 4.33/5 / 과제 대부분 없음 / 팀플 대부분 보통 / 학점 대부분 너그러움"
+   ],
+   "review_count": 3,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.33,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "generous"
+    },
+    "attendance": null,
+    "exam_count": null,
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP303774-전유나",
+   "course_id": "TMP303774",
+   "course_name": "운동과다이어트",
+   "professor": "전유나",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.42/5 (강의평 84개)",
+    "과제 없음, 팀플 보통",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 84개 중 과제: 없음 58% · 보통 40% · 많음 1%",
+    "team_project": "강의평 84개 중 팀플: 보통 48% · 없음 43% · 많음 10%",
+    "exam": "시험 두 번 (중간 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 84개] 별점 4.42/5 / 과제 없음 58% · 보통 40% · 많음 1% / 팀플 보통 48% · 없음 43% · 많음 10% / 학점 보통 49% · 너그러움 48% · 깐깐함 4% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 84,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.42,
+    "rating_distribution": {
+     "5": 64,
+     "4": 21,
+     "3": 10,
+     "2": 1,
+     "1": 4
+    },
+    "assignment": {
+     "none": 58,
+     "mid": 40,
+     "high": 1,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 43,
+     "mid": 48,
+     "high": 10,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 48,
+     "mid": 49,
+     "strict": 4,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP303774-양서은",
+   "course_id": "TMP303774",
+   "course_name": "운동과다이어트",
+   "professor": "양서은",
+   "levels": {
+    "assignment": 1,
+    "team_project": 2,
+    "exam": 1
+   },
+   "summary": [
+    "별점 3.29/5 (강의평 7개)",
+    "과제 없음, 팀플 보통",
+    "학점 보통, 시험 한 번"
+   ],
+   "evidence": {
+    "assignment": "강의평 7개 중 과제: 대부분 없음",
+    "team_project": "강의평 7개 중 팀플: 대부분 보통",
+    "exam": "시험 한 번"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 7개] 별점 3.29/5 / 과제 대부분 없음 / 팀플 대부분 보통 / 학점 대부분 보통 / 시험 한 번"
+   ],
+   "review_count": 7,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.29,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "mid"
+    },
+    "attendance": null,
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP303774-박희영",
+   "course_id": "TMP303774",
+   "course_name": "운동과다이어트",
+   "professor": "박희영",
+   "levels": {
+    "assignment": 2,
+    "team_project": 2,
+    "exam": 2,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.89/5 (강의평 18개)",
+    "과제 보통, 팀플 보통",
+    "학점 보통, 시험 두 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 18개 중 과제: 보통 72% · 없음 28% · 많음 0%",
+    "team_project": "강의평 18개 중 팀플: 보통 50% · 많음 44% · 없음 6%",
+    "exam": "시험 두 번 (중간 객관식·주관식)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 18개] 별점 4.89/5 / 과제 보통 72% · 없음 28% · 많음 0% / 팀플 보통 50% · 많음 44% · 없음 6% / 학점 보통 50% · 너그러움 44% · 깐깐함 6% / 시험 두 번 / 출결 직접호명"
+   ],
+   "review_count": 18,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.89,
+    "rating_distribution": {
+     "5": 94,
+     "4": 0,
+     "3": 6,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 28,
+     "mid": 72,
+     "high": 0,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 6,
+     "mid": 50,
+     "high": 44,
+     "top": "mid"
+    },
+    "grading": {
+     "generous": 44,
+     "mid": 50,
+     "strict": 6,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "두 번",
+    "exam_type": {
+     "midterm": [
+      "객관식",
+      "주관식"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMPE71DDD-문선아",
+   "course_id": "TMPE71DDD",
+   "course_name": "영화음악의이해",
+   "professor": "문선아",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.74/5 (강의평 295개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 없음, 출결 복합적"
+   ],
+   "evidence": {
+    "assignment": "강의평 295개 중 과제: 보통 56% · 많음 37% · 없음 6%",
+    "team_project": "강의평 295개 중 팀플: 없음 97% · 보통 3% · 많음 0%",
+    "exam": "시험 없음 (중간 기타)",
+    "attendance": "출결 방식: 복합적"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 295개] 별점 4.74/5 / 과제 보통 56% · 많음 37% · 없음 6% / 팀플 없음 97% · 보통 3% · 많음 0% / 학점 너그러움 65% · 보통 33% · 깐깐함 1% / 시험 없음 / 출결 복합적"
+   ],
+   "review_count": 295,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.74,
+    "rating_distribution": {
+     "5": 80,
+     "4": 15,
+     "3": 4,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 6,
+     "mid": 56,
+     "high": 37,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 97,
+     "mid": 3,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 65,
+     "mid": 33,
+     "strict": 1,
+     "top": "generous"
+    },
+    "attendance": "복합적",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMPE384BF-이성원",
+   "course_id": "TMPE384BF",
+   "course_name": "감성합창",
+   "professor": "이성원",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.95/5 (강의평 306개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 없음, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 306개 중 과제: 없음 67% · 보통 32% · 많음 0%",
+    "team_project": "강의평 306개 중 팀플: 없음 93% · 보통 6% · 많음 2%",
+    "exam": "시험 없음 (중간 기타, 기말 기타)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 306개] 별점 4.95/5 / 과제 없음 67% · 보통 32% · 많음 0% / 팀플 없음 93% · 보통 6% · 많음 2% / 학점 너그러움 86% · 보통 13% · 깐깐함 0% / 시험 없음 / 출결 전자출결"
+   ],
+   "review_count": 306,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.95,
+    "rating_distribution": {
+     "5": 97,
+     "4": 3,
+     "3": 0,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 67,
+     "mid": 32,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 93,
+     "mid": 6,
+     "high": 2,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 86,
+     "mid": 13,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": "전자출결",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "기타"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP9A95AD-김명옥",
+   "course_id": "TMP9A95AD",
+   "course_name": "스토리텔링창작",
+   "professor": "김명옥",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.67/5 (강의평 21개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 한 번, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 21개 중 과제: 보통 81% · 없음 10% · 많음 10%",
+    "team_project": "강의평 21개 중 팀플: 없음 86% · 보통 14% · 많음 0%",
+    "exam": "시험 한 번 (중간 T/F형·객관식·주관식·약술형)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 21개] 별점 4.67/5 / 과제 보통 81% · 없음 10% · 많음 10% / 팀플 없음 86% · 보통 14% · 많음 0% / 학점 너그러움 57% · 보통 43% · 깐깐함 0% / 시험 한 번 / 출결 직접호명"
+   ],
+   "review_count": 21,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.67,
+    "rating_distribution": {
+     "5": 71,
+     "4": 24,
+     "3": 5,
+     "2": 0,
+     "1": 0
+    },
+    "assignment": {
+     "none": 10,
+     "mid": 81,
+     "high": 10,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 86,
+     "mid": 14,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 57,
+     "mid": 43,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "한 번",
+    "exam_type": {
+     "midterm": [
+      "T/F형",
+      "객관식",
+      "주관식",
+      "약술형"
+     ],
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMPD11889-김성현",
+   "course_id": "TMPD11889",
+   "course_name": "취미로배우는모형제작",
+   "professor": "김성현",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.78/5 (강의평 104개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 없음, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 104개 중 과제: 없음 62% · 보통 34% · 많음 5%",
+    "team_project": "강의평 104개 중 팀플: 없음 97% · 보통 3% · 많음 0%",
+    "exam": "시험 없음 (중간 기타, 기말 기타)",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 104개] 별점 4.78/5 / 과제 없음 62% · 보통 34% · 많음 5% / 팀플 없음 97% · 보통 3% · 많음 0% / 학점 너그러움 84% · 보통 16% · 깐깐함 0% / 시험 없음 / 출결 전자출결"
+   ],
+   "review_count": 104,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.78,
+    "rating_distribution": {
+     "5": 87,
+     "4": 7,
+     "3": 6,
+     "2": 0,
+     "1": 1
+    },
+    "assignment": {
+     "none": 62,
+     "mid": 34,
+     "high": 5,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 97,
+     "mid": 3,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 84,
+     "mid": 16,
+     "strict": 0,
+     "top": "generous"
+    },
+    "attendance": "전자출결",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": [
+      "기타"
+     ],
+     "final": [
+      "기타"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP9165E4-김다희",
+   "course_id": "TMP9165E4",
+   "course_name": "일상스케치를활용한상상구현",
+   "professor": "김다희",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 3.64/5 (강의평 11개)",
+    "과제 보통, 팀플 없음",
+    "학점 너그러움, 시험 없음, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 11개 중 과제: 보통 45% · 없음 36% · 많음 18%",
+    "team_project": "강의평 11개 중 팀플: 없음 91% · 보통 9% · 많음 0%",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 11개] 별점 3.64/5 / 과제 보통 45% · 없음 36% · 많음 18% / 팀플 없음 91% · 보통 9% · 많음 0% / 학점 너그러움 36% · 보통 36% · 깐깐함 27% / 시험 없음 / 출결 직접호명"
+   ],
+   "review_count": 11,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 3.64,
+    "rating_distribution": {
+     "5": 55,
+     "4": 9,
+     "3": 9,
+     "2": 0,
+     "1": 27
+    },
+    "assignment": {
+     "none": 36,
+     "mid": 45,
+     "high": 18,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 91,
+     "mid": 9,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 36,
+     "mid": 36,
+     "strict": 27,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP2D169E-오재규",
+   "course_id": "TMP2D169E",
+   "course_name": "기초크로키실기",
+   "professor": "오재규",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 2
+   },
+   "summary": [
+    "별점 4.05/5 (강의평 37개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 없음, 출결 전자출결"
+   ],
+   "evidence": {
+    "assignment": "강의평 37개 중 과제: 없음 65% · 보통 35% · 많음 0%",
+    "team_project": "강의평 37개 중 팀플: 없음 100% · 보통 0% · 많음 0%",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 전자출결"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 37개] 별점 4.05/5 / 과제 없음 65% · 보통 35% · 많음 0% / 팀플 없음 100% · 보통 0% · 많음 0% / 학점 보통 57% · 너그러움 30% · 깐깐함 14% / 시험 없음 / 출결 전자출결"
+   ],
+   "review_count": 37,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.05,
+    "rating_distribution": {
+     "5": 46,
+     "4": 30,
+     "3": 11,
+     "2": 11,
+     "1": 3
+    },
+    "assignment": {
+     "none": 65,
+     "mid": 35,
+     "high": 0,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 100,
+     "mid": 0,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 30,
+     "mid": 57,
+     "strict": 14,
+     "top": "mid"
+    },
+    "attendance": "전자출결",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP2D169E-성영미",
+   "course_id": "TMP2D169E",
+   "course_name": "기초크로키실기",
+   "professor": "성영미",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.87/5 (강의평 130개)",
+    "과제 없음, 팀플 없음",
+    "학점 너그러움, 시험 없음, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 130개 중 과제: 없음 55% · 보통 42% · 많음 2%",
+    "team_project": "강의평 130개 중 팀플: 없음 75% · 보통 18% · 많음 7%",
+    "exam": "시험 없음 (기말 기타)",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 130개] 별점 4.87/5 / 과제 없음 55% · 보통 42% · 많음 2% / 팀플 없음 75% · 보통 18% · 많음 7% / 학점 너그러움 67% · 보통 30% · 깐깐함 3% / 시험 없음 / 출결 직접호명"
+   ],
+   "review_count": 130,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.87,
+    "rating_distribution": {
+     "5": 93,
+     "4": 4,
+     "3": 2,
+     "2": 0,
+     "1": 2
+    },
+    "assignment": {
+     "none": 55,
+     "mid": 42,
+     "high": 2,
+     "top": "none"
+    },
+    "team_project": {
+     "none": 75,
+     "mid": 18,
+     "high": 7,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 67,
+     "mid": 30,
+     "strict": 3,
+     "top": "generous"
+    },
+    "attendance": "직접호명",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": [
+      "기타"
+     ],
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP07BF59-김영훈",
+   "course_id": "TMP07BF59",
+   "course_name": "미술실기의기초",
+   "professor": "김영훈",
+   "levels": {
+    "assignment": 2,
+    "team_project": 1,
+    "exam": 1,
+    "attendance": 3
+   },
+   "summary": [
+    "별점 4.46/5 (강의평 26개)",
+    "과제 보통, 팀플 없음",
+    "학점 보통, 시험 없음, 출결 직접호명"
+   ],
+   "evidence": {
+    "assignment": "강의평 26개 중 과제: 보통 73% · 많음 27% · 없음 0%",
+    "team_project": "강의평 26개 중 팀플: 없음 88% · 보통 12% · 많음 0%",
+    "exam": "시험 없음",
+    "attendance": "출결 방식: 직접호명"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 26개] 별점 4.46/5 / 과제 보통 73% · 많음 27% · 없음 0% / 팀플 없음 88% · 보통 12% · 많음 0% / 학점 보통 50% · 너그러움 42% · 깐깐함 8% / 시험 없음 / 출결 직접호명"
+   ],
+   "review_count": 26,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.46,
+    "rating_distribution": {
+     "5": 65,
+     "4": 19,
+     "3": 12,
+     "2": 4,
+     "1": 0
+    },
+    "assignment": {
+     "none": 0,
+     "mid": 73,
+     "high": 27,
+     "top": "mid"
+    },
+    "team_project": {
+     "none": 88,
+     "mid": 12,
+     "high": 0,
+     "top": "none"
+    },
+    "grading": {
+     "generous": 42,
+     "mid": 50,
+     "strict": 8,
+     "top": "mid"
+    },
+    "attendance": "직접호명",
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
+   "lecture_id": "TMP07BF59-민동기",
+   "course_id": "TMP07BF59",
+   "course_name": "미술실기의기초",
+   "professor": "민동기",
+   "levels": {
+    "assignment": 1,
+    "team_project": 1,
+    "exam": 1
+   },
+   "summary": [
+    "별점 4.22/5 (강의평 9개)",
+    "과제 없음, 팀플 없음",
+    "학점 보통, 시험 없음"
+   ],
+   "evidence": {
+    "assignment": "강의평 9개 중 과제: 대부분 없음",
+    "team_project": "강의평 9개 중 팀플: 대부분 없음",
+    "exam": "시험 없음"
+   },
+   "reviews": [
+    "[에브리타임 강의평 통계, 9개] 별점 4.22/5 / 과제 대부분 없음 / 팀플 대부분 없음 / 학점 대부분 보통 / 시험 없음"
+   ],
+   "review_count": 9,
+   "syllabus_image": null,
+   "source": "everytime_stats",
+   "everytime": {
+    "campus": "GLOCAL",
+    "rating": 4.22,
+    "rating_distribution": null,
+    "assignment": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "team_project": {
+     "none": null,
+     "mid": null,
+     "high": null,
+     "top": "none"
+    },
+    "grading": {
+     "generous": null,
+     "mid": null,
+     "strict": null,
+     "top": "mid"
+    },
+    "attendance": null,
+    "exam_count": "없음",
+    "exam_type": {
+     "midterm": null,
+     "final": null,
+     "other": null
+    }
+   }
+  },
+  {
    "lecture_id": "BKSA51432-심성보",
    "course_id": "BKSA51432",
    "course_name": "러시아어기초",
