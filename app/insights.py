@@ -96,7 +96,7 @@ def extract_insights_from_images(images: Sequence[Tuple[bytes, str]], course_nam
 
 # ---- 자유 항목 판정 ----
 JUDGE_CHUNK = 10  # 한 번에 판정할 강의 수. 응답이 짧을수록 빠르다
-JUDGE_WORKERS = 6
+JUDGE_WORKERS = 10  # 수강계획서만 있는 강의까지 판정하니 묶음이 많아 동시에 더 돌린다
 
 
 class LectureJudgment(BaseModel):
@@ -108,18 +108,45 @@ class JudgmentResult(BaseModel):
     lectures: List[LectureJudgment]
 
 
+EXAM_KO = {"midterm": "중간", "final": "기말", "other": "기타"}
+
+
+def _is_elearning(lecture_id: str) -> bool:
+    course_id, _, professor = lecture_id.partition("-")
+    return any(s.get("elearning") for s in catalog.sections_by_course.get(course_id, []) if s["professor"] == professor)
+
+
+def lecture_profile(lecture_id: str) -> str:
+    """자유 항목 판정에 넘기는 강의 정보: 강의평(통계·원문), 시험 형식, 수강계획서 수업 방식·평가 비율, 이러닝 여부."""
+    from app.routers.lectures import syllabus_summary  # 순환 import를 피해 늦게 불러온다
+
+    insight = catalog.insights.get(lecture_id) or {}
+    parts = [r[:300] for r in (insight.get("reviews") or [])[:8]]
+    exam = (insight.get("everytime") or {}).get("exam_type") or {}
+    exam_text = ", ".join(f"{EXAM_KO.get(k, k)} {'·'.join(v)}" for k, v in exam.items() if v)
+    if exam_text:
+        parts.append(f"시험 형식: {exam_text}")
+    syllabus = syllabus_summary(catalog.syllabus_by_lecture.get(lecture_id)) or {}
+    if syllabus.get("teaching_text"):
+        parts.append(f"수강계획서 수업 방식: {syllabus['teaching_text']}")
+    if syllabus.get("evaluation_text"):
+        parts.append(f"수강계획서 평가 비율: {syllabus['evaluation_text']}")
+    if _is_elearning(lecture_id):
+        parts.append("이러닝(온라인) 강의, 정해진 수업 시간 없음")
+    return " / ".join(parts)
+
+
 def _judge_chunk(items: List[ChecklistItem], lecture_ids: List[str]) -> Dict[tuple, object]:
     item_lines = "\n".join(
         f'{n}. {i.label} - ' + ("레벨형: low/mid/high/unknown (그 성향의 정도)" if i.type == "level"
                                else "적용형: match(맞음)/opposite(반대)/unknown")
         for n, i in enumerate(items, 1)
     )
-    lecture_lines = "\n".join(
-        f"[{lid}] " + " / ".join(r[:200] for r in catalog.insights[lid]["reviews"][:8]) for lid in lecture_ids
-    )
-    prompt = (f"판정할 항목:\n{item_lines}\n\n강의별 수강평:\n{lecture_lines}\n\n"
+    lecture_lines = "\n".join(f"[{lid}] {lecture_profile(lid)}" for lid in lecture_ids)
+    prompt = (f"판정할 항목:\n{item_lines}\n\n강의별 정보(에브리타임 강의평, 시험 형식, 수강계획서, 이러닝 여부):\n{lecture_lines}\n\n"
               f"강의마다 values에 위 항목 {len(items)}개의 판정을 순서대로 넣는다. "
-              "그 항목을 직접 말한 문장만 근거로 삼는다(예: 시험 난이도는 시험 횟수로 추측하지 않는다). "
+              "그 항목을 직접 말하는 정보만 근거로 삼는다(예: 시험 난이도는 시험 횟수로 추측하지 않는다). "
+              "수업 방식·평가 비율은 수강계획서 숫자로 판단해도 된다(예: 실습 비율이 높으면 실습 많음). "
               "근거가 없으면 unknown.")
     # 생성 요청 안에서 불린다(FE는 60초 기다린다). 단순 분류라 추론 없이 빠르게.
     result = ask_json(JudgmentResult, prompt, system="너는 수강평을 읽고 강의가 조건에 맞는지 판정하는 도우미다.",
@@ -143,14 +170,18 @@ def judge_custom_items(items: List[ChecklistItem], lecture_ids: List[str]) -> Li
     """자유 항목을 강의별로 판정해 catalog.judgments에 캐시한다.
     강의를 나눠 동시에 판정하고, 모든 묶음이 실패한 경우에만 그 항목 key를 실패로 돌려준다."""
     todo_items, todo_lectures = [], set()
+    profiles: Dict[str, str] = {}
     for item in (i for i in items if is_custom(i.key)):
         missing = [lid for lid in lecture_ids if (lid, item.key) not in catalog.judgments]
-        with_reviews = [lid for lid in missing if catalog.insights.get(lid, {}).get("reviews")]
-        for lid in set(missing) - set(with_reviews):
-            catalog.judgments[(lid, item.key)] = None  # 수강평이 없으면 정보 없음
-        if with_reviews:
+        for lid in missing:
+            if lid not in profiles:
+                profiles[lid] = lecture_profile(lid)
+        with_data = [lid for lid in missing if profiles[lid]]
+        for lid in set(missing) - set(with_data):
+            catalog.judgments[(lid, item.key)] = None  # 판단할 정보가 하나도 없으면 정보 없음
+        if with_data:
             todo_items.append(item)
-            todo_lectures.update(with_reviews)
+            todo_lectures.update(with_data)
     if not todo_items:
         return []
 
