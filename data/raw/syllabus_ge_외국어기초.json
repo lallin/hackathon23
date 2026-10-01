@@ -1,0 +1,887 @@
+[
+  {
+    "course_name": "러시아어기초",
+    "course_code": "7073",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1500-1700(글로컬이음관 606)",
+    "professor": "심성보",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "러시아어기초",
+    "course_code": "7074",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1300-1500(글로컬이음관 405)",
+    "professor": "전병국",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 35,
+      "assignment": 10,
+      "attitude_score": 5
+    }
+  },
+  {
+    "course_name": "러시아어기초",
+    "course_code": "7075",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1500-1700(글로컬이음관 502)",
+    "professor": "전병국",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 35,
+      "assignment": 10,
+      "attitude_score": 5
+    }
+  },
+  {
+    "course_name": "러시아어기초",
+    "course_code": "7076",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1000-1200(글로컬이음관 406)",
+    "professor": "전병국",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 35,
+      "assignment": 10,
+      "attitude_score": 5
+    }
+  },
+  {
+    "course_name": "러시아어기초",
+    "course_code": "7077",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1300-1500(글로컬이음관 407)",
+    "professor": "전병국",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 35,
+      "assignment": 10,
+      "attitude_score": 5
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7088",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1300-1500(글로컬이음관 502)",
+    "professor": "양윤정",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7089",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1300-1500(글로컬이음관 603)",
+    "professor": "양윤정",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7090",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1500-1700(글로컬이음관 603)",
+    "professor": "양윤정",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7091",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(글로컬이음관 603)",
+    "professor": "박선화",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7092",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(글로컬이음관 506)",
+    "professor": "박선화",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7093",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1400-1600(글로컬이음관 506)",
+    "professor": "박선화",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7094",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1600-1800(글로컬이음관 603)",
+    "professor": "윤소영",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10,
+      "formative_assessment": 20,
+      "quiz": 5
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7095",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화0900-1100(글로컬이음관 606)",
+    "professor": "윤소영",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10,
+      "formative_assessment": 20,
+      "quiz": 5
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7098",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1300-1500(글로컬이음관 606)",
+    "professor": "강석한",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7099",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1500-1700(글로컬이음관 606)",
+    "professor": "강석한",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7100",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1300-1500(글로컬이음관 606)",
+    "professor": "강석한",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7101",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1500-1700(글로컬이음관 606)",
+    "professor": "강석한",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7102",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목0900-1100(글로컬이음관 603)",
+    "professor": "김윤진",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "formative_assessment": 20,
+      "quiz": 15
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7103",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1100-1300(글로컬이음관 603)",
+    "professor": "김윤진",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "formative_assessment": 20,
+      "quiz": 15
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7104",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1300-1500(글로컬이음관 603)",
+    "professor": "김윤진",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "formative_assessment": 20,
+      "quiz": 15
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7105",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1000-1200(글로컬이음관 603)",
+    "professor": "박우식",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7106",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1200-1400(글로컬이음관 603)",
+    "professor": "박우식",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7107",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1400-1600(글로컬이음관 603)",
+    "professor": "박우식",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7108",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1000-1200(글로컬이음관 603)",
+    "professor": "박정희",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "formative_assessment": 20,
+      "quiz": 15
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7109",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1200-1400(글로컬이음관 603)",
+    "professor": "박정희",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "formative_assessment": 20,
+      "quiz": 15
+    }
+  },
+  {
+    "course_name": "KUGEP1",
+    "course_code": "7110",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1400-1600(글로컬이음관 603)",
+    "professor": "박정희",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "formative_assessment": 20,
+      "quiz": 15
+    }
+  },
+  {
+    "course_name": "KUGEP2",
+    "course_code": "7111",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1400-1600(글로컬이음관 506)",
+    "professor": "박선화",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "formative_assessment": 20
+    }
+  },
+  {
+    "course_name": "KUGEP2",
+    "course_code": "7112",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수0900-1100(글로컬이음관 606)",
+    "professor": "윤소영",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10,
+      "vocabulary_test": 5,
+      "mock_toeic": 20
+    }
+  },
+  {
+    "course_name": "KUGEP2",
+    "course_code": "7113",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1100-1300(글로컬이음관 606)",
+    "professor": "윤소영",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10,
+      "vocabulary_test": 5,
+      "mock_toeic": 20
+    }
+  },
+  {
+    "course_name": "KUGEP2",
+    "course_code": "7114",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1500-1700(글로컬이음관 405)",
+    "professor": "강석한",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 15,
+      "mock_toeic": 20
+    }
+  },
+  {
+    "course_name": "KUGEP2",
+    "course_code": "7116",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1100-1300(글로컬이음관 602)",
+    "professor": "이철희",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10,
+      "vocabulary_test": 5,
+      "mock_toeic": 20
+    }
+  },
+  {
+    "course_name": "KUGEP2",
+    "course_code": "7117",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1300-1500(글로컬이음관 602)",
+    "professor": "이철희",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 30
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 25,
+      "final": 25,
+      "assignment": 10,
+      "vocabulary_test": 5,
+      "mock_toeic": 20
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7149",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1400-1600(글로컬이음관 408)",
+    "professor": "현성준",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 20,
+      "final": 40,
+      "assignment": 15,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7150",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1000-1200(글로컬이음관 405)",
+    "professor": "현성준",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 20,
+      "final": 40,
+      "assignment": 15,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7151",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1400-1600(글로컬이음관 405)",
+    "professor": "현성준",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 20,
+      "final": 40,
+      "assignment": 15,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7152",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "목1000-1200(글로컬이음관 405)",
+    "professor": "현성준",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 20,
+      "final": 40,
+      "assignment": 15,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7153",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1400-1600(글로컬이음관 407)",
+    "professor": "이앤슈아이",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 25,
+      "final": 40,
+      "assignment": 10,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7154",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "월1600-1800(글로컬이음관 407)",
+    "professor": "이앤슈아이",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 25,
+      "final": 40,
+      "assignment": 10,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7155",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1400-1600(글로컬이음관 405)",
+    "professor": "이앤슈아이",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 25,
+      "final": 40,
+      "assignment": 10,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7156",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1600-1800(글로컬이음관 601)",
+    "professor": "이앤슈아이",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 25,
+      "final": 40,
+      "assignment": 10,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7157",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1400-1600(글로컬이음관 506)",
+    "professor": "이앤슈아이",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 25,
+      "final": 40,
+      "assignment": 10,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7158",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1600-1800(글로컬이음관 506)",
+    "professor": "이앤슈아이",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 25,
+      "final": 40,
+      "assignment": 10,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "중국어기초",
+    "course_code": "7159",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "수1500-1700(글로컬이음관 502)",
+    "professor": "장미경",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 15,
+      "class_participation": 15
+    }
+  },
+  {
+    "course_name": "일본어기초",
+    "course_code": "7186",
+    "category": "2시간",
+    "credits": 2,
+    "target": "9학년",
+    "schedule": "화1200-1400(글로컬이음관 405)",
+    "professor": "김범수",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 35,
+      "final": 35,
+      "practice_exercise": 10
+    }
+  }
+]

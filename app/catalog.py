@@ -69,6 +69,16 @@ class Catalog:
         self.requirements: Dict[tuple, dict] = {
             (r["admission_year"], r["major"]): r for r in req["requirements"]
         }
+        # (입학년도, 학과) -> {학수번호: 이수구분}. 같은 과목도 입학년도 교육과정마다 전필/전선이 다르다.
+        self.categories_by_req: Dict[tuple, Dict[str, str]] = {
+            key: {c["course_id"]: c["category"] for c in r.get("major_courses", []) + r.get("required_courses", [])}
+            for key, r in self.requirements.items()
+        }
+        # 이번 학기에 개설되지 않은 과목도 이름을 보여주기 위한 교육과정의 과목명
+        self.curriculum_names: Dict[str, str] = {
+            c["course_id"]: c["name"]
+            for r in self.requirements.values() for c in r.get("major_courses", []) + r.get("required_courses", [])
+        }
         self.courses: Dict[str, dict] = {c["course_id"]: c for c in cat["courses"]}
         self.sections: Dict[str, dict] = {s["section_id"]: s for s in cat["sections"]}
         self.sections_by_course: Dict[str, List[dict]] = defaultdict(list)
@@ -89,9 +99,17 @@ class Catalog:
     def is_supported(self, admission_year: int, major_id: str) -> bool:
         return (admission_year, major_id) in self.requirements
 
+    def category(self, course_id: str, admission_year: Optional[int] = None, major: Optional[str] = None) -> Optional[str]:
+        """그 입학년도·학과 교육과정의 이수구분. 교육과정에 없는 과목이면 카탈로그 값을 쓴다."""
+        by_req = self.categories_by_req.get((admission_year, major), {})
+        if course_id in by_req:
+            return by_req[course_id]
+        course = self.courses.get(course_id)
+        return course["category"] if course else None
+
     def course_name(self, course_id: str) -> str:
         course = self.courses.get(course_id)
-        return course["name"] if course else course_id
+        return course["name"] if course else self.curriculum_names.get(course_id, course_id)
 
     def find_course_by_name(self, name: str) -> Optional[dict]:
         key = normalize_name(name)

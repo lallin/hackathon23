@@ -1,0 +1,353 @@
+[
+  {
+    "course_name": "문학의고전",
+    "course_code": "7160",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1600-1800(글로컬이음관 506)",
+    "professor": "조미숙",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "문학의고전",
+    "course_code": "7161",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(글로컬이음관 502)",
+    "professor": "안미영",
+    "teaching_method": {
+      "lecture": 20,
+      "discussion": 40,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 20,
+      "final": 20,
+      "assignment": 20,
+      "class_participation": 10,
+      "book_review": 10
+    }
+  },
+  {
+    "course_name": "문학의고전",
+    "course_code": "7162",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1000-1200(글로컬이음관 401)",
+    "professor": "이효숙",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "역사의고전",
+    "course_code": "7163",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1500-1700(글로컬이음관 401)",
+    "professor": "홍성화",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 55
+    }
+  },
+  {
+    "course_name": "역사의고전",
+    "course_code": "7164",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1500-1700(글로컬이음관 401)",
+    "professor": "홍성화",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 25,
+      "final": 55
+    }
+  },
+  {
+    "course_name": "역사의고전",
+    "course_code": "7165",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1100-1300(글로컬이음관 401)",
+    "professor": "이도남",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "역사의고전",
+    "course_code": "7166",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(글로컬이음관 502)",
+    "professor": "이도남",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "역사의고전",
+    "course_code": "7167",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1600-1800(글로컬이음관 502)",
+    "professor": "이도남",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "역사의고전",
+    "course_code": "7168",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화0900-1100(글로컬이음관 401)",
+    "professor": "권만용",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "역사의고전",
+    "course_code": "7169",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1000-1200(글로컬이음관 502)",
+    "professor": "이장웅",
+    "teaching_method": {
+      "lecture": 70,
+      "discussion": 20,
+      "field_learning": 10
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 20,
+      "final": 50,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "역사의고전",
+    "course_code": "7170",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1200-1400(글로컬이음관 401)",
+    "professor": "송영대",
+    "teaching_method": {
+      "lecture": 60,
+      "discussion": 20,
+      "field_learning": 20
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 20,
+      "final": 50,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "철학의고전",
+    "course_code": "7171",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1000-1200(글로컬이음관 506)",
+    "professor": "이동욱",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "철학의고전",
+    "course_code": "7172",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1600-1800(글로컬이음관 506)",
+    "professor": "이동욱",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "철학의고전",
+    "course_code": "7174",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1200-1400(글로컬이음관 506)",
+    "professor": "채희도",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "철학의고전",
+    "course_code": "7175",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1600-1800(글로컬이음관 506)",
+    "professor": "채희도",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "철학의고전",
+    "course_code": "7176",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1000-1200(글로컬이음관 401)",
+    "professor": "임승필",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "철학의고전",
+    "course_code": "7177",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1400-1600(글로컬이음관 401)",
+    "professor": "임승필",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  },
+  {
+    "course_name": "철학의고전",
+    "course_code": "7178",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1600-1800(글로컬이음관 401)",
+    "professor": "임승필",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 40,
+      "assignment": 10
+    }
+  }
+]

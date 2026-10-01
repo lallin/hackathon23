@@ -46,12 +46,13 @@ def section_mask(section: dict) -> int:
     return mask
 
 
-def completed_credits_of(course_ids: List[str]) -> Dict[str, float]:
+def completed_credits_of(course_ids: List[str], admission_year: int, major: str) -> Dict[str, float]:
     credits = {c: 0.0 for c in CATEGORIES}
     for cid in course_ids:
         course = catalog.courses.get(cid)
-        if course and course["category"] in credits:
-            credits[course["category"]] += course["credits"]
+        category = catalog.category(cid, admission_year, major)
+        if course and category in credits:
+            credits[category] += course["credits"]
     return credits
 
 
@@ -69,7 +70,7 @@ class Context:
         self.total_required = total_credits(requirement)
         self.done = set(req.completed_course_ids)
         self.required_remaining = [cid for cid in requirement["required_course_ids"] if cid not in self.done]
-        done_credits = req.completed_credits or completed_credits_of(req.completed_course_ids)
+        done_credits = req.completed_credits or completed_credits_of(req.completed_course_ids, req.admission_year, req.major)
         self.done_credits = {c: float(done_credits.get(c, 0)) for c in CATEGORIES}
         self.remaining = {c: max(0.0, self.required_credits.get(c, 0) - self.done_credits[c]) for c in CATEGORIES}
         self.remaining_total = max(0.0, self.total_required - sum(self.done_credits.values()))
@@ -102,12 +103,16 @@ class Context:
                 self.options.append((course, opts))
         self.options.sort(key=lambda co: (-co[1][0][0], co[0]["course_id"]))
 
+    def cat(self, course_id: str) -> str:
+        """이 학생의 입학년도 교육과정 기준 이수구분."""
+        return catalog.category(course_id, self.req.admission_year, self.req.major)
+
     def section_score(self, course: dict, section: dict) -> float:
         w_req, w_def = self.weights
         score = 0.0
         if course["course_id"] in self.required_remaining:
             score += w_req
-        category = course["category"]
+        category = self.cat(course["course_id"])
         required = self.required_credits.get(category, 0)
         if self.remaining.get(category, 0) > 0 and required:
             score += w_def * min(1.0, self.remaining[category] / required) * course["credits"] / 3 + 2
@@ -248,7 +253,7 @@ def make_reason(ctx: Context, sections: List[dict], satisfied: int, enabled: int
     placed = [s for s in sections if s["course_id"] in ctx.required_remaining]
     by_cat: Dict[str, int] = {}
     for s in placed:
-        cat = catalog.courses[s["course_id"]]["category"]
+        cat = ctx.cat(s["course_id"])
         by_cat[cat] = by_cat.get(cat, 0) + 1
     used = days_used(sections)
     if ctx.free_days:
@@ -276,13 +281,13 @@ def build_combination(ctx: Context, rank: int, score: float, sections: List[dict
 
     this_semester = {c: 0.0 for c in CATEGORIES}
     out_sections = []
-    for s in sorted(sections, key=lambda s: (CATEGORIES.index(catalog.courses[s["course_id"]]["category"]), s["course_id"])):
+    for s in sorted(sections, key=lambda s: (CATEGORIES.index(ctx.cat(s["course_id"])), s["course_id"])):
         course = catalog.courses[s["course_id"]]
-        this_semester[course["category"]] += course["credits"]
+        this_semester[ctx.cat(course["course_id"])] += course["credits"]
         lid = lecture_id_of(course["course_id"], s["professor"])
         out_sections.append({
             "section_id": s["section_id"], "lecture_id": lid, "course_id": course["course_id"],
-            "course": course["name"], "professor": s["professor"], "category": course["category"],
+            "course": course["name"], "professor": s["professor"], "category": ctx.cat(course["course_id"]),
             "is_required": course["course_id"] in ctx.required_remaining, "credits": course["credits"],
             "pinned": s["section_id"] in pinned_ids, "times": s["times"], "has_insight": lid in catalog.insights,
         })
@@ -304,7 +309,7 @@ def build_combination(ctx: Context, rank: int, score: float, sections: List[dict
                                    "required": ctx.total_required},
         "required_courses": [
             {"course_id": cid, "name": catalog.course_name(cid),
-             "category": catalog.courses[cid]["category"] if cid in catalog.courses else None,
+             "category": ctx.cat(cid),
              "placed": cid in placed, "offered": bool(catalog.sections_by_course.get(cid))}
             for cid in ctx.required_remaining
         ],
