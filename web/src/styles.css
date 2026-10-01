@@ -324,6 +324,12 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
   justify-content: center;
 }
 
+/* 강의 시간이 없는 분반(e-러닝): 시간표 아래 이러닝 자리 */
+.ttg-online { display: grid; grid-template-columns: 38px minmax(0, 1fr); border-top: 1px solid var(--line); background: var(--panel); }
+.ttg-online-h { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--muted); border-right: 1px solid var(--line); writing-mode: vertical-rl; letter-spacing: 1px; padding: 4px 0; }
+.ttg-online-list { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; }
+.blk.blk-online { position: relative; left: auto; right: auto; min-width: 120px; max-width: 220px; padding: 5px 8px; }
+
 .blk-bar {
   display: flex;
   flex-wrap: wrap;

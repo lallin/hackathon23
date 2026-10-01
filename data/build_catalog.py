@@ -9,7 +9,9 @@ evaluation_method, ...}] 목록이거나 {"courses": [...]}다. 파일 이름의
 CSV는 학교 개설강좌 조회 화면의 열을 그대로 옮긴 것이다(지금은 쓰지 않음, 2025-1 표는 raw/archive/).
 강의계획서만 있고 강의평이 없는 강의는 신규 개설로 보고 new_course: true를 붙인다. 서버는 강의평이 없는 강의를
 점수에 반영하지 않고 체크리스트 평가에서 "정보 없음"으로 센다.
-- section_id = 학수번호-과목번호(분반 번호). 폐강(status=폐강)과 시간이 없는 분반(e-러닝)은 뺀다.
+- section_id = 학수번호-과목번호(분반 번호). 폐강(status=폐강)은 뺀다.
+- 강의 시간이 없는 분반(e-러닝)은 times: [], elearning: true, tags: ["이러닝"]으로 넣는다.
+  목록에서는 이수구분대로 보이고, 시간표 칸에서만 이러닝 자리에 놓인다.
 - 강의시간 "월1330-1500(자연과학관 516), 수1500-1630(...)" → times [{day, start, end}].
 - 이수구분: 전필·전선은 그대로. 교양(소양·기초·심화·인성)은 requirements.json에서 교필인 과목이면 교필, 아니면 교선.
 - dept: 전공 과목은 파일 이름의 학과(cse/biz), 교양은 gen.
@@ -116,7 +118,7 @@ def main():
     for r in sorted(req["requirements"], key=lambda r: r["admission_year"]):
         for c in r.get("major_courses", []):
             major_courses[(r["major"], c["name"])] = c
-    needs_check, excluded = [], []
+    needs_check, excluded, online = [], [], []
     for path in SYLLABUS_FILES:
         major = path.stem.split("_")[1]
         data = json.load(open(path, encoding="utf-8"))
@@ -145,12 +147,14 @@ def main():
             for note in row.get("needs_check", []):
                 needs_check.append(f"{label}: {note}")
             times = parse_times(row.get("schedule") or "")
-            if not times:
-                skipped.append(f"{label}: 시간 없음({row.get('schedule')})")
-                continue
+            # 강의 시간이 없는 분반(e-러닝 등)은 빼지 않고 이러닝 태그를 붙인다. times는 빈 목록
+            elearning = not times
+            if elearning:
+                online.append(label)
             syllabus = {k: row[k] for k in ("teaching_method", "evaluation_method") if row.get(k) is not None}
             sections.append({"section_id": f"{cid}-{row['course_code']}", "course_id": cid,
                              "professor": row["professor"].strip(), "times": times, "target": TARGET_ALIASES.get(row.get("target"), row.get("target")),
+                             **({"elearning": True, "tags": ["이러닝"]} if elearning else {}),
                              **({"syllabus": syllabus} if syllabus else {}), "from_syllabus": True})
 
     # 강의계획서만 있고 강의평이 없는 강의는 신규 개설로 보고 강의평 없이 진행한다(new_course 표시).
@@ -186,6 +190,8 @@ def main():
         print(f"  뺀 분반: {s}")
     for s in excluded:
         print(f"  제외 과목: {s}")
+    for s in online:
+        print(f"  이러닝(시간 없음): {s}")
     for s in needs_check:
         print(f"  원본 확인 필요: {s}")
 

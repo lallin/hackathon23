@@ -118,6 +118,8 @@ export interface SectionInfo {
   credits: number;
   pinned: boolean;
   times: TimeSlot[];
+  /** 강의 시간이 없는 분반(e-러닝). times가 비어 있고, 시간표 칸에서는 이러닝 자리에 놓는다 */
+  elearning?: boolean;
 }
 
 export interface ChecklistEval extends ChecklistItem {

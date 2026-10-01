@@ -93,8 +93,9 @@ def entry(year, major):
     if ge_year != year: inferred.append(f"{year} 교양 기준 없음: {ge_year} 교양 기준 사용")
     assert sum(ge["ge"].values()) == g_total or table_year != ge_year, (year, major, "교양 학점 불일치")
     gp = sum(c["credits"] for c in ge["required"])
-    # 학사요람의 교양 최저 학점(g_total) = 교필 + 교선. 교선 최소는 교양에서 필수 교양 학점을 뺀 값
-    credits = {"전필": jp, "전선": js, "교필": gp, "교선": g_total - gp}
+    # 팀 결정(10/2): 최소 요건은 전필·전선·교필. 교선은 최소 없음(키 없음), 들은 학점만 센다.
+    # 학사요람의 교양 최저 학점은 ge_credits(기초·심화·소양 합)에 원문 그대로 남긴다.
+    credits = {"전필": jp, "전선": js, "교필": gp}
     return {
         "admission_year": year, "major": major,
         "total_credits": grad,
@@ -107,8 +108,8 @@ def entry(year, major):
         "major_courses": [{"course_id": c, "name": n, "category": cat, "credits": int(cr), "year_semester": ys,
                            **({"remark": rm} if rm else {})} for ys, cat, c, n, cr, rm in (curriculum or [])],
         "ge_sub_requirements": copy.deepcopy(ge["rules"]),
-        "notes": [f"전필 {jp} + 전선 {js} + 교필 {gp} + 교선 {g_total - gp} 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 {grad}학점",
-                  f"교양 최저 {g_total}학점 = 교필 {gp} + 교선 {g_total - gp}",
+        "notes": [f"전필 {jp} + 전선 {js} + 교필 {gp} 최소 요건을 채우고, 나머지는 네 영역 중 아무 과목으로 채워 총 {grad}학점",
+                  f"교선은 최소 학점 없음(팀 결정). 학사요람 교양 최저 {g_total}학점은 ge_credits에 참고로 둔다",
                   f"ge_sub_requirements는 학사요람 교양 영역 기준(교양 {g_total}학점) 원문 데이터"],
         "inferred": inferred,
         "source": f"건국대 글로컬캠퍼스 학사요람: 졸업 최저 이수 학점({table_year}), 교양({ge_year})"
@@ -133,7 +134,7 @@ OTHER_MAJORS = [("ind_design", "산업디자인학과"), ("interior", "실내디
 # 서버(app) 샘플 형식에 맞춘 출력. 샘플에 없는 필드는 추가 정보(서버는 무시해도 됨)
 out = {
     "sample": False,
-    "note": "건국대 글로컬캠퍼스 학사요람 실제 값. credits는 최소 이수 학점(전필·전선·교필·교선, 교필+교선 = 학사요람 교양 최저 학점), "
+    "note": "건국대 글로컬캠퍼스 학사요람 실제 값. credits는 최소 이수 학점(전필·전선·교필, 교선은 최소 없음), "
             "total_credits는 졸업 총 학점이며 모자란 학점은 네 영역 어디로든 채울 수 있다. 이번 버전은 컴퓨터공학과만 지원한다(경영학과 등 다른 학과는 드롭다운에 '준비 중'으로 보인다).",
     "university": "건국대학교 글로컬캠퍼스",
     "admission_years": list(range(2026, 2018, -1)),

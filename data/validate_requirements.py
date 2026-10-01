@@ -4,7 +4,7 @@ from pathlib import Path
 path = sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent / "seed" / "requirements.json"
 d = json.load(open(path, encoding="utf-8"))
 errs, warns = [], []
-MIN = ["전필", "전선", "교필", "교선"]
+MIN = ["전필", "전선", "교필"]   # 교선은 최소 없음(팀 결정)
 for key in ["admission_years", "supported_years", "majors", "requirements"]:
     if key not in d: errs.append(f"최상위 키 없음: {key}")
 reqs = {(r["admission_year"], r["major"]): r for r in d.get("requirements", [])}
@@ -16,7 +16,7 @@ for y in d.get("supported_years", []):
         if not r: errs.append(f"{k}: 없음"); continue
         c = r["credits"]
         if set(c) != set(MIN) or any(not isinstance(c[x], int) for x in MIN):
-            errs.append(f"{k}: credits는 전필·전선·교필·교선 정수만 ({c})"); continue
+            errs.append(f"{k}: credits는 전필·전선·교필 정수만 ({c})"); continue
         if sum(c.values()) > r["total_credits"]: errs.append(f"{k}: 최소 학점 합 > 졸업 {r['total_credits']}")
         ids = r.get("required_course_ids")
         if not isinstance(ids, list) or not ids: errs.append(f"{k}: required_course_ids 없음"); continue
@@ -25,8 +25,6 @@ for y in d.get("supported_years", []):
         if set(ids) != set(rc): errs.append(f"{k}: required_course_ids와 required_courses 불일치")
         gp = sum(x["credits"] for x in rc.values() if x["category"] == "교필")
         if gp != c["교필"]: errs.append(f"{k}: 교필 {c['교필']} != 필수 교양 합 {gp}")
-        ge_total = sum(r.get("ge_credits", {}).values())
-        if c["교필"] + c["교선"] != ge_total: errs.append(f"{k}: 교필+교선 {c['교필'] + c['교선']} != 학사요람 교양 {ge_total}")
         if not r.get("major_required_listed"): warns.append(f"{k}: 전필 과목 목록 없음")
         else:
             jp = sum(x["credits"] for x in r["major_courses"] if x["category"] == "전필")
