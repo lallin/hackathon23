@@ -77,8 +77,12 @@ class Catalog:
         self.courses: Dict[str, dict] = {c["course_id"]: c for c in cat["courses"]}
         self.sections: Dict[str, dict] = {s["section_id"]: s for s in cat["sections"]}
         self.sections_by_course: Dict[str, List[dict]] = defaultdict(list)
+        # 강의(과목 × 교수)별 수강계획서. 같은 교수의 분반이 여럿이면 평가 방법이 있는 첫 분반 것을 쓴다.
+        self.syllabus_by_lecture: Dict[str, dict] = {}
         for s in cat["sections"]:
             self.sections_by_course[s["course_id"]].append(s)
+            if (s.get("syllabus") or {}).get("evaluation_method"):
+                self.syllabus_by_lecture.setdefault(lecture_id_of(s["course_id"], s["professor"]), s["syllabus"])
 
         # 졸업 요건 데이터에 적힌 과목 정보. 이번 학기에 열리지 않아 카탈로그에 없는 과목의 이름·이수구분에 쓴다.
         self.known_courses: Dict[str, dict] = {}

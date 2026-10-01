@@ -100,13 +100,35 @@ def merge_item(checklist: List[ChecklistItem], update: ChecklistItem) -> List[Ch
 
 
 # ---- 강의별 값 ----
+def syllabus_levels(syllabus: Optional[dict]) -> Dict[str, int]:
+    """수강계획서 평가 방법에서 사실로 읽히는 값만 뽑는다.
+    과제 비율은 강의평의 과제량과 잘 맞지 않아(0%인 강의도 70%가 '보통') 쓰지 않는다."""
+    ev = (syllabus or {}).get("evaluation_method") or {}
+    if not ev:
+        return {}
+    labels = [(o.get("label") or "", o.get("percent") or 0) for o in ev.get("others") or [] if isinstance(o, dict)]
+    exams = int(bool(ev.get("midterm"))) + int(bool(ev.get("final")))
+    levels = {"exam": 3 if any("퀴즈" in label for label, _ in labels) else 2 if exams == 2 else 1}
+    for key, word in (("team_project", "팀"), ("presentation", "발표")):
+        weights = [p for label, p in labels if word in label]
+        if weights:
+            levels[key] = 3 if max(weights) >= 20 else 2
+    return levels
+
+
+def lecture_level(lecture_id: str, key: str):
+    """기본 항목 값과 출처. 강의평 값이 먼저이고, 없으면 수강계획서에서 읽히는 값."""
+    value = (catalog.insights.get(lecture_id) or {}).get("levels", {}).get(key)
+    if value is not None:
+        return value, "review"
+    value = syllabus_levels(catalog.syllabus_by_lecture.get(lecture_id)).get(key)
+    return (value, "syllabus") if value is not None else (None, None)
+
+
 def lecture_value(lecture_id: str, item: ChecklistItem):
     """레벨형은 1~3 또는 None, 적용형은 'match' / 'opposite' / None."""
     if item.key in LECTURE_KEYS:
-        insight = catalog.insights.get(lecture_id)
-        if not insight:
-            return None
-        return insight.get("levels", {}).get(item.key)
+        return lecture_level(lecture_id, item.key)[0]
     if is_custom(item.key):
         return catalog.judgments.get((lecture_id, item.key))
     return None

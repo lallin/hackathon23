@@ -206,7 +206,11 @@ def on_demand(course_name: str, professor: Optional[str], checklist: List[Checkl
         matched = [p for p in offered if professor.replace("교수", "").strip() in p]
         professors = matched or [professor.replace("교수님", "").replace("교수", "").strip()]
     else:
-        professors = offered[:MAX_PROFESSORS]
+        # 교수가 많으면 강의평이 있는 교수부터, 그중 별점 높은 순으로 고른다
+        def has_data(p):
+            insight = catalog.insights.get(lecture_id_of(course_id, p)) or {}
+            return (0 if insight else 1, -((insight.get("everytime") or {}).get("rating") or 0))
+        professors = sorted(offered, key=has_data)[:MAX_PROFESSORS]
     if not professors:
         return {"course_name": name, "message": f"'{name}' 과목을 이번 학기 개설 강좌에서 찾지 못했어요. 교수님 성함을 같이 알려 주세요.",
                 "results": []}
@@ -226,6 +230,7 @@ def on_demand(course_name: str, professor: Optional[str], checklist: List[Checkl
             evals = [evaluate_lecture(i, lecture["lecture_id"]) for i in enabled if i.key not in failed]
             entry.update({
                 "review_count": lecture.get("review_count", 0),
+                "rating": (lecture.get("everytime") or {}).get("rating"),
                 "levels": lecture.get("levels", {}),
                 "summary": lecture.get("summary", []),
                 "match": {"satisfied": sum(1 for e in evals if e["result"] == "match"), "total": len(evals)},
@@ -233,12 +238,14 @@ def on_demand(course_name: str, professor: Optional[str], checklist: List[Checkl
                 "_opposite": sum(1 for e in evals if e["result"] == "opposite"),
             })
         else:
-            entry.update({"review_count": 0, "levels": {}, "summary": [], "match": {"satisfied": 0, "total": 0},
+            entry.update({"review_count": 0, "rating": None, "levels": {}, "summary": [],
+                          "match": {"satisfied": 0, "total": 0},
                           "checklist_eval": [], "_opposite": 0, "note": "지금은 가져올 수 없어요"})
         results.append(entry)
 
+    # 체크리스트에 맞는 수 → 반대 수 → 별점 → 강의평 수
     results.sort(key=lambda r: (r["status"] == "not_collected", -r["match"]["satisfied"], r["_opposite"],
-                                -r["review_count"]))
+                                -(r["rating"] or 0), -r["review_count"]))
     for rank, r in enumerate(results, 1):
         r["rank"] = rank
         del r["_opposite"]
@@ -248,6 +255,8 @@ def on_demand(course_name: str, professor: Optional[str], checklist: List[Checkl
         message = f"지금은 '{name}' 수강평을 가져올 수 없어요."
     elif enabled and top["match"]["satisfied"] > 0:
         message = f"체크리스트에 가장 잘 맞는 건 {top['professor']} 교수님 강의예요."
+    elif top["rating"] and len(results) > 1:
+        message = f"별점이 가장 높은 건 {top['professor']} 교수님 강의예요 ({top['rating']:g}점)."
     else:
         message = f"'{name}' 교수님별 수강평이에요."
     warnings = [f"'{i.label}' 항목은 지금 판정할 수 없어 뺐어요." for i in enabled if i.key in failed]

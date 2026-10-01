@@ -17,6 +17,7 @@ import urllib.request
 DEFAULT_BASE = "https://hackathon23.onrender.com"
 DEMO = {"email": "demo@etabuilder.kr", "password": "demo1234"}
 CHAT_MESSAGE = "수요일 공강이고 팀플은 적게, 교수님 친절한 수업이면 좋겠어"
+REVIEW_MESSAGE = "시스템프로그래밍 수강평 알려줘"  # 2026-2에 열리고 교수 두 명의 강의평이 있는 과목
 
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
 BASE = (args[0] if args else DEFAULT_BASE).rstrip("/")
@@ -104,7 +105,7 @@ def lecture():
 
 
 def review_chat():
-    r = call("POST", "/api/chat", {"message": "운영체제 수강평 알려줘"})
+    r = call("POST", "/api/chat", {"message": REVIEW_MESSAGE})
     assert r["review_target"], r["reply"]
     ctx["review_target"] = r["review_target"]
     return r["reply"]
@@ -112,6 +113,7 @@ def review_chat():
 
 def on_demand():
     r = call("POST", "/api/reviews/on-demand", {**ctx["review_target"], "checklist": ctx["chat"]["checklist"]})
+    assert r["results"], r["message"]
     return f"{r['message']} ({', '.join(x['professor'] + ':' + x['status'] for x in r['results'])})"
 
 

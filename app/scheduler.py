@@ -5,6 +5,7 @@
 """
 import heapq
 import math
+import re
 from itertools import combinations
 from typing import Dict, List, Optional, Set
 
@@ -29,6 +30,10 @@ W_STYLE = 4
 W_CREDITS = 4
 W_COMMUTE_DAY = 6
 W_CAREER_GAP_HOUR = 2
+W_YEAR_MATCH = 1
+W_YEAR_LOWER = 2
+W_YEAR_HIGHER = 0.5
+W_RATING = 1.5
 
 
 class GenerateError(ValueError):
@@ -80,6 +85,9 @@ class Context:
         self.done_credits = {c: float(done_credits.get(c, 0)) for c in CATEGORIES}
         self.remaining = {c: max(0.0, self.required_credits.get(c, 0) - self.done_credits[c]) for c in CATEGORIES}
         self.remaining_total = max(0.0, self.total_required - sum(self.done_credits.values()))
+        # 이번 학기 기준 학년 (2026-2 학기에 2024학번이면 3학년)
+        semester_year = int(catalog.semester.split("-")[0])
+        self.student_year = min(4, max(1, semester_year - req.admission_year + 1))
 
         self.items = [i for i in items if i.enabled]
         self.lecture_items = [i for i in self.items if (i.key in BASE and BASE[i.key]["kind"] == "lecture") or is_custom(i.key)]
@@ -134,6 +142,15 @@ class Context:
         else:
             score -= 2
         lid = lecture_id_of(course["course_id"], section["professor"])
+        # 대상 학년이 다른 분반은 조금 감점한다(필수 과목은 가산이 커서 그대로 들어간다)
+        target = re.match(r"(\d)학년", section.get("target") or "")
+        if target:
+            year = int(target.group(1))
+            score += W_YEAR_MATCH if year == self.student_year else -W_YEAR_LOWER if year < self.student_year else -W_YEAR_HIGHER
+        # 조건이 같으면 강의평 별점이 높은 강의를 조금 우대한다
+        rating = ((catalog.insights.get(lid) or {}).get("everytime") or {}).get("rating")
+        if rating:
+            score += (rating - 3.5) * W_RATING
         for item in self.lecture_items:
             value = lecture_value(lid, item)
             if item.type == "level" and isinstance(value, int) and item.level:
