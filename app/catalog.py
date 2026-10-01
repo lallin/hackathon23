@@ -27,7 +27,7 @@ def lecture_id_of(course_id: str, professor: str) -> str:
 
 
 def min_credits(requirement: dict) -> Dict[str, float]:
-    """영역별 최소 이수 학점. 최소가 없는 영역(교선)은 빠진다."""
+    """영역별 최소 이수 학점. 최소가 없는(0인) 영역은 빠진다."""
     return {c: v for c, v in requirement["credits"].items() if v}
 
 
