@@ -1,0 +1,388 @@
+[
+  {
+    "course_name": "컴퓨팅적사고",
+    "course_code": "7143",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "수1100-1300(국제교육관 301-A)",
+    "professor": "고명철",
+    "teaching_method": {
+      "lecture": 20,
+      "practice": 80
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 10,
+      "quiz": 10
+    }
+  },
+  {
+    "course_name": "컴퓨팅적사고",
+    "course_code": "7144",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1000-1200(국제교육관 301-B)",
+    "professor": "권영애",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "컴퓨팅적사고",
+    "course_code": "7145",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1400-1600(자연과학관 204)",
+    "professor": "권영애",
+    "teaching_method": {
+      "lecture": 50,
+      "practice": 50
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "데이터리터러시",
+    "course_code": "7387",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1000-1200(국제교육관 303)",
+    "professor": "남재우",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "데이터리터러시",
+    "course_code": "7388",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1000-1200(국제교육관 303)",
+    "professor": "남재우",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "데이터리터러시",
+    "course_code": "7389",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1000-1200(국제교육관 301-B)",
+    "professor": "김연화",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 10,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "데이터리터러시",
+    "course_code": "7390",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1000-1200(국제교육관 301-A)",
+    "professor": "임해진",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "데이터리터러시",
+    "course_code": "7391",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1300-1500(자연과학관 204)",
+    "professor": "임해진",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "데이터리터러시",
+    "course_code": "7392",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1500-1700(자연과학관 204)",
+    "professor": "임해진",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "AI리터러시",
+    "course_code": "7393",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1400-1600(국제교육관 303)",
+    "professor": "배정섭",
+    "teaching_method": {
+      "lecture": 70,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "AI리터러시",
+    "course_code": "7394",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1600-1800(국제교육관 303)",
+    "professor": "배정섭",
+    "teaching_method": {
+      "lecture": 70,
+      "practice": 30
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "AI리터러시",
+    "course_code": "7395",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1300-1500(국제교육관 301-B)",
+    "professor": "김연화",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 10,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "AI리터러시",
+    "course_code": "7396",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1500-1700(국제교육관 301-B)",
+    "professor": "김연화",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 20,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 10,
+      "class_participation": 10
+    }
+  },
+  {
+    "course_name": "AI리터러시",
+    "course_code": "7397",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1000-1200(국제교육관 301-A)",
+    "professor": "오승홍",
+    "teaching_method": {
+      "lecture": 60,
+      "practice": 40
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "빅데이터의기초",
+    "course_code": "7398",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1600-1800(국제교육관 303)",
+    "professor": "황선민",
+    "teaching_method": {
+      "lecture": 30,
+      "practice": 70
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "빅데이터의기초",
+    "course_code": "7399",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1200-1400(국제교육관 303)",
+    "professor": "황선민",
+    "teaching_method": {
+      "lecture": 30,
+      "practice": 70
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "빅데이터의기초",
+    "course_code": "7400",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "화1400-1600(국제교육관 303)",
+    "professor": "황선민",
+    "teaching_method": {
+      "lecture": 30,
+      "practice": 70
+    },
+    "evaluation_method": {
+      "attendance": 10,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 20
+    }
+  },
+  {
+    "course_name": "프로그래밍의기초",
+    "course_code": "7402",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "월1200-1400(국제교육관 301-A)",
+    "professor": "홍건표",
+    "teaching_method": {
+      "lecture": 50,
+      "discussion": 10,
+      "practice": 30,
+      "e_learning": 10
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 30,
+      "final": 30,
+      "assignment": 25
+    }
+  },
+  {
+    "course_name": "AI이해와문제해결",
+    "course_code": "8274",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1300-1500(국제교육관 303)",
+    "professor": "오승홍",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  },
+  {
+    "course_name": "AI이해와문제해결",
+    "course_code": "8279",
+    "category": "2시간",
+    "credits": 2,
+    "target": "1학년",
+    "schedule": "목1500-1700(국제교육관 303)",
+    "professor": "오승홍",
+    "teaching_method": {
+      "lecture": 80,
+      "discussion": 20
+    },
+    "evaluation_method": {
+      "attendance": 15,
+      "midterm": 35,
+      "final": 35,
+      "assignment": 15
+    }
+  }
+]
