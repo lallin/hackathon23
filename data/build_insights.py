@@ -1,6 +1,6 @@
 """에브리타임 강의평 통계(data/raw/everytime_*.json) → data/seed/insights.json.
 
-- 과목명은 requirements.json의 major_courses에서 실제 학수번호로 바꾼다. lecture_id = 학수번호-교수.
+- 과목명은 requirements.json의 major_courses(전공)와 build_catalog.ge_course_ids(교양)로 실제 학수번호로 바꾼다. lecture_id = 학수번호-교수.
   거기 없는 과목(교양 등)은 원본 항목에 "course_id"를 직접 적으면 그 값을 쓴다.
 - levels(1~3)는 에브리타임 선택지 중 가장 많이 고른 값(top)으로 정한다. 정보가 없으면 그 항목은 뺀다.
   과제·팀플: 없음 1 / 보통 2 / 많음 3
@@ -16,6 +16,8 @@
 import json
 import sys
 from pathlib import Path
+
+from build_catalog import ge_course_ids
 
 DATA = Path(__file__).resolve().parent
 RAW_FILES = sorted((DATA / "raw").glob("everytime_*.json"))
@@ -34,6 +36,8 @@ def course_ids() -> dict:
     for r in req["requirements"]:
         for c in r.get("major_courses", []) + r.get("required_courses", []):
             ids.setdefault(c["name"], c["course_id"])
+    for name, cid in ge_course_ids(req).items():  # 교양 과목
+        ids.setdefault(name, cid)
     return ids
 
 
