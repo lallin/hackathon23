@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import { DEMO_EMAIL, DEMO_PASSWORD } from '../lib/constants';
 import { useApp } from '../state/store';
 import { Logo } from './Header';
 
@@ -79,23 +78,6 @@ export function AuthScreen() {
           </button>
         </form>
 
-        <div className="notice notice-info" style={{ justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
-          <span>
-            시연용 계정 <b>{DEMO_EMAIL}</b> / {DEMO_PASSWORD}
-          </span>
-          <button
-            className="btn-link btn"
-            type="button"
-            onClick={() => {
-              setSignup(false);
-              setEmail(DEMO_EMAIL);
-              setPassword(DEMO_PASSWORD);
-              setError(null);
-            }}
-          >
-            채우기
-          </button>
-        </div>
         <p className="sub" style={{ margin: 0 }}>
           성적표 PDF는 한 번 읽고 버려요. 학번·이름은 읽지 않고, 들은 과목 목록만 계정에 저장해요.
         </p>
