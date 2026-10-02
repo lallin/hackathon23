@@ -1,8 +1,9 @@
-fastapi
-uvicorn[standard]
-openai>=2.0
-python-dotenv
-pydantic>=2
-python-multipart
-psycopg[binary]
-pypdf
+# 발표 전 재배포 때 새 버전이 깔려 깨지지 않도록 버전을 고정한다.
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
+openai==3.23.0
+python-dotenv==1.2.4
+pydantic==2.13.5
+python-multipart==0.0.32
+psycopg[binary]==3.3.6
+pypdf==6.19.0

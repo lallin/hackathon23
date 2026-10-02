@@ -231,10 +231,25 @@ def _times_text(times: List[dict]) -> str:
     return ", ".join(f"{t['day']} {t['start']}-{t['end']}" for t in times)
 
 
+def _quoted(text: str) -> str:
+    return f"'{text}'"
+
+
+def ambiguous_message(name: str, candidates: List[dict], limit: int = 5) -> str:
+    """'영어 넣어줘'처럼 이름이 여러 과목에 걸릴 때 아무거나 고르지 않고 되묻는 문장."""
+    names = [_quoted(c["name"]) for c in candidates]
+    shown = ", ".join(names[:limit]) + (f" 등 {len(names)}개" if len(names) > limit else "")
+    return f"{josa(_quoted(name), '이/가')} 들어간 과목이 여러 개예요({shown}). 정확한 과목명으로 다시 말해 주세요."
+
+
 def on_demand(course_name: str, professor: Optional[str], checklist: List[ChecklistItem]) -> dict:
     """과목 하나의 교수님들을 체크리스트·별점 기준으로 비교한다.
     강의평이 없는 교수님은 수강계획서 값으로 평가하고, 상위 MAX_SHOW명만 카드로 돌려준다."""
-    course = catalog.find_course_by_name(course_name)
+    candidates = catalog.find_courses_by_name(course_name)
+    if len(candidates) > 1:
+        return {"course_name": course_name.strip(), "course_id": None, "recommended": None, "more_professors": [],
+                "message": ambiguous_message(course_name.strip(), candidates), "results": [], "warnings": []}
+    course = candidates[0] if candidates else None
     name = course["name"] if course else course_name.strip()
     course_id = course["course_id"] if course else None
 

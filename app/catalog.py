@@ -131,18 +131,25 @@ class Catalog:
         return any(normalize_name(c["name"]) == name and self.sections_by_course.get(cid)
                    for cid, c in self.courses.items())
 
-    def find_course_by_name(self, name: str) -> Optional[dict]:
+    def find_courses_by_name(self, name: str) -> List[dict]:
+        """이름이 정확히 같은 과목이 있으면 그 하나, 없으면 이름이 일부 겹치는 과목 전부(이름당 하나)."""
         key = normalize_name(name)
         if not key:
-            return None
+            return []
         for course in self.courses.values():
             if normalize_name(course["name"]) == key:
-                return course
+                return [course]
+        found: Dict[str, dict] = {}
         for course in self.courses.values():
             course_key = normalize_name(course["name"])
             if key in course_key or course_key in key:
-                return course
-        return None
+                found.setdefault(course_key, course)
+        return list(found.values())
+
+    def find_course_by_name(self, name: str) -> Optional[dict]:
+        """과목이 하나로 정해질 때만 돌려준다. '영어'처럼 후보가 여럿이면 None (find_courses_by_name으로 후보를 본다)."""
+        found = self.find_courses_by_name(name)
+        return found[0] if len(found) == 1 else None
 
     # ---- 저장 ----
     def _load_collected(self) -> List[dict]:

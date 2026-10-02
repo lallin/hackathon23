@@ -56,10 +56,6 @@ class CompareRequest(BaseModel):
     context: Optional[ChatContext] = None
 
 
-class AskRequest(BaseModel):
-    user_message: str
-
-
 class StyleRequest(BaseModel):
     style: StyleId
     checklist: List[ChecklistItem] = Field(default_factory=list)
@@ -111,7 +107,7 @@ class RegroupTranscriptRequest(BaseModel):
 
 class SignupRequest(BaseModel):
     email: str
-    password: str = Field(..., min_length=4)
+    password: str = Field(..., min_length=6)
     name: Optional[str] = None
 
 
